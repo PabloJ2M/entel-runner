@@ -6,7 +6,7 @@ namespace Unity.SceneManagement
     [RequireComponent(typeof(CanvasGroup))]
     public class SceneFadeEffect : MonoBehaviour
     {
-        [SerializeField, Range(0, 10)] private float _speed = 1f;
+        [SerializeField, Range(0f, 5f)] private float _speed = 1f;
 
         private CanvasGroup _canvasGroup;
         private sbyte _fadeDirection;
@@ -17,13 +17,13 @@ namespace Unity.SceneManagement
 
         private void Start()
         {
-            bool isLoadingScene = string.IsNullOrEmpty(ScenePath);
+            bool isLoadingScene = !string.IsNullOrEmpty(ScenePath);
             _canvasGroup.alpha = isLoadingScene ? 0f : 1f;
             _fadeDirection = (sbyte)(isLoadingScene ? 1 : -1);
         }
         private void Update()
         {
-            _canvasGroup.alpha += Time.unscaledDeltaTime * _speed * _fadeDirection;
+            _canvasGroup.alpha += Time.deltaTime * _speed * _fadeDirection;
 
             switch(_canvasGroup.alpha)
             {
