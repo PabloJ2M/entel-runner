@@ -1,0 +1,53 @@
+using System.Threading.Tasks;
+
+#if UNITY_ANDROID
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+#endif
+
+namespace Unity.Services.Authentication
+{
+    public class AuthGooglePlayGames : AuthBehaviour
+    {
+        private string _tokenID;
+
+        #if UNITY_ANDROID
+
+        private void Awake()
+        {
+            PlayGamesPlatform.Activate();
+            LogInGooglePlayGamesServices();
+        }
+        private void OnAuthenticate(SignInStatus status)
+        {
+            if (status == SignInStatus.Success)
+                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code => _tokenID = code);
+        }
+        private void LogInGooglePlayGamesServices() => PlayGamesPlatform.Instance.Authenticate(OnAuthenticate);
+
+        #endif
+
+        public override async void SignInOrLinkAccount()
+        {
+            #if UNITY_ANDROID
+
+            if (!PlayGamesPlatform.Instance.IsAuthenticated()) {
+                LogInGooglePlayGamesServices();
+                return;
+            }
+
+            #endif
+
+            if (string.IsNullOrEmpty(_tokenID)) return;
+
+            if (!AuthenticationService.Instance.IsSignedIn) await SignInAccountAsync(_tokenID);
+            else await LinkAccountAsync(_tokenID);
+        }
+
+        protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
+            await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(accessToken);
+
+        protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
+            await AuthenticationService.Instance.LinkWithGooglePlayGamesAsync(accessToken);
+    }
+}
