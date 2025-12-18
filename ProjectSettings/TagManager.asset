@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Monedas
-  - Mortal
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -13,9 +12,9 @@ TagManager:
   - Player
   - Water
   - UI
-  - Obstaculos
-  - Recolectables
-  - Piso
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,9 +39,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: FondoLejitos
-    uniqueID: 3513140629
-    locked: 0
   - name: Background
     uniqueID: 3253018167
     locked: 0

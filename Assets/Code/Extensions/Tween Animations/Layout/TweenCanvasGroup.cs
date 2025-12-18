@@ -26,7 +26,6 @@ namespace UnityEngine.Animations
         protected override void OnComplete()
         {
             base.OnComplete();
-            _canvasGroup.alpha = _alpha;
             _tweenCore.onComplete?.Invoke();
             if (_disableOnHide && _alpha == 0) gameObject.SetActive(false);
         }
