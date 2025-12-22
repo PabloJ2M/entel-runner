@@ -16,5 +16,6 @@ namespace UnityEngine.Audio
 
         public abstract void Play();
         public abstract void PlayOneShot();
+        public void PlayDefault() => _manager?.PlayDefault(_type);
     }
 }

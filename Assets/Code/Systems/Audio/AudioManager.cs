@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 namespace UnityEngine.Audio
 {
-    public class AudioManager : Singleton<AudioManager>, IAudioManager, IAudioSettings
+    public class AudioManager : SingletonBasic<AudioManager>, IAudioManager, IAudioSettings
     {
         [SerializeField] private AudioChannel[] _channels = { new(ChannelType.Music), new(ChannelType.SoundFx) };
 
@@ -24,8 +24,6 @@ namespace UnityEngine.Audio
 
         public async Task<AudioClip> LoadAudioAsset(AssetReferenceT<AudioClip> reference)
         {
-            if (!reference.IsValid()) return null;
-
             if (_cache.TryGetValue(reference, out var cache))
             {
                 cache.refCount++;
@@ -48,6 +46,7 @@ namespace UnityEngine.Audio
         }
 
         public void Play(ChannelType type, AudioClip clip) => _channelMap[type].Play(clip);
+        public void PlayDefault(ChannelType type) => _channelMap[type].PlayDefault();
         public void PlayOneShot(ChannelType type, AudioClip clip) => _channelMap[type].PlayOneShot(clip);
 
         public void SetVolume(ChannelType type, float volume) => _channelMap[type].SetVolume(volume);

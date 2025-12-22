@@ -198,7 +198,6 @@ GameObject:
   m_Component:
   - component: {fileID: 104666498}
   - component: {fileID: 104666497}
-  - component: {fileID: 104666496}
   - component: {fileID: 104666495}
   m_Layer: 0
   m_Name: character renderer
@@ -251,14 +250,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &104666496
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104666494}
-  m_Enabled: 1
 --- !u!20 &104666497
 Camera:
   m_ObjectHideFlags: 0
@@ -2817,8 +2808,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290756543
+  m_fontColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

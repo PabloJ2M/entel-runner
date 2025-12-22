@@ -9,6 +9,7 @@ namespace UnityEngine.Audio
         public void UnloadAudioAsset(AssetReferenceT<AudioClip> reference);
 
         public void Play(ChannelType type, AudioClip key);
+        public void PlayDefault(ChannelType type);
         public void PlayOneShot(ChannelType type, AudioClip key);
     }
 
