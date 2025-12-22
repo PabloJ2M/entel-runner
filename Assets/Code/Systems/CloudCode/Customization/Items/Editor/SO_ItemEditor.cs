@@ -45,9 +45,10 @@ namespace Unity.Customization
         public override Texture2D RenderStaticPreview(string assetPath, UnityEngine.Object[] subAssets, int width, int height)
         {
             var item = target as SO_Item;
-            var sprite = item.Sprite;
+            if (item == null) return base.RenderStaticPreview(assetPath, subAssets, width, height);
 
-            if (sprite == null) base.RenderStaticPreview(assetPath, subAssets, width, height);
+            var sprite = item.Sprite;
+            if (sprite == null) return base.RenderStaticPreview(assetPath, subAssets, width, height);
 
             //asign texture in object
             Texture2D previewTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);

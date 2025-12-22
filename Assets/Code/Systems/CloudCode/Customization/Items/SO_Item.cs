@@ -3,7 +3,7 @@ using UnityEngine.U2D.Animation;
 
 namespace Unity.Customization
 {
-    [CreateAssetMenu(fileName = "item", menuName = "inventory/item")]
+    [CreateAssetMenu(fileName = "item", menuName = "storage/item", order = 1)]
     public class SO_Item : ScriptableObject
     {
         [SerializeField] private SpriteLibraryAsset _assetReference;

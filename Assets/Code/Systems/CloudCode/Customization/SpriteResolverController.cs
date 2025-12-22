@@ -12,10 +12,13 @@ namespace Unity.Customization
 
         private const string _default = "default";
 
+        public IEnumerable<string> Categories => _library.spriteLibraryAsset.GetCategoryNames();
+
         private void Awake() => _library = GetComponent<SpriteLibrary>();
         private void Start()
         {
-            foreach (string category in _library.spriteLibraryAsset.GetCategoryNames())
+            var categories = Categories;
+            foreach (string category in categories)
                 SetLabel(category, PlayerPrefs.GetString(category, _default));
         }
 

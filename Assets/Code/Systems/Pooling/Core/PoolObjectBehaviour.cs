@@ -12,8 +12,8 @@ namespace Unity.Pool
 
         protected virtual void Reset() => Transform = transform;
 
-        public virtual void Destroy() => PoolReference.Release(this);
         public virtual void Enable() => gameObject.SetActive(true);
         public virtual void Disable() => gameObject.SetActive(false);
+        public virtual void Destroy() => PoolReference.Release(this);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public static class Math
@@ -11,6 +12,7 @@ public static class Math
 }
 public static class GlobalExtension
 {
+    #region Transform Controller
     public static float PositionX(this Transform transform) => transform.position.x;
     public static float LocalPositionX(this Transform transform) => transform.localPosition.x;
 
@@ -54,4 +56,9 @@ public static class GlobalExtension
         pos.y = value;
         transform.localPosition = pos;
     }
+    #endregion
+
+    #region User Interface
+    public static void SetSprite(this Image image, Sprite sprite) => image.sprite = sprite;
+    #endregion
 }

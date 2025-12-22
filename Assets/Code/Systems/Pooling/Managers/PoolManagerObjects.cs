@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
-using Random = UnityEngine.Random;
 
 namespace Unity.Pool
 {
@@ -14,7 +13,7 @@ namespace Unity.Pool
         public event Action<PoolObjectBehaviour> OnDespawnObject;
     }
 
-    public abstract class PoolManagerObjects : PoolBehaviuour<PoolObjectOnSpline>, IPoolManagerObjects
+    public abstract class PoolManagerObjects : PoolObjectMultiple<PoolObjectOnSpline>, IPoolManagerObjects
     {
         [SerializeField] protected int _capacity = 10;
         protected SplineContainer _spline;
