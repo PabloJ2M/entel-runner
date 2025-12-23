@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08df10be0a73294983983996589666e, type: 3}
   m_Name: test_item 2
   m_EditorClassIdentifier: 
-  _assetReference: {fileID: 7108339969198208228, guid: 4e848b54bdd9d4244ba958cd81b1cd42, type: 3}
+  _itemID: head_3
   _category: head
   _label: round
-  _price: 20
+  _cost: 10

@@ -7,9 +7,8 @@ namespace Unity.Pool
     {
         [SerializeField] protected Transform _parent;
 
-        protected int LastIndex => Spawned.Count - 1;
-
         public IList<T> Spawned { get; set; } = new List<T>();
+        protected int LastIndex => Spawned.Count - 1;
 
         protected virtual void Reset() => _parent = transform;
 
@@ -26,7 +25,8 @@ namespace Unity.Pool
         protected virtual void OnDestroyObject(PoolObjectBehaviour @object) => Destroy(@object.gameObject);
         protected void Clear()
         {
-
+            for (int i = Spawned.Count - 1; i >= 0; i--)
+                Spawned[i].Destroy();
         }
     }
 }

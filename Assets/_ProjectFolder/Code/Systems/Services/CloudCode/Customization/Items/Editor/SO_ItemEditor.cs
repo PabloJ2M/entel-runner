@@ -1,36 +1,35 @@
 using System;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using UnityEditor;
 
 namespace Unity.Customization
 {
     [CustomEditor(typeof(SO_Item))]
     public class SO_ItemEditor : Editor
     {
-        private SerializedProperty _library, _category, _label, _price;
+        private SerializedProperty _id, _category, _label, _cost;
         private string[] _categories = new string[0];
         private string[] _labels = new string[0];
 
         private void OnEnable()
         {
-            _library = serializedObject.FindProperty("_assetReference");
+            _id = serializedObject.FindProperty("_itemID");
             _category = serializedObject.FindProperty("_category");
             _label = serializedObject.FindProperty("_label");
-            _price = serializedObject.FindProperty("_price");
+            _cost = serializedObject.FindProperty("_cost");
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-            EditorGUILayout.PropertyField(_library);
+            _id.stringValue = EditorGUILayout.TextField("ID", _id.stringValue);
 
-            var library = _library.objectReferenceValue as SpriteLibraryAsset;
+            var library = SO_ItemList.Instance.Library;
             if (library == null)
             {
                 EditorGUILayout.HelpBox("Asigna un SpriteLibraryAsset", MessageType.Info);
-                serializedObject.ApplyModifiedProperties();
                 return;
             }
 
@@ -105,7 +104,7 @@ namespace Unity.Customization
         }
         private void DrawPriceField()
         {
-            _price.intValue = EditorGUILayout.IntField("Price", _price.intValue);
+            _cost.intValue = EditorGUILayout.IntField("Cost", _cost.intValue);
         }
     }
 }

@@ -4,7 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
@@ -22,13 +21,13 @@ public class UnityEventCompactDrawer : PropertyDrawer
         public SerializedProperty property;
         public int lastSelectedIndex;
     }
-    
-    static MethodInfo BuildPopupList = typeof(UnityEventDrawer).GetMethod("BuildPopupList", BindingFlags.Static | BindingFlags.NonPublic);
-    static MethodInfo GetEventParams = typeof(UnityEventDrawer).GetMethod("GetEventParams", BindingFlags.Static | BindingFlags.NonPublic);
-    static MethodInfo GetDummyEvent = typeof(UnityEventDrawer).GetMethod("GetDummyEvent", BindingFlags.Static | BindingFlags.NonPublic);
 
-    static GUIStyle foldoutHeader;
-    
+    readonly static MethodInfo BuildPopupList = typeof(UnityEventDrawer).GetMethod("BuildPopupList", BindingFlags.Static | BindingFlags.NonPublic);
+    readonly static MethodInfo GetEventParams = typeof(UnityEventDrawer).GetMethod("GetEventParams", BindingFlags.Static | BindingFlags.NonPublic);
+    readonly static MethodInfo GetDummyEvent = typeof(UnityEventDrawer).GetMethod("GetDummyEvent", BindingFlags.Static | BindingFlags.NonPublic);
+
+    static GUIStyle foldoutHeader { get; set; }
+
     static float VerticalSpacing => EditorGUIUtility.standardVerticalSpacing;
     static float Spacing => 3;
 
@@ -66,7 +65,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
     State currentState;
     Dictionary<string, State> m_States = new Dictionary<string, State>();
 
-    
+
     private State GetState(SerializedProperty prop)
     {
         State state;
@@ -83,7 +82,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
                 new ReorderableList(prop.serializedObject, listenersArray, true, true, true, true)
                 {
                     drawHeaderCallback = null,
-                    drawFooterCallback = _ => {},
+                    drawFooterCallback = _ => { },
                     drawElementCallback = DrawEvent,
                     elementHeightCallback = OnGetElementHeight,
                     drawElementBackgroundCallback = DrawElementBackground,
@@ -106,10 +105,10 @@ public class UnityEventCompactDrawer : PropertyDrawer
     {
         var isPro = EditorGUIUtility.isProSkin;
         var color = GUI.color;
-        
+
         // Dark-blue color in Light theme looks super ugly with reorderable lists :(
         focused = isPro ? focused : false;
-        
+
         ReorderableList.defaultBehaviours.DrawElementBackground(rect, index, active, focused, true);
         GUI.color = color;
     }
@@ -141,13 +140,13 @@ public class UnityEventCompactDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         RestoreState(property);
-        
+
         float height = 0f;
         if (m_ReorderableList != null)
         {
             if (!m_ReorderableList.serializedProperty.isExpanded)
                 return EditorGUIUtility.singleLineHeight + VerticalSpacing + VerticalSpacing;
-            
+
             height = m_ReorderableList.GetHeight();
             height += EditorGUIUtility.singleLineHeight;
         }
@@ -160,7 +159,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
         if (m_ListenersArray == null || !m_ListenersArray.isArray)
             return;
 
-        m_DummyEvent = GetDummyEvent.Invoke(null, new [] { m_Prop }) as UnityEventBase;
+        m_DummyEvent = GetDummyEvent.Invoke(null, new[] { m_Prop }) as UnityEventBase;
         if (m_DummyEvent == null)
             return;
 
@@ -168,24 +167,24 @@ public class UnityEventCompactDrawer : PropertyDrawer
         {
             if (ReorderableList.defaultBehaviours == null)
                 m_ReorderableList.DoList(Rect.zero);
-            
+
             var oldIndent = EditorGUI.indentLevel;
             EditorGUI.indentLevel = 0;
 
             rect.xMin += 8 * oldIndent;
-            
+
             var headerRect = new Rect(rect.x, rect.y, rect.width, 18);
             var listRect = new Rect(rect) { yMin = headerRect.yMax };
-            
+
             ReorderableList.defaultBehaviours.DrawHeaderBackground(headerRect);
             var isExpanded = DrawListHeader(headerRect, m_ReorderableList);
 
             if (isExpanded)
             {
                 ReorderableList.defaultBehaviours.draggingHandle.fixedWidth = 6;
-                
+
                 m_ReorderableList.DoList(listRect);
-                
+
                 ReorderableList.defaultBehaviours.draggingHandle.fixedWidth = 0;
             }
 
@@ -197,21 +196,25 @@ public class UnityEventCompactDrawer : PropertyDrawer
     {
         const int sizeWidth = 24;
         const int buttonsWidth = 54;
-        
+
         var property = list.serializedProperty;
-        
+
         rect.xMin += 16;
         rect.yMin += 1;
         rect.height = EditorGUIUtility.singleLineHeight;
-        
+
         var foldoutRect = new Rect(rect);
         foldoutRect.width -= buttonsWidth + sizeWidth;
         foldoutRect.height -= 1;
 
         if (foldoutHeader == null)
-            foldoutHeader = new GUIStyle(EditorStyles.foldoutHeader) {
-                richText = true, fontStyle = FontStyle.Normal, clipping = TextClipping.Clip,
-                fixedHeight = 0, padding = new RectOffset(14, 5, 2, 2), 
+            foldoutHeader = new GUIStyle(EditorStyles.foldoutHeader)
+            {
+                richText = true,
+                fontStyle = FontStyle.Normal,
+                clipping = TextClipping.Clip,
+                fixedHeight = 0,
+                padding = new RectOffset(14, 5, 2, 2),
             };
 
         // Header
@@ -219,7 +222,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
             var eventParams = (string)GetEventParams.Invoke(null, new[] { m_DummyEvent });
             var hex = EditorGUIUtility.isProSkin ? "ffffff" : "000000";
             var text = (string.IsNullOrEmpty(m_Text) ? "Event" : m_Text) + $"<color=#{hex}70>{eventParams}</color>";
-            
+
             property.isExpanded = EditorGUI.BeginFoldoutHeaderGroup(foldoutRect, property.isExpanded, text, foldoutHeader);
             EditorGUI.EndFoldoutHeaderGroup();
         }
@@ -259,16 +262,16 @@ public class UnityEventCompactDrawer : PropertyDrawer
 
     static PersistentListenerMode GetMode(SerializedProperty mode)
     {
-        return (PersistentListenerMode) mode.enumValueIndex;
+        return (PersistentListenerMode)mode.enumValueIndex;
     }
-    
+
     float OnGetElementHeight(int index)
     {
         if (m_ReorderableList == null)
             return 0;
 
         var element = m_ListenersArray.GetArrayElementAtIndex(index);
-        
+
         var mode = element.FindPropertyRelative(kModePath);
         var modeEnum = GetMode(mode);
 
@@ -330,7 +333,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
                 GUI.DrawTexture(toggleRect, Texture2D.whiteTexture, ScaleMode.ScaleToFit, true, 1, new Color(1, 1, 1, 0.15f), Vector4.zero, 2);
             }
         }
-        
+
         GUI.color = new Color(1, 1, 1, 0.75f);
         GUI.Box(toggleRect, DropdownIcon, EditorStyles.centeredGreyMiniLabel);
         GUI.color = color;
@@ -339,7 +342,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
         EditorGUI.PropertyField(toggleRect, callState, GUIContent.none);
         GUI.color = color;
 
-        
+
         var isOff = callStateEnum == UnityEventCallState.Off;
         EditorGUI.BeginDisabledGroup(isOff);
 
@@ -384,9 +387,9 @@ public class UnityEventCompactDrawer : PropertyDrawer
         if (!string.IsNullOrEmpty(desiredArgTypeName))
             desiredType = Type.GetType(desiredArgTypeName, false) ?? typeof(Object);
 
-        
+
         argRect.xMin = goRect.xMax + Spacing;
-        
+
         if (modeEnum == PersistentListenerMode.Object)
         {
             EditorGUI.BeginChangeCheck();
@@ -450,7 +453,7 @@ public class UnityEventCompactDrawer : PropertyDrawer
             }
             EditorGUI.EndProperty();
         }
-        
+
         EditorGUI.EndDisabledGroup();
         GUI.backgroundColor = c;
     }
@@ -528,10 +531,10 @@ public class UnityEventCompactDrawer : PropertyDrawer
         var mode = pListener.FindPropertyRelative(kModePath);
         var arguments = pListener.FindPropertyRelative(kArgumentsPath);
 
-        callState.enumValueIndex = (int) UnityEventCallState.RuntimeOnly;
+        callState.enumValueIndex = (int)UnityEventCallState.RuntimeOnly;
         listenerTarget.objectReferenceValue = null;
         methodName.stringValue = null;
-        mode.enumValueIndex = (int) PersistentListenerMode.Void;
+        mode.enumValueIndex = (int)PersistentListenerMode.Void;
         arguments.FindPropertyRelative(kFloatArgument).floatValue = 0;
         arguments.FindPropertyRelative(kIntArgument).intValue = 0;
         arguments.FindPropertyRelative(kObjectArgument).objectReferenceValue = null;

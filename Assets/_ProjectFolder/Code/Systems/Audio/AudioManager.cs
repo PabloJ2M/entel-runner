@@ -4,7 +4,7 @@ using UnityEngine.AddressableAssets;
 
 namespace UnityEngine.Audio
 {
-    public class AudioManager : SingletonBasic<AudioManager>, IAudioManager, IAudioSettings
+    public class AudioManager : Singleton<AudioManager>, IAudioManager, IAudioSettings
     {
         [SerializeField] private AudioChannel[] _channels = { new(ChannelType.Music), new(ChannelType.SoundFx) };
 

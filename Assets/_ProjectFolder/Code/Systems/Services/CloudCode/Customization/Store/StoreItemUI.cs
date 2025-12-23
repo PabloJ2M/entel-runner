@@ -24,23 +24,23 @@ namespace Unity.Customization.Store
         public void Init(SO_Item item, bool hasPurchased)
         {
             _item = item;
-            _hasPurchased = hasPurchased || _item.Price == 0;
+            _hasPurchased = hasPurchased || _item.Cost == 0;
             
             _icon?.SetSprite(_item.Sprite);
             _name?.SetText(_item.Label);
 
             _costContainer.SetActive(!_hasPurchased);
-            if (_costContainer.activeSelf) _cost?.SetText(_item.Price.ToString());
+            if (_costContainer.activeSelf) _cost?.SetText(_item.Cost.ToString());
         }
         private void OnClickHandler()
         {
             var controller = GetComponentInParent<StoreController>();
 
             if (_hasPurchased) { controller.SelectItem(_item); return; }
-            
+            if (!controller.BuyItem(_item)) return;
+
             _hasPurchased = true;
             _costContainer.SetActive(false);
-            controller.BuyItem(_item);
         }
     }
 }

@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Unity.Services.Authentication
 {
-    using Core;
-
     public abstract class AuthBehaviour : MonoBehaviour
     {
         public abstract void SignInOrLinkAccount();
@@ -12,16 +10,9 @@ namespace Unity.Services.Authentication
         protected abstract Task OnLinkAccountServiceAsync(string accessToken);
 
         protected async Task SignInAccountAsync(string accessToken) =>
-            await TaskResponse(OnSignInAccountServiceAsync(accessToken));
+            await OnSignInAccountServiceAsync(accessToken).AuthResponse();
 
         protected async Task LinkAccountAsync(string accessToken) =>
-            await TaskResponse(OnLinkAccountServiceAsync(accessToken));
-
-        private async Task TaskResponse(Task action)
-        {
-            try { await action; }
-            catch (AuthenticationException ex) { Debug.LogError(ex); }
-            catch (RequestFailedException ex) { Debug.LogError(ex); }
-        }
+            await OnLinkAccountServiceAsync(accessToken).AuthResponse();
     }
 }

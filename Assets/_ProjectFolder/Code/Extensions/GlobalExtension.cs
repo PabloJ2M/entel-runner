@@ -57,7 +57,6 @@ public static class GlobalExtension
         transform.localPosition = pos;
     }
     #endregion
-
     #region User Interface
     public static void SetSprite(this Image image, Sprite sprite) => image.sprite = sprite;
     #endregion
