@@ -23,6 +23,8 @@ namespace Unity.Customization
 
         private void Start()
         {
+            if (_player == null) return;
+
             var categories = Categories;
             foreach (var equipped in _player.Customization.equipped)
                 SetLabel(equipped.Key, _listReference.GetItemByID(equipped.Key, equipped.Value).Label);

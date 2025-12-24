@@ -29,6 +29,11 @@ namespace Unity.Services.Economy
                     _balances[balance.CurrencyId] = balance.Balance;
             }
         }
+        protected override void OnSignOutCompleted()
+        {
+            foreach (var item in _balances)
+                _balances[item.Key] = 0;
+        }
 
         public long GetBalance(string id) => _balances[id];
         public async void AddBalanceID(string id, uint amount)

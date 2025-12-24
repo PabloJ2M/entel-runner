@@ -23,6 +23,7 @@ namespace Unity.Services.CloudSave
         }
         protected override async void OnSignInCompleted()
         {
+            if (_customization.unlocked.Count != 0) return;
             await LoadInventoryData().CloudCodeResponse();
 
             async Task LoadInventoryData()
@@ -36,6 +37,12 @@ namespace Unity.Services.CloudSave
                 _customization = new(cloudData);
                 onDataUpdated?.Invoke();
             }
+        }
+        protected override void OnSignOutCompleted()
+        {
+            _customization.unlocked.Clear();
+            _customization.equipped.Clear();
+            onDataUpdated.Invoke();
         }
 
         public async Task SaveObjectData(string key, object @cloud, object @local)

@@ -4,13 +4,12 @@ namespace UnityEngine.Audio
     {
         [Tooltip("Override Audio Source Manager, Default = Null")]
         [SerializeField] protected AudioSource _overrideSource = null;
-        
         [Space]
-
         [SerializeField] protected ChannelType _type = ChannelType.SoundFx;
         [SerializeField] protected bool _preloadOnStart;
 
         protected IAudioManager _manager;
+        protected bool _isLoaded;
 
         protected virtual void Awake() => _manager = AudioManager.Instance;
 
