@@ -6,6 +6,8 @@ namespace Gameplay.Movement
     [RequireComponent(typeof(Rigidbody2D))]
     public class Jump : MonoBehaviour
     {
+        [SerializeField] private float _lowJumpMultiplier = 2f;
+        [SerializeField] private float _fallMultiplier = 2.5f;
         [SerializeField] private InputActionReference _input;
         [SerializeField] private Animator _animator;
         [SerializeField] private float _force;
@@ -18,6 +20,17 @@ namespace Gameplay.Movement
         private void OnDestroy() => _input.action.performed -= OnJump;
         private void OnEnable() => _input.action.Enable();
         private void OnDisable() => _input.action.Disable();
+        private void Update()
+        {
+            if (_rgbd.linearVelocityY > 0 && !_input.action.IsPressed())
+            {
+                _rgbd.linearVelocityY += Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+            else if (_rgbd.linearVelocityY < 0)
+            {
+                _rgbd.linearVelocityY += Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+            }
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             /*_airJump = */_isGrounded = true;
