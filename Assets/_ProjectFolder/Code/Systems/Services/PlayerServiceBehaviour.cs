@@ -38,7 +38,7 @@ namespace Unity.Services
         }
         protected void DeleteLocalData()
         {
-            PlayerPrefs.DeleteKey(DataID);
+            if (PlayerPrefs.HasKey(DataID)) PlayerPrefs.DeleteKey(DataID);
             OnSignOutCompleted();
         }
     }
