@@ -6,7 +6,7 @@ namespace Unity.Services.Authentication
     public class AuthManager : MonoBehaviour
     {
         private UnityServiceInit _service;
-        public event Action onSignInCompleted;
+        public event Action onSignInCompleted, onSignOutHandler;
 
         private void Awake() => _service = GetComponent<UnityServiceInit>();
         private void OnEnable() => _service.onServiceInitialized += HandleSignIn;
@@ -16,6 +16,10 @@ namespace Unity.Services.Authentication
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             onSignInCompleted?.Invoke();
+        }
+        private void HandleSignOut()
+        {
+            onSignOutHandler?.Invoke();
         }
     }
 }

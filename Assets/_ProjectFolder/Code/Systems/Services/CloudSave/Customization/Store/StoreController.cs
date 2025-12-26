@@ -37,7 +37,7 @@ namespace Unity.Customization.Store
             foreach (var item in categories)
             {
                 var entry = Pool.Get() as StoreItem;
-                entry.Init(item, _playerData.Customization.unlocked.Contains(item.ID));
+                entry.Init(item, _playerData ? _playerData.Customization.unlocked.Contains(item.ID) : false);
             }
         }
         protected override void OnGet(PoolObjectBehaviour @object)

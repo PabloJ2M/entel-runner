@@ -2,17 +2,6 @@ using System;
 
 namespace UnityEngine.Audio
 {
-    public enum ChannelType
-    {
-        Music,
-        SoundFx
-    }
-    public class AudioClipCache
-    {
-        public AudioClip clip;
-        public byte refCount;
-    }
-
     [Serializable] public class AudioChannel
     {
         [SerializeField] private ChannelType _type;
@@ -43,14 +32,11 @@ namespace UnityEngine.Audio
             _source.clip = clip;
             _source.Play();
         }
-        public void PlayDefault()
+        public void PlayOneShot(AudioClip clip, float pitch = 1f)
         {
-            Play(_defaultClip);
-        }
-        public void PlayOneShot(AudioClip clip)
-        {
-            //_source.pitch = Random.Range(0.95f, 1.05f);
+            _source.pitch = pitch;
             _source?.PlayOneShot(clip);
         }
+        public void PlayDefault() => Play(_defaultClip);
     }
 }

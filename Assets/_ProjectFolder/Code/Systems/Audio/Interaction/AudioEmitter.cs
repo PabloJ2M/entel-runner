@@ -1,40 +1,45 @@
-using UnityEngine.AddressableAssets;
 
 namespace UnityEngine.Audio
 {
+    using AddressableAssets;
+
     public class AudioEmitter : AudioEmitterBehaviour
     {
         [Header("Audio Reference")]
-        [SerializeField] private AssetReferenceT<AudioClip> _audioReference;
+        [SerializeField] protected AssetReferenceT<AudioClip> _audioReference;
 
         private async void Start()
         {
-            if (_preloadOnStart)
-                await _manager.LoadAudioAsset(_audioReference);
+            if (!_preloadOnStart) return;
+            await _manager.LoadAudioAsset(_audioReference);
+            _isLoaded = true;
         }
         private void OnDestroy()
         {
+            if (!_isLoaded) return;
             _manager.UnloadAudioAsset(_audioReference);
         }
 
         public override async void Play()
         {
-            var clip = await _manager.LoadAudioAsset(_audioReference);
+            var resource = await _manager.LoadAudioAsset(_audioReference, _isLoaded);
+            _isLoaded = true;
 
             if (!_overrideSource)
             {
-                _manager?.Play(_type, clip);
+                _manager.Play(_type, resource);
                 return;
             }
 
-            _overrideSource.clip = clip;
+            _overrideSource.resource = resource;
             _overrideSource.Play();
         }
         public override async void PlayOneShot()
         {
-            var clip = await _manager.LoadAudioAsset(_audioReference);
+            var clip = await _manager.LoadAudioAsset(_audioReference, _isLoaded);
+            _isLoaded = true;
 
-            if (!_overrideSource) _manager?.PlayOneShot(_type, clip);
+            if (!_overrideSource) _manager.PlayOneShot(_type, clip);
             else _overrideSource.PlayOneShot(clip);
         }
     }
