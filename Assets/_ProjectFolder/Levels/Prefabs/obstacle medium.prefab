@@ -64,7 +64,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: obstacle medium
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6568481941548394256, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

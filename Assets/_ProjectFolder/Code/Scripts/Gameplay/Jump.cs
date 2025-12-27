@@ -6,45 +6,60 @@ namespace Gameplay.Movement
     [RequireComponent(typeof(Rigidbody2D))]
     public class Jump : MonoBehaviour
     {
-        [SerializeField] private float _lowJumpMultiplier = 2f;
-        [SerializeField] private float _fallMultiplier = 2.5f;
-        [SerializeField] private InputActionReference _input;
+        [Header("Jump")]
+        [SerializeField] private float _jumpForce = 24f;
+        [SerializeField] private float _cutJumpVelocity = 3f; 
+        [SerializeField] private float _fallMultiplier = 4f; 
+
+        [Header("References")]
+        [SerializeField] private InputActionReference _jumpInput;
         [SerializeField] private Animator _animator;
-        [SerializeField] private float _force;
-        private Rigidbody2D _rgbd;
 
-        private bool _isGrounded/*, _airJump*/;
+        private Rigidbody2D _rb;
+        private bool _isGrounded;
 
-        private void Awake() => _rgbd = GetComponent<Rigidbody2D>();
-        private void Start() => _input.action.performed += OnJump;
-        private void OnDestroy() => _input.action.performed -= OnJump;
-        private void OnEnable() => _input.action.Enable();
-        private void OnDisable() => _input.action.Disable();
-        private void Update()
+        private void Awake()
         {
-            if (_rgbd.linearVelocityY > 0 && !_input.action.IsPressed())
-            {
-                _rgbd.linearVelocityY += Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
-            }
-            else if (_rgbd.linearVelocityY < 0)
-            {
-                _rgbd.linearVelocityY += Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
-            }
+            _rb = GetComponent<Rigidbody2D>();
         }
-        private void OnCollisionEnter2D(Collision2D collision)
+
+        private void OnEnable()
         {
-            /*_airJump = */_isGrounded = true;
-            _animator?.SetBool("IsGrounded", true);
+            _jumpInput.action.Enable();
+            _jumpInput.action.performed += OnJump;
+        }
+
+        private void OnDisable()
+        {
+            _jumpInput.action.performed -= OnJump;
+            _jumpInput.action.Disable();
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_jumpInput.action.IsPressed() && _rb.linearVelocity.y > _cutJumpVelocity)
+            {
+                _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_cutJumpVelocity);
+            }
+
+            if (_rb.linearVelocity.y < 0)
+            {
+                _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
+            }
         }
 
         private void OnJump(InputAction.CallbackContext ctx)
         {
-            if ((!_isGrounded /*&& !_airJump*/) || !ctx.action.IsPressed()) return;
-            //if (!_isGrounded) _airJump = false;
-
-            _animator?.SetBool("IsGrounded", false);
-            _rgbd.linearVelocityY = _force;
+            if (!_isGrounded) return;
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_jumpForce);
             _isGrounded = false;
+            _animator?.SetBool("IsGrounded", false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            _isGrounded = true;
+            _animator?.SetBool("IsGrounded", true);
         }
     }
 }
