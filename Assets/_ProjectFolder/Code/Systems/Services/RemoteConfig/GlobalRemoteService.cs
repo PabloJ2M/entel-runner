@@ -15,12 +15,16 @@ namespace Unity.Services.RemoteConfig
 
         protected override void OnSignInCompleted()
         {
-            RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
             RemoteConfigService.Instance.FetchCompleted += OnFetchData;
+            RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
         }
         protected override void OnSignOutCompleted()
         {
             
+        }
+        private void OnDestroy()
+        {
+            RemoteConfigService.Instance.FetchCompleted -= OnFetchData;
         }
 
         private void OnFetchData(ConfigResponse response)
