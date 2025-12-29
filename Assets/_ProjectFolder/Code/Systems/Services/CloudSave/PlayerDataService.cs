@@ -9,11 +9,11 @@ namespace Unity.Services.CloudSave
 
     public class PlayerDataService : PlayerServiceBehaviour
     {
-        [SerializeField] private CustomizationData _customization;
+        [SerializeField] private CustomizationDataLocal _customization;
         
         public override string DataID => "customization";
 
-        public CustomizationData Customization => _customization;
+        public CustomizationDataLocal Customization => _customization;
         public Action onDataUpdated;
 
         protected override void Awake()

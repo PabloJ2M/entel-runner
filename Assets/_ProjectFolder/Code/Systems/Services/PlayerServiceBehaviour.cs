@@ -4,7 +4,7 @@ namespace Unity.Services
 {
     using Authentication;
 
-    [RequireComponent(typeof(AuthManager))]
+    [DefaultExecutionOrder(-50), RequireComponent(typeof(AuthManager))]
     public abstract class PlayerServiceBehaviour : MonoBehaviour
     {
         public abstract string DataID { get; }

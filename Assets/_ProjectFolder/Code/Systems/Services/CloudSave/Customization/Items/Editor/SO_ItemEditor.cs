@@ -9,12 +9,14 @@ namespace Unity.Customization
     [CustomEditor(typeof(SO_Item))]
     public class SO_ItemEditor : Editor
     {
-        private SerializedProperty _id, _category, _label, _cost;
+        private SerializedProperty _libraryReference, _id;
+        private SerializedProperty _category, _label, _cost;
         private string[] _categories = new string[0];
         private string[] _labels = new string[0];
 
         private void OnEnable()
         {
+            _libraryReference = serializedObject.FindProperty("_libraryReference");
             _id = serializedObject.FindProperty("_itemID");
             _category = serializedObject.FindProperty("_category");
             _label = serializedObject.FindProperty("_label");
@@ -23,22 +25,24 @@ namespace Unity.Customization
 
         public override void OnInspectorGUI()
         {
+            SO_Item item = target as SO_Item;
             serializedObject.Update();
+
+            _libraryReference.objectReferenceValue = EditorGUILayout.ObjectField("Library Reference", item.Reference, typeof(LibraryReference), false);
             _id.stringValue = EditorGUILayout.TextField("ID", _id.stringValue);
 
-            var library = SO_ItemList.Instance.Library;
-            if (library == null)
-            {
-                EditorGUILayout.HelpBox("Asigna un SpriteLibraryAsset", MessageType.Info);
+            LibraryReference reference = _libraryReference.objectReferenceValue as LibraryReference;
+
+            if (reference == null) {
+                EditorGUILayout.HelpBox("Asigna un LibraryReference", MessageType.Info);
                 return;
             }
 
-            DrawCategoryDropdown(library);
-            DrawLabelDropdown(library);
+            DrawCategoryDropdown(reference.Asset);
+            DrawLabelDropdown(reference.Asset);
             DrawPriceField();
 
-            DrawSpritePreview(library);
-
+            DrawSpritePreview(reference.Asset);
             serializedObject.ApplyModifiedProperties();
         }
         public override Texture2D RenderStaticPreview(string assetPath, UnityEngine.Object[] subAssets, int width, int height)

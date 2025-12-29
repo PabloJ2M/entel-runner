@@ -1,64 +1,79 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D.Animation;
+using UnityEngine.Rendering;
 
 namespace Unity.Customization
 {
-    [CreateAssetMenu(fileName = "list", menuName = "storage/list", order = 0)]
+    [Serializable]
+    public class ItemWrapper
+    {
+        public List<SO_Item> items = new();
+    }
+
+    [CreateAssetMenu(fileName = "list", menuName = "customization/list", order = 0)]
     public class SO_ItemList : ScriptableObject
     {
-        [SerializeField] private SpriteLibraryAsset _library;
-        [SerializeField] private SO_Item[] _items;
-
-        private Dictionary<string, Dictionary<string, SO_Item>> _cache;
+        [SerializeField] private SerializedDictionary<LibraryReference, ItemWrapper> _items;
+        private Dictionary<LibraryReference, Dictionary<string, Dictionary<string, SO_Item>>> _cache;
         private const string _default = "default";
 
-        public static SO_ItemList Instance { get; private set; }
-        public SpriteLibraryAsset Library => _library;
-
-        private void OnEnable() => Instance = this;
         private void BuildCache()
         {
             _cache = new();
-            foreach (var item in _items)
+
+            foreach (var list in _items)
             {
-                if (item == null) continue;
+                if (!_cache.ContainsKey(list.Key)) _cache.Add(list.Key, new());
 
-                if (!_cache.TryGetValue(item.Category, out var byId))
+                foreach (var item in list.Value.items)
                 {
-                    byId = new Dictionary<string, SO_Item>();
-                    _cache[item.Category] = byId;
+                    if (!_cache[list.Key].ContainsKey(item.Category)) _cache[list.Key].Add(item.Category, new());
+                    _cache[list.Key][item.Category][item.ID] = item;
                 }
-
-                byId[item.ID] = item;
             }
         }
 
-        public SO_Item GetItemByID(string category, string id)
+        public IEnumerable<SO_Item> GetItems(LibraryReference library, string category)
+        {
+            if (_items == null || string.IsNullOrEmpty(category)) yield break;
+
+            foreach (var item in _items[library].items)
+            {
+                if (item == null) continue;
+                if (category == item.Category) yield return item;
+            }
+        }
+        public IEnumerable<SO_Item> GetItems(LibraryReference library, string category, ISet<string> ids)
+        {
+            if (_items == null || string.IsNullOrEmpty(category)) yield break;
+
+            foreach (var item in _items[library].items)
+            {
+                if (item == null) continue;
+                if (category == item.Category && (item.Cost == 0 || ids.Contains(item.ID))) yield return item;
+            }
+        }
+
+        public SO_Item GetItemByID(LibraryReference library, string category, string id)
         {
             if (_cache == null) BuildCache();
 
-            if (_cache.TryGetValue(category, out var byId))
-                if (byId.TryGetValue(id, out var item))
-                    return item;
+            GetItem(library, category, id, out var item);
+            if (item != null) return item;
 
-            if (_cache.TryGetValue(category, out byId) && byId.TryGetValue(_default, out var fallback))
-                return fallback;
-            
-            return null;
+            GetItem(library, category, _default, out item);
+            return item;
         }
-        public IEnumerable<SO_Item> GetItems(IEnumerable<string> category)
+        private void GetItem(LibraryReference library, string category, string id, out SO_Item item)
         {
-            if (_items == null || category == null) yield break;
-            var categorySet = new HashSet<string>(category);
+            if (_cache.TryGetValue(library, out var byCategory))
+                if (byCategory.TryGetValue(category, out var byId)) {
+                    byId.TryGetValue(id, out item);
+                    return;
+                }
 
-            foreach (var item in _items)
-            {
-                if (item == null) continue;
-
-                if (categorySet.Contains(item.Category))
-                    yield return item;
-            }
+            item = null;
         }
     }
 }

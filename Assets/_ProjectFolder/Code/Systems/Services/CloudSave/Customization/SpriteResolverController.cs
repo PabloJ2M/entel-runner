@@ -1,37 +1,52 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D.Animation;
 
 namespace Unity.Customization
 {
-    using Services;
     using Services.CloudSave;
 
-    [RequireComponent(typeof(SpriteLibrary))]
+    [RequireComponent(typeof(SpriteLibraryHandler))]
     public class SpriteResolverController : MonoBehaviour
     {
+        [SerializeField] private LibraryReferenceList _reference;
         [SerializeField] private SO_ItemList _listReference;
 
         private Dictionary<string, SpriteResolverElement> _resolvers = new();
         private PlayerDataService _player;
 
-        public IEnumerable<string> Categories => _listReference.Library.GetCategoryNames();
-
-        private void Awake() => _player = UnityServiceInit.Instance.GetComponent<PlayerDataService>();
-        private void OnEnable() => _player.onDataUpdated += Start;
-        private void OnDisable() => _player.onDataUpdated -= Start;
-
-        private void Start()
+        private void Awake() => _player = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
+        private void Start() => _reference?.FindReference(ref _player.Customization.selectedLibrary);
+        private void OnEnable()
         {
-            if (_player == null) return;
+            _player.onDataUpdated += Start;
+            _reference.onLibraryUpdated += OnUpdateLibrary;
+        }
+        private void OnDisable()
+        {
+            _player.onDataUpdated -= Start;
+            _reference.onLibraryUpdated -= OnUpdateLibrary;
+        }
 
-            var categories = Categories;
-            foreach (var equipped in _player.Customization.equipped)
-                SetLabel(equipped.Key, _listReference.GetItemByID(equipped.Key, equipped.Value).Label);
+        private void OnUpdateLibrary(LibraryReference library)
+        {
+            //load asset reference
+            var data = _player.Customization;
+            if (!data.equipped.ContainsKey(library.ID)) data.equipped.Add(library.ID, new());
+
+            //udpate resolvers
+            foreach (var equipped in data.equipped[library.ID])
+            {
+                var item = _listReference.GetItemByID(library, equipped.Key, equipped.Value);
+                SetLabel(equipped.Key, item.Label);
+            }
         }
 
         public void AddListener(string category, SpriteResolverElement element) => _resolvers.Add(category, element);
         public void RemoveListener(string category) => _resolvers.Remove(category);
-        public void SetLabel(string category, string label) => _resolvers[category].SetLabel(label);
+        public void SetLabel(string category, string label)
+        {
+            if (_resolvers.TryGetValue(category, out var resolver))
+                resolver.SetLabel(label);
+        }
     }
 }

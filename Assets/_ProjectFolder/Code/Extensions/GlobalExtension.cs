@@ -13,6 +13,7 @@ public static class Math
 public static class GlobalExtension
 {
     #region Transform Controller
+
     public static float PositionX(this Transform transform) => transform.position.x;
     public static float LocalPositionX(this Transform transform) => transform.localPosition.x;
 
