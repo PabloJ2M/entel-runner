@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Unity.Services.Economy
 {
     public class PlayerEconomyService : PlayerServiceBehaviour
     {
-        [SerializeField] private SerializableDictionary<string, long> _balances;
+        [SerializeField] private SerializedDictionary<string, long> _balances;
         
         public override string DataID => "currency";
 
@@ -35,7 +35,7 @@ namespace Unity.Services.Economy
                 _balances[item.Key] = 0;
         }
 
-        public long GetBalance(string id) => _balances[id];
+        public long GetBalance(string id) => _balances.ContainsKey(id) ? _balances[id] : 0;
         public async void AddBalanceID(string id, uint amount)
         {
             _balances[id] += amount;

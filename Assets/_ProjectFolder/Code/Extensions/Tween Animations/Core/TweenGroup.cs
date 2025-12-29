@@ -25,7 +25,7 @@ namespace UnityEngine.Animations
         private IEnumerator TweenDelay(bool value)
         {
             foreach (var tween in tweens) { tween.Play(value); if (_delay != 0) yield return _delayTime; }
-            if (_onValueChanged.GetPersistentEventCount() != 0) _onValueChanged.Invoke(_negateCallback ? !value : value);
+            _onValueChanged.Invoke(_negateCallback ? !value : value);
         }
     }
 }

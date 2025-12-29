@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4374682955909402871, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: _laneToActivate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6053066357060771954, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Size.x
       value: 29.5
@@ -64,7 +68,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: obstacle large
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6568481941548394256, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
