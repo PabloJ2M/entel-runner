@@ -21,19 +21,52 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: -5177388603050735206, guid: c6f0b0d5c72cd8b46b6fbc351809b8d6, type: 3}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: -5177388603050735206, guid: c6f0b0d5c72cd8b46b6fbc351809b8d6, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 2c06c6e241560684e9dcb0f147a4d96a, type: 3}
     - m_Name: square
       m_Hash: 233007273
       m_Sprite: {fileID: 21300000, guid: 32cecc1c4be5e7d4897ece01fc74112a, type: 3}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 21300000, guid: 32cecc1c4be5e7d4897ece01fc74112a, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: a7cd22e86b55f2b40a153223deec3556, type: 3}
     - m_Name: round
       m_Hash: 99543604
       m_Sprite: {fileID: -2413806693520163455, guid: e90cdcc1ab560674c983bffce420c60b, type: 3}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: -2413806693520163455, guid: e90cdcc1ab560674c983bffce420c60b, type: 3}
+      m_SpriteOverride: {fileID: 21300000, guid: 81ce80da24c625b4aa527eeedaa57e9b, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: top
+    m_Hash: 517545930
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 1
+    m_EntryOverrideCount: 0
+  - m_Name: pants
+    m_Hash: 1014824426
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 1
+    m_EntryOverrideCount: 0
+  - m_Name: shoes
+    m_Hash: 349143447
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 1
     m_EntryOverrideCount: 0
   m_PrimaryLibraryGUID: 4e848b54bdd9d4244ba958cd81b1cd42
-  m_ModificationHash: 639024585664669209
+  m_ModificationHash: 639026337617268971
   m_Version: 1

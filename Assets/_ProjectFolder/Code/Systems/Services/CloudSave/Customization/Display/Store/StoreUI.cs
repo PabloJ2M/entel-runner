@@ -3,6 +3,7 @@ using UnityEngine;
 namespace Unity.Customization.Store
 {
     using Services.Economy;
+    using System.Linq;
 
     public class StoreUI : ItemsDisplayBehaviour
     {
@@ -17,7 +18,7 @@ namespace Unity.Customization.Store
         {
             base.OnUpdateLibrary(reference);
 
-            var items = _itemList.GetItems(reference, _tabs.Category);
+            var items = _itemList.GetItems(_tabs.Category);
             var unlocked = _playerData.Customization.unlocked;
 
             foreach (var item in items)
