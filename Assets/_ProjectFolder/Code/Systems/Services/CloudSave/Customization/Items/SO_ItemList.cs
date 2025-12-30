@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -34,6 +35,19 @@ namespace Unity.Customization
             }
         }
 
+        public IEnumerable<SO_Item> GetItems(string category)
+        {
+            if (_items == null || string.IsNullOrEmpty(category)) yield break;
+
+            foreach (var library in _items)
+            {
+                foreach (var item in library.Value.items)
+                {
+                    if (item == null) continue;
+                    if (item.Category == category) yield return item;
+                }
+            }
+        }
         public IEnumerable<SO_Item> GetItems(LibraryReference library, string category)
         {
             if (_items == null || string.IsNullOrEmpty(category)) yield break;
@@ -67,11 +81,12 @@ namespace Unity.Customization
         }
         private void GetItem(LibraryReference library, string category, string id, out SO_Item item)
         {
-            if (_cache.TryGetValue(library, out var byCategory))
+            if (_cache.TryGetValue(library, out var byCategory)) {
                 if (byCategory.TryGetValue(category, out var byId)) {
                     byId.TryGetValue(id, out item);
                     return;
                 }
+            }
 
             item = null;
         }
