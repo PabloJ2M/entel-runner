@@ -24,7 +24,7 @@ namespace Unity.Customization.Store
         protected override void OnUpdateLibrary(LibraryReference reference) { }
         protected override void OnUpdateCategory(string category)
         {
-            var items = _itemList.GetItems(category);
+            var items = _itemList.GetItems(category).OrderByDescending(item => item.Cost);
             var unlocked = _playerData.Customization.unlocked;
             
             ClearPoolInstance();

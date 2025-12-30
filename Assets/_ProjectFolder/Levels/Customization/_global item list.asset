@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe243f71f9d0484e82d2076affa9aba, type: 3}
+  m_Script: {fileID: 11500000, guid: 59d2c5b9fd20276439fd013e99a2db59, type: 3}
   m_Name: _global item list
   m_EditorClassIdentifier: 
   _items:
     m_Keys:
-    - {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
     - {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
+    - {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
     m_Values:
-    - items:
-      - {fileID: 11400000, guid: fab7783114f4cff4d83294fb7eb650e3, type: 2}
-      - {fileID: 11400000, guid: 0c5ebc593cd344f4fbc05a107c560a4a, type: 2}
-      - {fileID: 11400000, guid: de060fea9dbe7884482809aae8269877, type: 2}
     - items:
       - {fileID: 11400000, guid: 9dd96f7eb79f9b244b93ac32e71ec11a, type: 2}
       - {fileID: 11400000, guid: c6f697c18c52f4a45bab14d24862e958, type: 2}
       - {fileID: 11400000, guid: a96a2226c49fcb144ae37f5493f564f7, type: 2}
+    - items:
+      - {fileID: 11400000, guid: fab7783114f4cff4d83294fb7eb650e3, type: 2}
+      - {fileID: 11400000, guid: 0c5ebc593cd344f4fbc05a107c560a4a, type: 2}
+      - {fileID: 11400000, guid: de060fea9dbe7884482809aae8269877, type: 2}

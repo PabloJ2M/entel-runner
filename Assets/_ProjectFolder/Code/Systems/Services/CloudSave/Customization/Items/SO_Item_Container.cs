@@ -11,8 +11,8 @@ namespace Unity.Customization
         public List<SO_Item> items = new();
     }
 
-    [CreateAssetMenu(fileName = "list", menuName = "customization/list", order = 0)]
-    public class SO_ItemList : ScriptableObject
+    [CreateAssetMenu(fileName = "_container", menuName = "system/customization/item container", order = 0)]
+    public class SO_Item_Container : ScriptableObject
     {
         [SerializeField] private SerializedDictionary<LibraryReference, ItemWrapper> _items;
 
@@ -50,6 +50,7 @@ namespace Unity.Customization
         }
         public IDictionary<string, Dictionary<string, SO_Item>> GetItemsLibrary(string libraryID)
         {
+            if (_cache == null) BuildCache();
             if (_cache.TryGetValue(libraryID, out var data)) return data;
             else return null;
         }
@@ -57,11 +58,7 @@ namespace Unity.Customization
         public SO_Item GetItemByID(string library, string category, string id)
         {
             if (_cache == null) BuildCache();
-
-            GetItem(library, category, id, out var item);
-            if (item != null) return item;
-
-            GetItem(library, category, _default, out item);
+            GetItem(library, category, string.IsNullOrEmpty(id) ? _default : id, out var item);
             return item;
         }
         private void GetItem(string library, string category, string id, out SO_Item item)

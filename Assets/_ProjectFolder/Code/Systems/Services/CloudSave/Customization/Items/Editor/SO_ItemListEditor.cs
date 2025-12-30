@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Unity.Customization
 {
-    [CustomEditor(typeof(SO_ItemList))]
+    [CustomEditor(typeof(SO_Item_Container))]
     public class SO_ItemListEditor : Editor
     {
         private SerializedProperty _keys, _values;

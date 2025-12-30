@@ -9,13 +9,20 @@ namespace Unity.Customization
     public class SpriteResolverController : MonoBehaviour
     {
         [SerializeField] private LibraryReferenceList _reference;
-        [SerializeField] private SO_ItemList _listReference;
+        [SerializeField] private SO_Item_Container _listReference;
 
         private Dictionary<string, SpriteResolverElement> _resolvers = new();
+        private SpriteLibraryHandler _library;
         private PlayerDataService _player;
 
-        private void Awake() => _player = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
         private void Start() => _reference?.FindReference(ref _player.Customization.selectedLibrary);
+        private void OnDestroy() => _resolvers.Clear();
+
+        private void Awake()
+        {
+            _library = GetComponent<SpriteLibraryHandler>();
+            _player = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
+        }
         private void OnEnable()
         {
             _player.onDataUpdated += Start;
@@ -29,17 +36,18 @@ namespace Unity.Customization
 
         private void OnUpdatePreview(LibraryReference library)
         {
-            var data = _player.Customization;
-            data.selectedLibrary = library.ID;
+            _library.SelectionHandler(library);
 
-            if (!data.equipped.ContainsKey(library.ID)) data.equipped.Add(library.ID, new());
+            _player.Customization.selectedLibrary = library.ID;
+            _player.Customization.equipped.TryGetValue(library.ID, out var equipped);
+            if (equipped == null) equipped = new();
 
-            foreach (var category in data.equipped[library.ID])
+            IEnumerable<string> categories = library.Asset.GetCategoryNames();
+            foreach (var category in categories)
             {
-                var item = _listReference.GetItemByID(library.ID, category.Key, category.Value);
-                if (item == null) continue;
-
-                SetLabel(category.Key, item.Label);
+                equipped.TryGetValue(category, out var id);
+                var item = _listReference.GetItemByID(library.ID, category, id);
+                if (item != null) SetLabel(category, item.Label);
             }
         }
 

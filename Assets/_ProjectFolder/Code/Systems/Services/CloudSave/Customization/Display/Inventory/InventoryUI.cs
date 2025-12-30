@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Unity.Customization.Inventory
@@ -18,7 +19,8 @@ namespace Unity.Customization.Inventory
             if (_groups == null) return;
             if (!_groups.ContainsKey(category)) return;
 
-            foreach (var item in _groups[category])
+            var group = _groups[category].OrderByDescending(x => x.Value.Cost);
+            foreach (var item in group)
             {
                 if (!_playerData.Customization.unlocked.Contains(item.Key)) continue;
                 var entry = Pool.Get() as ItemsDisplayEntry;

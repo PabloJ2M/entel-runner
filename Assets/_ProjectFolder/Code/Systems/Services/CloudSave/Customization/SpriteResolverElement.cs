@@ -7,18 +7,18 @@ namespace Unity.Customization
     public class SpriteResolverElement : MonoBehaviour
     {
         private SpriteResolver _resolver;
-        private SpriteResolverController _controller;
-
-        public string Category => _resolver.GetCategory();
+        private SpriteRenderer _render;
+        private string _categoryID;
 
         private void Awake()
         {
             _resolver = GetComponent<SpriteResolver>();
-            _controller = GetComponentInParent<SpriteResolverController>();
-        }
-        private void OnEnable() => _controller.AddListener(Category, this);
-        private void OnDisable() => _controller.RemoveListener(Category);
+            _render = GetComponent<SpriteRenderer>();
+            _categoryID = _resolver.GetCategory();
 
-        public void SetLabel(string label) => _resolver.SetCategoryAndLabel(Category, label);
+            GetComponentInParent<SpriteResolverController>().AddListener(_categoryID, this);
+        }
+
+        public void SetLabel(string label) => _render.enabled = _resolver.SetCategoryAndLabel(_categoryID, label);
     }
 }

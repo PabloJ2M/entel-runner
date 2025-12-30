@@ -10,7 +10,7 @@ namespace Unity.Customization
     {
         [Header("Controller")]
         [SerializeField] protected LibraryReferenceList _library;
-        [SerializeField] protected SO_ItemList _itemList;
+        [SerializeField] protected SO_Item_Container _itemList;
 
         protected PlayerDataService _playerData;
 

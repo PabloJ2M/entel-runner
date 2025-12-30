@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unity.Customization
 {
-    [CreateAssetMenu(fileName = "item", menuName = "customization/item", order = 1)]
+    [CreateAssetMenu(fileName = "item", menuName = "system/customization/item", order = 1)]
     public class SO_Item : ScriptableObject
     {
         [SerializeField] private LibraryReference _libraryReference;
