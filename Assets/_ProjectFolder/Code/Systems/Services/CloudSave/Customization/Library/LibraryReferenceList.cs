@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,37 +11,40 @@ namespace Unity.Customization
         [SerializeField] private List<LibraryReference> _assets;
         private byte _index;
 
-        public LibraryReference Default => _default;
         public event Action<LibraryReference> onLibraryUpdated;
+        public event Action<LibraryReference> onPreviewUpdated;
+        public event Action<string> onCategoryUpdated;
 
         public void Previous()
         {
             _index--;
             if (_index >= _assets.Count) _index = (byte)(_assets.Count - 1);
-            UpdateLibraryReference();
+            UpdateAssetReference();
         }
         public void Next()
         {
             _index++;
             _index %= (byte)_assets.Count;
-            UpdateLibraryReference();
+            UpdateAssetReference();
         }
 
-        public async void UpdateLibraryReference()
-        {
-            await Task.Yield();
-            onLibraryUpdated?.Invoke(_assets[_index]);
-        }
+        private void UpdateAssetReference() { UpdatePreview(); UpdateLibrary(); }
+        public void UpdatePreview() => onPreviewUpdated?.Invoke(_assets[_index]);
+        public void UpdateLibrary() => onLibraryUpdated?.Invoke(_assets[_index]);
+        public void UpdateCategory(string category) => onCategoryUpdated?.Invoke(category);
 
         public void FindReference(string key)
         {
-            _index = (byte)Mathf.Clamp(_assets.FindIndex(x => x.ID == key), 0, _assets.Count);
+            int index = _assets.FindIndex(x => x.ID == key);
+            if (index < 0) index = _assets.FindIndex(x => x == _default);
+
+            _index = (byte)index;
         }
         public void FindReference(ref string key)
         {
             FindReference(key);
             key = _assets[_index].ID;
-            UpdateLibraryReference();
+            UpdateAssetReference();
         }
     }
 }

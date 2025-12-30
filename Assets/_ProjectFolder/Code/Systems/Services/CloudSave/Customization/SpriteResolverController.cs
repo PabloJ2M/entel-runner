@@ -19,25 +19,27 @@ namespace Unity.Customization
         private void OnEnable()
         {
             _player.onDataUpdated += Start;
-            _reference.onLibraryUpdated += OnUpdateLibrary;
+            _reference.onPreviewUpdated += OnUpdatePreview;
         }
         private void OnDisable()
         {
             _player.onDataUpdated -= Start;
-            _reference.onLibraryUpdated -= OnUpdateLibrary;
+            _reference.onPreviewUpdated -= OnUpdatePreview;
         }
 
-        private void OnUpdateLibrary(LibraryReference library)
+        private void OnUpdatePreview(LibraryReference library)
         {
-            //load asset reference
             var data = _player.Customization;
+            data.selectedLibrary = library.ID;
+
             if (!data.equipped.ContainsKey(library.ID)) data.equipped.Add(library.ID, new());
 
-            //udpate resolvers
-            foreach (var equipped in data.equipped[library.ID])
+            foreach (var category in data.equipped[library.ID])
             {
-                var item = _listReference.GetItemByID(library, equipped.Key, equipped.Value);
-                SetLabel(equipped.Key, item.Label);
+                var item = _listReference.GetItemByID(library.ID, category.Key, category.Value);
+                if (item == null) continue;
+
+                SetLabel(category.Key, item.Label);
             }
         }
 

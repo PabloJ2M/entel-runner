@@ -23,7 +23,7 @@ namespace Unity.Pool
             Spawned?.Remove(@object as T);
         }
         protected virtual void OnDestroyObject(PoolObjectBehaviour @object) => Destroy(@object.gameObject);
-        protected void Clear()
+        protected void ClearPoolInstance()
         {
             for (int i = Spawned.Count - 1; i >= 0; i--)
                 Spawned[i].Destroy();

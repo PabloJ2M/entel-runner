@@ -4,7 +4,7 @@ public class PlayerSelector : MonoBehaviour
 {
     [SerializeField] private GameObject[] _options;
 
-    private static uint _selected = 0;
+    private uint _selected = 0;
 
     private void Start() => SetIndex();
     private void SetIndex()

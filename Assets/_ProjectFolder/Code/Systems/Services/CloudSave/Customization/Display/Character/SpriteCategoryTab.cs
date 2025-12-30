@@ -13,7 +13,7 @@ namespace Unity.Customization
         public void OnClickHandler(bool value)
         {
             if (!value) return;
-            _manager.SetCategory(_siblingIndex);
+            _manager.UpdateCategory(_siblingIndex);
         }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -16,7 +15,8 @@ namespace Unity.Customization
     public class SO_ItemList : ScriptableObject
     {
         [SerializeField] private SerializedDictionary<LibraryReference, ItemWrapper> _items;
-        private Dictionary<LibraryReference, Dictionary<string, Dictionary<string, SO_Item>>> _cache;
+
+        private Dictionary<string, Dictionary<string, Dictionary<string, SO_Item>>> _cache;
         private const string _default = "default";
 
         private void BuildCache()
@@ -25,12 +25,12 @@ namespace Unity.Customization
 
             foreach (var list in _items)
             {
-                if (!_cache.ContainsKey(list.Key)) _cache.Add(list.Key, new());
+                if (!_cache.ContainsKey(list.Key.ID)) _cache.Add(list.Key.ID, new());
 
                 foreach (var item in list.Value.items)
                 {
-                    if (!_cache[list.Key].ContainsKey(item.Category)) _cache[list.Key].Add(item.Category, new());
-                    _cache[list.Key][item.Category][item.ID] = item;
+                    if (!_cache[list.Key.ID].ContainsKey(item.Category)) _cache[list.Key.ID].Add(item.Category, new());
+                    _cache[list.Key.ID][item.Category][item.ID] = item;
                 }
             }
         }
@@ -48,28 +48,13 @@ namespace Unity.Customization
                 }
             }
         }
-        public IEnumerable<SO_Item> GetItems(LibraryReference library, string category)
+        public IDictionary<string, Dictionary<string, SO_Item>> GetItemsLibrary(string libraryID)
         {
-            if (_items == null || string.IsNullOrEmpty(category)) yield break;
-
-            foreach (var item in _items[library].items)
-            {
-                if (item == null) continue;
-                if (category == item.Category) yield return item;
-            }
-        }
-        public IEnumerable<SO_Item> GetItems(LibraryReference library, string category, ISet<string> ids)
-        {
-            if (_items == null || string.IsNullOrEmpty(category)) yield break;
-
-            foreach (var item in _items[library].items)
-            {
-                if (item == null) continue;
-                if (category == item.Category && (item.Cost == 0 || ids.Contains(item.ID))) yield return item;
-            }
+            if (_cache.TryGetValue(libraryID, out var data)) return data;
+            else return null;
         }
 
-        public SO_Item GetItemByID(LibraryReference library, string category, string id)
+        public SO_Item GetItemByID(string library, string category, string id)
         {
             if (_cache == null) BuildCache();
 
@@ -79,7 +64,7 @@ namespace Unity.Customization
             GetItem(library, category, _default, out item);
             return item;
         }
-        private void GetItem(LibraryReference library, string category, string id, out SO_Item item)
+        private void GetItem(string library, string category, string id, out SO_Item item)
         {
             if (_cache.TryGetValue(library, out var byCategory)) {
                 if (byCategory.TryGetValue(category, out var byId)) {

@@ -13,13 +13,10 @@ namespace Unity.Customization
         [SerializeField] protected SO_ItemList _itemList;
 
         protected PlayerDataService _playerData;
-        protected LibraryReference _selected;
-        protected SpriteCategory _tabs;
 
         protected override void Awake()
         {
             base.Awake();
-            _tabs = GetComponentInChildren<SpriteCategory>();
             _playerData = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
         }
         protected override void Reset() => _parent = GetComponentInChildren<ScrollRect>().content;
@@ -29,15 +26,19 @@ namespace Unity.Customization
             @object.Transform.SetAsLastSibling();
         }
 
-        private void OnEnable() => _library.onLibraryUpdated += OnUpdateLibrary;
-        private void OnDisable() => _library.onLibraryUpdated -= OnUpdateLibrary;
-
-        protected virtual void OnUpdateLibrary(LibraryReference reference)
+        protected virtual void OnEnable()
         {
-            _selected = reference;
-            Clear();
+            _library.onLibraryUpdated += OnUpdateLibrary;
+            _library.onCategoryUpdated += OnUpdateCategory;
+        }
+        protected virtual void OnDisable()
+        {
+            _library.onLibraryUpdated -= OnUpdateLibrary;
+            _library.onCategoryUpdated -= OnUpdateCategory;
         }
 
+        protected abstract void OnUpdateLibrary(LibraryReference reference);
+        protected abstract void OnUpdateCategory(string category);
         public async void SaveData()
         {
             var cloud = new CustomizationDataCloud(_playerData.Customization);

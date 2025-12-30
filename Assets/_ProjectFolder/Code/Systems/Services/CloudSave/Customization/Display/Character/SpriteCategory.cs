@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Unity.Customization
@@ -8,20 +9,19 @@ namespace Unity.Customization
         [SerializeField] private LibraryReferenceList _reference;
         private string[] _categories;
 
-        public string Category { get; private set; }
+        private void OnEnable() => _reference.onLibraryUpdated += OnLibraryUpdated;
+        private void OnDisable() => _reference.onLibraryUpdated -= OnLibraryUpdated;
 
-        private void Awake() => OnLibraryUpdated(_reference.Default);
-
-        private void OnLibraryUpdated(LibraryReference reference)
+        private async void OnLibraryUpdated(LibraryReference reference)
         {
             _categories = reference.Asset.GetCategoryNames().ToArray();
-            if (!_categories.Contains(Category)) Category = _categories[0];
+            await Task.Yield();
+            UpdateCategory(0);
         }
-
-        public void SetCategory(int index)
+        public void UpdateCategory(int index)
         {
-            Category = _categories[index];
-            _reference.UpdateLibraryReference();
+            if (index < _categories.Length)
+                _reference.UpdateCategory(_categories[index]);
         }
     }
 }
