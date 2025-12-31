@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Unity.Customization
 {
+    using Services;
     using Services.CloudSave;
     using Pool;
 
@@ -17,7 +18,7 @@ namespace Unity.Customization
         protected override void Awake()
         {
             base.Awake();
-            _playerData = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
+            _playerData = UnityServiceInit.Instance.GetComponent<PlayerDataService>();
         }
         protected override void Reset() => _parent = GetComponentInChildren<ScrollRect>().content;
         protected override void OnGet(PoolObjectBehaviour @object)

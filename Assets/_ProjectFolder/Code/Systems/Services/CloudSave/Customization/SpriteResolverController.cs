@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Unity.Customization
 {
+    using Services;
     using Services.CloudSave;
 
     [RequireComponent(typeof(SpriteLibraryHandler))]
@@ -21,7 +22,7 @@ namespace Unity.Customization
         private void Awake()
         {
             _library = GetComponent<SpriteLibraryHandler>();
-            _player = FindFirstObjectByType<PlayerDataService>(FindObjectsInactive.Include);
+            _player = UnityServiceInit.Instance.GetComponent<PlayerDataService>();
         }
         private void OnEnable()
         {

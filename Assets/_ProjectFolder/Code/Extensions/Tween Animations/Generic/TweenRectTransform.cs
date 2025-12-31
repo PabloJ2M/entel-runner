@@ -1,10 +1,12 @@
+using Unity.Mathematics;
+
 namespace UnityEngine.Animations
 {
     [RequireComponent(typeof(RectTransform))]
     public abstract class TweenRectTransform : TweenBehaviour<Vector3>
     {
         protected RectTransform _transform;
-        protected Vector3 _from, _to;
+        protected float3 _from, _to;
 
         protected override void Awake()
         {

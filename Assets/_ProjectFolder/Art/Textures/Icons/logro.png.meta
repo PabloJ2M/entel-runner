@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 81ce80da24c625b4aa527eeedaa57e9b
+guid: ffcdc9fa023baa44286c6ebc75b31100
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3352591722398250838
-    second: hucha_0
+      213: -2374293126719894046
+    second: logro_0
   - first:
-      213: 2803760593962044579
-    second: hucha_1
+      213: 7195270152733388970
+    second: logro_1
+  - first:
+      213: -8628868215497521778
+    second: logro_2
+  - first:
+      213: -2979410637145177493
+    second: logro_3
+  - first:
+      213: -2751018932219642066
+    second: logro_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 128
@@ -113,7 +122,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,8 +135,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 128
+    buildTarget: iOS
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -142,13 +151,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hucha_0
+      name: logro_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 62
-        width: 65
-        height: 64
+        x: 7
+        y: 82
+        width: 16
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6577672a86cc68e20800000000000000
-      internalID: 3352591722398250838
+      spriteID: 2ed85351bf0dc0fd0800000000000000
+      internalID: -2374293126719894046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hucha_1
+      name: logro_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 2
-        width: 103
-        height: 96
+        x: 28
+        y: 50
+        width: 72
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +188,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3ac885eb765f8e620800000000000000
-      internalID: 2803760593962044579
+      spriteID: aa0f4ace41cbad360800000000000000
+      internalID: 7195270152733388970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logro_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 82
+        width: 16
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e858c91631a104880800000000000000
+      internalID: -8628868215497521778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logro_3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 20
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6201f4afc107a6d0800000000000000
+      internalID: -2979410637145177493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logro_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 3
+        width: 62
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f7cae4bda62d9d0800000000000000
+      internalID: -2751018932219642066
       vertices: []
       indices: 
       edges: []
@@ -199,8 +274,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hucha_0: 3352591722398250838
-      hucha_1: 2803760593962044579
+      logro_0: -2374293126719894046
+      logro_1: 7195270152733388970
+      logro_2: -8628868215497521778
+      logro_3: -2979410637145177493
+      logro_4: -2751018932219642066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

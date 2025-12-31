@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: coins_300
   m_EditorClassIdentifier: 
   _id: coins_300
+  _name: 
+  _description: 
   _targetValue: 300
+  _revenue: 30

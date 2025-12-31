@@ -19,10 +19,11 @@ namespace Unity.Customization.Inventory
             if (_groups == null) return;
             if (!_groups.ContainsKey(category)) return;
 
+            var unlocked = _playerData.Customization.unlocked;
             var group = _groups[category].OrderByDescending(x => x.Value.Cost);
             foreach (var item in group)
             {
-                if (!_playerData.Customization.unlocked.Contains(item.Key)) continue;
+                if (item.Value.Cost != 0 && !unlocked.Contains(item.Key)) continue;
                 var entry = Pool.Get() as ItemsDisplayEntry;
                 entry.Init(item.Value);
             }
@@ -30,10 +31,13 @@ namespace Unity.Customization.Inventory
 
         public void SelectItem(SO_Item item)
         {
-            var data = _playerData.Customization;
+            var equipped = _playerData.Customization.equipped;
 
-            if (data.equipped[_libraryID][item.Category] == item.ID) return;
-            data.equipped[_libraryID][item.Category] = item.ID;
+            if (!equipped.ContainsKey(_libraryID)) equipped.Add(_libraryID, new());
+            if (!equipped[_libraryID].ContainsKey(item.Category)) equipped[_libraryID].Add(item.Category, item.ID);
+
+            //if (equipped[_libraryID][item.Category] == item.ID) return;
+            equipped[_libraryID][item.Category] = item.ID;
             _library.UpdatePreview();
         }
     }

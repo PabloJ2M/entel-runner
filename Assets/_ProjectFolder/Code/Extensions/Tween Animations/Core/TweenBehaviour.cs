@@ -25,6 +25,7 @@ namespace UnityEngine.Animations
         {
             _tweenCore.onPlayStatusChanged -= OnPerformePlay;
             _tweenCore.onCancel -= CancelTween;
+            OnComplete();
         }
 
         protected abstract void OnStart();

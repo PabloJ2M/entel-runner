@@ -1,6 +1,6 @@
 namespace Unity.Customization.Inventory
 {
-    public class InventoryUIEntry : ItemsDisplayEntry
+    public class InventoryUI_Entry : ItemsDisplayEntry
     {
         private InventoryUI _manager;
 

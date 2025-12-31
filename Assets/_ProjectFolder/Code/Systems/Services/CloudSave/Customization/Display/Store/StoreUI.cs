@@ -1,8 +1,8 @@
 using System.Linq;
-using UnityEngine;
 
 namespace Unity.Customization.Store
 {
+    using Services;
     using Services.Economy;
 
     public class StoreUI : ItemsDisplayBehaviour
@@ -10,17 +10,12 @@ namespace Unity.Customization.Store
         private PlayerEconomyService _economy;
         private const string _balanceID = "COIN";
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _economy = FindFirstObjectByType<PlayerEconomyService>(FindObjectsInactive.Include);
-        }
         protected override void OnEnable()
         {
             base.OnEnable();
+            _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
             _economy?.ForceUpdateBalance(_balanceID);
         }
-
         protected override void OnUpdateLibrary(LibraryReference reference) { }
         protected override void OnUpdateCategory(string category)
         {
@@ -33,7 +28,7 @@ namespace Unity.Customization.Store
             foreach (var item in items)
             {
                 if (item.Cost == 0) continue;
-                var entry = Pool.Get() as StoreUIEntry;
+                var entry = Pool.Get() as StoreUI_Entry;
                 entry.Init(item, unlocked.Contains(item.ID));
             }
         }

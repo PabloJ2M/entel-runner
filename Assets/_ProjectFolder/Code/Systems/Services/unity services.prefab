@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a10eeaf0c396ab4498ef0a29db93d21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _debug: 0
 --- !u!114 &3532321503193720534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662688aef10ba3a4787f1b18921f6021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _remoteData:
+    date: 
+    missions: []
+    store_discounts: []
 --- !u!114 &1264402185915287234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,10 +90,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _customization:
+    selectedLibrary: 
     equipped:
-      list: []
+      m_Keys: []
+      m_Values: []
     unlocked:
-      list: []
+      _list: []
 --- !u!114 &8630425863835247160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,4 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _balances:
-    list: []
+    m_Keys: []
+    m_Values: 

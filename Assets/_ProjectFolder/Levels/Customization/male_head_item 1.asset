@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: male_head_item 1
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
-  _itemID: head_1
+  _itemID: male_head_1
   _category: head
   _label: square
   _cost: 20

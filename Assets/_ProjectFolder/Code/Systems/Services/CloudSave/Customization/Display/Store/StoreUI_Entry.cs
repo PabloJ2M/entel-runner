@@ -5,7 +5,7 @@ using TMPro;
 namespace Unity.Customization.Store
 {
     [RequireComponent(typeof(Button))]
-    public class StoreUIEntry : ItemsDisplayEntry
+    public class StoreUI_Entry : ItemsDisplayEntry
     {
         [Header("Cost Section")]
         [SerializeField] private GameObject _lockScreen;
@@ -37,7 +37,7 @@ namespace Unity.Customization.Store
             if (_hasPurchased) return;
             if (!_manager.BuyItem(_item)) return;
 
-            _lockScreen.SetActive(false);
+            _lockScreen.SetActive(true);
             _hasPurchased = true;
         }
     }

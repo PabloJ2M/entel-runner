@@ -6,10 +6,16 @@ namespace Unity.Achievements
     public class SO_Achievement : ScriptableObject
     {
         [SerializeField] private string _id;
+        [SerializeField] private string _name;
+        [SerializeField, TextArea(1, 10)] private string _description;
+
         [SerializeField] private int _targetValue;
+        [SerializeField] private ulong _revenue;
         protected int _progress;
 
         public string ID => _id;
+        public string Name => _name;
+        public string Description => _description;
         public bool IsActive { get; set; }
 
         protected string _achievementID => $"achievement_{_id}";

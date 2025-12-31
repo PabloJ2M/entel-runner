@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: run_200 meters
   m_EditorClassIdentifier: 
   _id: run_200
+  _name: 
+  _description: 
   _targetValue: 200
+  _revenue: 20

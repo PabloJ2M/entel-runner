@@ -10,7 +10,7 @@ namespace Unity.Services.Economy
 
         private PlayerEconomyService _economy;
 
-        private void Awake() => _economy = FindFirstObjectByType<PlayerEconomyService>(FindObjectsInactive.Include);
+        private void Awake() => _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
         private void OnEnable() => _economy.onBalanceUpdated += OnUpdateUI;
         private void OnDisable() => _economy.onBalanceUpdated -= OnUpdateUI;
 
