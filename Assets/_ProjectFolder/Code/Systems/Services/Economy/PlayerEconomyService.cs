@@ -30,7 +30,7 @@ namespace Unity.Services.Economy
                 foreach (var balance in result.Balances)
                 {
                     _balances[balance.CurrencyId] = balance.Balance;
-                    onBalanceUpdated?.Invoke(balance.CurrencyId, balance.Balance);
+                    ForceUpdateBalance(balance.CurrencyId);
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace Unity.Services.Economy
         }
 
         public long GetBalance(string id) => _balances.ContainsKey(id) ? _balances[id] : 0;
-        public void ForceUpdateBalance(string id) => onBalanceUpdated?.Invoke(id, _balances[id]);
+        public void ForceUpdateBalance(string id) => onBalanceUpdated?.Invoke(id, GetBalance(id));
         public async void AddBalanceID(string id, uint amount)
         {
             ModifyBalanceID(id, amount);
