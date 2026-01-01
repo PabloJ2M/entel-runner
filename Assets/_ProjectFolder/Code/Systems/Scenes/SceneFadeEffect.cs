@@ -10,6 +10,7 @@ namespace Unity.SceneManagement
 
         private CanvasGroup _canvasGroup;
         private sbyte _fadeDirection;
+        private bool _isComplete;
 
         public string ScenePath { private get; set; }
 
@@ -23,11 +24,12 @@ namespace Unity.SceneManagement
         }
         private void Update()
         {
+            if (_isComplete) return;
             _canvasGroup.alpha += Time.deltaTime * _speed * _fadeDirection;
 
             switch(_canvasGroup.alpha)
             {
-                case 1f: SceneManager.LoadSceneAsync(ScenePath); break;
+                case 1f: SceneManager.LoadSceneAsync(ScenePath); _isComplete = true; break;
                 case 0f: Destroy(gameObject); break;
             };
         }
