@@ -6,7 +6,7 @@ namespace Unity.Services.Economy
     public class BalanceUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _textUI;
-        [SerializeField] private string _balanceID = "COIN";
+        [SerializeField] private BalanceType _balanceID = BalanceType.COIN;
 
         private PlayerEconomyService _economy;
 
@@ -14,9 +14,9 @@ namespace Unity.Services.Economy
         private void OnEnable() => _economy.onBalanceUpdated += OnUpdateUI;
         private void OnDisable() => _economy.onBalanceUpdated -= OnUpdateUI;
 
-        private void OnUpdateUI(string id, long amount)
+        private void OnUpdateUI(BalanceType type, long amount)
         {
-            if (id != _balanceID) return;
+            if (type != _balanceID) return;
             _textUI.SetText(amount.ToString());
         }
     }

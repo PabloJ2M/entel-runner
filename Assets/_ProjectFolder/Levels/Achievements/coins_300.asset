@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: coins_300
   m_EditorClassIdentifier: 
   _id: coins_300
-  _name: 
-  _description: 
-  _targetValue: 300
-  _revenue: 30
+  _type: 0
+  _name: 300 Monedas
+  _description: Consigue 300 monedas en total
+  _revenue:
+    balance: 0
+    amount: 30
+  _status:
+    _progress: 0
+    _target: 300
+    isCompleted: 0
+    hasPurchased: 0

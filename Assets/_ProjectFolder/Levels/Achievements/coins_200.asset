@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: coins_200
   m_EditorClassIdentifier: 
   _id: coins_200
-  _name: 
-  _description: 
-  _targetValue: 200
-  _revenue: 20
+  _type: 0
+  _name: 200 Monedas
+  _description: Consigue 200 monedas en total
+  _revenue:
+    balance: 0
+    amount: 20
+  _status:
+    _progress: 0
+    _target: 200
+    isCompleted: 0
+    hasPurchased: 0

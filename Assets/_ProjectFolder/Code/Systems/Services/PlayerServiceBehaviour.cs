@@ -5,10 +5,8 @@ namespace Unity.Services
     using Authentication;
 
     [DefaultExecutionOrder(-50), RequireComponent(typeof(AuthManager))]
-    public abstract class PlayerServiceBehaviour : MonoBehaviour
+    public abstract class PlayerServiceBehaviour : LocalSaveBehaviour
     {
-        public abstract string DataID { get; }
-
         private AuthManager _auth;
 
         protected virtual void Awake() => _auth = GetComponent<AuthManager>();
@@ -25,20 +23,9 @@ namespace Unity.Services
 
         protected abstract void OnSignInCompleted();
         protected abstract void OnSignOutCompleted();
-
-        protected void LoadLocalData<T>(ref T data)
+        protected override void DeleteLocalData()
         {
-            if (!PlayerPrefs.HasKey(DataID)) return;
-            data = JsonUtility.FromJson<T>(PlayerPrefs.GetString(DataID));
-        }
-        protected void SaveLocalData<T>(T data)
-        {
-            PlayerPrefs.SetString(DataID, JsonUtility.ToJson(data));
-            PlayerPrefs.Save();
-        }
-        protected void DeleteLocalData()
-        {
-            if (PlayerPrefs.HasKey(DataID)) PlayerPrefs.DeleteKey(DataID);
+            base.DeleteLocalData();
             OnSignOutCompleted();
         }
     }

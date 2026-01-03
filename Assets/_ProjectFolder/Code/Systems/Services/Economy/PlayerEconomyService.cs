@@ -7,10 +7,10 @@ namespace Unity.Services.Economy
 {
     public class PlayerEconomyService : PlayerServiceBehaviour
     {
-        [SerializeField] private SerializedDictionary<string, long> _balances;
-        public Action<string, long> onBalanceUpdated;
+        [SerializeField] private SerializedDictionary<BalanceType, long> _balances;
+        public Action<BalanceType, long> onBalanceUpdated;
 
-        public override string DataID => "currency";
+        protected override string _dataID => "currency";
 
         protected override void Awake()
         {
@@ -29,8 +29,9 @@ namespace Unity.Services.Economy
                 _balances.Clear();
                 foreach (var balance in result.Balances)
                 {
-                    _balances[balance.CurrencyId] = balance.Balance;
-                    ForceUpdateBalance(balance.CurrencyId);
+                    if (!Enum.TryParse<BalanceType>(balance.CurrencyId, out var type)) continue;
+                    _balances[type] = balance.Balance;
+                    ForceUpdateBalance(type);
                 }
             }
         }
@@ -40,23 +41,23 @@ namespace Unity.Services.Economy
                 _balances[item.Key] = 0;
         }
 
-        public long GetBalance(string id) => _balances.ContainsKey(id) ? _balances[id] : 0;
-        public void ForceUpdateBalance(string id) => onBalanceUpdated?.Invoke(id, GetBalance(id));
-        public async void AddBalanceID(string id, uint amount)
+        public long GetBalance(BalanceType type) => _balances.ContainsKey(type) ? _balances[type] : 0;
+        public void ForceUpdateBalance(BalanceType type) => onBalanceUpdated?.Invoke(type, GetBalance(type));
+        public async void AddBalanceID(BalanceType type, uint amount)
         {
-            ModifyBalanceID(id, amount);
-            await EconomyService.Instance.PlayerBalances.IncrementBalanceAsync(id, (int)amount).EconomyResponse();
+            ModifyBalanceID(type, amount);
+            await EconomyService.Instance.PlayerBalances.IncrementBalanceAsync(type.ToString(), (int)amount).EconomyResponse();
         }
-        public async void RemoveBalanceID(string id, uint amount)
+        public async void RemoveBalanceID(BalanceType type, uint amount)
         {
-            ModifyBalanceID(id, -amount);
-            await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(id, (int)amount).EconomyResponse();
+            ModifyBalanceID(type, -amount);
+            await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(type.ToString(), (int)amount).EconomyResponse();
         }
 
-        private void ModifyBalanceID(string id, long amount)
+        private void ModifyBalanceID(BalanceType type, long amount)
         {
-            _balances[id] += amount;
-            onBalanceUpdated?.Invoke(id, _balances[id]);
+            _balances[type] += amount;
+            onBalanceUpdated?.Invoke(type, _balances[type]);
             SaveLocalData(_balances);
         }
     }

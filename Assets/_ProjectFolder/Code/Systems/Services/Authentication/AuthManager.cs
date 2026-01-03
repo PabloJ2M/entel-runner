@@ -15,6 +15,7 @@ namespace Unity.Services.Authentication
         private async void HandleSignIn()
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            print(AuthenticationService.Instance.PlayerId);
             onSignInCompleted?.Invoke();
         }
         private void HandleSignOut()

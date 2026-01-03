@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _group: {fileID: 345741106}
   _settings:
-    duration: 0.5
+    duration: 0.25
     ease: 0
     customEase:
       serializedVersion: 2
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _group: {fileID: 345741106}
   _settings:
-    duration: 0.5
+    duration: 0.25
     ease: 0
     customEase:
       serializedVersion: 2
@@ -791,7 +791,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 354522044}
   _prefab: {fileID: 1417723015971996031, guid: c27572dcf2525c6429502e9bda53890e, type: 3}
-  _achievements: {fileID: 11400000, guid: 400a1bfd4b26710408fb625edcf51988, type: 2}
 --- !u!1 &528185247
 GameObject:
   m_ObjectHideFlags: 0

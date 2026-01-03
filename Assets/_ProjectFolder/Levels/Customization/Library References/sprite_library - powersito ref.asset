@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627b8f4cbc02c094295541c21810098b, type: 3}
+  m_Name: sprite_library - powersito ref
+  m_EditorClassIdentifier: 
+  _libraryID: powersito
+  _assetReference: {fileID: 7108339969198208228, guid: 8c73e4ad331a4a9499737b7efae55973, type: 3}
