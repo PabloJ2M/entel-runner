@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Services.CloudSave;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,7 +13,7 @@ namespace Unity.Customization
     }
 
     [CreateAssetMenu(fileName = "_container", menuName = "system/customization/item container", order = 0)]
-    public class SO_Item_List : ScriptableObject
+    public class SO_Item_List : ScriptableObject, ICloudSaveGameData
     {
         [SerializeField] private SerializedDictionary<SO_LibraryReference, ItemWrapper> _items;
 
@@ -33,6 +34,10 @@ namespace Unity.Customization
                     _cache[list.Key.ID][item.Category][item.ID] = item;
                 }
             }
+        }
+        public string ItemsListToJson()
+        {
+            return string.Empty;
         }
 
         public IEnumerable<SO_Item> GetItems(string category)

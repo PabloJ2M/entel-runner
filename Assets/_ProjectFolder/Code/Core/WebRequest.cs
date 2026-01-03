@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 namespace UnityEngine.Networking
 {
     using Result = UnityWebRequest.Result;
+    public enum RequestType { POST, GET, PUT }
 
     public static class WebRequest
     {
@@ -24,8 +25,8 @@ namespace UnityEngine.Networking
             request.downloadHandler = new DownloadHandlerBuffer();
             await request.SendWebRequest();
 
-            if (request.result == Result.Success) result?.Invoke();
-            else Debug.LogWarning(request.error);
+            if (request.result == Result.Success) { result?.Invoke(); return; }
+            Debug.LogError(request.error);
         }
     }
 }

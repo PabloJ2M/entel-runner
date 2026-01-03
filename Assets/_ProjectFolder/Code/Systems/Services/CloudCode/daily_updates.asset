@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6079cf2be4f49fc4e96b15c0733c5046, type: 3}
   m_Name: daily_updates
   m_EditorClassIdentifier: 
-  scheduleId: daily_updates
-  cloudCodeFunction: daily_updates
-  cronExpression: 0 * * * *
-  payloadJson: 
-  enabled: 1
+  name: daily_updates
+  eventName: daily_updates
+  type: recurring
+  schedule: 0 0 * * *
+  payloadVersion: 1
+  payload: '{}'
