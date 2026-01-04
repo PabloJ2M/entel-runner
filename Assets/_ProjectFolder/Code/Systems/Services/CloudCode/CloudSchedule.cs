@@ -1,24 +1,17 @@
 using System;
-using UnityEngine;
 
 namespace Unity.Services.CloudCode
 {
-    [Serializable] public struct Schedule
+    [Serializable] public struct CloudSchedule
     {
-        public string functionName;
-        [TextArea(3, 10)] public string @params;
-    }
-
-    [CreateAssetMenu(fileName = "schedule", menuName = "system/cloud code/schedules")]
-    public class CloudSchedule : ScriptableObject
-    {
+        public string id;
         public string name;
         public string eventName;
-        public string type = "recurring";
+        public string type;
 
         public string schedule;
-        public uint payloadVersion = 1;
 
-        public Schedule payload;
+        public int payloadVersion;
+        public string payload;
     }
 }

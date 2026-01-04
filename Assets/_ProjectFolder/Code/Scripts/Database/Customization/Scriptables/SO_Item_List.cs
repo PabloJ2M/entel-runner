@@ -1,20 +1,16 @@
 using System;
 using System.Collections.Generic;
-using Unity.Services.CloudSave;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace Unity.Customization
 {
-    [Serializable]
-    public class ItemWrapper
-    {
-        public List<SO_Item> items = new();
-    }
+    using Services.CloudSave;
 
     [CreateAssetMenu(fileName = "_container", menuName = "system/customization/item container", order = 0)]
     public class SO_Item_List : ScriptableObject, ICloudSaveGameData
     {
+        [Serializable] private class ItemWrapper { public List<SO_Item> items = new(); }
         [SerializeField] private SerializedDictionary<SO_LibraryReference, ItemWrapper> _items;
 
         private Dictionary<string, Dictionary<string, Dictionary<string, SO_Item>>> _cache;

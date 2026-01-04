@@ -1,88 +1,128 @@
-using System;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Networking;
-using Newtonsoft.Json;
 
 namespace Unity.Services.CloudCode
 {
     public class ScheduleWindow : EditorWindow
     {
-        private const string SERVICE_URL = "https://services.api.unity.com/scheduler/v1/projects";
-        private const string PROJECT_ID = "00cea21b-b045-40ec-a6a9-21a4586964d3";
-        private const string ENVIRONMENT_ID = "7ebbedf3-8bf5-4de9-9916-be24a68f0aad";
-        private string URL => $"{SERVICE_URL}/{PROJECT_ID}/environments/{ENVIRONMENT_ID}/configs";
-
-        private const string KEY_ID = "905a1693-7b02-48d1-bd01-c3a804d478ae";
-        private const string SECRET_KEY = "KwMAMR8xKdl3KM0_AFuDD4WddPfEbXe7";
-        private string AccessToken => Convert.ToBase64String(Encoding.UTF8.GetBytes($"{KEY_ID}:{SECRET_KEY}"));
-
-        private static readonly string[] _types = { "recurring", "one-time" };
-
-        private CloudSchedule _schedule;
-        private int _selectedType;
+        private Dictionary<string, EditableDraft> _drafts = new();
+        private CloudSchedule[] _cloudList;
+        private Vector2 _scroll;
 
         [MenuItem("Services/Cloud Code/Schedules")]
         public static void Open() => GetWindow<ScheduleWindow>("Cloud Schedules");
 
         private void OnGUI()
         {
-            GUILayout.Label("Cloud Code Scheduler", EditorStyles.boldLabel);
-            _schedule = (CloudSchedule)EditorGUILayout.ObjectField("Schedule", _schedule, typeof(CloudSchedule), false);
+            if (GUILayout.Button("Refresh")) _ = Refresh();
+            
+            GUILayout.Space(10);
+            DrawTableHeader();
 
-            if (_schedule == null) {
-                EditorGUILayout.HelpBox("Selecciona un Schedule Definition", MessageType.Warning);
-                return;
-            }
+            _scroll = GUILayout.BeginScrollView(_scroll);
 
-            EditorGUILayout.Space();
-            DrawScheduleFields();
+            if (_cloudList != null)
+                foreach (var cloud in _cloudList)
+                    DrawRow(cloud);
 
-            EditorGUILayout.Space(10);
+            GUILayout.EndScrollView();
 
-            if (GUILayout.Button("Create / Update Schedule")) UploadSchedule(_schedule);
-            if (GUILayout.Button("Delete Schedule")) DeleteSchedule(_schedule);
+            GUILayout.Space(10);
+            DrawCreateSection();
         }
-
-        private void DrawScheduleFields()
+        private async Task Refresh()
         {
-            _schedule.name = EditorGUILayout.TextField("Schedule Name", _schedule.name);
-            _schedule.eventName = EditorGUILayout.TextField("Cloud Code Function", _schedule.eventName);
+            _cloudList = await SchedulerExtension.GetScheduleList();
+            _drafts.Clear();
 
-            _selectedType = EditorGUILayout.Popup(_selectedType, _types);
-            _schedule.type = _types[_selectedType];
-
-            EditorGUILayout.HelpBox("Defines when the planned event should occur", MessageType.Info);
-            _schedule.schedule = EditorGUILayout.TextField("Schedule Config", _schedule.schedule);
-            _schedule.payloadVersion = (uint)EditorGUILayout.IntField("Payload Version", (int)_schedule.payloadVersion);
-
-            GUILayout.Label("Payload JSON");
-            _schedule.payload.functionName = EditorGUILayout.TextField(_schedule.payload.functionName);
-            _schedule.payload.@params = EditorGUILayout.TextField(_schedule.payload.@params, GUILayout.Height(80));
-
-            EditorUtility.SetDirty(_schedule);
+            foreach (var cloud in _cloudList) _drafts[cloud.id] = new(cloud);
+            Repaint();
         }
-        private async void UploadSchedule(CloudSchedule schedule)
+
+        private void DrawTableHeader()
         {
-            var body = new
-            {
-                name = "test-daily",
-                eventName = "test-updates",
-                type = "recurring",
-                schedule = "0 0 * * *",
-                payloadVersion = 1,
-                payload = "{\"functionName\":\"daily-updates\",\"params\":{}}"
-            };
-
-            string json = JsonConvert.SerializeObject(body, Formatting.Indented);
-            using UnityWebRequest request = new UnityWebRequest(URL, RequestType.POST.ToString());
-            await WebRequest.SendRequest(request, $"Basic {AccessToken}", json);
+            GUILayout.BeginHorizontal(EditorStyles.toolbar);
+            GUILayout.Label("Event", GUILayout.Width(150));
+            GUILayout.Label("Cron / Date", GUILayout.Width(130));
+            GUILayout.Label("Fn", GUILayout.Width(100));
+            GUILayout.Label("v", GUILayout.Width(25));
+            GUILayout.Label("Actions", GUILayout.Width(160));
+            GUILayout.EndHorizontal();
         }
-        private async void DeleteSchedule(CloudSchedule schedule)
+        private void DrawRow(CloudSchedule cloud)
         {
-            await Task.Yield();
+            var draft = _drafts[cloud.id];
+
+            GUILayout.BeginHorizontal("box");
+
+            draft.eventName = GUILayout.TextField(draft.eventName, GUILayout.Width(150));
+            draft.schedule = GUILayout.TextField(draft.schedule, GUILayout.Width(130));
+            draft.payload.functionName = GUILayout.TextField(draft.payload.functionName, GUILayout.Width(100));
+
+            GUILayout.Label(cloud.payloadVersion.ToString(), GUILayout.Width(25));
+
+            if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditPopup.Open(cloud, draft);
+            if (GUILayout.Button("Save", GUILayout.Width(45))) _ = SchedulerExtension.Update(cloud);
+            if (GUILayout.Button("X", GUILayout.Width(25))) _ = SchedulerExtension.Delete(cloud.id);
+
+            GUILayout.EndHorizontal();
         }
+        private void DrawCreateSection()
+        {
+            GUILayout.Label("Create new", EditorStyles.boldLabel);
+
+            if (!_drafts.ContainsKey("NEW")) _drafts["NEW"] = new EditableDraft();
+
+            var draft = _drafts["NEW"];
+
+            draft.name = EditorGUILayout.TextField("Name", draft.name);
+            draft.eventName = EditorGUILayout.TextField("Event", draft.eventName);
+            draft.payload.functionName = EditorGUILayout.TextField("Function", draft.payload.functionName);
+            draft.schedule = EditorGUILayout.TextField("Schedule", draft.schedule);
+            //draft.payload.@params = EditorGUILayout.TextArea(draft.payload.@params, GUILayout.Height(60));
+
+            if (GUILayout.Button("Create")) _ = SchedulerExtension.Create(draft);
+        }
+
+        //private void DrawScheduleFields()
+        //{
+        //    _schedule.name = EditorGUILayout.TextField("Schedule Name", _schedule.name);
+        //    _schedule.eventName = EditorGUILayout.TextField("Cloud Code Function", _schedule.eventName);
+
+        //    _selectedType = EditorGUILayout.Popup(_selectedType, _types);
+        //    _schedule.type = _types[_selectedType];
+
+        //    EditorGUILayout.HelpBox("Defines when the planned event should occur", MessageType.Info);
+        //    _schedule.schedule = EditorGUILayout.TextField("Schedule Config", _schedule.schedule);
+        //    _schedule.payloadVersion = (uint)EditorGUILayout.IntField("Payload Version", (int)_schedule.payloadVersion);
+
+        //    GUILayout.Label("Payload JSON");
+        //    _schedule.payload.functionName = EditorGUILayout.TextField(_schedule.payload.functionName);
+        //    _schedule.payload.@params = EditorGUILayout.TextField(_schedule.payload.@params, GUILayout.Height(80));
+
+        //    EditorUtility.SetDirty(_schedule);
+        //}
+        //private async void UploadSchedule(CloudSchedule schedule)
+        //{
+        //    var body = new
+        //    {
+        //        name = "test-daily",
+        //        eventName = "test-updates",
+        //        type = "recurring",
+        //        schedule = "0 0 * * *",
+        //        payloadVersion = 1,
+        //        payload = "{\"functionName\":\"daily-updates\",\"params\":{}}"
+        //    };
+
+        //    string json = JsonConvert.SerializeObject(body, Formatting.Indented);
+        //    using UnityWebRequest request = new UnityWebRequest(URL, RequestType.POST.ToString());
+        //    await WebRequest.SendRequest(request, $"Basic {AccessToken}", json);
+        //}
+        //private async void DeleteSchedule(CloudSchedule schedule)
+        //{
+        //    await Task.Yield();
+        //}
     }
 }
