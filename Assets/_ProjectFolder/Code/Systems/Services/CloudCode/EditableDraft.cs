@@ -10,7 +10,7 @@ namespace Unity.Services.CloudCode
         public string eventName;
         public string type = "recurring";
         public string schedule = "0 0 * * *";
-        public int payloadVersion;
+        public int payloadVersion = 1;
         public Payload payload = new();
 
         public EditableDraft() { }
@@ -23,17 +23,22 @@ namespace Unity.Services.CloudCode
             payloadVersion = cloud.payloadVersion;
             payload = JsonConvert.DeserializeObject<Payload>(cloud.payload);
         }
+
+        public object ToJson()
+        {
+            return new {
+                name,
+                eventName,
+                type,
+                schedule,
+                payloadVersion,
+                payload = JsonConvert.SerializeObject(payload)
+            };
+        }
     }
     [Serializable] public class Payload
     {
         public string functionName;
         public Dictionary<string, object> @params = new();
-
-        public Payload() { }
-        //public Payload(string functionName, string @params)
-        //{
-        //    this.functionName = functionName;
-        //    this.@params = @params;
-        //}
     }
 }

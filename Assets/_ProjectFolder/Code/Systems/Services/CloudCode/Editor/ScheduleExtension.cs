@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Unity.Services.CloudCode
 {
-    public static class SchedulerExtension
+    public static class ScheduleExtension
     {
         private const string PROJECT_ID = "00cea21b-b045-40ec-a6a9-21a4586964d3";
         private const string ENVIRONMENT_ID = "7ebbedf3-8bf5-4de9-9916-be24a68f0aad";
@@ -33,17 +33,16 @@ namespace Unity.Services.CloudCode
 
         public static async Task Create(EditableDraft draft)
         {
-            string json = JsonUtility.ToJson(draft);
-
             using UnityWebRequest request = new(BaseUrl, RequestType.POST.ToString());
+            string json = JsonConvert.SerializeObject(draft.ToJson(), Formatting.Indented);
+
             await WebRequest.SendRequest(request, $"Basic {AccessToken}", json);
         }
-        public static async Task Update(CloudSchedule cloud)
+        public static async Task Update(string id, EditableDraft draft)
         {
-            EditableDraft draft = new(cloud); draft.payloadVersion++;
-            string json = JsonUtility.ToJson(draft);
+            using UnityWebRequest request = new($"{BaseUrl}/{id}", RequestType.PUT.ToString());
+            string json = JsonUtility.ToJson(new CloudSchedule(id, draft, 1));
 
-            using UnityWebRequest request = new($"{BaseUrl}/{cloud.id}", RequestType.PUT.ToString());
             await WebRequest.SendRequest(request, $"Basic {AccessToken}", json);
         }
         public static async Task Delete(string id)
