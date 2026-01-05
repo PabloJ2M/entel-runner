@@ -20,6 +20,8 @@ namespace Unity.Customization
         public string ID => _itemID;
 
         public ItemType Type => _type;
-        public uint Cost => _cost;
+        public uint Cost => !HasDiscount ? _cost : OverrideCost;
+        public uint OverrideCost { get; set; }
+        public bool HasDiscount => OverrideCost != 0;
     }
 }

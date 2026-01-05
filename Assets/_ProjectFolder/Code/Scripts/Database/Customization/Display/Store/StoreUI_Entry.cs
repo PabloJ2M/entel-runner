@@ -8,8 +8,9 @@ namespace Unity.Customization.Store
     public class StoreUI_Entry : ItemsDisplayEntry
     {
         [Header("Cost Section")]
-        [SerializeField] private GameObject _lockScreen;
         [SerializeField] private TextMeshProUGUI _cost;
+        [SerializeField] private GameObject _discountMark;
+        [SerializeField] private GameObject _lockScreen;
 
         private StoreUI _manager;
         private bool _hasPurchased;
@@ -24,6 +25,7 @@ namespace Unity.Customization.Store
         {
             base.Init(item);
             _cost?.SetText(_item.Cost.ToString());
+            _discountMark.SetActive(item.HasDiscount);
         }
         public void Init(SO_Item item, bool hasPurchased)
         {
