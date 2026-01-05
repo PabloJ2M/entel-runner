@@ -1,4 +1,7 @@
+using System;
 using System.Linq;
+using System.Collections;
+using UnityEngine;
 
 namespace Unity.Customization.Store
 {
@@ -7,14 +10,14 @@ namespace Unity.Customization.Store
 
     public class StoreUI : ItemsDisplayBehaviour
     {
+        [SerializeField] private TaskConfirmation _triggerAction;
         private PlayerEconomyService _economy;
-        private const BalanceType _balance = BalanceType.COIN;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
-            _economy?.ForceUpdateBalance(_balance);
+            _economy?.ForceUpdateBalance(BalanceType.COIN);
         }
 
         protected override void OnUpdateCategory(string category)
@@ -37,13 +40,15 @@ namespace Unity.Customization.Store
             }
         }
 
-        public bool BuyItem(SO_Item item)
+        public IEnumerator BuyItem(SO_Item item, Action<bool> result)
         {
-            if (_economy.GetBalance(_balance) < item.Cost) return false;
-
+            if (_economy.GetBalance(item.Balance) < item.Cost) yield break;
+            yield return _triggerAction.DisplayTask(() => UnlockedItem(item));
+        }
+        private void UnlockedItem(SO_Item item)
+        {
             _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Category, item.ID);
-            _economy.RemoveBalanceID(_balance, item.Cost);
-            return true;
+            _economy.RemoveBalanceID(item.Balance, item.Cost);
         }
     }
 }

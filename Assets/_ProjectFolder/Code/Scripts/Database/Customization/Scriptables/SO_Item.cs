@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Unity.Customization
 {
+    using Services.Economy;
+
     [CreateAssetMenu(fileName = "item", menuName = "system/customization/item", order = 1)]
     public class SO_Item : ScriptableObject
     {
@@ -10,6 +12,7 @@ namespace Unity.Customization
         [SerializeField] private string _category, _label;
 
         [SerializeField] private ItemType _type;
+        [SerializeField] private BalanceType _balance;
         [SerializeField] private uint _cost;
 
         public SO_LibraryReference Reference => _libraryReference;
@@ -20,6 +23,7 @@ namespace Unity.Customization
         public string ID => _itemID;
 
         public ItemType Type => _type;
+        public BalanceType Balance => _balance;
         public uint Cost => !HasDiscount ? _cost : OverrideCost;
         public uint OverrideCost { get; set; }
         public bool HasDiscount => OverrideCost != 0;

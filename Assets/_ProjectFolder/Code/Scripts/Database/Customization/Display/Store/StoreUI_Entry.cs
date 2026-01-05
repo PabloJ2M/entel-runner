@@ -37,8 +37,11 @@ namespace Unity.Customization.Store
         protected override void OnClickHandler()
         {
             if (_hasPurchased) return;
-            if (!_manager.BuyItem(_item)) return;
-
+            StartCoroutine(_manager.BuyItem(_item, OnResult));
+        }
+        private void OnResult(bool result)
+        {
+            if (!result) return;
             _lockScreen.SetActive(true);
             _hasPurchased = true;
         }
