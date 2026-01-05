@@ -16,4 +16,5 @@ MonoBehaviour:
   _itemID: head_2
   _category: head
   _label: round
+  _type: 1
   _cost: 10

@@ -16,4 +16,5 @@ MonoBehaviour:
   _itemID: head_1
   _category: head
   _label: square
+  _type: 2
   _cost: 20

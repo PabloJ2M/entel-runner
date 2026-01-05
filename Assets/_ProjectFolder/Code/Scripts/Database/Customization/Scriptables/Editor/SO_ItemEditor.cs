@@ -10,7 +10,7 @@ namespace Unity.Customization
     public class SO_ItemEditor : Editor
     {
         private SerializedProperty _libraryReference, _id;
-        private SerializedProperty _category, _label, _cost;
+        private SerializedProperty _category, _label, _type, _cost;
         private string[] _categories = new string[0];
         private string[] _labels = new string[0];
 
@@ -20,6 +20,8 @@ namespace Unity.Customization
             _id = serializedObject.FindProperty("_itemID");
             _category = serializedObject.FindProperty("_category");
             _label = serializedObject.FindProperty("_label");
+
+            _type = serializedObject.FindProperty("_type");
             _cost = serializedObject.FindProperty("_cost");
         }
 
@@ -51,10 +53,20 @@ namespace Unity.Customization
 
             var sprite = item.Sprite;
             if (sprite == null) return base.RenderStaticPreview(assetPath, subAssets, width, height);
+            if (sprite.texture == null) return base.RenderStaticPreview(assetPath, subAssets, width, height);
 
             //asign texture in object
+            RenderTexture rt = RenderTexture.GetTemporary(width, height, 0, RenderTextureFormat.ARGB32);
+            Graphics.Blit(sprite.texture, rt);
+            RenderTexture.active = rt;
+
             Texture2D previewTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-            EditorUtility.CopySerialized(sprite.texture, previewTexture);
+            previewTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            previewTexture.Apply();
+
+            RenderTexture.active = null;
+            RenderTexture.ReleaseTemporary(rt);
+
             return previewTexture;
         }
 
@@ -91,6 +103,7 @@ namespace Unity.Customization
 
             var sprite = library.GetSprite(_category.stringValue, _label.stringValue);
             if (sprite == null) return;
+            if (sprite.texture == null) return;
 
             GUILayout.Space(10);
             GUILayout.Label("Preview", EditorStyles.boldLabel);
@@ -107,6 +120,7 @@ namespace Unity.Customization
         }
         private void DrawPriceField()
         {
+            EditorGUILayout.PropertyField(_type);
             _cost.intValue = EditorGUILayout.IntField("Cost", _cost.intValue);
         }
     }

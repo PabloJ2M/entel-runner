@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 1587636660151333372}
   - component: {fileID: 8015393215320831544}
   - component: {fileID: 4435591574892842527}
+  - component: {fileID: 932479994613491752}
   - component: {fileID: 1732757483722704080}
   - component: {fileID: 1821435025737933011}
+  - component: {fileID: 4931573608026992773}
   m_Layer: 5
   m_Name: items_tier
   m_TagString: Untagged
@@ -39,7 +41,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8015393215320831544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -78,6 +80,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &932479994613491752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420168490075899811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &1732757483722704080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,11 +172,36 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
-  m_IsOn: 1
+      m_Calls:
+      - m_Target: {fileID: 4931573608026992773}
+        m_TargetAssemblyTypeName: Unity.Customization.ItemTierTab, Assembly-CSharp
+        m_MethodName: OnClickHandler
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
   _icon: {fileID: 4435591574892842527}
   _onColor: {r: 1, g: 0.6345082, b: 0.3820755, a: 1}
   _offColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+--- !u!114 &4931573608026992773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420168490075899811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b42f716100bf87409963ed27d21c176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
 --- !u!1001 &7680817978689723804
 PrefabInstance:
   m_ObjectHideFlags: 0

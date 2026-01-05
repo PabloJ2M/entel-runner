@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textUI: {fileID: 315084699}
-  _balanceID: COIN
+  _balanceID: 0
 --- !u!1 &1014743423
 GameObject:
   m_ObjectHideFlags: 0

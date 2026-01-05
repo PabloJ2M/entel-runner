@@ -10,68 +10,33 @@ namespace Unity.Customization
     [CreateAssetMenu(fileName = "_container", menuName = "system/customization/item container", order = 0)]
     public class SO_Item_List : ScriptableObject, ICloudSaveGameData
     {
-        [Serializable] private class ItemWrapper { public List<SO_Item> items = new(); }
         [SerializeField] private SerializedDictionary<SO_LibraryReference, ItemWrapper> _items;
 
-        private Dictionary<string, Dictionary<string, Dictionary<string, SO_Item>>> _cache;
         private const string _default = "default";
+        private ItemsCache _cache = new();
 
-        private void BuildCache()
-        {
-            _cache = new();
-
-            foreach (var list in _items)
-            {
-                if (!_cache.ContainsKey(list.Key.ID)) _cache.Add(list.Key.ID, new());
-
-                foreach (var item in list.Value.items)
-                {
-                    if (!_cache[list.Key.ID].ContainsKey(item.Category)) _cache[list.Key.ID].Add(item.Category, new());
-                    _cache[list.Key.ID][item.Category][item.ID] = item;
-                }
-            }
-        }
         public string ItemsListToJson()
         {
             return string.Empty;
         }
 
-        public IEnumerable<SO_Item> GetItems(string category)
+        public IReadOnlyList<SO_Item> GetItemsByLibrary(string libraryID, string categoryID)
         {
-            if (_items == null || string.IsNullOrEmpty(category)) yield break;
-
-            foreach (var library in _items)
-            {
-                foreach (var item in library.Value.items)
-                {
-                    if (item == null) continue;
-                    if (item.Category == category) yield return item;
-                }
-            }
+            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
+            if (_cache.byLibrary.TryGetValue((libraryID, categoryID), out var items)) return items;
+            return Array.Empty<SO_Item>();
         }
-        public IDictionary<string, Dictionary<string, SO_Item>> GetItemsLibrary(string libraryID)
+        public IReadOnlyList<SO_Item> GetItemsByCategory(string categoryID)
         {
-            if (_cache == null) BuildCache();
-            if (_cache.TryGetValue(libraryID, out var data)) return data;
-            else return null;
+            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
+            if (_cache.byCategory.TryGetValue(categoryID, out var items)) return items;
+            return Array.Empty<SO_Item>();
         }
-
         public SO_Item GetItemByID(string library, string category, string id)
         {
-            if (_cache == null) BuildCache();
-            GetItem(library, category, string.IsNullOrEmpty(id) ? _default : id, out var item);
+            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
+            _cache.byPath.TryGetValue((library, category, string.IsNullOrEmpty(id) ? _default : id), out var item);
             return item;
-        }
-        private void GetItem(string library, string category, string id, out SO_Item item)
-        {
-            if (_cache.TryGetValue(library, out var byCategory)) {
-                if (byCategory.TryGetValue(category, out var byId)) {
-                    byId.TryGetValue(id, out item);
-                    return;
-                }
-            }
-
-            item = null;
         }
     }
 }

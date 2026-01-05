@@ -7,14 +7,20 @@ namespace Unity.Services
 
     public class UnityServiceInit : Singleton<UnityServiceInit>
     {
-        [SerializeField] private bool _debug = true;
+        #if UNITY_EDITOR
+        [SerializeField] private bool _debug = true, _disable = false;
+        #endif
+
         public event Action onServiceInitialized;
 
         protected async override void Awake()
         {
             base.Awake();
-            if (_debug && Application.isEditor)
-                PlayerPrefs.DeleteAll();
+
+            #if UNITY_EDITOR
+            if (_debug) PlayerPrefs.DeleteAll();
+            if (_disable) return;
+            #endif
 
             if (UnityServices.State == ServicesInitializationState.Uninitialized)
             {

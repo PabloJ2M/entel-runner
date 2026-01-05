@@ -5,28 +5,29 @@ namespace Unity.Customization.Inventory
 {
     public class InventoryUI : ItemsDisplayBehaviour
     {
-        private IDictionary<string, Dictionary<string, SO_Item>> _groups;
+        private string _libraryID;
 
         protected override void OnUpdateLibrary(SO_LibraryReference reference)
         {
-            base.OnUpdateLibrary(reference);
-            _groups = _itemList.GetItemsLibrary(_libraryID);
+            _libraryID = reference.ID;
         }
         protected override void OnUpdateCategory(string category)
         {
+            _items = _itemList.GetItemsByLibrary(_libraryID, category);
+            base.OnUpdateCategory(category);
+        }
+        protected override void DisplayItems()
+        {
+            var items = GetItemsFiltered().OrderByDescending(item => item.Type).ThenByDescending(item => item.Cost);
+            var unlocked = _customization.Local.unlocked;
+            
             ClearPoolInstance();
 
-            if (_groups == null) return;
-            if (!_groups.ContainsKey(category)) return;
-
-            var unlocked = _customization.Local.unlocked;
-            var group = _groups[category].OrderByDescending(x => x.Value.Cost);
-            
-            foreach (var item in group)
+            foreach (var item in items)
             {
-                if (item.Value.Cost != 0 && !unlocked.ExistPath(_libraryID, category, item.Key)) continue;
+                if (item.Cost != 0 && !unlocked.ExistPath(_libraryID, item.Category, item.ID)) continue;
                 var entry = Pool.Get() as ItemsDisplayEntry;
-                entry.Init(item.Value);
+                entry.Init(item);
             }
         }
 

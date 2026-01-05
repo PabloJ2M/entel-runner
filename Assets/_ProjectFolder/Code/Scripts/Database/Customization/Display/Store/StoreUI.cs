@@ -17,19 +17,24 @@ namespace Unity.Customization.Store
             _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
             _economy?.ForceUpdateBalance(_balance);
         }
+
         protected override void OnUpdateCategory(string category)
         {
-            var items = _itemList.GetItems(category).OrderByDescending(item => item.Cost);
+            _items = _itemList.GetItemsByCategory(category);
+            base.OnUpdateCategory(category);
+        }
+        protected override void DisplayItems()
+        {
+            var items = GetItemsFiltered().OrderByDescending(item => item.Type).ThenByDescending(item => item.Cost);
             var unlocked = _customization.Local.unlocked;
 
             ClearPoolInstance();
-            if (items.Count() == 0) return;
 
             foreach (var item in items)
             {
                 if (item.Cost == 0) continue;
                 var entry = Pool.Get() as StoreUI_Entry;
-                entry.Init(item, unlocked.ExistPath(item.Reference.ID, category, item.ID));
+                entry.Init(item, unlocked.ExistPath(item.Reference.ID, item.Category, item.ID));
             }
         }
 
