@@ -6,6 +6,8 @@ namespace Unity.Services.Authentication
 
     public class AuthUnityAccount : AuthBehaviour
     {
+        protected override void OnServiceInitialized() { }
+
         public override async void SignInOrLinkAccount()
         {
             if (!AuthenticationService.Instance.IsSignedIn)

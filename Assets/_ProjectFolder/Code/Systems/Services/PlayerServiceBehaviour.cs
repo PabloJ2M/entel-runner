@@ -12,12 +12,12 @@ namespace Unity.Services
         protected virtual void Awake() => _auth = GetComponent<AuthManager>();
         protected virtual void OnEnable()
         {
-            _auth.onSignInCompleted += OnSignInCompleted;
+            _auth.onSignInHandler += OnSignInCompleted;
             _auth.onSignOutHandler += DeleteLocalData;
         }
         protected virtual void OnDisable()
         {
-            _auth.onSignInCompleted -= OnSignInCompleted;
+            _auth.onSignInHandler -= OnSignInCompleted;
             _auth.onSignOutHandler -= DeleteLocalData;
         }
 

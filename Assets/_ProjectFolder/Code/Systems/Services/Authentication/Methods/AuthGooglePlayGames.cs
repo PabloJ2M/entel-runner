@@ -11,31 +11,35 @@ namespace Unity.Services.Authentication
     {
         private string _tokenID;
 
-        #if UNITY_ANDROID
-
-        private void Awake()
+        protected override void OnServiceInitialized()
         {
+            #if UNITY_ANDROID
             PlayGamesPlatform.Activate();
             LogInGooglePlayGamesServices();
+            #endif
         }
+
+        #if UNITY_ANDROID
+        private void LogInGooglePlayGamesServices() => PlayGamesPlatform.Instance.Authenticate(OnAuthenticate);
         private void OnAuthenticate(SignInStatus status)
         {
             if (status == SignInStatus.Success)
-                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code => _tokenID = code);
+                PlayGamesPlatform.Instance.RequestServerSideAccess(true, RequestAccessToken);
         }
-        private void LogInGooglePlayGamesServices() => PlayGamesPlatform.Instance.Authenticate(OnAuthenticate);
-
+        private void RequestAccessToken(string code)
+        {
+            _tokenID = code;
+            SignInOrLinkAccount();
+        }
         #endif
 
         public override async void SignInOrLinkAccount()
         {
             #if UNITY_ANDROID
-
             if (!PlayGamesPlatform.Instance.IsAuthenticated()) {
                 LogInGooglePlayGamesServices();
                 return;
             }
-
             #endif
 
             if (string.IsNullOrEmpty(_tokenID)) return;

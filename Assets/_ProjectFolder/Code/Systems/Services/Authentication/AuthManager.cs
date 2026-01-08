@@ -6,21 +6,30 @@ namespace Unity.Services.Authentication
     public class AuthManager : MonoBehaviour
     {
         private UnityServiceInit _service;
-        public event Action onSignInCompleted, onSignOutHandler;
+
+        public event Action onSignInInitialized;
+        public event Action onSignInHandler, onSignOutHandler;
 
         private void Awake() => _service = GetComponent<UnityServiceInit>();
-        private void OnEnable() => _service.onServiceInitialized += HandleSignIn;
-        private void OnDisable() => _service.onServiceInitialized -= HandleSignIn;
+        private void OnEnable() => _service.onServiceInitialized += SignInCallback;
+        private void OnDisable()
+        {
+            AuthenticationService.Instance.SignedIn -= HandleSignIn;
+            AuthenticationService.Instance.SignedOut -= HandleSignOut;
+            _service.onServiceInitialized -= SignInCallback;
+        }
 
-        private async void HandleSignIn()
+        private async void SignInCallback()
         {
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            print(AuthenticationService.Instance.PlayerId);
-            onSignInCompleted?.Invoke();
+            AuthenticationService.Instance.SignedIn += HandleSignIn;
+            AuthenticationService.Instance.SignedOut += HandleSignOut;
+
+            if (AuthenticationService.Instance.SessionTokenExists)
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            else
+                onSignInInitialized?.Invoke();
         }
-        private void HandleSignOut()
-        {
-            onSignOutHandler?.Invoke();
-        }
+        private void HandleSignIn() => onSignInHandler?.Invoke();
+        private void HandleSignOut() => onSignOutHandler?.Invoke();
     }
 }

@@ -1,29 +1,62 @@
+using System;
 using System.Threading.Tasks;
+
+#if UNITY_IOS
+using Apple.GameKit;
+#endif
 
 namespace Unity.Services.Authentication
 {
     public class AuthAppleGameCenter : AuthBehaviour
     {
-        private void Awake()
+        private string Signature, TeamPlayerID, PublicKeyUrl, Salt;
+        private ulong Timestamp;
+
+        protected override void OnServiceInitialized()
         {
+            #if UNITY_IOS
             LogInAppleGameCenterServices();
-        }
-        private void LogInAppleGameCenterServices()
-        {
-
+            #endif
         }
 
-        public override void SignInOrLinkAccount()
+        #if UNITY_IOS
+        private async Task LogInAppleGameCenterServices()
         {
-            
+            var player = await GKLocalPlayer.Authenticate();
+            var localPlayer = GKLocalPlayer.Local;
+
+            var fetchItemsResponse =  await GKLocalPlayer.Local.FetchItems();
+
+            Signature = Convert.ToBase64String(fetchItemsResponse.GetSignature());
+            TeamPlayerID = localPlayer.TeamPlayerId;
+
+            Salt = Convert.ToBase64String(fetchItemsResponse.GetSalt());
+            PublicKeyUrl = fetchItemsResponse.PublicKeyUrl;
+            Timestamp = fetchItemsResponse.Timestamp;
+
+            SignInOrLinkAccount();
         }
-        protected override async Task OnSignInAccountServiceAsync(string accessToken)
+        #endif
+
+        public override async void SignInOrLinkAccount()
         {
-            await AuthenticationService.Instance.SignInWithAppleGameCenterAsync("", "", "", "", 0);
+            #if UNITY_IOS
+            if (!GKLocalPlayer.Local.IsAuthenticated) {
+                await LogInAppleGameCenterServices();
+                return;
+            }
+            #endif
+
+            if (string.IsNullOrEmpty(Signature)) return;
+
+            if (!AuthenticationService.Instance.IsSignedIn) await SignInAccountAsync(Signature);
+            else await LinkAccountAsync(Signature);
         }
-        protected override async Task OnLinkAccountServiceAsync(string accessToken)
-        {
-            await AuthenticationService.Instance.LinkWithAppleGameCenterAsync("", "", "", "", 0);
-        }
+
+        protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
+            await AuthenticationService.Instance.SignInWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
+
+        protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
+            await AuthenticationService.Instance.LinkWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
     }
 }
