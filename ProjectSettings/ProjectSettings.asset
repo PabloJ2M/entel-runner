@@ -784,6 +784,7 @@ PlayerSettings:
     Android: LEVELPLAY_DEPENDENCIES_INSTALLED
     Standalone: LEVELPLAY_DEPENDENCIES_INSTALLED
     WebGL: LEVELPLAY_DEPENDENCIES_INSTALLED
+    iPhone: UNITY_IOS
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
