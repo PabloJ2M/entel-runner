@@ -21,6 +21,7 @@ namespace Unity.Services.RemoteConfig
         }
         protected override void OnSignInCompleted()
         {
+            if (IsUpToDate()) return;
             RemoteConfigService.Instance.FetchCompleted += OnFetchData;
             RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
         }
@@ -31,12 +32,13 @@ namespace Unity.Services.RemoteConfig
 
         private void OnFetchData(ConfigResponse response)
         {
-            if (IsUpToDate()) return;
-
+            string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
             string json = RemoteConfigService.Instance.appConfig.GetJson(_dataID, string.Empty);
             if (string.IsNullOrEmpty(json)) return;
             
-            _remoteData = JsonUtility.FromJson<RemoteConfigData>(json); _remoteData.date = DateTime.UtcNow.Date.ToString();
+            _remoteData = JsonUtility.FromJson<RemoteConfigData>(json);
+            _remoteData.date = DateTime.UtcNow.Date.ToString();
+
             onRemoteConfigUpdated?.Invoke(_remoteData);
             SaveLocalData(_remoteData);
         }

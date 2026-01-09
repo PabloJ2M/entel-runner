@@ -12,7 +12,7 @@ namespace Unity.Achievements
         [SerializeField] private SO_Achievement[] _achievements;
         private Dictionary<string, SO_Achievement> _cache;
 
-        private class JsonData { public List<string> missions_list; }
+        private class JsonData { public List<string> missions_list = new(); }
 
         public string ItemsListToJson()
         {
@@ -20,6 +20,7 @@ namespace Unity.Achievements
             foreach (var item in _achievements) data.missions_list.Add(item.ID);
             return JsonUtility.ToJson(data);
         }
+
         public void ResetAchievements()
         {
             foreach (var item in _achievements) item.ClearData();

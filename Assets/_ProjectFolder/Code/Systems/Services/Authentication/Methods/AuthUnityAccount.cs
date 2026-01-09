@@ -6,7 +6,12 @@ namespace Unity.Services.Authentication
 
     public class AuthUnityAccount : AuthBehaviour
     {
-        protected override void OnServiceInitialized() { }
+        protected override void OnServiceInitialized()
+        {
+            #if UNITY_EDITOR
+            AuthenticationService.Instance.SignInAnonymouslyAsync();
+            #endif
+        }
 
         public override async void SignInOrLinkAccount()
         {

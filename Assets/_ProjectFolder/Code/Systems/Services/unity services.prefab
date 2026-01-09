@@ -114,6 +114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1173075015246966442}
   - component: {fileID: 4717721573811815671}
+  - component: {fileID: 3206611478210512644}
+  - component: {fileID: 3802989731114400907}
   m_Layer: 0
   m_Name: authenticate
   m_TagString: Untagged
@@ -146,6 +148,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18a1fbeb9e5138447b682c9c718fcd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3206611478210512644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864461443948427209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec11fd8ad8636e143b8e968bed3dbbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3802989731114400907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864461443948427209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc2d8c0dd640a24f8905e487c17ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6699306312587263521
@@ -212,7 +238,7 @@ GameObject:
   - component: {fileID: 1130129659920755276}
   - component: {fileID: 3523299014230283994}
   m_Layer: 0
-  m_Name: daily updates
+  m_Name: achievements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
