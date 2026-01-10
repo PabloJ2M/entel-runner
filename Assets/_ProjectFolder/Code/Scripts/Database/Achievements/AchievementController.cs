@@ -6,40 +6,51 @@ namespace Unity.Achievements
 {
     using Services.RemoteConfig;
 
-    public class AchievementController : MonoBehaviour
+    public class AchievementController : RemoteConfigListener
     {
-        [SerializeField] private SO_Achievement_Container _listReference;
-        [SerializeField] private List<SO_Achievement> _dailyAchievements = new();
+        protected override string _localDataID => "achievements";
 
-        private PlayerRemoteConfigService _remoteConfig;
+        [SerializeField] private AchievementsData _achievements = new();
+        private Dictionary<ConfigType, AchievementField> _fields = new();
 
-        public List<SO_Achievement> DailyAchievements => _dailyAchievements;
-        public Action onAchievementsUpdated;
+        public Dictionary<ConfigType, IReadOnlyCollection<SO_Achievement>> Achievements { get; private set; } = new();
+        public event Action onAchievementsUpdated;
 
-        private void Awake() => _remoteConfig = GetComponentInParent<PlayerRemoteConfigService>();
-        private void Start() => LoadData(_remoteConfig.RemoteData);
-        private void OnEnable() => _remoteConfig.onRemoteConfigUpdated += OnRemoteConfigUpdated;
-        private void OnDisable() => _remoteConfig.onRemoteConfigUpdated -= OnRemoteConfigUpdated;
-
-        private void OnRemoteConfigUpdated(RemoteConfigData data)
+        private void Start()
         {
-            if (_remoteConfig.IsUpToDate()) return;
-
-            _listReference.ResetAchievements();
-            _dailyAchievements.Clear();
-            LoadData(data);
+            LoadLocalData(ref _achievements);
+            if (_achievements.groups.Count != 0)
+                OnRemoteConfigCompleted();
         }
-        private void LoadData(RemoteConfigData data)
-        {
-            if (data.missions == null) return;
 
-            foreach (var mission in data.missions)
+        public void AddListener(AchievementField field, ConfigType type) => _fields.Add(type, field);
+        public void RemoveListener(ConfigType type) => _fields.Remove(type);
+
+        protected override void OnRemoteConfigUpdated(string key, DateTime serverTime)
+        {
+            if (!Enum.TryParse(key, out ConfigType type)) return;
+            if (!_fields.ContainsKey(type)) return;
+
+            if (_achievements.groups.TryGetValue(key, out var group))
             {
-                var item = _listReference.Get(mission);
-                if (item != null) _dailyAchievements.Add(item);
+                DateTime.TryParse(group.date, out var lastUpdate);
+                _fields[type].ResetAchievements(lastUpdate, serverTime);
             }
 
+            _achievements.groups[key] = JsonUtility.FromJson<AchievementWrapper>(_remoteConfig.GetJson(key));
+        }
+        protected override void OnRemoteConfigCompleted()
+        {
+            ParseConfigData();
+            SaveLocalData(_achievements);
             onAchievementsUpdated?.Invoke();
+        }
+        protected override void ParseConfigData()
+        {
+            foreach (var groups in _achievements.groups) {
+                if (Enum.TryParse(groups.Key, out ConfigType type))
+                    Achievements[type] = _fields[type].Parse(groups.Value.missions);
+            }
         }
     }
 }

@@ -6,18 +6,21 @@ namespace Unity.Services.Authentication
 
     public class AuthUnityAccount : AuthBehaviour
     {
-        protected override void OnServiceInitialized() { }
+        protected override void OnServiceInitialized()
+        {
+            #if UNITY_EDITOR
+            //SignInOrLinkAccount();
+            AuthenticationService.Instance.SignInAnonymouslyAsync();
+            #endif
+        }
 
         public override async void SignInOrLinkAccount()
         {
-            if (!AuthenticationService.Instance.IsSignedIn)
-            {
+            if (!AuthenticationService.Instance.IsSignedIn) {
                 await SignInAccountAsync(PlayerAccountService.Instance.AccessToken);
                 return;
             }
-
-            if (!HasUnityID())
-            {
+            if (!HasUnityID()) {
                 await LinkAccountAsync(PlayerAccountService.Instance.AccessToken);
                 return;
             }

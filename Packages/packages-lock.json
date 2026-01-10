@@ -1,19 +1,5 @@
 {
   "dependencies": {
-    "com.apple.unityplugin.core": {
-      "version": "file:D:/Projects/Unity/Game Jams/gamejam-manati/bosque oso/unity-plugins-apple/com.apple.unityplugin.core-3.2.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
-    },
-    "com.apple.unityplugin.gamekit": {
-      "version": "file:D:/Projects/Unity/Game Jams/gamejam-manati/bosque oso/unity-plugins-apple/com.apple.unityplugin.gamekit-4.0.1.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.apple.unityplugin.core": "3.1.8"
-      }
-    },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
       "depth": 0,

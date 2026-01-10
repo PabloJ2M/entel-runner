@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72f44cab200bbee428de0cdecb224fd4, type: 3}
-  m_Name: _achievements
+  m_Name: _daily_achievements
   m_EditorClassIdentifier: 
   _achievements:
   - {fileID: 11400000, guid: 0809e60d622e3204fb8f74eb3ac9993a, type: 2}

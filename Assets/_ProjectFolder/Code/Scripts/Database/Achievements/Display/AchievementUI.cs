@@ -1,11 +1,16 @@
+using UnityEngine;
+
 namespace Unity.Achievements
 {
     using Services;
     using Services.Economy;
+    using Services.RemoteConfig;
     using Pool;
 
     public class AchievementUI : PoolObjectSingle<AchievementUI_Entry>
     {
+        [SerializeField] private ConfigType _display;
+
         private PlayerEconomyService _economy;
         private AchievementController _database;
 
@@ -23,23 +28,22 @@ namespace Unity.Achievements
         }
         private void OnDisable()
         {
+            ClearPoolInstance();
             _database.onAchievementsUpdated -= OnBuildAchievements;
         }
 
         private void OnBuildAchievements()
         {
-            if (_database.DailyAchievements.Count == 0) return;
+            if (_database.Achievements.Count == 0) return;
             ClearPoolInstance();
 
-            foreach (var mission in _database.DailyAchievements)
-            {
+            foreach (var achievement in _database.Achievements[_display]) {
                 var entry = Pool.Get() as AchievementUI_Entry;
-                entry.Init(mission);
+                entry.Init(achievement);
             }
         }
-        public void ClaimReward(AchievementRevenue revenue)
-        {
+
+        public void ClaimReward(AchievementRevenue revenue) =>
             _economy.AddBalanceID(revenue.balance, revenue.amount);
-        }
     }
 }

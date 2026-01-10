@@ -5,12 +5,12 @@ using UnityEngine.Rendering;
 
 namespace Unity.Services.Economy
 {
-    public class PlayerEconomyService : PlayerServiceBehaviour
+    public class PlayerEconomyService : UnityServiceBehaviour
     {
         [SerializeField] private SerializedDictionary<BalanceType, long> _balances;
         public Action<BalanceType, long> onBalanceUpdated;
 
-        protected override string _dataID => "currency";
+        protected override string _localDataID => "currency";
 
         protected override void Awake()
         {
@@ -20,7 +20,6 @@ namespace Unity.Services.Economy
         protected override async void OnSignInCompleted()
         {
             await LoadEconomyData().EconomyResponse();
-
             async Task LoadEconomyData()
             {
                 await EconomyService.Instance.Configuration.SyncConfigurationAsync();
@@ -56,6 +55,8 @@ namespace Unity.Services.Economy
 
         private void ModifyBalanceID(BalanceType type, long amount)
         {
+            if (!_balances.ContainsKey(type)) return;
+
             _balances[type] += amount;
             onBalanceUpdated?.Invoke(type, _balances[type]);
             SaveLocalData(_balances);

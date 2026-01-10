@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 
 namespace Unity.Services.CloudCode
 {
@@ -25,7 +24,7 @@ namespace Unity.Services.CloudCode
             schedule = draft.schedule;
 
             payloadVersion = draft.payloadVersion + updateVersion;
-            payload = JsonConvert.SerializeObject(draft.payload);
+            payload = draft.payload.ToJsonString();
         }
     }
 }

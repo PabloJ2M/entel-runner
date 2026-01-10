@@ -13,7 +13,7 @@ namespace Unity.Services.CloudCode
 
         private int _selectedType;
 
-        [MenuItem("Services/Cloud Code/Schedules")]
+        [MenuItem("Services/Cloud Function/Schedules")]
         public static void Open() => GetWindow<ScheduleEditorWindow>("Cloud Schedules");
 
         private void OnGUI()
@@ -36,7 +36,7 @@ namespace Unity.Services.CloudCode
         }
         private async Task Refresh()
         {
-            _cloudList = await ScheduleExtension.GetScheduleList();
+            _cloudList = await ScheduleExtension.GetScheduleListAsync();
             _drafts.Clear();
 
             foreach (var cloud in _cloudList) _drafts[cloud.id] = new(cloud);
@@ -65,9 +65,9 @@ namespace Unity.Services.CloudCode
 
             GUILayout.Label(draft.payloadVersion.ToString(), GUILayout.Width(25));
 
-            //if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
-            if (GUILayout.Button("Save", GUILayout.Width(45))) _ = ScheduleExtension.Update(cloud.id, draft);
-            if (GUILayout.Button("X", GUILayout.Width(25))) _ = ScheduleExtension.Delete(cloud.id);
+            if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
+            if (GUILayout.Button("Save", GUILayout.Width(45))) _ = ScheduleExtension.UpdateAync(cloud.id, draft);
+            if (GUILayout.Button("X", GUILayout.Width(25))) _ = ScheduleExtension.DeleteAync(cloud.id);
 
             GUILayout.EndHorizontal();
         }
@@ -84,7 +84,7 @@ namespace Unity.Services.CloudCode
             draft.ScheduleGUI(ref _selectedType);
             draft.ScheduleParamsGUI();
 
-            if (GUILayout.Button("Create")) _ = ScheduleExtension.Create(draft);
+            if (GUILayout.Button("Create")) _ = ScheduleExtension.CreateAync(draft);
         }
     }
 }

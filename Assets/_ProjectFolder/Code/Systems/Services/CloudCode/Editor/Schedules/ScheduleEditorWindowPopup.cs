@@ -19,8 +19,6 @@ namespace Unity.Services.CloudCode
         {
             draft.payload.functionName = GUILayout.TextField(draft.payload.functionName);
             draft.ScheduleGUI(ref _selectedType);
-
-            GUILayout.Label("Payload Params (JSON)");
             draft.ScheduleParamsGUI();
         }
     }

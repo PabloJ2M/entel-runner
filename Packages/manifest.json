@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "com.apple.unityplugin.core": "file:D:/Projects/Unity/Game Jams/gamejam-manati/bosque oso/unity-plugins-apple/com.apple.unityplugin.core-3.2.0.tgz",
-    "com.apple.unityplugin.gamekit": "file:D:/Projects/Unity/Game Jams/gamejam-manati/bosque oso/unity-plugins-apple/com.apple.unityplugin.gamekit-4.0.1.tgz",
     "com.kyrylokuzyk.primetween": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
     "com.unity.2d.animation": "10.2.2",
     "com.unity.2d.psdimporter": "9.1.1",
