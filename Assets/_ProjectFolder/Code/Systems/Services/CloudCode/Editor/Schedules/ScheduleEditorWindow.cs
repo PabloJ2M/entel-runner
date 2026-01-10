@@ -13,7 +13,7 @@ namespace Unity.Services.CloudCode
 
         private int _selectedType;
 
-        [MenuItem("Services/Cloud Code/Schedules")]
+        [MenuItem("Services/Cloud Function/Schedules")]
         public static void Open() => GetWindow<ScheduleEditorWindow>("Cloud Schedules");
 
         private void OnGUI()
@@ -65,7 +65,7 @@ namespace Unity.Services.CloudCode
 
             GUILayout.Label(draft.payloadVersion.ToString(), GUILayout.Width(25));
 
-            //if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
+            if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
             if (GUILayout.Button("Save", GUILayout.Width(45))) _ = ScheduleExtension.UpdateAync(cloud.id, draft);
             if (GUILayout.Button("X", GUILayout.Width(25))) _ = ScheduleExtension.DeleteAync(cloud.id);
 

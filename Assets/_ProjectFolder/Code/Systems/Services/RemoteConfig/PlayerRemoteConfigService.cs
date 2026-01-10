@@ -1,23 +1,26 @@
 using System;
-using UnityEngine;
 
 namespace Unity.Services.RemoteConfig
 {
-    public class PlayerRemoteConfigService : PlayerServiceBehaviour
+    using CloudCode;
+
+    public class PlayerRemoteConfigService : UnityServiceBehaviour
     {
-        protected override string _dataID => "daily_updates";
-        private RemoteConfigData _remoteData = new();
+        protected override string _localDataID => "remote_config";
+        private PlayerCloudCodeService _cloudCode;
+        private DateTime _lastUpdate;
 
-        public RemoteConfigData RemoteData => _remoteData;
-        public Action<RemoteConfigData> onRemoteConfigUpdated;
+        public event Action<string, DateTime> onRemoteConfigUpdated;
+        public event Action onRemoteConfigCompleted;
 
-        private struct userAttributes { }
         private struct appAttributes { }
+        private struct userAttributes { }
 
         protected override void Awake()
         {
             base.Awake();
-            LoadLocalData(ref _remoteData);
+            LoadLocalData(ref _lastUpdate);
+            _cloudCode = GetComponent<PlayerCloudCodeService>();
         }
         protected override void OnSignInCompleted()
         {
@@ -27,26 +30,36 @@ namespace Unity.Services.RemoteConfig
         }
         protected override void OnSignOutCompleted()
         {
+            _lastUpdate = DateTime.MinValue;
             RemoteConfigService.Instance.FetchCompleted -= OnFetchData;
         }
 
-        private void OnFetchData(ConfigResponse response)
+        private async void OnFetchData(ConfigResponse response)
         {
-            string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
-            string json = RemoteConfigService.Instance.appConfig.GetJson(_dataID, string.Empty);
-            if (string.IsNullOrEmpty(json)) return;
-            
-            _remoteData = JsonUtility.FromJson<RemoteConfigData>(json);
-            _remoteData.date = DateTime.UtcNow.Date.ToString();
+            await _cloudCode.GetServerTime();
+            if (!_cloudCode.ServerTimeUTC.HasResponse) return;
 
-            onRemoteConfigUpdated?.Invoke(_remoteData);
-            SaveLocalData(_remoteData);
+            string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
+            var serverUTC = _cloudCode.ServerTimeUTC.Time;
+
+            foreach (string key in keys)
+                onRemoteConfigUpdated?.Invoke(key, serverUTC);
+
+            onRemoteConfigCompleted?.Invoke();
+            SaveLocalData(_lastUpdate = DateTime.UtcNow.Date);
         }
-        public bool IsUpToDate()
+
+        private bool IsUpToDate()
         {
-            if (string.IsNullOrEmpty(_remoteData.date)) return false;
-            if (DateTime.TryParse(_remoteData.date, out DateTime result)) return result.Date == DateTime.UtcNow;
-            return false;
+            if (_lastUpdate == null) return false;
+            return _lastUpdate.Date == DateTime.UtcNow.Date;
         }
+
+        public string GetJson(string key) => RemoteConfigService.Instance.appConfig.GetJson(key, string.Empty);
+        public string GetString(string key) => RemoteConfigService.Instance.appConfig.GetString(key);
+        public int GetInteger(string key) => RemoteConfigService.Instance.appConfig.GetInt(key);
+        public long GetLong(string key) => RemoteConfigService.Instance.appConfig.GetLong(key);
+        public float GetFloat(string key) => RemoteConfigService.Instance.appConfig.GetFloat(key);
+        public bool GetBoolean(string key) => RemoteConfigService.Instance.appConfig.GetBool(key);
     }
 }

@@ -7,11 +7,11 @@ namespace Unity.Customization
     using Services.CloudSave;
     using Services.CloudSave.Models;
 
-    public class CustomizationController : LocalSaveBehaviour
+    public class CustomizationController : SaveLocalBehaviour
     {
         [SerializeField] private CustomizationData _customization;
 
-        protected override string _dataID => "customization";
+        protected override string _localDataID => "customization";
         private PlayerCloudSaveService _cloudSave = null;
 
         public CustomizationData Local => _customization;
@@ -21,7 +21,9 @@ namespace Unity.Customization
         private void Start()
         {
             LoadLocalData(ref _customization);
-            if (_customization.unlocked.Count > 0) onCustomizationUpdated?.Invoke();
+
+            if (_customization.unlocked.Count > 0)
+                onCustomizationUpdated?.Invoke();
         }
         private void OnEnable()
         {
@@ -36,7 +38,7 @@ namespace Unity.Customization
 
         private void OnCloudSaveUpdated(string key, Item item)
         {
-            if (key != _dataID) return;
+            if (key != _localDataID) return;
             var data = item.Value.GetAs<CustomizationData>();
 
             _customization = data;
@@ -57,7 +59,7 @@ namespace Unity.Customization
         public async Task SaveData()
         {
             SaveLocalData(_customization);
-            await _cloudSave.SaveObjectData(_dataID, _customization);
+            await _cloudSave.SaveObjectData(_localDataID, _customization);
         }
     }
 }

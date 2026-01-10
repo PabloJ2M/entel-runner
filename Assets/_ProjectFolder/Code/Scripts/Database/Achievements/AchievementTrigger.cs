@@ -5,7 +5,14 @@ namespace Unity.Achievements
     public class AchievementTrigger : MonoBehaviour
     {
         [SerializeField] private AchievementType _type;
+        private int _amount;
 
-        public void AddProgress(int amount) => AchievementEvent.onAction?.Invoke(_type, amount);
+        private void OnDisable()
+        {
+            AchievementEvent.onAction?.Invoke(_type, _amount);
+            _amount = 0;
+        }
+
+        public void AddProgress(int amount) => _amount += amount;
     }
 }

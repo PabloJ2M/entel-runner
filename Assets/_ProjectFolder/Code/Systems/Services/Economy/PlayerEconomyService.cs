@@ -5,12 +5,12 @@ using UnityEngine.Rendering;
 
 namespace Unity.Services.Economy
 {
-    public class PlayerEconomyService : PlayerServiceBehaviour
+    public class PlayerEconomyService : UnityServiceBehaviour
     {
         [SerializeField] private SerializedDictionary<BalanceType, long> _balances;
         public Action<BalanceType, long> onBalanceUpdated;
 
-        protected override string _dataID => "currency";
+        protected override string _localDataID => "currency";
 
         protected override void Awake()
         {

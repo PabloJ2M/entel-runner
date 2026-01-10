@@ -19,7 +19,7 @@ namespace Unity.Services.CloudSave
 
         private bool _isLoading;
 
-        [MenuItem("Services/Cloud Save/Global Save")]
+        [MenuItem("Services/Cloud Function/Global Save")]
         public static void Open() => GetWindow<CloudSaveEditorWindow>("Global CloudSave");
 
         private void OnGUI()

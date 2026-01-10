@@ -14,10 +14,12 @@ namespace Unity.Achievements
 
         private void OnActionHandler(AchievementType type, int amount)
         {
-            foreach (var mission in _controller.DailyAchievements)
+            foreach (var achievements in _controller.Achievements)
             {
-                if (mission.Status.isCompleted) continue;
-                if (mission.Type == type) mission.Add(amount);
+                foreach (var achievement in achievements.Value) {
+                    if (achievement.Status.isCompleted) continue;
+                    if (achievement.Type == type) achievement.Add(amount);
+                }
             }
         }
     }

@@ -5,7 +5,7 @@ namespace Unity.Services
     using Authentication;
 
     [DefaultExecutionOrder(-50), RequireComponent(typeof(AuthManager))]
-    public abstract class PlayerServiceBehaviour : LocalSaveBehaviour
+    public abstract class UnityServiceBehaviour : SaveLocalBehaviour
     {
         private AuthManager _auth;
 

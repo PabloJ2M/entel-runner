@@ -6,13 +6,13 @@ namespace Unity.Services.CloudSave
 {
     using Models;
 
-    public class PlayerCloudSaveService : PlayerServiceBehaviour
+    public class PlayerCloudSaveService : UnityServiceBehaviour
     {
-        protected override string _dataID => "inventory";
+        protected override string _localDataID => "inventory";
         private bool _hasLoadedData;
 
-        public Action<string, Item> onCloudSaveUpdated;
-        public Action onCloudSaveClear;
+        public event Action<string, Item> onCloudSaveUpdated;
+        public event Action onCloudSaveClear;
 
         protected override void Awake()
         {

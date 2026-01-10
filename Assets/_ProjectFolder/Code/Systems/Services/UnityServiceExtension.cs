@@ -8,7 +8,7 @@ namespace Unity.Services
     using CloudSave;
     using Economy;
 
-    public static class UnityServicesExtension
+    public static class UnityServiceExtension
     {
         public static async Task AuthResponse(this Task action)
         {
