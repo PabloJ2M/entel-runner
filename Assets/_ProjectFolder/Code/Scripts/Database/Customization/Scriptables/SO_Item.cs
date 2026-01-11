@@ -1,3 +1,4 @@
+//using System;
 using UnityEngine;
 
 namespace Unity.Customization
@@ -9,20 +10,31 @@ namespace Unity.Customization
     {
         [SerializeField] private SO_LibraryReference _libraryReference;
         [SerializeField] private string _itemID;
-        [SerializeField] private string _category, _label;
+        [SerializeField] private Sprite _preview;
 
-        [SerializeField] private ItemType _type;
+        [SerializeField] private ItemGroup _group;
+        //[SerializeField] private string[] _categories;
+        [SerializeField] private string _label;
+
+        [SerializeField] private ItemQuality _quality;
         [SerializeField] private BalanceType _balance;
         [SerializeField] private uint _cost;
 
-        public SO_LibraryReference Reference => _libraryReference;
-        public Sprite Sprite => _libraryReference?.Asset.GetSprite(Category, Label);
-
-        public string Category => _category;
-        public string Label => _label;
         public string ID => _itemID;
+        public SO_LibraryReference Reference => _libraryReference;
 
-        public ItemType Type => _type;
+        //public Sprite PreviewImage {
+        //    get {
+        //        if (!_preview) _preview = Preview.Build(Reference.GetSprites(_categories, _label));
+        //        return _preview;
+        //    }
+        //}
+
+        public Sprite Preview => _preview;
+        public string Group => _group.ToString();
+        public string LabelName => _label;
+
+        public ItemQuality Type => _quality;
         public BalanceType Balance => _balance;
         public uint Cost => !HasDiscount ? _cost : OverrideCost;
         public uint OverrideCost { get; set; }

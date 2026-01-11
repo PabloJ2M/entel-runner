@@ -20,10 +20,10 @@ namespace Unity.Customization.Store
             _economy?.ForceUpdateBalance(BalanceType.COIN);
         }
 
-        protected override void OnUpdateCategory(string category)
+        protected override void OnUpdateGroup(ItemGroup group)
         {
-            _items = _itemList.GetItemsByCategory(category);
-            base.OnUpdateCategory(category);
+            _items = _itemList.GetItemsByCategory(group.ToString());
+            base.OnUpdateGroup(group);
         }
         protected override void DisplayItems()
         {
@@ -36,7 +36,7 @@ namespace Unity.Customization.Store
             {
                 if (item.Cost == 0) continue;
                 var entry = Pool.Get() as StoreUI_Entry;
-                entry.Init(item, unlocked.ExistPath(item.Reference.ID, item.Category, item.ID));
+                entry.Init(item, unlocked.ExistPath(item.Reference.ID, item.Group, item.ID));
             }
         }
 
@@ -47,7 +47,7 @@ namespace Unity.Customization.Store
         }
         private void UnlockedItem(SO_Item item)
         {
-            _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Category, item.ID);
+            _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Group, item.ID);
             _economy.RemoveBalanceID(item.Balance, item.Cost);
         }
     }

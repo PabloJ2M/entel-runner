@@ -35,23 +35,23 @@ namespace Unity.Customization
         protected virtual void OnEnable()
         {
             _library.onLibraryUpdated += OnUpdateLibrary;
-            _library.onCategoryUpdated += OnUpdateCategory;
+            _library.onCategoryUpdated += OnUpdateGroup;
             _library.onItemTypeFiltered += OnFilteredItems;
         }
         protected virtual void OnDisable()
         {
             _library.onLibraryUpdated -= OnUpdateLibrary;
-            _library.onCategoryUpdated -= OnUpdateCategory;
+            _library.onCategoryUpdated -= OnUpdateGroup;
             _library.onItemTypeFiltered -= OnFilteredItems;
         }
 
         protected virtual void OnUpdateLibrary(SO_LibraryReference reference) { }
-        protected virtual void OnUpdateCategory(string category) => DisplayItems();
+        protected virtual void OnUpdateGroup(ItemGroup group) => DisplayItems();
         protected abstract void DisplayItems();
 
-        protected void OnFilteredItems(ItemType type)
+        protected void OnFilteredItems(ItemQuality type)
         {
-            if (type == ItemType.None) _filters.Remove("type");
+            if (type == ItemQuality.None) _filters.Remove("type");
             else _filters["type"] = (item) => item.Type == type;
             DisplayItems();
         }

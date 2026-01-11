@@ -7,18 +7,19 @@ namespace Unity.Customization
     public class SpriteResolverListener : MonoBehaviour
     {
         [SerializeField] private SpriteResolver _resolver;
-        private SpriteRenderer _render;
-        private string _categoryID;
+        [SerializeField] private ItemGroup _group;
 
+        private SpriteRenderer _render;
+        private string _category;
+
+        private void Reset() => _resolver = GetComponent<SpriteResolver>();
         private void Awake()
         {
+            GetComponentInParent<SpriteLibraryHandler>().AddListener(_group, this);
             _render = GetComponent<SpriteRenderer>();
-
-            _categoryID = _resolver.GetCategory();
-            GetComponentInParent<SpriteLibraryHandler>().AddListener(_categoryID, this);
+            _category = _resolver.GetCategory();
         }
-        private void Reset() => _resolver = GetComponent<SpriteResolver>();
 
-        public void SetLabel(string label) => _render.enabled = _resolver.SetCategoryAndLabel(_categoryID, label);
+        public void SetLabel(string label) => _render.enabled = _resolver.SetCategoryAndLabel(_category, label);
     }
 }

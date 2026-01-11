@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
@@ -12,7 +13,7 @@ namespace Unity.Customization
         [SerializeField] private SO_LibraryReference_List _reference;
         [SerializeField] private SO_Item_List _listReference;
 
-        private Dictionary<string, SpriteResolverListener> _resolvers = new();
+        private Dictionary<ItemGroup, HashSet<SpriteResolverListener>> _resolvers = new();
         private CustomizationController _customization;
         private SpriteLibrary _library;
 
@@ -43,21 +44,27 @@ namespace Unity.Customization
 
             if (equipped == null) equipped = new();
 
-            IEnumerable<string> categories = library.Asset.GetCategoryNames();
-            foreach (var category in categories)
+            string[] groups = Enum.GetNames(typeof(ItemGroup));
+            foreach (var group in groups)
             {
-                equipped.TryGetValue(category, out var id);
-                var item = _listReference.GetItemByID(library.ID, category, id);
-                if (item != null) SetLabel(category, item.Label);
+                equipped.TryGetValue(group, out var id);
+                var item = _listReference.GetItemByID(library.ID, group, id);
+                if (item != null) SetLabel(group, item.LabelName);
             }
         }
 
-        public void AddListener(string category, SpriteResolverListener element) => _resolvers.Add(category, element);
-        public void RemoveListener(string category) => _resolvers.Remove(category);
-        public void SetLabel(string category, string label)
+        public void AddListener(ItemGroup group, SpriteResolverListener element)
         {
-            if (_resolvers.TryGetValue(category, out var resolver))
-                resolver.SetLabel(label);
+            if (_resolvers.TryGetValue(group, out var list)) list.Add(element);
+            else _resolvers.Add(group, new() { element });
+        }
+        public void SetLabel(string group, string label)
+        {
+            if (!Enum.TryParse(typeof(ItemGroup), group, out var type)) return;
+            if (!_resolvers.TryGetValue((ItemGroup)type, out var list)) return;
+
+            foreach (var item in list)
+                item.SetLabel(label);
         }
     }
 }

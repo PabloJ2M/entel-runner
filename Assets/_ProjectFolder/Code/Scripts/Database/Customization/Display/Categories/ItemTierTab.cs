@@ -4,7 +4,7 @@ namespace Unity.Customization
 {
     public class ItemTierTab : MonoBehaviour
     {
-        [SerializeField] private ItemType _type;
+        [SerializeField] private ItemQuality _type;
         private ItemTier _manager;
 
         private void Awake() => _manager = GetComponentInParent<ItemTier>();

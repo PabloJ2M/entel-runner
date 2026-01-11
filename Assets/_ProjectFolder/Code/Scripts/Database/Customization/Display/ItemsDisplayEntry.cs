@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Unity.Customization
 {
     using Pool;
-    using TMPro;
 
     public abstract class ItemsDisplayEntry : PoolObjectBehaviour
     {
@@ -17,8 +17,8 @@ namespace Unity.Customization
         public virtual void Init(SO_Item item)
         {
             _item = item;
-            _icon?.SetSprite(_item.Sprite);
-            _name?.SetText(_item.Label);
+            _icon?.SetSprite(_item.Preview);
+            _name?.SetText(_item.LabelName);
         }
         protected abstract void OnClickHandler();
     }

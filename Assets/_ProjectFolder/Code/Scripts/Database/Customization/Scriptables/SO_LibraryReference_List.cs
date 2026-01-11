@@ -13,8 +13,8 @@ namespace Unity.Customization
 
         public event Action<SO_LibraryReference> onLibraryUpdated;
         public event Action<SO_LibraryReference> onPreviewUpdated;
-        public event Action<ItemType> onItemTypeFiltered;
-        public event Action<string> onCategoryUpdated;
+        public event Action<ItemQuality> onItemTypeFiltered;
+        public event Action<ItemGroup> onCategoryUpdated;
 
         public void Previous()
         {
@@ -32,8 +32,8 @@ namespace Unity.Customization
         private void UpdateAssetReference() { UpdatePreview(); UpdateLibrary(); }
         public void UpdatePreview() => onPreviewUpdated?.Invoke(_assets[_index]);
         public void UpdateLibrary() => onLibraryUpdated?.Invoke(_assets[_index]);
-        public void FilteredByType(ItemType type) => onItemTypeFiltered?.Invoke(type);
-        public void UpdateCategory(string category) => onCategoryUpdated?.Invoke(category);
+        public void FilteredByType(ItemQuality type) => onItemTypeFiltered?.Invoke(type);
+        public void UpdateGroup(ItemGroup group) => onCategoryUpdated?.Invoke(group);
 
         public void FindReference(string key)
         {

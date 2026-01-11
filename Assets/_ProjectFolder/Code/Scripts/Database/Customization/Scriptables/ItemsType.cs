@@ -2,17 +2,25 @@ using UnityEngine;
 
 namespace Unity.Customization
 {
-    public enum ItemType
+    public enum ItemGroup
+    {
+        Head,
+        Top,
+        Pants,
+        Shoes
+    }
+
+    public enum ItemQuality
     {
         None = -1,
 
         [InspectorName("Calidad Baja")]
-        LowQuality = 1,
+        LowQuality = 0,
 
         [InspectorName("Calidad Media")]
-        MediumQuality = 2,
+        MediumQuality = 1,
 
         [InspectorName("Calidad Alta")]
-        HighQuality = 3
+        HighQuality = 2
     }
 }

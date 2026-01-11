@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08df10be0a73294983983996589666e, type: 3}
-  m_Name: male_head_item 1
+  m_Name: male_default_shoes
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
-  _itemID: head_1
-  _category: head
-  _label: square
-  _type: 2
-  _cost: 20
+  _itemID: default
+  _preview: {fileID: 21300000, guid: d334f9bc79a92da4d9204a7daeae60e7, type: 3}
+  _group: 3
+  _label: default
+  _quality: 0
+  _balance: 0
+  _cost: 0

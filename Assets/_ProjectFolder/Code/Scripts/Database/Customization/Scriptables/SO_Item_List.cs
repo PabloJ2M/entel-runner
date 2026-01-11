@@ -20,22 +20,22 @@ namespace Unity.Customization
             return string.Empty;
         }
 
-        public IReadOnlyList<SO_Item> GetItemsByLibrary(string libraryID, string categoryID)
+        public IReadOnlyList<SO_Item> GetItemsByLibrary(string libraryID, string groupID)
         {
             if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            if (_cache.byLibrary.TryGetValue((libraryID, categoryID), out var items)) return items;
+            if (_cache.byLibrary.TryGetValue((libraryID, groupID), out var items)) return items;
             return Array.Empty<SO_Item>();
         }
-        public IReadOnlyList<SO_Item> GetItemsByCategory(string categoryID)
+        public IReadOnlyList<SO_Item> GetItemsByCategory(string groupID)
         {
             if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            if (_cache.byCategory.TryGetValue(categoryID, out var items)) return items;
+            if (_cache.byGroup.TryGetValue(groupID, out var items)) return items;
             return Array.Empty<SO_Item>();
         }
-        public SO_Item GetItemByID(string library, string category, string id)
+        public SO_Item GetItemByID(string library, string group, string id)
         {
             if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            _cache.byPath.TryGetValue((library, category, string.IsNullOrEmpty(id) ? _default : id), out var item);
+            _cache.byPath.TryGetValue((library, group, string.IsNullOrEmpty(id) ? _default : id), out var item);
             return item;
         }
     }

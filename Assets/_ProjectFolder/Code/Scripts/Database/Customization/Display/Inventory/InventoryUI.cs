@@ -11,10 +11,10 @@ namespace Unity.Customization.Inventory
         {
             _libraryID = reference.ID;
         }
-        protected override void OnUpdateCategory(string category)
+        protected override void OnUpdateGroup(ItemGroup group)
         {
-            _items = _itemList.GetItemsByLibrary(_libraryID, category);
-            base.OnUpdateCategory(category);
+            _items = _itemList.GetItemsByLibrary(_libraryID, group.ToString());
+            base.OnUpdateGroup(group);
         }
         protected override void DisplayItems()
         {
@@ -25,7 +25,7 @@ namespace Unity.Customization.Inventory
 
             foreach (var item in items)
             {
-                if (item.Cost != 0 && !unlocked.ExistPath(_libraryID, item.Category, item.ID)) continue;
+                if (item.Cost != 0 && !unlocked.ExistPath(_libraryID, item.Group, item.ID)) continue;
                 var entry = Pool.Get() as ItemsDisplayEntry;
                 entry.Init(item);
             }
@@ -34,7 +34,7 @@ namespace Unity.Customization.Inventory
         public void SelectItem(SO_Item item)
         {
             var equipped = _customization.Local.equipped;
-            equipped.CreatePath(_libraryID, item.Category, item.ID);
+            equipped.CreatePath(_libraryID, item.Group, item.ID);
             _library.UpdatePreview();
         }
     }

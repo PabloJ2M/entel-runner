@@ -19,9 +19,8 @@ MonoBehaviour:
     m_Values:
     - items:
       - {fileID: 11400000, guid: 9dd96f7eb79f9b244b93ac32e71ec11a, type: 2}
-      - {fileID: 11400000, guid: c6f697c18c52f4a45bab14d24862e958, type: 2}
-      - {fileID: 11400000, guid: a96a2226c49fcb144ae37f5493f564f7, type: 2}
     - items:
       - {fileID: 11400000, guid: fab7783114f4cff4d83294fb7eb650e3, type: 2}
-      - {fileID: 11400000, guid: 0c5ebc593cd344f4fbc05a107c560a4a, type: 2}
-      - {fileID: 11400000, guid: de060fea9dbe7884482809aae8269877, type: 2}
+      - {fileID: 11400000, guid: aeab51d657ef7d345a5e3e4ab4e918f0, type: 2}
+      - {fileID: 11400000, guid: bd2bcb8760282ce42859e5482ed34e7d, type: 2}
+      - {fileID: 11400000, guid: dade768e7d26895448412d93110eabe3, type: 2}
