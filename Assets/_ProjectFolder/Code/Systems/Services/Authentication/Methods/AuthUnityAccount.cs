@@ -6,30 +6,31 @@ namespace Unity.Services.Authentication
 
     public class AuthUnityAccount : AuthBehaviour
     {
-        protected override void OnServiceInitialized()
+        protected override async void OnServiceInitialized()
         {
             #if UNITY_EDITOR
-            //SignInOrLinkAccount();
-            AuthenticationService.Instance.SignInAnonymouslyAsync();
+            PlayerAccountService.Instance.SignedIn += SignInOrLinkAccount;
+            await LoginUnityPlayerServices();
             #endif
         }
 
+        #if UNITY_EDITOR
+        private async Task LoginUnityPlayerServices() => await PlayerAccountService.Instance.StartSignInAsync().AuthResponse();
+        #endif
+
         public override async void SignInOrLinkAccount()
         {
-            if (!AuthenticationService.Instance.IsSignedIn) {
-                await SignInAccountAsync(PlayerAccountService.Instance.AccessToken);
-                return;
-            }
-            if (!HasUnityID()) {
-                await LinkAccountAsync(PlayerAccountService.Instance.AccessToken);
-                return;
-            }
+            #if UNITY_EDITOR
+            if (!PlayerAccountService.Instance.IsSignedIn)
+                await LoginUnityPlayerServices();
+            #endif
+            
+            if (!AuthenticationService.Instance.IsSignedIn) await SignInAccountAsync(PlayerAccountService.Instance.AccessToken);
+            else await LinkAccountAsync(PlayerAccountService.Instance.AccessToken);
         }
-        private bool HasUnityID() => AuthenticationService.Instance.PlayerInfo.GetUnityId() != null;
 
         protected async override Task OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
-
         protected async override Task OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithUnityAsync(accessToken);
     }

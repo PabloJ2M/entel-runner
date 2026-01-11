@@ -10,7 +10,7 @@ namespace Unity.Achievements
     {
         protected override string _localDataID => "achievements";
 
-        [SerializeField] private AchievementsData _achievements = new();
+        [SerializeField] private AchievementRemoteGroup _achievements = new();
         private Dictionary<ConfigType, AchievementField> _fields = new();
 
         public Dictionary<ConfigType, IReadOnlyCollection<SO_Achievement>> Achievements { get; private set; } = new();
@@ -37,12 +37,12 @@ namespace Unity.Achievements
                 _fields[type].ResetAchievements(lastUpdate, serverTime);
             }
 
-            _achievements.groups[key] = JsonUtility.FromJson<AchievementWrapper>(_remoteConfig.GetJson(key));
+            _achievements.groups[key] = JsonUtility.FromJson<AchievementRemote>(_remoteConfig.GetJson(key));
+            SaveLocalData(_achievements);
         }
         protected override void OnRemoteConfigCompleted()
         {
             ParseConfigData();
-            SaveLocalData(_achievements);
             onAchievementsUpdated?.Invoke();
         }
         protected override void ParseConfigData()

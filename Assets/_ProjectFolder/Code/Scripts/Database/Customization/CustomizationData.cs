@@ -6,7 +6,7 @@ namespace Unity.Customization
     public class CustomizationData
     {
         public string selectedLibrary;
-        public NestedStringDictionary equipped;
-        public NestedHashSetDictionary unlocked;
+        public SerializedNestedString equipped;
+        public SerializedNestedHashSet unlocked;
     }
 }

@@ -768,7 +768,8 @@ MonoBehaviour:
   _icon: {fileID: 9088420457871941171}
   _name: {fileID: 4076031645853291942}
   _cost: {fileID: 9093374693827937978}
-  _discountMark: {fileID: 2392422373074829301}
+  _discount: {fileID: 832051233766796018}
+  _discountBlock: {fileID: 2392422373074829301}
   _lockScreen: {fileID: 1209011514212992309}
 --- !u!114 &4076031645853291942 stripped
 MonoBehaviour:

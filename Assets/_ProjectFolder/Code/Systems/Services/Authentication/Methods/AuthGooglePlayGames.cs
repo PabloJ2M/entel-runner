@@ -50,7 +50,6 @@ namespace Unity.Services.Authentication
 
         protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(accessToken);
-
         protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithGooglePlayGamesAsync(accessToken);
     }

@@ -8,10 +8,14 @@ namespace Unity.Customization
     public class SO_Item_ListEditor : Editor
     {
         private SerializedProperty _keys, _values;
+        //private SerializedProperty _list;
+        //private ItemDictionary _dictionary;
         private string _customPath;
 
         private void OnEnable()
         {
+            //_list = serializedObject.FindProperty("_items");
+            //_dictionary = _list.boxedValue as ItemDictionary;
             var items = serializedObject.FindProperty("_items");
             _keys = items.FindPropertyRelative("m_Keys");
             _values = items.FindPropertyRelative("m_Values");
@@ -44,6 +48,12 @@ namespace Unity.Customization
 
             Undo.RecordObject(target, "Load Scriptables");
 
+            //_dictionary.Clear();
+
+            //foreach (var group in groups)
+            //    _dictionary[group.Key] = group as ItemList;
+
+            //_list.boxedValue = _dictionary;
             _keys.ClearArray();
             _values.ClearArray();
 
@@ -59,7 +69,8 @@ namespace Unity.Customization
                 values.arraySize = group.Count();
 
                 int j = 0;
-                foreach (var item in group) {
+                foreach (var item in group)
+                {
                     values.GetArrayElementAtIndex(j).objectReferenceValue = item;
                     j++;
                 }

@@ -33,8 +33,8 @@ namespace Unity.Services.CloudSave
                 return;
             }
 
-            _gameData = gameData;
             EditorGUILayout.Space();
+            _gameData = gameData;
 
             using (new EditorGUI.DisabledScope(_gameData == null)) {
                 _customItemId = EditorGUILayout.TextField("Custom Item ID", _customItemId);
@@ -73,7 +73,7 @@ namespace Unity.Services.CloudSave
         }
         private void DrawApplyButton()
         {
-            if (_selectedKeyIndex < 0 || _gameData == null) return;
+            if (_selectedKeyIndex < 0) return;
             if (GUILayout.Button("Overwrite Game Data"))
                 _ = ApplySelectedKey();
         }

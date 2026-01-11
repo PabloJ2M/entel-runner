@@ -22,7 +22,7 @@ namespace Unity.Customization.Store
 
         protected override void OnUpdateGroup(ItemGroup group)
         {
-            _items = _itemList.GetItemsByCategory(group.ToString());
+            _items = _itemList.GetItemsByGroup(group.ToString());
             base.OnUpdateGroup(group);
         }
         protected override void DisplayItems()

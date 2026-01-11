@@ -9,7 +9,12 @@ namespace Unity.Customization.Store
     {
         [Header("Cost Section")]
         [SerializeField] private TextMeshProUGUI _cost;
-        [SerializeField] private GameObject _discountMark;
+
+        [Header("Discount Section")]
+        [SerializeField] private GameObject _discountBlock;
+        [SerializeField] private TextMeshProUGUI _discount;
+
+        [Space]
         [SerializeField] private GameObject _lockScreen;
 
         private StoreUI _manager;
@@ -25,7 +30,9 @@ namespace Unity.Customization.Store
         {
             base.Init(item);
             _cost?.SetText(_item.Cost.ToString());
-            _discountMark.SetActive(item.HasDiscount);
+
+            _discountBlock?.SetActive(item.HasDiscount);
+            if (_discountBlock.activeSelf) _discount?.SetText($"{(int)(item.Discount * 100)}%");
         }
         public void Init(SO_Item item, bool hasPurchased)
         {

@@ -22,6 +22,7 @@ namespace Unity.Customization
 
         private void Awake()
         {
+            _listReference?.Setup();
             _library = GetComponent<SpriteLibrary>();
             _customization = UnityServiceInit.Instance.GetComponentInChildren<CustomizationController>();
         }
@@ -48,7 +49,7 @@ namespace Unity.Customization
             foreach (var group in groups)
             {
                 equipped.TryGetValue(group, out var id);
-                var item = _listReference.GetItemByID(library.ID, group, id);
+                var item = _listReference.GetItemByPath(library.ID, group, id);
                 if (item != null) SetLabel(group, item.LabelName);
             }
         }

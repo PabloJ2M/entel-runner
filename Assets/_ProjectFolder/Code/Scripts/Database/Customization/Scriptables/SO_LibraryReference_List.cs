@@ -14,7 +14,7 @@ namespace Unity.Customization
         public event Action<SO_LibraryReference> onLibraryUpdated;
         public event Action<SO_LibraryReference> onPreviewUpdated;
         public event Action<ItemQuality> onItemTypeFiltered;
-        public event Action<ItemGroup> onCategoryUpdated;
+        public event Action<ItemGroup> onGroupUpdated;
 
         public void Previous()
         {
@@ -33,7 +33,7 @@ namespace Unity.Customization
         public void UpdatePreview() => onPreviewUpdated?.Invoke(_assets[_index]);
         public void UpdateLibrary() => onLibraryUpdated?.Invoke(_assets[_index]);
         public void FilteredByType(ItemQuality type) => onItemTypeFiltered?.Invoke(type);
-        public void UpdateGroup(ItemGroup group) => onCategoryUpdated?.Invoke(group);
+        public void UpdateGroup(ItemGroup group) => onGroupUpdated?.Invoke(group);
 
         public void FindReference(string key)
         {

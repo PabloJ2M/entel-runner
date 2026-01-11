@@ -9,7 +9,7 @@ namespace Unity.Achievements
     public class AchievementField : MonoBehaviour
     {
         [SerializeField] private AchievementController _controller;
-        [SerializeField] private SO_Achievement_Container _reference;
+        [SerializeField] private SO_Achievement_List _reference;
         [SerializeField] private ConfigType _type;
         [SerializeField] private int _days;
 

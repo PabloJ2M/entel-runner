@@ -12,10 +12,12 @@ namespace Unity.Services.Authentication
         private string Signature, TeamPlayerID, PublicKeyUrl, Salt;
         private ulong Timestamp;
 
-        protected override void OnServiceInitialized()
+        protected override async void OnServiceInitialized()
         {
             #if UNITY_IOS
-            LogInAppleGameCenterServices();
+            await LogInAppleGameCenterServices();
+            #else
+            await Task.Yield();
             #endif
         }
 
@@ -55,7 +57,6 @@ namespace Unity.Services.Authentication
 
         protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
-
         protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
     }

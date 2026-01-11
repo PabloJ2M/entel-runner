@@ -23,7 +23,8 @@ namespace Unity.Customization
         protected override void Awake()
         {
             base.Awake();
-            _customization = UnityServiceInit.Instance.GetComponentInChildren<CustomizationController>();
+            _itemList?.Setup();
+            _customization = UnityServiceInit.Instance?.GetComponentInChildren<CustomizationController>();
         }
         protected override void Reset() => _parent = GetComponentInChildren<ScrollRect>().content;
         protected override void OnGet(PoolObjectBehaviour @object)
@@ -34,15 +35,15 @@ namespace Unity.Customization
 
         protected virtual void OnEnable()
         {
-            _library.onLibraryUpdated += OnUpdateLibrary;
-            _library.onCategoryUpdated += OnUpdateGroup;
             _library.onItemTypeFiltered += OnFilteredItems;
+            _library.onLibraryUpdated += OnUpdateLibrary;
+            _library.onGroupUpdated += OnUpdateGroup;
         }
         protected virtual void OnDisable()
         {
-            _library.onLibraryUpdated -= OnUpdateLibrary;
-            _library.onCategoryUpdated -= OnUpdateGroup;
             _library.onItemTypeFiltered -= OnFilteredItems;
+            _library.onLibraryUpdated -= OnUpdateLibrary;
+            _library.onGroupUpdated -= OnUpdateGroup;
         }
 
         protected virtual void OnUpdateLibrary(SO_LibraryReference reference) { }

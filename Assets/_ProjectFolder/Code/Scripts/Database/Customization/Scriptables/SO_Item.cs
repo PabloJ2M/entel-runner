@@ -36,8 +36,9 @@ namespace Unity.Customization
 
         public ItemQuality Type => _quality;
         public BalanceType Balance => _balance;
-        public uint Cost => !HasDiscount ? _cost : OverrideCost;
-        public uint OverrideCost { get; set; }
-        public bool HasDiscount => OverrideCost != 0;
+        public uint Cost => !HasDiscount ? _cost : (uint)(_cost * Discount);
+
+        public float Discount { get; set; }
+        public bool HasDiscount => Discount != 0;
     }
 }

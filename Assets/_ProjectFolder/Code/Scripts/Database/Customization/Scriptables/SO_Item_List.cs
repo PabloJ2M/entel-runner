@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Unity.Customization
 {
@@ -10,33 +8,30 @@ namespace Unity.Customization
     [CreateAssetMenu(fileName = "_container", menuName = "system/customization/item container", order = 0)]
     public class SO_Item_List : ScriptableObject, ICloudSaveGameData
     {
-        [SerializeField] private SerializedDictionary<SO_LibraryReference, ItemWrapper> _items;
+        [SerializeField] private ItemDictionary _items;
 
         private const string _default = "default";
-        private ItemsCache _cache = new();
+        private ItemsCache? _cache;
 
+        public void Setup()
+        {
+            if (_cache == null)
+                _cache = new(_items);
+        }
         public string ItemsListToJson()
         {
-            return string.Empty;
+            IJsonData data = new ItemsCloud(_items);
+            return data.JsonDictionary();
         }
 
-        public IReadOnlyList<SO_Item> GetItemsByLibrary(string libraryID, string groupID)
-        {
-            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            if (_cache.byLibrary.TryGetValue((libraryID, groupID), out var items)) return items;
-            return Array.Empty<SO_Item>();
-        }
-        public IReadOnlyList<SO_Item> GetItemsByCategory(string groupID)
-        {
-            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            if (_cache.byGroup.TryGetValue(groupID, out var items)) return items;
-            return Array.Empty<SO_Item>();
-        }
-        public SO_Item GetItemByID(string library, string group, string id)
-        {
-            if (!_cache.IsBuildCache()) _cache.BuildCache(_items);
-            _cache.byPath.TryGetValue((library, group, string.IsNullOrEmpty(id) ? _default : id), out var item);
-            return item;
-        }
+        public IReadOnlyList<SO_Item> GetItemsByLibrary(string libraryID, string groupID) =>
+            _cache?.GetItemsByLibrary(libraryID, groupID);
+        public IReadOnlyList<SO_Item> GetItemsByGroup(string groupID) =>
+            _cache?.GetItemsByGroup(groupID);
+
+        public SO_Item GetItemByPath(string library, string group, string id) =>
+            _cache?.GetItemByPath(library, group, string.IsNullOrEmpty(id) ? _default : id);
+
+        public void ClearModifiedData() => _cache?.ClearModifiedData();
     }
 }
