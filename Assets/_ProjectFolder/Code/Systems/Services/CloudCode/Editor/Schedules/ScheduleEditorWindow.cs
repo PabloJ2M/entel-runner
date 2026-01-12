@@ -46,11 +46,11 @@ namespace Unity.Services.CloudCode
         private void DrawTableHeader()
         {
             GUILayout.BeginHorizontal(EditorStyles.toolbar);
-            GUILayout.Label("Event", GUILayout.Width(150));
-            GUILayout.Label("Cron / Date", GUILayout.Width(130));
-            GUILayout.Label("Fn", GUILayout.Width(100));
-            GUILayout.Label("v", GUILayout.Width(25));
-            GUILayout.Label("Actions", GUILayout.Width(160));
+            GUILayout.Label("Event");
+            GUILayout.Label("Cron / Date");
+            GUILayout.Label("Fn");
+            GUILayout.Label("v", GUILayout.Width(20));
+            GUILayout.Label("Actions", GUILayout.Width(150));
             GUILayout.EndHorizontal();
         }
         private void DrawRow(CloudSchedule cloud)
@@ -59,14 +59,15 @@ namespace Unity.Services.CloudCode
 
             GUILayout.BeginHorizontal("box");
 
-            draft.eventName = GUILayout.TextField(draft.eventName, GUILayout.Width(150));
-            draft.schedule = GUILayout.TextField(draft.schedule, GUILayout.Width(130));
-            draft.payload.functionName = GUILayout.TextField(draft.payload.functionName, GUILayout.Width(100));
+            draft.eventName = GUILayout.TextField(draft.eventName);
+            draft.schedule = GUILayout.TextField(draft.schedule);
+            draft.payload.functionName = GUILayout.TextField(draft.payload.functionName);
 
-            GUILayout.Label(draft.payloadVersion.ToString(), GUILayout.Width(25));
+            GUILayout.Label(draft.payloadVersion.ToString(), GUILayout.Width(20));
 
             if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
             if (GUILayout.Button("Save", GUILayout.Width(45))) _ = ScheduleExtension.UpdateAync(cloud.id, draft);
+            //if (GUILayout.Button("Check", GUILayout.Width(45))) _ = ScheduleExtension.CheckStatusAsync(cloud.id);
             if (GUILayout.Button("X", GUILayout.Width(25))) _ = ScheduleExtension.DeleteAync(cloud.id);
 
             GUILayout.EndHorizontal();

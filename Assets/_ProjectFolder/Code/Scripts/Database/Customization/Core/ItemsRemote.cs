@@ -27,6 +27,8 @@ namespace Unity.Customization
 
                 foreach (var item in field.Value.items)
                 {
+                    if (item.Cost == 0) continue;
+
                     if (!discounts_list[fieldKey].ContainsKey(item.Group))
                         discounts_list[fieldKey][item.Group] = new();
 

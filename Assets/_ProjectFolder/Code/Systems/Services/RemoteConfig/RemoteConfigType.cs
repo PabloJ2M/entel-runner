@@ -10,7 +10,7 @@ namespace Unity.Services.RemoteConfig
         [InspectorName("Weekly Missions")]
         weekly_missions,
 
-        [InspectorName("Store Discounts")]
-        daily_store_discounts
+        [InspectorName("Daily Discounts")]
+        daily_discounts
     }
 }

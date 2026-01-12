@@ -12,17 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"b12ee1bd-c268-4cb9-adec-38dd4bcce845\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"daily_updates\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": {\r\n        \"daily_deals_items\": [\r\n         
-    \"hat_02\",\r\n          \"shirt_01\"\r\n        ],\r\n        \"daily_missions\":
-    [\r\n          \"collect_10\",\r\n          \"play_1\"\r\n        ]\r\n     
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d466b78f-dce4-4d99-ba4c-39c2f452502e\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"weekly_missions\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-10T17:00:17.788Z\",\r\n        \"missions\": [\r\n          \"coins_200\",\r\n         
+    \"coins_100\",\r\n          \"coins_300\"\r\n        ]\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ff9b506a-30b0-4964-a3fd-c00352fed85f\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"daily_missions\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-10T18:12:47.882Z\",\r\n        \"missions\": [\r\n          \"run_100\",\r\n         
+    \"coins_100\",\r\n          \"coins_200\"\r\n        ]\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"a88c4555-2409-44ab-badd-2a056740e0d7\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"daily_discounts\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-12T00:40:30.724Z\",\r\n        \"discounts\": {\r\n          \"male\":
+    {\r\n            \"Shoes\": [\r\n              \"default\"\r\n            ],\r\n           
+    \"Pants\": [\r\n              \"default\"\r\n            ],\r\n            \"Top\":
+    [\r\n              \"default\"\r\n            ]\r\n          }\r\n        }\r\n     
     }\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"b12ee1bd-c268-4cb9-adec-38dd4bcce845\"\r\n   
-    },\r\n    \"rs\": {\r\n      \"key\": \"daily_updates\",\r\n      \"type\": \"json\",\r\n     
-    \"schemaId\": null,\r\n      \"value\": {\r\n        \"daily_deals_items\": [\r\n         
-    \"hat_02\",\r\n          \"shirt_01\"\r\n        ],\r\n        \"daily_missions\":
-    [\r\n          \"collect_10\",\r\n          \"play_1\"\r\n        ]\r\n     
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"d466b78f-dce4-4d99-ba4c-39c2f452502e\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"weekly_missions\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-10T17:00:17.788Z\",\r\n        \"missions\": [\r\n          \"coins_200\",\r\n         
+    \"coins_100\",\r\n          \"coins_300\"\r\n        ]\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"ff9b506a-30b0-4964-a3fd-c00352fed85f\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"daily_missions\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-10T18:12:47.882Z\",\r\n        \"missions\": [\r\n          \"run_100\",\r\n         
+    \"coins_100\",\r\n          \"coins_200\"\r\n        ]\r\n      }\r\n    }\r\n 
+    },\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"a88c4555-2409-44ab-badd-2a056740e0d7\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"daily_discounts\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"date\":
+    \"2026-01-12T00:40:30.724Z\",\r\n        \"discounts\": {\r\n          \"male\":
+    {\r\n            \"Shoes\": [\r\n              \"default\"\r\n            ],\r\n           
+    \"Pants\": [\r\n              \"default\"\r\n            ],\r\n            \"Top\":
+    [\r\n              \"default\"\r\n            ]\r\n          }\r\n        }\r\n     
     }\r\n    }\r\n  }\r\n]"
   _environments: "[\r\n  {\r\n    \"projectId\": \"00cea21b-b045-40ec-a6a9-21a4586964d3\",\r\n   
     \"name\": \"production\",\r\n    \"id\": \"7ebbedf3-8bf5-4de9-9916-be24a68f0aad\",\r\n   
