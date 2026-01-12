@@ -19,7 +19,6 @@ namespace Unity.Customization.Store
             _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
             _economy?.ForceUpdateBalance(BalanceType.COIN);
         }
-
         protected override void OnUpdateGroup(ItemGroup group)
         {
             _items = _itemList.GetItemsByGroup(group.ToString());
@@ -50,5 +49,7 @@ namespace Unity.Customization.Store
             _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Group, item.ID);
             _economy.RemoveBalanceID(item.Balance, item.Cost);
         }
+
+        public void SaveBalances() => _economy?.SaveAllBalances();
     }
 }

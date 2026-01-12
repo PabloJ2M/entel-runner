@@ -11,6 +11,8 @@ namespace Unity.Services.Authentication
             #if UNITY_EDITOR
             PlayerAccountService.Instance.SignedIn += SignInOrLinkAccount;
             await LoginUnityPlayerServices();
+            #else
+            await Task.Yield();
             #endif
         }
 

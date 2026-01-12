@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Collections.Generic;
 
 namespace Unity.Customization.Inventory
 {
@@ -7,10 +6,7 @@ namespace Unity.Customization.Inventory
     {
         private string _libraryID;
 
-        protected override void OnUpdateLibrary(SO_LibraryReference reference)
-        {
-            _libraryID = reference.ID;
-        }
+        protected override void OnUpdateLibrary(SO_LibraryReference reference) => _libraryID = reference.ID;
         protected override void OnUpdateGroup(ItemGroup group)
         {
             _items = _itemList.GetItemsByLibrary(_libraryID, group.ToString());
