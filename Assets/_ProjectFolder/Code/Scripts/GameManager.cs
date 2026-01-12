@@ -31,11 +31,20 @@ public class GameManager : SingletonBasic<GameManager>
         Speed = Mathf.Lerp(_clampSpeed.x, _clampSpeed.y, _acceleration.Evaluate(_currentSpeed));
     }
     
-    public void Enable() => IsEnabled = true;
+    public void Enable()
+    {
+        Speed = _currentSpeed;
+        IsEnabled = true;
+    }
     public void Disable()
     {
         Speed = 0f;
         IsEnabled = false;
         onCompleteGame.Invoke();
+    }
+    public void ResetValues()
+    {
+        _currentSpeed = 0;
+        Enable();
     }
 }

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -19,19 +20,19 @@ public static class GlobalExtension
 
     public static void PositionX(this Transform transform, float value)
     {
-        Vector2 pos = transform.position;
+        float3 pos = transform.position;
         pos.x = value;
         transform.position = pos;
     }
     public static void ClampPositionX(this Transform transform, float min, float max)
     {
-        Vector2 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, min, max);
+        float3 pos = transform.position;
+        pos.x = math.clamp(pos.x, min, max);
         transform.position = pos;
     }
     public static void LocalPositionX(this Transform transform, float value)
     {
-        Vector2 pos = transform.localPosition;
+        float3 pos = transform.localPosition;
         pos.x = value;
         transform.localPosition = pos;
     }
@@ -41,19 +42,19 @@ public static class GlobalExtension
 
     public static void PositionY(this Transform transform, float value)
     {
-        Vector2 pos = transform.position;
+        float3 pos = transform.position;
         pos.y = value;
         transform.position = pos;
     }
     public static void ClampPositionY(this Transform transform, float min, float max)
     {
-        Vector2 pos = transform.position;
-        pos.y = Mathf.Clamp(pos.y, min, max);
+        float3 pos = transform.position;
+        pos.y = math.clamp(pos.y, min, max);
         transform.position = pos;
     }
     public static void LocalPositionY(this Transform transform, float value)
     {
-        Vector2 pos = transform.localPosition;
+        float3 pos = transform.localPosition;
         pos.y = value;
         transform.localPosition = pos;
     }
