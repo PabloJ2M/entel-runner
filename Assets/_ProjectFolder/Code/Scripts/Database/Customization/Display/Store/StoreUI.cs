@@ -16,13 +16,13 @@ namespace Unity.Customization.Store
         protected override void OnEnable()
         {
             base.OnEnable();
-            _economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
+            _economy = UnityServiceInit.Instance?.GetComponent<PlayerEconomyService>();
             _economy?.ForceUpdateBalance(BalanceType.COIN);
         }
 
         protected override void OnUpdateGroup(ItemGroup group)
         {
-            _items = _itemList.GetItemsByGroup(group.ToString());
+            _items = _itemList?.GetItemsByGroup(group.ToString());
             base.OnUpdateGroup(group);
         }
         protected override void DisplayItems()

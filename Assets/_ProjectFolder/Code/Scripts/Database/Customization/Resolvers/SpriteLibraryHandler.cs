@@ -24,7 +24,7 @@ namespace Unity.Customization
         {
             _listReference?.Setup();
             _library = GetComponent<SpriteLibrary>();
-            _customization = UnityServiceInit.Instance.GetComponentInChildren<CustomizationController>();
+            _customization = UnityServiceInit.Instance?.GetComponentInChildren<CustomizationController>();
         }
         private void OnEnable()
         {
