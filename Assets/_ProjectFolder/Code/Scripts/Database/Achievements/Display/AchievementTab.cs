@@ -1,8 +1,10 @@
 using UnityEngine.UI;
 
-namespace Unity.Customization
+namespace Unity.Achievements.UI
 {
-    public class SpriteGroupTab : EnumToggleTab<ItemGroup>
+    using Services.RemoteConfig;
+
+    public class AchievementTab : EnumToggleTab<ConfigType>
     {
         protected override void OnClick(bool isOn)
         {
