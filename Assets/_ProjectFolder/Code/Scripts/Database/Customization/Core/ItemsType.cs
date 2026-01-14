@@ -4,6 +4,7 @@ namespace Unity.Customization
 {
     public enum ItemGroup
     {
+        None = -1,
         Head,
         Top,
         Pants,

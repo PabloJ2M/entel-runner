@@ -19,6 +19,8 @@ namespace Unity.Services.Economy
         }
         protected override async void OnSignInCompleted()
         {
+            if (_balances.Count != 0) return;
+
             await LoadEconomyData().EconomyResponse();
             async Task LoadEconomyData()
             {
@@ -42,17 +44,9 @@ namespace Unity.Services.Economy
 
         public long GetBalance(BalanceType type) => _balances.ContainsKey(type) ? _balances[type] : 0;
         public void ForceUpdateBalance(BalanceType type) => onBalanceUpdated?.Invoke(type, GetBalance(type));
-        public async void AddBalanceID(BalanceType type, uint amount)
-        {
-            ModifyBalanceID(type, amount);
-            await EconomyService.Instance.PlayerBalances.IncrementBalanceAsync(type.ToString(), (int)amount).EconomyResponse();
-        }
-        public async void RemoveBalanceID(BalanceType type, uint amount)
-        {
-            ModifyBalanceID(type, -amount);
-            await EconomyService.Instance.PlayerBalances.DecrementBalanceAsync(type.ToString(), (int)amount).EconomyResponse();
-        }
 
+        public void AddBalanceID(BalanceType type, uint amount) => ModifyBalanceID(type, amount);
+        public void RemoveBalanceID(BalanceType type, uint amount) => ModifyBalanceID(type, -amount);
         private void ModifyBalanceID(BalanceType type, long amount)
         {
             if (!_balances.ContainsKey(type)) return;
@@ -60,6 +54,17 @@ namespace Unity.Services.Economy
             _balances[type] += amount;
             onBalanceUpdated?.Invoke(type, _balances[type]);
             SaveLocalData(_balances);
+        }
+
+        public async void SaveBalanceID(BalanceType type) => await EconomyService.Instance.PlayerBalances
+            .SetBalanceAsync(type.ToString(), GetBalance(type))
+            .EconomyResponse();
+        
+        [ContextMenu("Save All Balances")]
+        public void SaveAllBalances()
+        {
+            foreach (var item in _balances)
+                SaveBalanceID(item.Key);
         }
     }
 }

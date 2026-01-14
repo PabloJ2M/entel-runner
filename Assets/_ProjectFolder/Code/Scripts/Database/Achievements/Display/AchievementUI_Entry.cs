@@ -21,6 +21,14 @@ namespace Unity.Achievements
         private SO_Achievement _achievement;
 
         private void Awake() => _claimButton.onClick.AddListener(ClaimReward);
+        private void ClaimReward()
+        {
+            GetComponentInParent<AchievementUI>().ClaimReward(_achievement.Revenue);
+            _claimButton.interactable = false;
+
+            _achievement.Status.hasPurchased = true;
+            _achievement.SaveProgress();
+        }
 
         public void Init(SO_Achievement item)
         {
@@ -30,20 +38,17 @@ namespace Unity.Achievements
             _name?.SetText(_achievement.Name);
             _description?.SetText(_achievement.Description);
 
-            _fillAmount.fillAmount = _achievement.Status.Percent;
-            _textCount?.SetText(_achievement.Status.Text);
+            bool isCompleted = _achievement.Status.isCompleted;
+            _fillAmount.gameObject.SetActive(!isCompleted);
+            _claimButton.gameObject.SetActive(isCompleted);
 
-            _claimButton.interactable = _achievement.Status.isCompleted || _achievement.Status.hasPurchased;
-        }
+            if (!isCompleted) {
+                _fillAmount.fillAmount = _achievement.Status.Percent;
+                _textCount?.SetText(_achievement.Status.Text);
+            }
 
-        private void ClaimReward()
-        {
-            GetComponentInParent<AchievementUI>().ClaimReward(_achievement.Revenue);
-
-            _achievement.Status.hasPurchased = true;
-            _achievement.SaveProgress();
-
-            _claimButton.interactable = false;
+            if (isCompleted)
+                _claimButton.interactable = !_achievement.Status.hasPurchased;
         }
     }
 }

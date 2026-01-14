@@ -15,6 +15,7 @@ namespace Unity.Pool
         protected virtual void OnGet(PoolObjectBehaviour @object)
         {
             @object.Enable();
+            @object.Transform.SetAsLastSibling();
             Spawned?.Add(@object as T);
         }
         protected virtual void OnRelease(PoolObjectBehaviour @object)

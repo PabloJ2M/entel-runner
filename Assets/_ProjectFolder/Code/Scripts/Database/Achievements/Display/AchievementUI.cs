@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Unity.Achievements
 {
     using Services;
@@ -9,10 +7,10 @@ namespace Unity.Achievements
 
     public class AchievementUI : PoolObjectSingle<AchievementUI_Entry>
     {
-        [SerializeField] private ConfigType _display;
-
         private PlayerEconomyService _economy;
         private AchievementController _database;
+
+        private ConfigType _selected = ConfigType.daily_missions;
 
         protected override void Awake()
         {
@@ -32,12 +30,19 @@ namespace Unity.Achievements
             _database.onAchievementsUpdated -= OnBuildAchievements;
         }
 
+        public void UpdateSelected(ConfigType type)
+        {
+            if (!_database) return;
+
+            _selected = type;
+            OnBuildAchievements();
+        }
         private void OnBuildAchievements()
         {
             if (_database.Achievements.Count == 0) return;
             ClearPoolInstance();
 
-            foreach (var achievement in _database.Achievements[_display]) {
+            foreach (var achievement in _database.Achievements[_selected]) {
                 var entry = Pool.Get() as AchievementUI_Entry;
                 entry.Init(achievement);
             }
