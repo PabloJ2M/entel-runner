@@ -9,7 +9,7 @@ namespace Unity.Achievements.UI
         protected override void OnClick(bool isOn)
         {
             if (isOn)
-                _group.UpdateType(_value);
+                _group?.UpdateType(_value);
         }
     }
 }

@@ -7,10 +7,8 @@ namespace Unity.Customization
     {
         [SerializeField] private GameObject _icon;
 
-        protected override void Start()
+        protected void Start()
         {
-            base.Start();
-
             for (int i = 0; i < (int)_value; i++)
                 Instantiate(_icon, transform);
         }

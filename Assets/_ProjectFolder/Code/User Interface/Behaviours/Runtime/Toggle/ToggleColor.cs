@@ -5,6 +5,11 @@ namespace UnityEngine.UI
         [SerializeField] private Image _icon;
         [SerializeField] private Color _onColor, _offColor;
 
+        protected override void Start()
+        {
+            base.Start();
+            OnUpdateValue(isOn);
+        }
         protected override void OnUpdateValue(bool isOn)
         {
             if (!_icon) return;

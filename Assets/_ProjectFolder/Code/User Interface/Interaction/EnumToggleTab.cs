@@ -7,8 +7,11 @@ namespace UnityEngine.UI
         [SerializeField] protected T _value;
         protected EnumToggleGroup<T> _group;
 
-        protected virtual void Awake() => GetComponent<Toggle>().onValueChanged.AddListener(OnClick);
-        protected virtual void Start() => _group = GetComponentInParent<EnumToggleGroup<T>>();
+        protected virtual void Awake()
+        {
+            _group = GetComponentInParent<EnumToggleGroup<T>>();
+            GetComponent<Toggle>().onValueChanged.AddListener(OnClick);
+        }
 
         protected abstract void OnClick(bool isOn);
     }
