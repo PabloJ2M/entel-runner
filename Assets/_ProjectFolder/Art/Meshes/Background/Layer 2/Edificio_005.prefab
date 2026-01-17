@@ -42,75 +42,30 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 24d8d993698236a4bbeadedf1a8827ef, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5101187798442833251}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 24d8d993698236a4bbeadedf1a8827ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -827738003060918796}
+      addedObject: {fileID: -160829112905649248}
   m_SourcePrefab: {fileID: 100100000, guid: 24d8d993698236a4bbeadedf1a8827ef, type: 3}
 --- !u!1 &8538935969419486656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 24d8d993698236a4bbeadedf1a8827ef, type: 3}
   m_PrefabInstance: {fileID: 8809336450869942417}
   m_PrefabAsset: {fileID: 0}
---- !u!210 &-5101187798442833251
-SortingGroup:
+--- !u!114 &-160829112905649248
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8538935969419486656}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortAtRoot: 1
-  m_Sort3DAs2D: 1
---- !u!1120581460 &-827738003060918796
-RenderAs2D:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c708ba5733109649845df28f5a59c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Background3D
+  <Transform>k__BackingField: {fileID: 9064538414543388538}
+  _snap: 1
+  _roundPosition: 0
+--- !u!4 &9064538414543388538 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 24d8d993698236a4bbeadedf1a8827ef, type: 3}
+  m_PrefabInstance: {fileID: 8809336450869942417}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8538935969419486656}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b697f6a938056384e968ccf6527dac83, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_OwningSortingGroup: {fileID: -5101187798442833251}
