@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Unity.Services.Authentication
 {
+    using Core;
+
     public class AuthManager : MonoBehaviour
     {
         private UnityServiceInit _service;
@@ -14,9 +16,11 @@ namespace Unity.Services.Authentication
         private void OnEnable() => _service.onServiceInitialized += SignInCallback;
         private void OnDisable()
         {
+            _service.onServiceInitialized -= SignInCallback;
+
+            if (UnityServices.State == ServicesInitializationState.Uninitialized) return;
             AuthenticationService.Instance.SignedIn -= HandleSignIn;
             AuthenticationService.Instance.SignedOut -= HandleSignOut;
-            _service.onServiceInitialized -= SignInCallback;
         }
 
         private async void SignInCallback()

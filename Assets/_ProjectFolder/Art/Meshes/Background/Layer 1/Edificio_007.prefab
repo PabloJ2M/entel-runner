@@ -22,11 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710677
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -43,6 +47,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3616495869481753481, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3616495869481753481, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3616495869481753481, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3616495869481753481, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}
       propertyPath: m_Name
@@ -76,6 +96,8 @@ MonoBehaviour:
   <Transform>k__BackingField: {fileID: 5399934755064278533}
   _snap: 1
   _roundPosition: 0
+  _maxAngle: 30
+  _flip: 1
 --- !u!4 &5399934755064278533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f53d13ea83fddeb4b92486e470fe2dc9, type: 3}

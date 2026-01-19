@@ -1,38 +1,41 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Unity.Pool
 {
+    using Mathematics;
+
     public class Background3D : PoolObjectOnSpline
     {
         [SerializeField, Range(0f, 180f)] private float _maxAngle = 45f;
+        [SerializeField, Range(0f, 1f)] private float _angleFactor = 0.5f;
+        [SerializeField] private bool _flip;
 
         private static readonly float3 _cameraPoint = new(0, 0, -10);
-        private quaternion _initialRotation;
+        private static readonly float3 _forward = math.forward();
+        private float _maxAngleRad;
 
-        private void Start() => _initialRotation = Transform.localRotation;
+        private void Awake() => _maxAngleRad = math.radians(_maxAngle);
 
         protected override void UpdatePosition()
         {
             base.UpdatePosition();
 
-            float3 localTarget = transform.InverseTransformPoint(_cameraPoint);
-            float3 dir = math.normalize(new float3(-localTarget.x, 0f, localTarget.z));
+            float3 dir = _cameraPoint - (float3)Transform.localPosition;
+            dir.y = 0f;
 
-            if (math.lengthsq(dir) < 0.0001f) return;
+            dir = math.normalize(dir);
+            if (_flip) dir = -dir;
 
-            float3 forward = new float3(0f, 0f, 1f);
+            float dot = math.dot(_forward, dir);
+            float sign = math.sign(math.cross(_forward, dir).y);
 
-            float3 cross = math.cross(forward, dir);
-            float dot = math.dot(forward, dir);
-            float angle = math.atan2(cross.y, dot);
+            float normalized = (1f - dot) * 0.5f;
 
-            float clamped = math.clamp(angle, math.radians(-_maxAngle), math.radians(_maxAngle));
+            float scaled = normalized * _angleFactor;
+            float finalAngle = math.min(scaled * math.PI, _maxAngleRad);
 
-            quaternion targetRot = math.mul(_initialRotation, quaternion.AxisAngle(math.up(), clamped));
-            quaternion current = transform.localRotation;
-
-            transform.localRotation = math.nlerp(current, targetRot, 1 * Time.deltaTime);
+            quaternion rot = quaternion.AxisAngle(math.up(), finalAngle * sign);
+            Transform.localRotation = !_flip ? rot : math.inverse(rot);
         }
     }
 }

@@ -851,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 468494268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 18}
+  m_LocalPosition: {x: 0, y: -3.65, z: 18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -939,7 +939,9 @@ MonoBehaviour:
   - {fileID: -2403415982075971576, guid: 0bb5396cf1b4d8a4f92f88c64d8a16c5, type: 3}
   - {fileID: 3689803131850029796, guid: 975b4effde4a0294aa17eb1ceac3f8ab, type: 3}
   _capacity: 15
-  _spaceDistance: 4
+  _spaceDistance: 3.5
+  _speedMultiply: 0.35
+  _buildOnAwake: 1
 --- !u!114 &468494275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,7 +1746,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 898765044}
-  - component: {fileID: 898765045}
   - component: {fileID: 898765048}
   - component: {fileID: 898765047}
   - component: {fileID: 898765049}
@@ -1772,65 +1773,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 490707607}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &898765045
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898765043}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -876546973899608171, guid: 99e71d183a5685b4d8a9e61496c1e67b, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1041949129
-  m_SortingLayer: -1
-  m_SortingOrder: 10
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 41af18f95be20994b8ff8a208d09aa9a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 50, y: 12.370001}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1120581460 &898765047
 RenderAs2D:
   m_ObjectHideFlags: 3
@@ -1912,8 +1854,10 @@ MonoBehaviour:
   - {fileID: 4044298249007862922, guid: 6999d554293a757408214eaa00f221f7, type: 3}
   - {fileID: -160829112905649248, guid: 4a2391b065d94c04cb5b177232e7a549, type: 3}
   - {fileID: 4035155855789791816, guid: 930eedba6be698840b5826cc1eb7faaf, type: 3}
-  _capacity: 15
-  _spaceDistance: 4
+  _capacity: 10
+  _spaceDistance: 5
+  _speedMultiply: 0.85
+  _buildOnAwake: 1
 --- !u!114 &898765050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,6 +2018,8 @@ MonoBehaviour:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
   _capacity: 3
   _spaceDistance: 20
+  _speedMultiply: 1
+  _buildOnAwake: 0
   minPlayerY: 0
   maxPlayerY: 0
   threshold: 0.1
@@ -3564,6 +3510,8 @@ MonoBehaviour:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
   _capacity: 20
   _spaceDistance: 20
+  _speedMultiply: 1
+  _buildOnAwake: 0
   minPlayerY: -2
   maxPlayerY: 10
   threshold: 0.25
@@ -3972,6 +3920,8 @@ MonoBehaviour:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
   _capacity: 20
   _spaceDistance: 20
+  _speedMultiply: 1
+  _buildOnAwake: 0
   minPlayerY: -10
   maxPlayerY: -2
   threshold: 0.1

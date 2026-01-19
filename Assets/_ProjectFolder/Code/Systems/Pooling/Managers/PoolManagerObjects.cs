@@ -7,10 +7,11 @@ namespace Unity.Pool
 {
     public interface IPoolManagerObjects
     {
-        public IList<PoolObjectOnSpline> Spawned { get; }
+        float SpeedMultiply { get; }
+        IList<PoolObjectOnSpline> Spawned { get; }
 
-        public event Action<PoolObjectBehaviour> OnSpawnObject;
-        public event Action<PoolObjectBehaviour> OnDespawnObject;
+        event Action<PoolObjectBehaviour> OnSpawnObject;
+        event Action<PoolObjectBehaviour> OnDespawnObject;
     }
 
     public abstract class PoolManagerObjects : PoolObjectMultiple<PoolObjectOnSpline>, IPoolManagerObjects
@@ -18,6 +19,7 @@ namespace Unity.Pool
         [SerializeField] protected int _capacity = 10;
         protected SplineContainer _spline;
 
+        public virtual float SpeedMultiply { get; } = 1f;
         public event Action<PoolObjectBehaviour> OnSpawnObject;
         public event Action<PoolObjectBehaviour> OnDespawnObject;
 

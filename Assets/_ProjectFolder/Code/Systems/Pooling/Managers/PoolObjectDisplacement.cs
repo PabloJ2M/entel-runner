@@ -18,7 +18,6 @@ namespace Unity.Pool
             _gameManager = GameManager.Instance;
             _manager = GetComponent<IPoolManagerObjects>();
         }
-
         private void Update()
         {
             if (!_useGlobalSpeed) return;
@@ -37,16 +36,18 @@ namespace Unity.Pool
         public void MoveDistance(float speed, float delta = 1f)
         {
             if (speed == 0) return;
+            float d = speed * _manager.SpeedMultiply * delta;
 
             foreach (var item in _manager.Spawned)
-                item.AddDistance(speed * delta);
+                item.AddDistance(d);
         }
         public void MoveTime(float speed)
         {
             if (speed == 0) return;
+            float t = speed * _manager.SpeedMultiply * Time.deltaTime;
 
             foreach (var item in _manager.Spawned)
-                item.AddTime(speed * Time.deltaTime);
+                item.AddTime(t);
         }
     }
 }

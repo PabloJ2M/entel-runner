@@ -64,6 +64,8 @@ MonoBehaviour:
   <Transform>k__BackingField: {fileID: 5380997234319287988}
   _snap: 1
   _roundPosition: 0
+  _maxAngle: 15
+  _flip: 1
 --- !u!4 &5380997234319287988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}

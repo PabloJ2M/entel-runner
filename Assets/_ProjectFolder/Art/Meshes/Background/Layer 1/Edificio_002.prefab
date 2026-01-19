@@ -73,3 +73,5 @@ MonoBehaviour:
   <Transform>k__BackingField: {fileID: 1249202575895881767}
   _snap: 1
   _roundPosition: 0
+  _maxAngle: 30
+  _flip: 1

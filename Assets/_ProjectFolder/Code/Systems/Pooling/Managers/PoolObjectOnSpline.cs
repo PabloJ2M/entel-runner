@@ -2,10 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.Animations;
-using Unity.Mathematics;
 
 namespace Unity.Pool
 {
+    using Mathematics;
+
     public abstract class PoolObjectOnSpline : PoolObjectBehaviour
     {
         [Header("Position Handler")]
@@ -20,7 +21,7 @@ namespace Unity.Pool
         {
             base.Enable();
             _currentTime = 0;
-            _splineLength = Spline.CalculateLength();
+            _splineLength = 1f / Spline.CalculateLength();
         }
         protected virtual void UpdatePosition()
         {
@@ -44,7 +45,7 @@ namespace Unity.Pool
         }
         public void SetDistance(float value)
         {
-            _currentTime = value / _splineLength;
+            _currentTime = value * _splineLength;
             UpdatePosition();
         }
 
@@ -55,7 +56,7 @@ namespace Unity.Pool
         }
         public virtual void AddDistance(float amount)
         {
-            _currentTime += amount / _splineLength;
+            _currentTime += amount * _splineLength;
             UpdatePosition();
         }
     }
