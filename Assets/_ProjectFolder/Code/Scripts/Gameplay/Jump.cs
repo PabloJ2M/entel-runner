@@ -8,8 +8,8 @@ namespace Gameplay.Movement
     {
         [Header("Jump")]
         [SerializeField] private float _jumpForce = 24f;
-        [SerializeField] private float _cutJumpVelocity = 3f; 
-        [SerializeField] private float _fallMultiplier = 4f; 
+        [SerializeField] private float _cutJumpVelocity = 3f;
+        [SerializeField] private float _fallMultiplier = 4f;
 
         [Header("References")]
         [SerializeField] private InputActionReference _jumpInput;
@@ -22,13 +22,11 @@ namespace Gameplay.Movement
         {
             _rb = GetComponent<Rigidbody2D>();
         }
-
         private void OnEnable()
         {
             _jumpInput.action.Enable();
             _jumpInput.action.performed += OnJump;
         }
-
         private void OnDisable()
         {
             _jumpInput.action.performed -= OnJump;

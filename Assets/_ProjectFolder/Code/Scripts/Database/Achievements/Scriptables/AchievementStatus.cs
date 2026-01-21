@@ -13,7 +13,7 @@ namespace Unity.Achievements
         public bool isCompleted, hasPurchased;
 
         public float Percent => !isCompleted ? _progress / (float)_target : 1f;
-        public string Text => $"{Percent * 100}%";//$"{_progress}/{_target}";
+        public string Text => $"{Percent * 100}%";
         public void Add(int amount) => _progress += amount;
 
         public AchievementStatus LoadJson(string id)

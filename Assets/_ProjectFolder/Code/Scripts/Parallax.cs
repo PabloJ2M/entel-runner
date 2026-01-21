@@ -39,7 +39,7 @@ namespace Environment
             //_spriteWidth = render.sprite.rect.width / render.sprite.pixelsPerUnit;
 
             float2 units = render.sprite.rect.size / render.sprite.pixelsPerUnit;
-            _tileSize = _direction * Time.fixedDeltaTime * ((float2)render.size / units);
+            _tileSize = _direction * 0.02f * ((float2)render.size / units);
             _material = render.material;
 
             //if (_adChildren == null || _adChildren.Length == 0) return;

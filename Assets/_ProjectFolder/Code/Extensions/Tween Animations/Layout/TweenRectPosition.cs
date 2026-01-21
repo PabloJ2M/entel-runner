@@ -8,8 +8,9 @@ namespace UnityEngine.Animations
         [SerializeField] protected Direction _direction;
         [SerializeField] protected Vector2 _overrideDistance;
 
-        protected override void OnStart()
+        protected override void Awake()
         {
+            base.Awake();
             float2 size = _transform.rect.size;
             float2 direction = _direction.Get();
             if (_overrideDistance.x != 0) size.x = _overrideDistance.x;
@@ -18,6 +19,7 @@ namespace UnityEngine.Animations
             _from = _to = _transform.localPosition;
             _to += new float3(direction.x * size.x, direction.y * size.y, 0f);
         }
+        protected override void OnStart() { }
         protected override void OnComplete() => _tweenCore.onComplete?.Invoke();
 
         protected override void OnPerformePlay(bool value)

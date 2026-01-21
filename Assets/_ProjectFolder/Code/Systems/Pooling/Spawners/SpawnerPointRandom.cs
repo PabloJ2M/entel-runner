@@ -4,34 +4,41 @@ namespace Unity.Pool
 {
     public class SpawnerPointRandom : SpawnerPoint
     {
-        [SerializeField] private float minPlayerY;
-        [SerializeField] private float maxPlayerY;
+        [SerializeField, Range(0, 1)] private float _threshold = 0.1f;
 
-        [SerializeField, Range(0, 1)] private float threshold = 0.1f;
+        [SerializeField] private Transform player;
+        [SerializeField] private LayerMask _mask;
 
-        [SerializeField] private LayerMask mask;
-
-        [SerializeField] private Vector2 forwardCheckSize = new Vector2(8f, 2.5f);
-        [SerializeField] private Vector2 forwardCheckOffset = new Vector2(4f, 0f);
-
-        private Transform player;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        }
+        [SerializeField] private float _minPlayerY;
+        [SerializeField] private float _maxPlayerY;
+        [SerializeField] private Vector2 _forwardCheckSize = new(8f, 2.5f);
+        [SerializeField] private Vector2 _forwardCheckOffset = new(4f, 0f);
 
         protected override void OnSpawn()
         {
-            if (player == null) return;
-            float y = player.position.y;
-            if (y < minPlayerY || y > maxPlayerY) return;
-            if (Random.value < threshold) return;
-            Vector2 checkPos = (Vector2)transform.position + forwardCheckOffset;
-            if (Physics2D.OverlapBox(checkPos, forwardCheckSize, 0f, mask))
-                return;
+            if (Random.value > _threshold) return;
+
+            float yPosition = player.PositionY();
+            if (yPosition < _minPlayerY || yPosition > _maxPlayerY) return;
+
+            Vector2 checkPos = (Vector2)transform.position + _forwardCheckOffset;
+            if (Physics2D.OverlapBox(checkPos, _forwardCheckSize, 0f, _mask)) return;
+
             base.OnSpawn();
         }
+
+        #if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Vector2 checkPos = (Vector2)transform.position + _forwardCheckOffset;
+
+            Gizmos.color = Color.orange;
+            Gizmos.DrawWireCube(checkPos, _forwardCheckSize);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(new Vector2(0, _minPlayerY), 0.2f);
+            Gizmos.DrawSphere(new Vector2(0, _maxPlayerY), 0.2f);
+        }
+        #endif
     }
 }

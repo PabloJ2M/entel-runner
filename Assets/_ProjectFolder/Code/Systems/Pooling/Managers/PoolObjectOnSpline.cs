@@ -13,21 +13,26 @@ namespace Unity.Pool
         [SerializeField] private Axis _snap;
         [SerializeField] private bool _roundPosition;
 
-        public SplineContainer Spline { protected get; set; }
-
         protected float _currentTime, _splineLength;
+        protected SplineContainer _spline;
+
+        public SplineContainer Spline {
+            set {
+                _spline = value;
+                _splineLength = 1f / _spline.CalculateLength();
+            }
+        }
 
         public override void Enable()
         {
             base.Enable();
             _currentTime = 0;
-            _splineLength = 1f / Spline.CalculateLength();
         }
         protected virtual void UpdatePosition()
         {
-            float3 position = Spline.EvaluatePosition(_currentTime);
-            if (_snap.HasFlag(Axis.X)) Transform.PositionX(_roundPosition ? math.round(position.x) : position.x);
-            if (_snap.HasFlag(Axis.Y)) Transform.PositionY(_roundPosition ? math.round(position.y) : position.y);
+            float3 position = _spline.EvaluatePosition(_currentTime);
+            if ((_snap & Axis.X) != 0) Transform.PositionX(_roundPosition ? math.round(position.x) : position.x);
+            if ((_snap & Axis.Y) != 0) Transform.PositionY(_roundPosition ? math.round(position.y) : position.y);
 
             if (_currentTime >= 1f) StartCoroutine(Release());
         }
