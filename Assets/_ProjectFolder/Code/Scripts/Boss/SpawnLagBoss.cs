@@ -34,6 +34,10 @@ public class SpawnLagBoss : MonoBehaviour
     private bool bossActive;
     private bool paralyzed;
 
+    // --- NUEVO: Propiedad pública para que el Tutorial sepa si el boss sigue vivo ---
+    public bool IsBossActive => bossActive;
+    // -----------------------------------------------------------------------------
+
     private int currentTaps;
     private float nextParalysisTime;
 
