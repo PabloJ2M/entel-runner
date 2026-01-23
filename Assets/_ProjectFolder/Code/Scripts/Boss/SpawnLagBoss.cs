@@ -34,6 +34,8 @@ public class SpawnLagBoss : MonoBehaviour
     private bool bossActive;
     private bool paralyzed;
 
+    public bool IsBossActive => bossActive;
+
     private int currentTaps;
     private float nextParalysisTime;
 
