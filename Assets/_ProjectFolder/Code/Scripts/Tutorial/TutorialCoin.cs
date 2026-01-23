@@ -16,6 +16,12 @@ namespace Tutorial
                 collector.AddPoints(50);
             }
 
+            TutorialDirector tutorial = FindFirstObjectByType<TutorialDirector>();
+            if (tutorial != null)
+            {
+                tutorial.OnCoinCollected();
+            }
+
             Destroy(gameObject);
         }
     }
