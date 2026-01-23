@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Background3D
   <Transform>k__BackingField: {fileID: 5399934755064278533}
-  _snap: 1
+  _followAxis: 1
   _roundPosition: 0
   _maxAngle: 180
   _angleFactor: 1

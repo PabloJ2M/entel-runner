@@ -829,10 +829,11 @@ GameObject:
   m_Component:
   - component: {fileID: 468494269}
   - component: {fileID: 468494272}
+  - component: {fileID: 468494275}
+  - component: {fileID: 468494277}
   - component: {fileID: 468494273}
   - component: {fileID: 468494274}
   - component: {fileID: 468494276}
-  - component: {fileID: 468494275}
   m_Layer: 0
   m_Name: layer 1
   m_TagString: Untagged
@@ -1034,6 +1035,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectDisplacement
   _type: 1
   _useGlobalSpeed: 1
+--- !u!114 &468494277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468494268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bfda1bcb1b33438de7fc86d6e5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SplineResolution
+  _resolution: 2
 --- !u!1 &490707606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,10 +1870,11 @@ GameObject:
   m_Component:
   - component: {fileID: 898765044}
   - component: {fileID: 898765048}
+  - component: {fileID: 898765050}
+  - component: {fileID: 898765052}
   - component: {fileID: 898765047}
   - component: {fileID: 898765049}
   - component: {fileID: 898765051}
-  - component: {fileID: 898765050}
   m_Layer: 0
   m_Name: layer 2
   m_TagString: Untagged
@@ -2061,6 +2076,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectDisplacement
   _type: 1
   _useGlobalSpeed: 1
+--- !u!114 &898765052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898765043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bfda1bcb1b33438de7fc86d6e5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SplineResolution
+  _resolution: 2
 --- !u!1 &957434294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957434295}
   - component: {fileID: 957434298}
+  - component: {fileID: 957434299}
   - component: {fileID: 957434297}
   - component: {fileID: 957434296}
   m_Layer: 0
@@ -2218,6 +2247,19 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!114 &957434299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957434294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bfda1bcb1b33438de7fc86d6e5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SplineResolution
+  _resolution: 2
 --- !u!1001 &964819751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3726,6 +3768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546871480}
   - component: {fileID: 1546871481}
+  - component: {fileID: 1546871484}
   - component: {fileID: 1546871482}
   - component: {fileID: 1546871483}
   m_Layer: 0
@@ -3874,6 +3917,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _useGlobalSpeed: 1
+--- !u!114 &1546871484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546871479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bfda1bcb1b33438de7fc86d6e5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SplineResolution
+  _resolution: 2
 --- !u!1 &1580949377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1626702091}
   - component: {fileID: 1626702092}
+  - component: {fileID: 1626702095}
   - component: {fileID: 1626702093}
   - component: {fileID: 1626702094}
   m_Layer: 0
@@ -4299,6 +4356,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   _useGlobalSpeed: 1
+--- !u!114 &1626702095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626702090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9bfda1bcb1b33438de7fc86d6e5b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SplineResolution
+  _resolution: 2
 --- !u!1 &1649442397
 GameObject:
   m_ObjectHideFlags: 0

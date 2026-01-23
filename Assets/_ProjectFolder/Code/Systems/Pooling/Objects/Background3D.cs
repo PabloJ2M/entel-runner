@@ -16,9 +16,9 @@ namespace Unity.Pool
 
         private void Awake() => _maxAngleRad = math.radians(_maxAngle);
 
-        protected override void UpdatePosition()
+        protected override void RefreshPosition()
         {
-            base.UpdatePosition();
+            base.RefreshPosition();
 
             float3 dir = _cameraPoint - (float3)Transform.localPosition;
             dir.y = 0f;

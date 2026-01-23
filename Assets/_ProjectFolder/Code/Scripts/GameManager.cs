@@ -13,8 +13,8 @@ public class GameManager : SingletonBasic<GameManager>
 
     private float _speed, _currentSpeed;
 
-    public float Speed { get; private set; }
     public bool IsEnabled { get; private set; }
+    public float Speed { get; private set; }
 
     protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class GameManager : SingletonBasic<GameManager>
     }
     private void Update()
     {
-        onSpeedUpdated.Invoke(Speed);
+        onSpeedUpdated?.Invoke(Speed);
         if (!IsEnabled || _currentSpeed >= 1f) return;
 
         _currentSpeed = Mathf.Clamp01(_currentSpeed + Time.deltaTime * _speed);

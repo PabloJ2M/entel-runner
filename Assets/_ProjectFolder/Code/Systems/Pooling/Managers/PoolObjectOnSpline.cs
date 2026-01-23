@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Splines;
 using UnityEngine.Animations;
 
 namespace Unity.Pool
@@ -10,59 +8,50 @@ namespace Unity.Pool
     public abstract class PoolObjectOnSpline : PoolObjectBehaviour
     {
         [Header("Position Handler")]
-        [SerializeField] private Axis _snap;
+        [SerializeField] private Axis _followAxis;
         [SerializeField] private bool _roundPosition;
 
-        protected float _currentTime, _splineLength;
-        protected SplineContainer _spline;
+        protected float _currentTime;
 
-        public SplineContainer Spline {
-            set {
-                _spline = value;
-                _splineLength = 1f / _spline.CalculateLength();
-            }
-        }
+        public ISplineResolution Spline { protected get; set; }
 
         public override void Enable()
         {
             base.Enable();
             _currentTime = 0;
         }
-        protected virtual void UpdatePosition()
+        protected virtual void RefreshPosition()
         {
-            float3 position = _spline.EvaluatePosition(_currentTime);
-            if ((_snap & Axis.X) != 0) Transform.PositionX(_roundPosition ? math.round(position.x) : position.x);
-            if ((_snap & Axis.Y) != 0) Transform.PositionY(_roundPosition ? math.round(position.y) : position.y);
+            if (_currentTime >= 1f) {
+                Destroy();
+                return;
+            }
 
-            if (_currentTime >= 1f) StartCoroutine(Release());
+            float3 position = Spline.GetPosition(_currentTime);
+            if ((_followAxis & Axis.X) != 0) Transform.PositionX(_roundPosition ? math.round(position.x) : position.x);
+            if ((_followAxis & Axis.Y) != 0) Transform.PositionY(_roundPosition ? math.round(position.y) : position.y);
         }
 
-        private IEnumerator Release()
+        public void SetTime(float time)
         {
-            yield return null;
-            Destroy();
-        }
-
-        public void SetTime(float value)
-        {
-            _currentTime = value;
-            UpdatePosition();
+            _currentTime = time;
+            RefreshPosition();
         }
         public void SetDistance(float value)
         {
-            _currentTime = value * _splineLength;
-            UpdatePosition();
+            _currentTime = value * Spline.LengthInv;
+            RefreshPosition();
         }
 
         public virtual void AddTime(float amount)
         {
             _currentTime += amount;
-            UpdatePosition();
+            RefreshPosition();
         }
         public virtual void AddDistance(float amount)
         {
-            _currentTime += amount * _splineLength;
-            UpdatePosition();
+            _currentTime += amount * Spline.LengthInv;
+            RefreshPosition();
         }
     }
 }

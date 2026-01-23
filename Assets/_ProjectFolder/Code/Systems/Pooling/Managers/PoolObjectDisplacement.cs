@@ -38,16 +38,16 @@ namespace Unity.Pool
             if (speed == 0) return;
             float d = speed * _manager.SpeedMultiply * delta;
 
-            foreach (var item in _manager.Spawned)
-                item.AddDistance(d);
+            for (int i = _manager.Spawned.Count - 1; i >= 0; i--)
+                _manager.Spawned[i].AddDistance(d);
         }
         public void MoveTime(float speed)
         {
             if (speed == 0) return;
             float t = speed * _manager.SpeedMultiply * Time.deltaTime;
 
-            foreach (var item in _manager.Spawned)
-                item.AddTime(t);
+            for (int i = _manager.Spawned.Count - 1; i >= 0; i--)
+                _manager.Spawned[i].AddTime(t);
         }
     }
 }

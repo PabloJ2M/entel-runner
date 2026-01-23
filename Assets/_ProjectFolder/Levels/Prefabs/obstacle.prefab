@@ -310,5 +310,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Transform>k__BackingField: {fileID: 2042083034070760979}
-  _snap: 1
+  _followAxis: 1
   _roundPosition: 0
