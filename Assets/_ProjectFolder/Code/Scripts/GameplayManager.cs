@@ -28,7 +28,7 @@ public class GameplayManager : SingletonBasic<GameplayManager>
 
     private void Update()
     {
-        if (!IsEnabled) return;
+        if (!IsEnabled || Time.timeScale == 0) return;
 
         WorldDistance += _currentSpeed * Time.deltaTime;
         onDinstanceTraveled?.Invoke(WorldDistance);
@@ -40,7 +40,7 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     }
     private void LateUpdate()
     {
-        if (!IsEnabled) return;
+        if (!IsEnabled || Time.timeScale == 0) return;
 
         onFixedMovement?.Invoke();
     }

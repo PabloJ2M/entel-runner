@@ -36,6 +36,7 @@ namespace Unity.Pool
         }
         public virtual void FixedInterpolation()
         {
+            if (_lastDeltaTime <= 0) return;
             Transform.position = Vector3.Lerp(_lastPosition, _currentPosition, Time.deltaTime / _lastDeltaTime);
         }
 

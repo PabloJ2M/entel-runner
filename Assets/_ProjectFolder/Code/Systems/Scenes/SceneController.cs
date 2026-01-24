@@ -11,9 +11,9 @@ namespace Unity.SceneManagement
         protected override void Awake()
         {
             base.Awake();
+            Time.timeScale = 1f;
             Instantiate(_fadePrefab, transform);
         }
-
         public void ChangeScene(string scenePath)
         {
             if (_isLoadingScene) return;

@@ -25,7 +25,7 @@ namespace Unity.SceneManagement
         private void Update()
         {
             if (_isComplete) return;
-            _canvasGroup.alpha += Time.deltaTime * _speed * _fadeDirection;
+            _canvasGroup.alpha += Time.unscaledDeltaTime * _speed * _fadeDirection;
 
             switch(_canvasGroup.alpha)
             {
