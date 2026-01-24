@@ -64,17 +64,17 @@ namespace Environment
             //_initialOffsetX = _material.GetVector(OffsetId).x;
         }
 
-        private void OnEnable() => GameManager.Instance.onSpeedUpdated.AddListener(AddSpeedConstant);
-        private void OnDisable() => GameManager.Instance.onSpeedUpdated.RemoveListener(AddSpeedConstant);
+        private void OnEnable() => GameplayManager.Instance.onDinstanceTraveled += AddSpeed;
+        private void OnDisable() => GameplayManager.Instance.onDinstanceTraveled -= AddSpeed;
         private void AddSpeedConstant(float amount) => AddSpeed(amount * Time.deltaTime);
 
         public void AddSpeed(float amount)
         {
             Vector2 movement = amount * _speedMultiply * _tileSize;
-            if (movement == Vector2.zero) return;
+            //if (movement == Vector2.zero) return;
 
-            Vector2 currentOffset = (Vector2)_material.GetVector(_id) + movement;
-            _material.SetVector(_id, currentOffset);
+            //Vector2 currentOffset = (Vector2)_material.GetVector(_id) + movement;
+            _material.SetVector(_id, movement);
 
             //float deltaOffset = currentOffset.x - _initialOffsetX;
             //float unitsMoved = deltaOffset * _spriteWidth;

@@ -16,11 +16,11 @@ namespace Unity.Pool
 
         private void Awake() => _maxAngleRad = math.radians(_maxAngle);
 
-        protected override void RefreshPosition()
+        public override void RefreshPosition(float worldDistance)
         {
-            base.RefreshPosition();
+            base.RefreshPosition(worldDistance);
 
-            float3 dir = _cameraPoint - (float3)Transform.localPosition;
+            float3 dir = _cameraPoint - (float3)transform.localPosition;
             dir.y = 0f;
 
             dir = math.normalize(dir);

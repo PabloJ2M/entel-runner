@@ -6,7 +6,7 @@ namespace Unity.Customization
 {
     using Pool;
 
-    public abstract class ItemsDisplayEntry : PoolObjectBehaviour
+    public abstract class ItemsDisplayEntry : PoolObjectBehaviourTransform
     {
         [SerializeField] private Image _icon;
         [SerializeField] private TextMeshProUGUI _name;

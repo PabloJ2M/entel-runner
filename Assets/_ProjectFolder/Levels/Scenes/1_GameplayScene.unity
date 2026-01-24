@@ -642,8 +642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1655437088}
   _limits:
-    x: 0.2
-    y: 1.2
+    x: 1.2
+    y: 0.2
   _distance: 10
 --- !u!1 &429971901
 GameObject:
@@ -937,9 +937,9 @@ MonoBehaviour:
   - {fileID: -197007787158353040, guid: 1d3f450c2dba8fc409b5fac4190265ab, type: 3}
   - {fileID: -2403415982075971576, guid: 0bb5396cf1b4d8a4f92f88c64d8a16c5, type: 3}
   - {fileID: 3689803131850029796, guid: 975b4effde4a0294aa17eb1ceac3f8ab, type: 3}
-  _capacity: 16
+  _capacity: 3
   _spaceDistance: 3.25
-  _speedMultiply: 0.35
+  _speedMultiply: 0.25
   _buildOnAwake: 1
 --- !u!114 &468494275
 MonoBehaviour:
@@ -1033,8 +1033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c616d0fc7a0243a7e56a052647e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectDisplacement
-  _type: 1
-  _useGlobalSpeed: 1
 --- !u!114 &468494277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,24 +1150,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _clampSpeed: {x: 7, y: 20}
+  _clampSpeed: {x: 7, y: 12}
   _time: 30
   _startDisabled: 0
-  onSpeedUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 674167125}
-        m_TargetAssemblyTypeName: UIScoreByDistance, Assembly-CSharp
-        m_MethodName: AddConstant
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onCompleteGame:
     m_PersistentCalls:
       m_Calls:
@@ -1980,7 +1963,7 @@ MonoBehaviour:
   - {fileID: 4035155855789791816, guid: 930eedba6be698840b5826cc1eb7faaf, type: 3}
   _capacity: 13
   _spaceDistance: 3.75
-  _speedMultiply: 0.85
+  _speedMultiply: 0.75
   _buildOnAwake: 1
 --- !u!114 &898765050
 MonoBehaviour:
@@ -2074,8 +2057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c616d0fc7a0243a7e56a052647e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectDisplacement
-  _type: 1
-  _useGlobalSpeed: 1
 --- !u!114 &898765052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,8 +2117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c616d0fc7a0243a7e56a052647e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
-  _useGlobalSpeed: 1
 --- !u!114 &957434297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2289,10 +2268,6 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1858763473929415637, guid: f65823f424bab60438929e9a351328f5, type: 3}
-      propertyPath: near clip plane
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858763473929415637, guid: f65823f424bab60438929e9a351328f5, type: 3}
       propertyPath: orthographic size
       value: 6
       objectReference: {fileID: 0}
@@ -2311,6 +2286,10 @@ PrefabInstance:
     - target: {fileID: 1858763473929415637, guid: f65823f424bab60438929e9a351328f5, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 489
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090134920193925227, guid: f65823f424bab60438929e9a351328f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5090134920193925227, guid: f65823f424bab60438929e9a351328f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3357,7 +3336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1421169138
 SpriteRenderer:
   serializedVersion: 2
@@ -3892,7 +3871,7 @@ MonoBehaviour:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
   _capacity: 20
   _spaceDistance: 20
-  _speedMultiply: 1
+  _speedMultiply: 2.5
   _buildOnAwake: 0
   _threshold: 0.9
   player: {fileID: 1655437088}
@@ -3915,8 +3894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c616d0fc7a0243a7e56a052647e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
-  _useGlobalSpeed: 1
 --- !u!114 &1546871484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4069,7 +4046,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
+  sharedProfile: {fileID: 11400000, guid: eee4291ca3722f94394cd65e6c7a11fc, type: 2}
 --- !u!1 &1610585992
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,7 +4308,7 @@ MonoBehaviour:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
   _capacity: 20
   _spaceDistance: 20
-  _speedMultiply: 1
+  _speedMultiply: 2.5
   _buildOnAwake: 0
   _threshold: 0.9
   player: {fileID: 1655437088}
@@ -4354,8 +4331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837c616d0fc7a0243a7e56a052647e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
-  _useGlobalSpeed: 1
 --- !u!114 &1626702095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4439,6 +4414,10 @@ PrefabInstance:
     - target: {fileID: 3728732592021892276, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_Name
       value: character_gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728732592021892276, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4158661816152635593, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w

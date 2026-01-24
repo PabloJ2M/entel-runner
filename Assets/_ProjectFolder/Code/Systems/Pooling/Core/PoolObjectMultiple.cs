@@ -21,6 +21,7 @@ namespace Unity.Pool
             obj.PoolReference = Pools[prefab];
             return obj;
         }
+
         protected PoolObjectBehaviour GetPrefabRandom()
         {
             var prefab = _prefabs[Random.Range(0, _prefabs.Length)];

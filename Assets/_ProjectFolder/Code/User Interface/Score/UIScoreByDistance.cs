@@ -5,8 +5,14 @@ public class UIScoreByDistance : UIScore
     [SerializeField] private float _distancePerPoint;
     private float _traveled;
 
-    private void Add() => Add(1);
+    private void OnEnable() => GameplayManager.Instance.onDinstanceTraveled += SetDistance;
+    private void OnDisable() => GameplayManager.Instance.onDinstanceTraveled -= SetDistance;
 
-    public void AddConstant(float amount) => AddDistance(amount * Time.deltaTime);
-    public void AddDistance(float amount) => Math.Loop(ref _traveled, amount, _distancePerPoint, Add);
+    public void SetDistance(float worldDistance)
+    {
+        if (worldDistance - _traveled < _distancePerPoint) return;
+        _traveled = worldDistance;
+
+        Add(1);
+    }
 }

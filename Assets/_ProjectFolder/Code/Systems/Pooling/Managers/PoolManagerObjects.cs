@@ -6,8 +6,9 @@ namespace Unity.Pool
 {
     public interface IPoolManagerObjects
     {
-        float SpeedMultiply { get; }
         IList<PoolObjectOnSpline> Spawned { get; }
+        float SpeedMultiply { get; }
+        float WorldOffset { get; set; }
 
         event Action<PoolObjectBehaviour> OnSpawnObject;
         event Action<PoolObjectBehaviour> OnDespawnObject;
@@ -19,6 +20,8 @@ namespace Unity.Pool
         protected ISplineResolution _spline;
 
         public virtual float SpeedMultiply { get; } = 1f;
+        public virtual float WorldOffset { get; set; }
+
         public event Action<PoolObjectBehaviour> OnSpawnObject;
         public event Action<PoolObjectBehaviour> OnDespawnObject;
 

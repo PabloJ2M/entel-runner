@@ -5,7 +5,7 @@ namespace Unity.Pool
         protected override void OnSpawn()
         {
             var obj = GetPrefabRandom() as PoolObjectOnSpline;
-            obj.SetTime(0);
+            obj.SetDistance(_gameManager.WorldDistance * SpeedMultiply + WorldOffset);
         }
     }
 }

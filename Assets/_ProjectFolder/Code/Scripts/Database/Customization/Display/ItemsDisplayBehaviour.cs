@@ -30,7 +30,7 @@ namespace Unity.Customization
         protected override void OnGet(PoolObjectBehaviour @object)
         {
             base.OnGet(@object);
-            @object.Transform.SetAsLastSibling();
+            @object.transform.SetAsLastSibling();
         }
 
         protected virtual void OnEnable()

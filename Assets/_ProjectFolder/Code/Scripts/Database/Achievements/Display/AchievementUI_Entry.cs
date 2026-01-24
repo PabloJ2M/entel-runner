@@ -6,7 +6,7 @@ namespace Unity.Achievements
 {
     using Pool;
 
-    public class AchievementUI_Entry : PoolObjectBehaviour
+    public class AchievementUI_Entry : PoolObjectBehaviourTransform
     {
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private TextMeshProUGUI _description;

@@ -11,7 +11,7 @@ namespace Unity.Pool
         float3 GetPosition(float t);
     }
 
-    [RequireComponent(typeof(SplineContainer))]
+    [DefaultExecutionOrder(-100), RequireComponent(typeof(SplineContainer))]
     public class SplineResolution : MonoBehaviour, ISplineResolution
     {
         [Tooltip("number of points in spline")]

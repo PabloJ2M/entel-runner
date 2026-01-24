@@ -30,6 +30,12 @@ namespace Unity.Achievements
             _database.onAchievementsUpdated -= OnBuildAchievements;
         }
 
+        protected override void OnGet(PoolObjectBehaviour @object)
+        {
+            base.OnGet(@object);
+            @object.transform.SetAsLastSibling();
+        }
+
         public void UpdateSelected(ConfigType type)
         {
             if (!_database) return;

@@ -9,8 +9,8 @@ public class Shadow : MonoBehaviour
     [SerializeField] private float _distance = 10;
 
     private Transform _transform;
-    private float3 _one = new(1f, 1f, 1f);
     private float _origin, _invDistance;
+    private readonly float3 _one = new(1f, 1f, 1f);
 
     private void Start()
     {

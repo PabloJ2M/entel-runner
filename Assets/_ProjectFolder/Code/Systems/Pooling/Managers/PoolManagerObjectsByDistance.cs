@@ -9,30 +9,37 @@ namespace Unity.Pool
         [SerializeField] private float _speedMultiply = 1f;
         [SerializeField] private bool _buildOnAwake;
 
-        private GameManager _gameManager;
-        private float _traveled;
+        protected GameplayManager _gameManager;
+        private float _lastSpawn;
 
         public override float SpeedMultiply => _speedMultiply;
 
         protected override void Awake()
         {
             base.Awake();
-            _gameManager = GameManager.Instance;
+            _gameManager = GameplayManager.Instance;
         }
         protected virtual void Start()
         {
             if (!_buildOnAwake) return;
+            _lastSpawn = -_spaceDistance;
 
-            for (int i = 0; i < _capacity; i++)
-            {
+            for (int i = 0; i < _capacity * _prefabs.Length; i++) {
                 OnSpawn();
-                Spawned[i].SetDistance(_spaceDistance * i);
+                WorldOffset += _spaceDistance;
             }
         }
-
-        protected virtual void Update() => ForceDistance(_gameManager.Speed * SpeedMultiply);
+        protected virtual void OnEnable() => _gameManager.onDinstanceTraveled += GameUpdate;
+        protected virtual void OnDisable() => _gameManager.onDinstanceTraveled -= GameUpdate;
         protected abstract void OnSpawn();
-        
-        public void ForceDistance(float amount) => Math.Loop(ref _traveled, amount * Time.deltaTime, _spaceDistance, OnSpawn);
+
+        private void GameUpdate(float worldDistance)
+        {
+            float laneDistance = worldDistance * _speedMultiply;
+
+            if (laneDistance - _lastSpawn < _spaceDistance) return;
+            _lastSpawn = laneDistance;
+            OnSpawn();
+        }
     }
 }
