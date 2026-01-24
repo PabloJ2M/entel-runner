@@ -1,4 +1,5 @@
 using UnityEngine;
+using Gameplay;
 
 public class BossProjectile : MonoBehaviour
 {

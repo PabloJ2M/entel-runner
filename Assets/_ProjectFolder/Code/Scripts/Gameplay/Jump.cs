@@ -3,24 +3,24 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay.Movement
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D), typeof(AnimatorEvents))]
     public class Jump : MonoBehaviour
     {
-        [Header("Jump")]
+        [SerializeField] private InputActionReference _jumpInput;
+
+        [Header("Params")]
         [SerializeField] private float _jumpForce = 24f;
         [SerializeField] private float _cutJumpVelocity = 3f;
         [SerializeField] private float _fallMultiplier = 4f;
 
-        [Header("References")]
-        [SerializeField] private InputActionReference _jumpInput;
-        [SerializeField] private Animator _animator;
-
         private Rigidbody2D _rb;
+        private AnimatorEvents _animator;
         private bool _isGrounded;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<AnimatorEvents>();
         }
         private void OnEnable()
         {
@@ -35,6 +35,7 @@ namespace Gameplay.Movement
 
         private void FixedUpdate()
         {
+            _animator?.SetGravity(_rb.linearVelocityY);
             if (!_jumpInput.action.IsPressed() && _rb.linearVelocity.y > _cutJumpVelocity)
             {
                 _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_cutJumpVelocity);
@@ -50,14 +51,15 @@ namespace Gameplay.Movement
         {
             if (!_isGrounded) return;
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_jumpForce);
+
             _isGrounded = false;
-            _animator?.SetBool("IsGrounded", false);
+            _animator?.SetGroundCheck(_isGrounded);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             _isGrounded = true;
-            _animator?.SetBool("IsGrounded", true);
+            _animator?.SetGroundCheck(_isGrounded);
         }
     }
 }
