@@ -29,8 +29,8 @@ namespace Unity.Achievements
         public void ResetAchievements(DateTime lastUpdate, DateTime serverTime)
         {
             var time = serverTime.Date - lastUpdate.Date;
-            if (time.Days >= _days)
-                _reference.ResetAchievements();
+            //if (time.TotalDays >= _days)
+            //    _reference.ResetAchievements();
         }
 
         private bool TryGet(string id, out SO_Achievement achievement)

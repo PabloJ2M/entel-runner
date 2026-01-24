@@ -10,8 +10,9 @@ namespace Unity.Achievements
     {
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private TextMeshProUGUI _description;
-        
+
         [Header("Percentage")]
+        [SerializeField] private GameObject _progress;
         [SerializeField] private Image _fillAmount;
         [SerializeField] private TextMeshProUGUI _textCount;
 
@@ -39,8 +40,8 @@ namespace Unity.Achievements
             _description?.SetText(_achievement.Description);
 
             bool isCompleted = _achievement.Status.isCompleted;
-            _fillAmount.gameObject.SetActive(!isCompleted);
             _claimButton.gameObject.SetActive(isCompleted);
+            _progress.SetActive(!isCompleted);
 
             if (!isCompleted) {
                 _fillAmount.fillAmount = _achievement.Status.Percent;

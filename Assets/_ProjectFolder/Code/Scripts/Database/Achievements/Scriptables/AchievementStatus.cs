@@ -19,6 +19,7 @@ namespace Unity.Achievements
         public AchievementStatus LoadJson(string id)
         {
             if (!PlayerPrefs.HasKey(id)) return this;
+            Debug.Log("load achievement");
 
             string json = PlayerPrefs.GetString(id);
             return JsonUtility.FromJson<AchievementStatus>(json);
@@ -29,6 +30,7 @@ namespace Unity.Achievements
 
             string json = JsonUtility.ToJson(this);
             PlayerPrefs.SetString(id, json);
+            PlayerPrefs.Save();
         }
         public void ClearJson(string id)
         {
