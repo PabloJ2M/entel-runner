@@ -3,17 +3,26 @@
     "name": "Controles",
     "maps": [
         {
-            "name": "Juego",
+            "name": "Player",
             "id": "0790a1c8-5750-4ba1-b3d4-af7e5a19def8",
             "actions": [
                 {
-                    "name": "MantenerVuelo",
+                    "name": "ScreenPress",
                     "type": "Button",
                     "id": "08d1eb36-12e6-4732-b0ab-befe9fa9c145",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ScreenDelta",
+                    "type": "Value",
+                    "id": "69caf9ff-25c6-4bfb-87b0-5fd2903c398c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -24,7 +33,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MantenerVuelo",
+                    "action": "ScreenPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -35,7 +44,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MantenerVuelo",
+                    "action": "ScreenPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -46,7 +55,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MantenerVuelo",
+                    "action": "ScreenPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da1bf506-7731-4ab1-8a91-e12f455552eb",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScreenDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69ce6379-27dc-401b-8e5b-d24581463068",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScreenDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

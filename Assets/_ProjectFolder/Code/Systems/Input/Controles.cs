@@ -89,17 +89,26 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     ""name"": ""Controles"",
     ""maps"": [
         {
-            ""name"": ""Juego"",
+            ""name"": ""Player"",
             ""id"": ""0790a1c8-5750-4ba1-b3d4-af7e5a19def8"",
             ""actions"": [
                 {
-                    ""name"": ""MantenerVuelo"",
+                    ""name"": ""ScreenPress"",
                     ""type"": ""Button"",
                     ""id"": ""08d1eb36-12e6-4732-b0ab-befe9fa9c145"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScreenDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""69caf9ff-25c6-4bfb-87b0-5fd2903c398c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -110,7 +119,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MantenerVuelo"",
+                    ""action"": ""ScreenPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -121,7 +130,7 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MantenerVuelo"",
+                    ""action"": ""ScreenPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -132,7 +141,29 @@ public partial class @Controles: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MantenerVuelo"",
+                    ""action"": ""ScreenPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da1bf506-7731-4ab1-8a91-e12f455552eb"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScreenDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69ce6379-27dc-401b-8e5b-d24581463068"",
+                    ""path"": ""<Touchscreen>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScreenDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -141,14 +172,15 @@ public partial class @Controles: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Juego
-        m_Juego = asset.FindActionMap("Juego", throwIfNotFound: true);
-        m_Juego_MantenerVuelo = m_Juego.FindAction("MantenerVuelo", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_ScreenPress = m_Player.FindAction("ScreenPress", throwIfNotFound: true);
+        m_Player_ScreenDelta = m_Player.FindAction("ScreenDelta", throwIfNotFound: true);
     }
 
     ~@Controles()
     {
-        UnityEngine.Debug.Assert(!m_Juego.enabled, "This will cause a leak and performance issues, Controles.Juego.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, Controles.Player.Disable() has not been called.");
     }
 
     /// <summary>
@@ -221,29 +253,34 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Juego
-    private readonly InputActionMap m_Juego;
-    private List<IJuegoActions> m_JuegoActionsCallbackInterfaces = new List<IJuegoActions>();
-    private readonly InputAction m_Juego_MantenerVuelo;
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_ScreenPress;
+    private readonly InputAction m_Player_ScreenDelta;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Juego".
+    /// Provides access to input actions defined in input action map "Player".
     /// </summary>
-    public struct JuegoActions
+    public struct PlayerActions
     {
         private @Controles m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public JuegoActions(@Controles wrapper) { m_Wrapper = wrapper; }
+        public PlayerActions(@Controles wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Juego/MantenerVuelo".
+        /// Provides access to the underlying input action "Player/ScreenPress".
         /// </summary>
-        public InputAction @MantenerVuelo => m_Wrapper.m_Juego_MantenerVuelo;
+        public InputAction @ScreenPress => m_Wrapper.m_Player_ScreenPress;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ScreenDelta".
+        /// </summary>
+        public InputAction @ScreenDelta => m_Wrapper.m_Player_ScreenDelta;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Juego; }
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -251,9 +288,9 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="JuegoActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="PlayerActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(JuegoActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -261,14 +298,17 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="JuegoActions" />
-        public void AddCallbacks(IJuegoActions instance)
+        /// <seealso cref="PlayerActions" />
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_JuegoActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_JuegoActionsCallbackInterfaces.Add(instance);
-            @MantenerVuelo.started += instance.OnMantenerVuelo;
-            @MantenerVuelo.performed += instance.OnMantenerVuelo;
-            @MantenerVuelo.canceled += instance.OnMantenerVuelo;
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            @ScreenPress.started += instance.OnScreenPress;
+            @ScreenPress.performed += instance.OnScreenPress;
+            @ScreenPress.canceled += instance.OnScreenPress;
+            @ScreenDelta.started += instance.OnScreenDelta;
+            @ScreenDelta.performed += instance.OnScreenDelta;
+            @ScreenDelta.canceled += instance.OnScreenDelta;
         }
 
         /// <summary>
@@ -277,21 +317,24 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="JuegoActions" />
-        private void UnregisterCallbacks(IJuegoActions instance)
+        /// <seealso cref="PlayerActions" />
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @MantenerVuelo.started -= instance.OnMantenerVuelo;
-            @MantenerVuelo.performed -= instance.OnMantenerVuelo;
-            @MantenerVuelo.canceled -= instance.OnMantenerVuelo;
+            @ScreenPress.started -= instance.OnScreenPress;
+            @ScreenPress.performed -= instance.OnScreenPress;
+            @ScreenPress.canceled -= instance.OnScreenPress;
+            @ScreenDelta.started -= instance.OnScreenDelta;
+            @ScreenDelta.performed -= instance.OnScreenDelta;
+            @ScreenDelta.canceled -= instance.OnScreenDelta;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="JuegoActions.UnregisterCallbacks(IJuegoActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />.
         /// </summary>
-        /// <seealso cref="JuegoActions.UnregisterCallbacks(IJuegoActions)" />
-        public void RemoveCallbacks(IJuegoActions instance)
+        /// <seealso cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_JuegoActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -301,34 +344,41 @@ public partial class @Controles: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="JuegoActions.AddCallbacks(IJuegoActions)" />
-        /// <seealso cref="JuegoActions.RemoveCallbacks(IJuegoActions)" />
-        /// <seealso cref="JuegoActions.UnregisterCallbacks(IJuegoActions)" />
-        public void SetCallbacks(IJuegoActions instance)
+        /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
+        /// <seealso cref="PlayerActions.RemoveCallbacks(IPlayerActions)" />
+        /// <seealso cref="PlayerActions.UnregisterCallbacks(IPlayerActions)" />
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_JuegoActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_JuegoActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="JuegoActions" /> instance referencing this action map.
+    /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
-    public JuegoActions @Juego => new JuegoActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Juego" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="JuegoActions.AddCallbacks(IJuegoActions)" />
-    /// <seealso cref="JuegoActions.RemoveCallbacks(IJuegoActions)" />
-    public interface IJuegoActions
+    /// <seealso cref="PlayerActions.AddCallbacks(IPlayerActions)" />
+    /// <seealso cref="PlayerActions.RemoveCallbacks(IPlayerActions)" />
+    public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "MantenerVuelo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ScreenPress" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMantenerVuelo(InputAction.CallbackContext context);
+        void OnScreenPress(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ScreenDelta" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnScreenDelta(InputAction.CallbackContext context);
     }
 }
