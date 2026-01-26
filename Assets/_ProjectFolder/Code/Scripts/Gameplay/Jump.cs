@@ -16,8 +16,7 @@ namespace Gameplay.Movement
         private Rigidbody2D _rb;
         private AnimatorEvents _animator;
 
-        private bool _isGrounded, _hasDashedInAir;
-        private float _coyoteCounter, _bufferCounter;
+        private bool _isGrounded;
 
         private void Awake()
         {

@@ -8,12 +8,12 @@ namespace Unity.SceneManagement
 
         private bool _isLoadingScene;
 
-        protected override void Awake()
+        private void Start()
         {
-            base.Awake();
             Time.timeScale = 1f;
             Instantiate(_fadePrefab, transform);
         }
+
         public void ChangeScene(string scenePath)
         {
             if (_isLoadingScene) return;
