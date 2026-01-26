@@ -6,7 +6,7 @@ namespace Gameplay.Movement
     [RequireComponent(typeof(Rigidbody2D), typeof(AnimatorEvents))]
     public class Jump : MonoBehaviour
     {
-        [SerializeField] private InputActionReference _jumpInput;
+        [SerializeField] private InputActionReference _pressInput, _deltaInput;
 
         [Header("Params")]
         [SerializeField] private float _jumpForce = 24f;
@@ -15,7 +15,9 @@ namespace Gameplay.Movement
 
         private Rigidbody2D _rb;
         private AnimatorEvents _animator;
-        private bool _isGrounded;
+
+        private bool _isGrounded, _hasDashedInAir;
+        private float _coyoteCounter, _bufferCounter;
 
         private void Awake()
         {
@@ -24,19 +26,19 @@ namespace Gameplay.Movement
         }
         private void OnEnable()
         {
-            _jumpInput.action.Enable();
-            _jumpInput.action.performed += OnJump;
+            _pressInput.action.Enable();
+            _pressInput.action.performed += OnJump;
         }
         private void OnDisable()
         {
-            _jumpInput.action.performed -= OnJump;
-            _jumpInput.action.Disable();
+            _pressInput.action.performed -= OnJump;
+            _pressInput.action.Disable();
         }
 
         private void FixedUpdate()
         {
             _animator?.SetGravity(_rb.linearVelocityY);
-            if (!_jumpInput.action.IsPressed() && _rb.linearVelocity.y > _cutJumpVelocity)
+            if (!_pressInput.action.IsPressed() && _rb.linearVelocity.y > _cutJumpVelocity)
             {
                 _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_cutJumpVelocity);
             }
@@ -46,6 +48,11 @@ namespace Gameplay.Movement
                 _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
             }
         }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            _isGrounded = true;
+            _animator?.SetGroundCheck(_isGrounded);
+        }
 
         private void OnJump(InputAction.CallbackContext ctx)
         {
@@ -53,12 +60,6 @@ namespace Gameplay.Movement
             _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_jumpForce);
 
             _isGrounded = false;
-            _animator?.SetGroundCheck(_isGrounded);
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            _isGrounded = true;
             _animator?.SetGroundCheck(_isGrounded);
         }
     }
