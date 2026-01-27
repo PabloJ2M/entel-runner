@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6e84596ee1a1c43aeeaae0fb585ed5, type: 3}
+  m_Name: _SpawnPaternList
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPaternList
+  _patenrs:
+  - {fileID: 11400000, guid: 37a35222fffce2c4a844213c56fa4c97, type: 2}

@@ -1,0 +1,63 @@
+using UnityEngine;
+
+namespace Unity.Pool
+{
+    public class PoolManagerObjectsPattern : MonoBehaviour
+    {
+        [SerializeField] private SO_SpawnPaternList _list;
+        [SerializeField] private float _speedMultiply = 1f;
+        [SerializeField] private float _distanceDelay = 5f;
+
+        [SerializeField] private SpawnerPointByPattern[] _paths;
+
+        private GameplayManager _gameManager;
+
+        private SO_SpawnPatern _currentPattern;
+
+        private float _startDistance;
+        private int _currentIndex;
+        private bool _isSpawning;
+
+        private void Awake() => _gameManager = GameplayManager.Instance;
+        private void OnEnable() => _gameManager.onDinstanceTraveled += GameUpdate;
+        private void OnDisable() => _gameManager.onDinstanceTraveled -= GameUpdate;
+
+        private void Start()
+        {
+            foreach (var path in _paths)
+                path.SetSpeed(_speedMultiply);
+        }
+
+        private void GameUpdate(float worldDistance)
+        {
+            if (!_isSpawning)
+            {
+                _currentPattern = _list.GetRandomPattern();
+                _startDistance = worldDistance * _speedMultiply;
+                _currentIndex = 0;
+
+                _isSpawning = true;
+            }
+            else
+            {
+                float traveled = worldDistance * _speedMultiply - _startDistance;
+
+                if (traveled >= _currentPattern.totalDistance)
+                {
+                    _isSpawning = false;
+                    return;
+                }
+                if (_currentIndex < _currentPattern.sequence.Count)
+                {
+                    SpawnInfo info = _currentPattern.sequence[_currentIndex];
+
+                    if (traveled >= info.distance)
+                    {
+                        _paths[info.laneIndex].OnSpawn(info.poolObjectName, worldDistance);
+                        _currentIndex++;
+                    }
+                }
+            }
+        }
+    }
+}

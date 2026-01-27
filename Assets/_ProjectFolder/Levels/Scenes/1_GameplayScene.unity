@@ -2825,7 +2825,7 @@ GameObject:
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &957434295
 Transform:
   m_ObjectHideFlags: 0
@@ -2835,7 +2835,7 @@ Transform:
   m_GameObject: {fileID: 957434294}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2862,26 +2862,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 957434294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cd4bb75e14d5046b3e32e6d6f4f75f, type: 3}
+  m_Script: {fileID: 11500000, guid: c9338b0791547234f8d5146bfa92e854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 957434295}
   _prefabs:
   - {fileID: -8004815765376725991, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+  - {fileID: 7670640414174071144, guid: aafc247afa030014a874fa955fa16177, type: 3}
+  - {fileID: 3562499494520543715, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
-  _capacity: 3
-  _spaceDistance: 20
-  _speedMultiply: 1
-  _buildOnAwake: 0
-  _threshold: 0.1
-  player: {fileID: 0}
-  _mask:
-    serializedVersion: 2
-    m_Bits: 0
-  _minPlayerY: 0
-  _maxPlayerY: 0
-  _forwardCheckSize: {x: 8, y: 2.5}
-  _forwardCheckOffset: {x: 4, y: 0}
+  _capacity: 10
 --- !u!114 &957434298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2929,7 +2919,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -30
+        x: -100
         y: 0
         z: 0
       TangentIn:
@@ -4895,7 +4885,7 @@ Transform:
   m_GameObject: {fileID: 1546871479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4990,27 +4980,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546871479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cd4bb75e14d5046b3e32e6d6f4f75f, type: 3}
+  m_Script: {fileID: 11500000, guid: c9338b0791547234f8d5146bfa92e854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 1546871480}
   _prefabs:
   - {fileID: -8004815765376725991, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
   - {fileID: 7670640414174071144, guid: aafc247afa030014a874fa955fa16177, type: 3}
+  - {fileID: 3562499494520543715, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
-  _capacity: 20
-  _spaceDistance: 25
-  _speedMultiply: 2.5
-  _buildOnAwake: 0
-  _threshold: 0.9
-  player: {fileID: 1655437088}
-  _mask:
-    serializedVersion: 2
-    m_Bits: 64
-  _minPlayerY: -3
-  _maxPlayerY: 7
-  _forwardCheckSize: {x: 8, y: 2.5}
-  _forwardCheckOffset: {x: 4, y: 0}
+  _capacity: 10
 --- !u!114 &1546871483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5187,6 +5166,7 @@ GameObject:
   - component: {fileID: 1610585993}
   - component: {fileID: 1610585994}
   - component: {fileID: 1610585995}
+  - component: {fileID: 1610585996}
   m_Layer: 0
   m_Name: spawner
   m_TagString: Untagged
@@ -5203,7 +5183,7 @@ Transform:
   m_GameObject: {fileID: 1610585992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -2.5, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5241,6 +5221,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FramesPerSecond
   _target: 60
+--- !u!114 &1610585996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610585992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a511a1a3c237f9f44b7f9969758842d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolManagerObjectsPatern
+  _list: {fileID: 11400000, guid: 90af9e457aa39a04a86338be30ce0f94, type: 2}
+  _speedMultiply: 2
+  _distanceDelay: 5
+  _paths:
+  - {fileID: 1626702093}
+  - {fileID: 1546871482}
+  - {fileID: 957434297}
 --- !u!1001 &1613135763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5331,7 +5330,7 @@ Transform:
   m_GameObject: {fileID: 1626702090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5426,7 +5425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626702090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cd4bb75e14d5046b3e32e6d6f4f75f, type: 3}
+  m_Script: {fileID: 11500000, guid: c9338b0791547234f8d5146bfa92e854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _parent: {fileID: 1626702091}
@@ -5435,19 +5434,7 @@ MonoBehaviour:
   - {fileID: 7670640414174071144, guid: aafc247afa030014a874fa955fa16177, type: 3}
   - {fileID: 3562499494520543715, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
-  _capacity: 20
-  _spaceDistance: 25
-  _speedMultiply: 2.5
-  _buildOnAwake: 0
-  _threshold: 0.9
-  player: {fileID: 1655437088}
-  _mask:
-    serializedVersion: 2
-    m_Bits: 64
-  _minPlayerY: -7
-  _maxPlayerY: -3
-  _forwardCheckSize: {x: 8, y: 2.5}
-  _forwardCheckOffset: {x: 4, y: 0}
+  _capacity: 10
 --- !u!114 &1626702094
 MonoBehaviour:
   m_ObjectHideFlags: 0

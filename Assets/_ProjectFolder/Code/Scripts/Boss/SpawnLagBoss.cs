@@ -24,7 +24,7 @@ public class SpawnLagBoss : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject bossVisuals;
     [SerializeField] private Transform[] lanes;
-    [SerializeField] private SpawnerPointRandom[] spawnersToStop;
+    [SerializeField] private SpawnerPointByPattern[] spawnersToStop;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject projectilePrefab;
