@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPaternList
   _patenrs:
   - {fileID: 11400000, guid: 37a35222fffce2c4a844213c56fa4c97, type: 2}
+  - {fileID: 11400000, guid: b93868ac235289149a2406ab6e1bb5ad, type: 2}
+  - {fileID: 11400000, guid: 3a37ca9a3fc2bbd4f9e99404c9415900, type: 2}

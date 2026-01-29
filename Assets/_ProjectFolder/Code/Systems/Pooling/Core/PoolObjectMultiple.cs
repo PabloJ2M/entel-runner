@@ -4,6 +4,22 @@ using UnityEngine.Pool;
 
 namespace Unity.Pool
 {
+    public abstract class PoolObject<T> : PoolBehaviuour<T> where T : PoolObjectBehaviour
+    {
+        [SerializeField] protected T _prefab;
+
+        protected ObjectPool<PoolObjectBehaviour> Pool;
+
+        protected virtual void Awake() => Pool = new(() => OnCreate(_prefab), OnGet, OnRelease, OnDestroyObject);
+
+        protected virtual T OnCreate(T prefab)
+        {
+            var obj = Instantiate(prefab, _parent);
+            obj.PoolReference = Pool;
+            return obj;
+        }
+    }
+
     public abstract class PoolObjectMultiple<T> : PoolBehaviuour<T> where T : PoolObjectBehaviour
     {
         [SerializeField] protected T[] _prefabs;

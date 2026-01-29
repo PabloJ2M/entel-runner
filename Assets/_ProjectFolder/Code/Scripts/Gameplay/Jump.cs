@@ -56,7 +56,7 @@ namespace Gameplay.Movement
         private void OnJump(InputAction.CallbackContext ctx)
         {
             if (!_isGrounded) return;
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_jumpForce);
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
 
             _isGrounded = false;
             _animator?.SetGroundCheck(_isGrounded);
