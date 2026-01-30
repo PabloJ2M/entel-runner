@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305f6cd7f2449904b8be4d690599bf62, type: 3}
-  m_Name: testing_2
+  m_Name: testing 2
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPatern
   totalDistance: 48.5
   sequence:

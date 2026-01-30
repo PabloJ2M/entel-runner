@@ -10211,7 +10211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolManagerObjectsPatern
   _list: {fileID: 11400000, guid: 90af9e457aa39a04a86338be30ce0f94, type: 2}
   _speedMultiply: 2
-  _distanceDelay: 7
+  _distanceDelay: 15
   _paths:
   - {fileID: 1626702093}
   - {fileID: 1546871482}

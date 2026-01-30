@@ -8,19 +8,18 @@ namespace Gameplay
     {
         [SerializeField] private CinemachineShake _cameraEffect;
         [SerializeField] private TweenCanvasGroup _hitEffect;
-        [SerializeField] private string _tag = "Finish";
 
         [SerializeField] private Behaviour[] _components;
         private AnimatorEvents _animator;
         private bool _isDeath;
+        
+        private const string _tag = "Finish";
 
         private void Awake() => _animator = GetComponent<AnimatorEvents>();
-        private void OnTriggerEnter2D(Collider2D collision) => Trigger(collision);
-        private void OnCollisionEnter2D(Collision2D collision) => Trigger(collision.collider);
-
-        private void Trigger(Collider2D collider)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collider.CompareTag(_tag))
+            if (!collision.collider.CompareTag(_tag)) return;
+            if (Vector2.Dot(collision.contacts[0].normal, Vector2.left) > 0.75f)
                 Disable();
         }
 

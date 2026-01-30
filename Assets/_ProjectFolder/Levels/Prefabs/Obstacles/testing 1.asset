@@ -10,58 +10,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 305f6cd7f2449904b8be4d690599bf62, type: 3}
-  m_Name: testing_3
+  m_Name: testing 1
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPatern
-  totalDistance: 40
+  totalDistance: 55.5
   sequence:
-  - poolObjectName: obstacle
-    laneIndex: 2
-    distance: 0
-  - poolObjectName: obstacle large
+  - poolObjectName: obstacle medium
     laneIndex: 0
     distance: 0
   - poolObjectName: coin
     laneIndex: 1
-    distance: 3
+    distance: 3.37
   - poolObjectName: coin
     laneIndex: 1
-    distance: 5
+    distance: 5.5
   - poolObjectName: coin
     laneIndex: 1
-    distance: 7
+    distance: 7.5
   - poolObjectName: coin
     laneIndex: 1
-    distance: 9
+    distance: 9.5
   - poolObjectName: coin
     laneIndex: 1
-    distance: 11
+    distance: 11.5
   - poolObjectName: coin
     laneIndex: 1
-    distance: 13
-  - poolObjectName: coin
-    laneIndex: 2
-    distance: 13
+    distance: 13.5
   - poolObjectName: obstacle medium
     laneIndex: 1
-    distance: 14.9
+    distance: 16
   - poolObjectName: coin
     laneIndex: 2
-    distance: 15
+    distance: 18.300001
   - poolObjectName: coin
     laneIndex: 2
-    distance: 17
+    distance: 20.5
   - poolObjectName: coin
     laneIndex: 2
-    distance: 19
+    distance: 22.5
   - poolObjectName: coin
     laneIndex: 2
-    distance: 21
+    distance: 24.5
   - poolObjectName: coin
     laneIndex: 2
-    distance: 23
+    distance: 26.5
   - poolObjectName: coin
     laneIndex: 2
-    distance: 25
+    distance: 28.5
   - poolObjectName: coin
+    laneIndex: 1
+    distance: 32.870003
+  - poolObjectName: obstacle medium
     laneIndex: 2
-    distance: 27
+    distance: 35
+  - poolObjectName: coin
+    laneIndex: 0
+    distance: 35.5
+  - poolObjectName: coin
+    laneIndex: 0
+    distance: 37.5
+  - poolObjectName: coin
+    laneIndex: 0
+    distance: 39.5
+  - poolObjectName: coin
+    laneIndex: 0
+    distance: 41.5
+  - poolObjectName: coin
+    laneIndex: 0
+    distance: 43.5
