@@ -5,13 +5,13 @@ namespace Unity.Pool
     public class PoolManagerObjectsPattern : MonoBehaviour
     {
         [SerializeField] private SO_SpawnPaternList _list;
+        [SerializeField] private int _dificultyLevel = 1;
         [SerializeField] private float _speedMultiply = 1f;
         [SerializeField] private float _distanceDelay = 5f;
 
         [SerializeField] private SpawnerPointByPattern[] _paths;
 
         private GameplayManager _gameManager;
-
         private SO_SpawnPatern _currentPattern;
 
         private float _startDistance;
@@ -27,12 +27,11 @@ namespace Unity.Pool
             foreach (var path in _paths)
                 path.SetSpeed(_speedMultiply);
         }
-
         private void GameUpdate(float worldDistance)
         {
             if (!_isSpawning)
             {
-                _currentPattern = _list.GetRandomPattern();
+                _currentPattern = _list.GetRandomPattern(_dificultyLevel);
                 _startDistance = worldDistance * _speedMultiply;
                 _currentIndex = 0;
 

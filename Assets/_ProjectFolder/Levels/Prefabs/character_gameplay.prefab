@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928568027211753867, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97523713
+      value: 0.975237
       objectReference: {fileID: 0}
     - target: {fileID: 1928568027211753867, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2211618
+      value: 0.22116214
       objectReference: {fileID: 0}
     - target: {fileID: 2307682792026073072, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3134554730274279880, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.06430232
+      value: 0.06430159
       objectReference: {fileID: 0}
     - target: {fileID: 6144903610100664734, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7724103960019942703, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28362298
+      value: 0.2836233
       objectReference: {fileID: 0}
     - target: {fileID: 7724103960019942703, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9589359
+      value: 0.9589358
       objectReference: {fileID: 0}
     - target: {fileID: 7724103960019942703, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -90,7 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8608357938652904638, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.04271965
+      value: 0.042720392
+      objectReference: {fileID: 0}
+    - target: {fileID: 8608357938652904638, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9990871
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -215,7 +219,10 @@ MonoBehaviour:
   _deltaInput: {fileID: 0}
   _inputForgiveness: 0.5
   _swipeThreshold: 50
+  _swipeLockAfterJump: 0.08
   _jumpForce: 24
+  _swipeForce: 25
+  _lowJumpMultiplier: 2
 --- !u!114 &4357906240776562913
 MonoBehaviour:
   m_ObjectHideFlags: 0

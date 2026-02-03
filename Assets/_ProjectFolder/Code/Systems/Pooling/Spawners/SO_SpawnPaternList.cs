@@ -7,9 +7,10 @@ namespace Unity.Pool
     {
         [SerializeField] private SO_SpawnPatern[] _patenrs;
 
-        public SO_SpawnPatern GetRandomPattern()
+        public SO_SpawnPatern GetRandomPattern(int dificulty)
         {
-            return _patenrs[Random.Range(0, _patenrs.Length)];
+            int length = Mathf.Min(dificulty, _patenrs.Length);
+            return _patenrs[Random.Range(0, length)];
         }
     }
 }
