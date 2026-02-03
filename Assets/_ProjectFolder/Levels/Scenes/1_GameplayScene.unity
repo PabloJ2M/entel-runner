@@ -559,6 +559,20 @@ MonoBehaviour:
   _pitch:
     x: 1
     y: 1
+--- !u!114 &199297327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Jump
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
 --- !u!1 &233658746
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,20 +802,6 @@ Transform:
   - {fileID: 233658748}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &372728543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: Player/ScreenPress
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: 7f32edd3e42d3fa4bbec50cd42a0a7d4, type: 3}
-  m_ActionId: 08d1eb36-12e6-4732-b0ab-befe9fa9c145
 --- !u!1 &410792416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,20 +1930,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7053936276515940442, guid: beee2bf893364e44aaaa3b7f74da4887, type: 3}
   m_PrefabInstance: {fileID: 596997855}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &603672190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: Player/ScreenDelta
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: 7f32edd3e42d3fa4bbec50cd42a0a7d4, type: 3}
-  m_ActionId: 69caf9ff-25c6-4bfb-87b0-5fd2903c398c
 --- !u!1 &614055963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,6 +3838,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4418248446782523640, guid: 5d4cf0443f8933a4a83a42a184897580, type: 3}
   m_PrefabInstance: {fileID: 1613135763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1345837813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Swipe
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
 --- !u!1001 &1359325166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10211,7 +10211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolManagerObjectsPatern
   _list: {fileID: 11400000, guid: 90af9e457aa39a04a86338be30ce0f94, type: 2}
   _speedMultiply: 2
-  _distanceDelay: 15
+  _distanceDelay: 10
   _paths:
   - {fileID: 1626702093}
   - {fileID: 1546871482}
@@ -10636,13 +10636,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 674167125}
     - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: _jumpForce
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: _deltaInput
       value: 
-      objectReference: {fileID: 603672190}
+      objectReference: {fileID: 1345837813}
     - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: _pressInput
       value: 
-      objectReference: {fileID: 372728543}
+      objectReference: {fileID: 199297327}
+    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: _swipeForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: _fallMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: _swipeThreshold
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: _lowJumpMultiplier
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4367759615939812227, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.016345378

@@ -7,58 +7,89 @@ namespace Gameplay.Movement
     public class Jump : MonoBehaviour
     {
         [SerializeField] private InputActionReference _pressInput, _deltaInput;
+        [SerializeField] private float _inputForgiveness = 0.5f, _swipeThreshold = 50f;
+        [SerializeField] private float _swipeLockAfterJump = 0.08f;
 
-        [Header("Params")]
-        [SerializeField] private float _jumpForce = 24f;
-        [SerializeField] private float _cutJumpVelocity = 3f;
-        [SerializeField] private float _fallMultiplier = 4f;
+        [Header("Atributes")]
+        [SerializeField] private float _jumpForce = 15f;
+        [SerializeField] private float _swipeForce = 25f;
+        [SerializeField] private float /*_fallMultiplier = 2.5f,*/ _lowJumpMultiplier = 2f;
 
-        private Rigidbody2D _rb;
+        private Rigidbody2D _rigidbody;
         private AnimatorEvents _animator;
 
-        private bool _isGrounded;
+        private bool _isGrounded, _isPressing;
+        private float /*_fallVelocity, */_limitVelocity, _swipeLockTimer;
 
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody2D>();
+            _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<AnimatorEvents>();
+        }
+        private void Start()
+        {
+            //_fallVelocity = Physics2D.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
+            _limitVelocity = Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
         private void OnEnable()
         {
             _pressInput.action.Enable();
+            _deltaInput.action.Enable();
             _pressInput.action.performed += OnJump;
+            _deltaInput.action.performed += OnSwipe;
         }
         private void OnDisable()
         {
+            _isPressing = false;
             _pressInput.action.performed -= OnJump;
+            _deltaInput.action.performed -= OnSwipe;
             _pressInput.action.Disable();
+            _deltaInput.action.Disable();
         }
 
         private void FixedUpdate()
         {
-            _animator?.SetGravity(_rb.linearVelocityY);
-            if (!_pressInput.action.IsPressed() && _rb.linearVelocity.y > _cutJumpVelocity)
-            {
-                _rb.linearVelocity = new Vector2(_rb.linearVelocity.x,_cutJumpVelocity);
-            }
+            _animator?.SetGravity(_rigidbody.linearVelocityY);
 
-            if (_rb.linearVelocity.y < 0)
-            {
-                _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.fixedDeltaTime;
-            }
+            if (_swipeLockTimer > 0) _swipeLockTimer -= Time.fixedDeltaTime;
+
+            //if (_rigidbody.linearVelocityY < 0) _rigidbody.linearVelocityY += _fallVelocity;
+            /*else */
+            if (!_isPressing && _rigidbody.linearVelocityY > 0) _rigidbody.linearVelocityY += _limitVelocity;
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             _isGrounded = true;
             _animator?.SetGroundCheck(_isGrounded);
+
+            if (_isPressing)
+                Invoke(nameof(JumpImpulse), 2 * Time.fixedDeltaTime);
         }
 
         private void OnJump(InputAction.CallbackContext ctx)
         {
-            if (!_isGrounded) return;
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
+            _isPressing = ctx.action.IsPressed();
+            if (!_isPressing) return;
+
+            if (!_isGrounded) Invoke(nameof(ResetPressThreshold), _inputForgiveness);
+            else JumpImpulse();
+        }
+        private void OnSwipe(InputAction.CallbackContext ctx)
+        {
+            if (_isGrounded || _swipeLockTimer > 0) return;
+
+            if (ctx.ReadValue<Vector2>().y < -_swipeThreshold)
+                _rigidbody.linearVelocityY = -_swipeForce;
+        }
+
+        private void ResetPressThreshold() => _isPressing = false;
+        private void JumpImpulse()
+        {
+            CancelInvoke();
 
             _isGrounded = false;
+            _swipeLockTimer = _swipeLockAfterJump;
+            _rigidbody.linearVelocityY = _jumpForce;
             _animator?.SetGroundCheck(_isGrounded);
         }
     }

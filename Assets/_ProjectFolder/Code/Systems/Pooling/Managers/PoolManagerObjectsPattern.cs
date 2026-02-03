@@ -42,7 +42,7 @@ namespace Unity.Pool
             {
                 float traveled = worldDistance * _speedMultiply - _startDistance;
 
-                if (traveled >= _currentPattern.totalDistance)
+                if (traveled >= _currentPattern.totalDistance + _distanceDelay)
                 {
                     _isSpawning = false;
                     return;
