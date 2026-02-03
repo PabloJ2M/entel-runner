@@ -18,7 +18,7 @@ namespace Gameplay.Movement
         private Rigidbody2D _rigidbody;
         private AnimatorEvents _animator;
 
-        private bool _isGrounded, _isPressing;
+        private bool _isGrounded, _isPressing, _jumpBuffered;
         private float /*_fallVelocity, */_limitVelocity, _swipeLockTimer;
 
         private void Awake()
@@ -40,6 +40,7 @@ namespace Gameplay.Movement
         }
         private void OnDisable()
         {
+            CancelInvoke();
             _isPressing = false;
             _pressInput.action.performed -= OnJump;
             _deltaInput.action.performed -= OnSwipe;
@@ -61,18 +62,28 @@ namespace Gameplay.Movement
         {
             _isGrounded = true;
             _animator?.SetGroundCheck(_isGrounded);
-
-            if (_isPressing)
-                Invoke(nameof(JumpImpulse), 2 * Time.fixedDeltaTime);
+            if (_jumpBuffered) JumpImpulse();
+        }
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            _isGrounded = false;
         }
 
         private void OnJump(InputAction.CallbackContext ctx)
         {
-            _isPressing = ctx.action.IsPressed();
-            if (!_isPressing) return;
-
-            if (!_isGrounded) Invoke(nameof(ResetPressThreshold), _inputForgiveness);
-            else JumpImpulse();
+            if (ctx.action.WasPressedThisFrame())
+            {
+                _isPressing = true;
+                if (_isGrounded) JumpImpulse();
+                else {
+                    _jumpBuffered = true;
+                    Invoke(nameof(ResetJumpBuffer), _inputForgiveness);
+                }
+            }
+            else if (ctx.action.WasReleasedThisFrame())
+            {
+                _isPressing = false;
+            }
         }
         private void OnSwipe(InputAction.CallbackContext ctx)
         {
@@ -82,12 +93,13 @@ namespace Gameplay.Movement
                 _rigidbody.linearVelocityY = -_swipeForce;
         }
 
-        private void ResetPressThreshold() => _isPressing = false;
+        private void ResetJumpBuffer() => _jumpBuffered = false;
+        //private void ResetPressThreshold() => _isPressing = false;
         private void JumpImpulse()
         {
             CancelInvoke();
 
-            _isGrounded = false;
+            _jumpBuffered = _isGrounded = false;
             _swipeLockTimer = _swipeLockAfterJump;
             _rigidbody.linearVelocityY = _jumpForce;
             _animator?.SetGroundCheck(_isGrounded);

@@ -25,6 +25,7 @@ namespace Unity.Pool
         [SerializeField] protected T[] _prefabs;
 
         protected Dictionary<string, ObjectPool<PoolObjectBehaviour>> Pools = new();
+        protected int _index;
 
         protected virtual void Awake()
         {
@@ -42,8 +43,14 @@ namespace Unity.Pool
         protected PoolObjectBehaviour GetPrefab(T reference) => Pools[reference.name].Get();
         protected PoolObjectBehaviour GetPrefabRandom()
         {
-            var prefab = _prefabs[Random.Range(0, _prefabs.Length)];
-            return GetPrefab(prefab);
+            int random = Random.Range(0, _prefabs.Length);
+            return GetPrefab(_prefabs[random].name);
+        }
+        protected PoolObjectBehaviour GetPrefabSequence()
+        {
+            _index++;
+            _index %= _prefabs.Length;
+            return GetPrefab(_prefabs[_index].name);
         }
     }
 }

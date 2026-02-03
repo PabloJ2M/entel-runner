@@ -986,6 +986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417747172}
   - component: {fileID: 417747173}
+  - component: {fileID: 417747174}
   m_Layer: 0
   m_Name: shadow scale
   m_TagString: Untagged
@@ -1026,6 +1027,26 @@ MonoBehaviour:
     x: 1.2
     y: 0.2
   _distance: 10
+--- !u!1818360608 &417747174
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417747171}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: -6.59, y: -5.32, z: 0}
+  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 0
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 1655437088}
+    weight: 1
 --- !u!1 &429971901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1343,7 @@ MonoBehaviour:
   _spaceDistance: 3.25
   _speedMultiply: 0.25
   _buildOnAwake: 1
+  _useRandom: 0
 --- !u!114 &468494275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2719,6 +2741,7 @@ MonoBehaviour:
   _spaceDistance: 3.75
   _speedMultiply: 0.75
   _buildOnAwake: 1
+  _useRandom: 0
 --- !u!114 &898765050
 MonoBehaviour:
   m_ObjectHideFlags: 0

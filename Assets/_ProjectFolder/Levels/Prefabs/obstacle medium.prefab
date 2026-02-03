@@ -56,9 +56,17 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 7.65
       objectReference: {fileID: 0}
+    - target: {fileID: 7624783359422279385, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7970114658768030947, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Size.x
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7970114658768030947, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9035488290087369279, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Name
