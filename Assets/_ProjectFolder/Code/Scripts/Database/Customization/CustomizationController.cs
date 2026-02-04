@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Unity.Customization
@@ -56,10 +55,7 @@ namespace Unity.Customization
         }
 
         [ContextMenu("Save Data")]
-        public async Task SaveData()
-        {
-            SaveLocalData(_customization);
-            await _cloudSave.SaveObjectData(_localDataID, _customization);
-        }
+        public async void SaveData() => await _cloudSave.SaveObjectData(_localDataID, _customization);
+        public void SaveDataLocal() => SaveLocalData(_customization);
     }
 }

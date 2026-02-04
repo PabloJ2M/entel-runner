@@ -19,12 +19,16 @@ namespace Unity.Services.RemoteConfig
         protected override void Awake()
         {
             base.Awake();
-            LoadLocalData(ref _lastUpdate);
+            string savedDate = string.Empty;
+            LoadLocalData(ref savedDate);
+
+            DateTime.TryParse(savedDate, out _lastUpdate);
             _cloudCode = GetComponent<PlayerCloudCodeService>();
         }
         protected override void OnSignInCompleted()
         {
             if (IsUpToDate()) return;
+
             RemoteConfigService.Instance.FetchCompleted += OnFetchData;
             RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
         }
@@ -46,7 +50,8 @@ namespace Unity.Services.RemoteConfig
                 onRemoteConfigUpdated?.Invoke(key, serverUTC);
 
             onRemoteConfigCompleted?.Invoke();
-            SaveLocalData(_lastUpdate = DateTime.UtcNow.Date);
+            _lastUpdate = DateTime.UtcNow.Date;
+            SaveLocalData(_lastUpdate.ToString());
         }
 
         private bool IsUpToDate()

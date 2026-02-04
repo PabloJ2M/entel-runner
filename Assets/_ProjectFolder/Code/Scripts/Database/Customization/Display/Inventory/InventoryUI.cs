@@ -29,8 +29,8 @@ namespace Unity.Customization.Inventory
 
         public void SelectItem(SO_Item item)
         {
-            var equipped = _customization.Local.equipped;
-            equipped.CreatePath(_libraryID, item.Group, item.ID);
+            _customization.Local.equipped.CreatePath(_libraryID, item.Group, item.ID);
+            _customization.SaveDataLocal();
             _library.UpdatePreview();
         }
     }

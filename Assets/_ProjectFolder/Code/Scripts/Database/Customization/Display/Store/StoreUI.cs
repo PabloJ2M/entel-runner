@@ -46,8 +46,10 @@ namespace Unity.Customization.Store
         }
         private void UnlockedItem(SO_Item item)
         {
-            _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Group, item.ID);
             _economy.RemoveBalanceID(item.Balance, item.Cost);
+            _customization.Local.unlocked.CreatePath(item.Reference.ID, item.Group, item.ID);
+            _customization.SaveDataLocal();
+            DisplayItems();
         }
 
         public void SaveBalances() => _economy?.SaveAllBalances();

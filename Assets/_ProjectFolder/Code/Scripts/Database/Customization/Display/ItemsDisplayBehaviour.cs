@@ -63,6 +63,6 @@ namespace Unity.Customization
             return result;
         }
 
-        public async void SaveData() => await _customization?.SaveData();
+        public void SaveData() => _customization?.SaveData();
     }
 }

@@ -21,7 +21,8 @@ namespace Unity.Services.CloudSave
         }
         protected override void OnSignOutCompleted()
         {
-            SaveLocalData(_hasLoadedData = false);
+            _hasLoadedData = false;
+            SaveLocalData(_hasLoadedData);
             onCloudSaveClear?.Invoke();
         }
         protected override async void OnSignInCompleted()
@@ -38,13 +39,15 @@ namespace Unity.Services.CloudSave
             {
                 var result = await CloudSaveService.Instance.Data.Player.LoadAllAsync();
                 foreach (var item in result) onCloudSaveUpdated?.Invoke(item.Key, item.Value);
-                SaveLocalData(_hasLoadedData = true);
+
+                _hasLoadedData = true;
+                SaveLocalData(_hasLoadedData);
             }
         }
         public async Task SaveObjectData(string key, object @cloud)
         {
             var payload = new Dictionary<string, object> { { key, @cloud } };
-            await CloudSaveService.Instance.Data.Player.SaveAsync(payload).CloudCodeResponse();
+            await CloudSaveService.Instance?.Data?.Player?.SaveAsync(payload).CloudCodeResponse();
         }
     }
 }

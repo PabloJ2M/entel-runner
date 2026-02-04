@@ -56,7 +56,7 @@ namespace Unity.Services.Economy
             SaveLocalData(_balances);
         }
 
-        public async void SaveBalanceID(BalanceType type) => await EconomyService.Instance.PlayerBalances
+        public async void SaveBalanceID(BalanceType type) => await EconomyService.Instance?.PlayerBalances?
             .SetBalanceAsync(type.ToString(), GetBalance(type))
             .EconomyResponse();
         
