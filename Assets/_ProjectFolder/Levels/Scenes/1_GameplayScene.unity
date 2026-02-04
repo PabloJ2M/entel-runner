@@ -1003,7 +1003,7 @@ Transform:
   m_GameObject: {fileID: 417747171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.59, y: -5.32, z: 0}
+  m_LocalPosition: {x: -6.6, y: -5.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1037,13 +1037,13 @@ PositionConstraint:
   m_Enabled: 1
   serializedVersion: 2
   m_Weight: 1
-  m_TranslationAtRest: {x: -6.59, y: -5.32, z: 0}
-  m_TranslationOffset: {x: 0, y: 0, z: 0}
+  m_TranslationAtRest: {x: -6.6, y: -5.32, z: 0}
+  m_TranslationOffset: {x: -0.099999905, y: 0.17999983, z: 0}
   m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_Active: 0
-  m_IsLocked: 0
+  m_AffectTranslationY: 0
+  m_AffectTranslationZ: 0
+  m_Active: 1
+  m_IsLocked: 1
   m_Sources:
   - sourceTransform: {fileID: 1655437088}
     weight: 1
@@ -10233,6 +10233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolManagerObjectsPatern
   _list: {fileID: 11400000, guid: 90af9e457aa39a04a86338be30ce0f94, type: 2}
+  _dificultyLevel: 3
+  _dificultyProgression: 50
   _speedMultiply: 2
   _distanceDelay: 10
   _paths:

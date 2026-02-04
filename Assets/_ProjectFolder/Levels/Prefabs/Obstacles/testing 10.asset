@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305f6cd7f2449904b8be4d690599bf62, type: 3}
+  m_Name: testing 10
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPatern
+  totalDistance: 40
+  sequence:
+  - poolObjectName: obstacle
+    laneIndex: 0
+    distance: 0
+  - poolObjectName: obstacle
+    laneIndex: 1
+    distance: 0
+  - poolObjectName: coin
+    laneIndex: 2
+    distance: 4
+  - poolObjectName: obstacle
+    laneIndex: 0
+    distance: 14.579741
+  - poolObjectName: obstacle
+    laneIndex: 2
+    distance: 14.579741
+  - poolObjectName: coin
+    laneIndex: 1
+    distance: 18
+  - poolObjectName: obstacle
+    laneIndex: 0
+    distance: 29.57974
+  - poolObjectName: obstacle
+    laneIndex: 1
+    distance: 29.57974
+  - poolObjectName: coin
+    laneIndex: 2
+    distance: 34
