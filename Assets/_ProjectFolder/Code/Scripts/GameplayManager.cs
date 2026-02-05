@@ -41,7 +41,6 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     private void LateUpdate()
     {
         if (!IsEnabled || Time.timeScale == 0) return;
-
         onFixedMovement?.Invoke();
     }
 

@@ -4,7 +4,8 @@ namespace Unity.Pool
 {
     public abstract class PoolManagerObjectsByDistance : PoolManagerObjects
     {
-        [Header("Distance")]
+        [Header("Spawn")]
+        [SerializeField] private int _startLength;
         [SerializeField] private float _spaceDistance = 1f;
         [SerializeField] private float _speedMultiply = 1f;
         [SerializeField] private bool _buildOnAwake;
@@ -14,23 +15,31 @@ namespace Unity.Pool
 
         public override float SpeedMultiply => _speedMultiply;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _gameManager = GameplayManager.Instance;
-        }
         protected virtual void Start()
         {
             if (!_buildOnAwake) return;
             _lastSpawn = -_spaceDistance;
 
-            for (int i = 0; i < _capacity * _prefabs.Length; i++) {
+            for (int i = 0; i < _startLength; i++) {
                 OnSpawn();
                 WorldOffset += _spaceDistance;
             }
         }
-        protected virtual void OnEnable() => _gameManager.onDinstanceTraveled += GameUpdate;
-        protected virtual void OnDisable() => _gameManager.onDinstanceTraveled -= GameUpdate;
+        protected override void Awake()
+        {
+            base.Awake();
+            _gameManager = GameplayManager.Instance;
+        }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _gameManager.onDinstanceTraveled += GameUpdate;
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            _gameManager.onDinstanceTraveled -= GameUpdate;
+        }
         protected abstract void OnSpawn();
 
         private void GameUpdate(float worldDistance)

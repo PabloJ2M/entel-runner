@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Animations;
 
 namespace Unity.Pool
 {
@@ -7,14 +6,11 @@ namespace Unity.Pool
 
     public abstract class PoolObjectOnSpline : PoolObjectBehaviourTransform
     {
-        [Header("Position Handler")]
-        [SerializeField] private Axis _followAxis;
-
         protected float _startDistance;
         private float3 _lastPosition, _currentPosition;
         private float _lastDeltaTime;
 
-        public ISplineResolution Spline { protected get; set; }
+        public ISplineResolution Spline { get; set; }
 
         public override void Enable()
         {
@@ -31,8 +27,7 @@ namespace Unity.Pool
             _lastPosition = _currentPosition;
             _lastDeltaTime = Time.deltaTime;
 
-            if ((_followAxis & Axis.X) != 0) _currentPosition.x = position.x;
-            if ((_followAxis & Axis.Y) != 0) _currentPosition.y = position.y;
+            _currentPosition = position;
         }
         public virtual void FixedInterpolation()
         {

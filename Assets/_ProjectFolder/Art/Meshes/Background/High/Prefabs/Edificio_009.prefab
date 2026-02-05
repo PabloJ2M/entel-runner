@@ -79,6 +79,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2403415982075971576}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7705594496432174459}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3274768333885656890}
   m_SourcePrefab: {fileID: 100100000, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
 --- !u!1 &8192420284291115384 stripped
 GameObject:
@@ -98,11 +104,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Background3D
   <Transform>k__BackingField: {fileID: 8861538682760344514}
-  _followAxis: 1
-  _roundPosition: 0
   _maxAngle: 180
   _angleFactor: 1
   _flip: 1
+--- !u!210 &-7705594496432174459
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192420284291115384}
+  m_Enabled: 1
+  m_SortingLayerID: -1041949129
+  m_SortingLayer: -1
+  m_SortingOrder: -50
+  m_SortAtRoot: 1
+  m_Sort3DAs2D: 1
+--- !u!1120581460 &-3274768333885656890
+RenderAs2D:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192420284291115384}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b697f6a938056384e968ccf6527dac83, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_OwningSortingGroup: {fileID: -7705594496432174459}
 --- !u!4 &8861538682760344514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}

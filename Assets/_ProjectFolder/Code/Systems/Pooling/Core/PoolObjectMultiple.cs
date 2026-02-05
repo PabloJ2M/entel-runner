@@ -11,7 +11,6 @@ namespace Unity.Pool
         protected ObjectPool<PoolObjectBehaviour> Pool;
 
         protected virtual void Awake() => Pool = new(() => OnCreate(_prefab), OnGet, OnRelease, OnDestroyObject);
-
         protected virtual T OnCreate(T prefab)
         {
             var obj = Instantiate(prefab, _parent);
@@ -25,6 +24,7 @@ namespace Unity.Pool
         [SerializeField] protected T[] _prefabs;
 
         protected Dictionary<string, ObjectPool<PoolObjectBehaviour>> Pools = new();
+        protected ISplineResolution _currentSpline;
         protected int _index;
 
         protected virtual void Awake()
@@ -38,19 +38,28 @@ namespace Unity.Pool
             obj.PoolReference = Pools[prefab.name];
             return obj;
         }
+        protected override void OnGet(PoolObjectBehaviour @object)
+        {
+            if (@object is not PoolObjectOnSpline prefab) return;
+            prefab.Spline = _currentSpline;
+            base.OnGet(@object);
+        }
 
-        protected PoolObjectBehaviour GetPrefab(string reference) => Pools[reference].Get();
-        protected PoolObjectBehaviour GetPrefab(T reference) => Pools[reference.name].Get();
-        protected PoolObjectBehaviour GetPrefabRandom()
+        public virtual PoolObjectBehaviour GetPrefab(ISplineResolution spline, string reference)
+        {
+            _currentSpline = spline;
+            return Pools[reference].Get();
+        }
+        public PoolObjectBehaviour GetPrefabRandom(ISplineResolution spline)
         {
             int random = Random.Range(0, _prefabs.Length);
-            return GetPrefab(_prefabs[random].name);
+            return GetPrefab(spline, _prefabs[random].name);
         }
-        protected PoolObjectBehaviour GetPrefabSequence()
+        public PoolObjectBehaviour GetPrefabSequence(ISplineResolution spline)
         {
             _index++;
             _index %= _prefabs.Length;
-            return GetPrefab(_prefabs[_index].name);
+            return GetPrefab(spline, _prefabs[_index].name);
         }
     }
 }

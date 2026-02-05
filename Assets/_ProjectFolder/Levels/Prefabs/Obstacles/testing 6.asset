@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305f6cd7f2449904b8be4d690599bf62, type: 3}
   m_Name: testing 6
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SO_SpawnPatern
-  totalDistance: 32
+  totalDistance: 36
   sequence:
   - poolObjectName: obstacle
     laneIndex: 0
@@ -22,13 +22,13 @@ MonoBehaviour:
     distance: 2
   - poolObjectName: coin
     laneIndex: 0
-    distance: 9
+    distance: 10
   - poolObjectName: obstacle
     laneIndex: 0
-    distance: 11
+    distance: 14
   - poolObjectName: coin
     laneIndex: 0
-    distance: 20
+    distance: 25
   - poolObjectName: obstacle
     laneIndex: 0
-    distance: 24
+    distance: 28

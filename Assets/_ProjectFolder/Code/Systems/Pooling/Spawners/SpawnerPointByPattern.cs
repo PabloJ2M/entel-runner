@@ -8,7 +8,7 @@ namespace Unity.Pool
         public void SetSpeed(float value) => _seedMultiply = value;
         public void OnSpawn(string item, float worldDistance)
         {
-            var obj = GetPrefab(item) as PoolObjectOnSpline;
+            var obj = _manager.GetPrefab(_spline, item) as PoolObjectOnSpline;
             obj.SetDistance(worldDistance * SpeedMultiply + WorldOffset);
         }
     }

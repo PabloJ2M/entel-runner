@@ -12,9 +12,8 @@ namespace Unity.Pool
             base.Awake();
             _spawner = GetComponent<IPoolManagerObjects>();
         }
-
-        protected virtual void OnEnable() => _spawner.OnDespawnObject += OnReleaseObjectEffect;
-        protected virtual void OnDisable() => _spawner.OnDespawnObject -= OnReleaseObjectEffect;
+        protected virtual void OnEnable() => _spawner.onGlobalDespawnObject += OnReleaseObjectEffect;
+        protected virtual void OnDisable() => _spawner.onGlobalDespawnObject -= OnReleaseObjectEffect;
 
         protected abstract void OnReleaseObjectEffect(PoolObjectBehaviour @object);
     }

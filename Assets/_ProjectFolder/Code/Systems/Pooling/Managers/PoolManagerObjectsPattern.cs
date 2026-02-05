@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unity.Pool
 {
-    public class PoolManagerObjectsPattern : MonoBehaviour
+    public class PoolManagerObjectsPattern : GameplayListener
     {
         [SerializeField] private SO_SpawnPaternList _list;
         [SerializeField] private int _dificultyLevel = 1;
@@ -12,24 +12,31 @@ namespace Unity.Pool
 
         [SerializeField] private SpawnerPointByPattern[] _paths;
 
-        private GameplayManager _gameManager;
+        public bool IsEnabled { private get; set; } = true;
+
         private SO_SpawnPatern _currentPattern;
 
         private float _startDistance, _dificultyDistance;
         private int _currentIndex;
         private bool _isSpawning;
 
-        private void Awake() => _gameManager = GameplayManager.Instance;
-        private void OnEnable() => _gameManager.onDinstanceTraveled += GameUpdate;
-        private void OnDisable() => _gameManager.onDinstanceTraveled -= GameUpdate;
-
         private void Start()
         {
             foreach (var path in _paths)
                 path.SetSpeed(_speedMultiply);
         }
-        private void GameUpdate(float worldDistance)
+        private void HandleDificulty(float distance)
         {
+            if (distance < _dificultyDistance) return;
+
+            _dificultyDistance = distance + _dificultyProgression;
+            _dificultyLevel++;
+        }
+
+        protected override void GameUpdate(float worldDistance)
+        {
+            if (!IsEnabled) return;
+
             if (!_isSpawning)
             {
                 _currentPattern = _list.GetRandomPattern(_dificultyLevel);
@@ -58,13 +65,6 @@ namespace Unity.Pool
                     _currentIndex++;
                 }
             }
-        }
-        private void HandleDificulty(float distance)
-        {
-            if (distance < _dificultyDistance) return;
-
-            _dificultyDistance = distance + _dificultyProgression;
-            _dificultyLevel++;
         }
     }
 }

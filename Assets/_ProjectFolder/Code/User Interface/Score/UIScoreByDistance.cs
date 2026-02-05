@@ -14,7 +14,9 @@ public class UIScoreByDistance : UIScore
     private void OnDisable() => GameplayManager.Instance.onDinstanceTraveled -= SetDistance;
     private void OnDestroy()
     {
-        var economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
+        var economy = UnityServiceInit.Instance?.GetComponent<PlayerEconomyService>();
+        if (!economy) return;
+
         uint coins = (uint)(_score / _pointsPerCoin);
 
         if (coins != 0)

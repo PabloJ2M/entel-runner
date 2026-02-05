@@ -6,46 +6,63 @@ namespace Unity.Pool
 {
     public interface IPoolManagerObjects
     {
+        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject { get; set; }
+        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject { get; set; }
+
+        event Action<PoolObjectBehaviour> onGlobalDespawnObject;
+
+        PoolObjectBehaviour GetPrefab(ISplineResolution spline, string name);
+        PoolObjectBehaviour GetPrefabRandom(ISplineResolution spline);
+        PoolObjectBehaviour GetPrefabSequence(ISplineResolution spline);
+    }
+    public interface IPoolDisplaceObjects
+    {
         IList<PoolObjectOnSpline> Spawned { get; }
         float SpeedMultiply { get; }
         float WorldOffset { get; set; }
-
-        event Action<PoolObjectBehaviour> OnSpawnObject;
-        event Action<PoolObjectBehaviour> OnDespawnObject;
     }
 
-    public abstract class PoolManagerObjects : PoolObjectMultiple<PoolObjectOnSpline>, IPoolManagerObjects
+    public abstract class PoolManagerObjects : MonoBehaviour, IPoolDisplaceObjects
     {
-        [SerializeField] protected int _capacity = 10;
+        protected IPoolManagerObjects _manager;
         protected ISplineResolution _spline;
 
+        public IList<PoolObjectOnSpline> Spawned { get; protected set; }
         public virtual float SpeedMultiply { get; } = 1f;
         public virtual float WorldOffset { get; set; }
 
-        public event Action<PoolObjectBehaviour> OnSpawnObject;
-        public event Action<PoolObjectBehaviour> OnDespawnObject;
-
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            base.Awake();
+            Spawned = new List<PoolObjectOnSpline>();
+            _manager = FindFirstObjectByType<PoolObjectSpawner>();
             _spline = GetComponentInChildren<ISplineResolution>();
         }
+        protected virtual void OnEnable()
+        {
+            if (_manager.onSpawnObject.ContainsKey(_spline)) _manager.onSpawnObject[_spline] += OnCreate;
+            else _manager.onSpawnObject[_spline] = OnCreate;
 
-        protected override PoolObjectOnSpline OnCreate(PoolObjectOnSpline prefab)
-        {
-            var clone = base.OnCreate(prefab);
-            clone.Spline = _spline;
-            return clone;
+            if (_manager.onDespawnObject.ContainsKey(_spline)) _manager.onDespawnObject[_spline] += OnRelease;
+            else _manager.onDespawnObject[_spline] = OnRelease;
         }
-        protected override void OnGet(PoolObjectBehaviour @object)
+        protected virtual void OnDisable()
         {
-            base.OnGet(@object);
-            OnSpawnObject?.Invoke(@object);
+            if (_manager.onSpawnObject.ContainsKey(_spline))
+                _manager.onSpawnObject[_spline] -= OnCreate;
+
+            if (_manager.onDespawnObject.ContainsKey(_spline))
+                _manager.onDespawnObject[_spline] -= OnRelease;
         }
-        protected override void OnRelease(PoolObjectBehaviour @object)
+
+        protected void OnCreate(PoolObjectBehaviour prefab)
         {
-            base.OnRelease(@object);
-            OnDespawnObject?.Invoke(@object);
+            if (prefab is not PoolObjectOnSpline @object) return;
+            Spawned.Add(@object);
+        }
+        protected void OnRelease(PoolObjectBehaviour prefab)
+        {
+            if (prefab is not PoolObjectOnSpline @object) return;
+            Spawned.Remove(@object);
         }
     }
 }

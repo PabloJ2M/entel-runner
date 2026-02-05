@@ -4,25 +4,25 @@ namespace Tutorial
 {
     public class TutorialCoin : MonoBehaviour
     {
-        private const string _tag = "Player";
+        //private const string _tag = "Player";
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (!collision.CompareTag(_tag)) return;
+        //private void OnTriggerEnter2D(Collider2D collision)
+        //{
+        //    if (!collision.CompareTag(_tag)) return;
 
-            Collector collector = collision.GetComponent<Collector>();
-            if (collector != null)
-            {
-                collector.AddPoints(50);
-            }
+        //    Collector collector = collision.GetComponent<Collector>();
+        //    if (collector != null)
+        //    {
+        //        collector.AddPoints(50);
+        //    }
 
-            TutorialDirector tutorial = FindFirstObjectByType<TutorialDirector>();
-            if (tutorial != null)
-            {
-                tutorial.OnCoinCollected();
-            }
+        //    TutorialDirector tutorial = FindFirstObjectByType<TutorialDirector>();
+        //    if (tutorial != null)
+        //    {
+        //        tutorial.OnCoinCollected();
+        //    }
 
-            Destroy(gameObject);
-        }
+        //    Destroy(gameObject);
+        //}
     }
 }
