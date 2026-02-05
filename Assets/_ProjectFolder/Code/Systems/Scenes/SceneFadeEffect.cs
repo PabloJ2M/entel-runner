@@ -7,6 +7,7 @@ namespace Unity.SceneManagement
     public class SceneFadeEffect : MonoBehaviour
     {
         [SerializeField, Range(0f, 5f)] private float _speed = 1f;
+        [SerializeField] protected bool _unscaleTime;
 
         private CanvasGroup _canvasGroup;
         private sbyte _fadeDirection;
@@ -25,7 +26,8 @@ namespace Unity.SceneManagement
         private void Update()
         {
             if (_isComplete) return;
-            _canvasGroup.alpha += Time.unscaledDeltaTime * _speed * _fadeDirection;
+            float delta = _unscaleTime ? Time.unscaledTime : Time.deltaTime;
+            _canvasGroup.alpha += delta * _speed * _fadeDirection;
 
             switch(_canvasGroup.alpha)
             {

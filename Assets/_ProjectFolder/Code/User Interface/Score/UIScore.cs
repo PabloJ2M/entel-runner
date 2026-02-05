@@ -9,7 +9,7 @@ public class UIScore : MonoBehaviour
     [SerializeField] private TweenCore _newScoreAnimation;
 
     private const string _highScore = "HighScore";
-    private int _score;
+    protected int _score;
 
     private void Awake()
     {

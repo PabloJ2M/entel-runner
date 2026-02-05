@@ -8,24 +8,24 @@ namespace Unity.Services.Authentication
     {
         protected override async void OnServiceInitialized()
         {
-            #if UNITY_EDITOR
+            //#if UNITY_EDITOR
             PlayerAccountService.Instance.SignedIn += SignInOrLinkAccount;
             await LoginUnityPlayerServices();
-            #else
+            //#else
             await Task.Yield();
-            #endif
+            //#endif
         }
 
-        #if UNITY_EDITOR
+        //#if UNITY_EDITOR
         private async Task LoginUnityPlayerServices() => await PlayerAccountService.Instance.StartSignInAsync().AuthResponse();
-        #endif
+        //#endif
 
         public override async void SignInOrLinkAccount()
         {
-            #if UNITY_EDITOR
+            //#if UNITY_EDITOR
             if (!PlayerAccountService.Instance.IsSignedIn)
                 await LoginUnityPlayerServices();
-            #endif
+            //#endif
             
             if (!AuthenticationService.Instance.IsSignedIn) await SignInAccountAsync(PlayerAccountService.Instance.AccessToken);
             else await LinkAccountAsync(PlayerAccountService.Instance.AccessToken);

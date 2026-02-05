@@ -7,9 +7,9 @@ namespace UnityEngine.Animations
 
     public static class TweenExtension
     {
-        public static float3 Get(this Axis axis)
+        public static Vector3 Get(this Axis axis)
         {
-            var result = float3.zero;
+            var result = Vector3.zero;
 
             if ((axis & Axis.X) != 0) result.x = 1;
             if ((axis & Axis.Y) != 0) result.y = 1;
@@ -17,9 +17,9 @@ namespace UnityEngine.Animations
 
             return result;
         }
-        public static float3 GetInverse(this Axis axis)
+        public static Vector3 GetInverse(this Axis axis)
         {
-            var result = new float3(1f, 1f, 1f);
+            var result = Vector3.one;
 
             if ((axis & Axis.X) != 0) result.x = 0;
             if ((axis & Axis.Y) != 0) result.y = 0;
@@ -28,9 +28,9 @@ namespace UnityEngine.Animations
             return result;
         }
 
-        public static float2 Get(this Direction direction)
+        public static Vector2 Get(this Direction direction)
         {
-            var result = float2.zero;
+            var result = Vector2.zero;
             
             if ((direction & Direction.Up) != 0) result.y = 1;
             if ((direction & Direction.Down) != 0) result.y = -1;
@@ -40,7 +40,7 @@ namespace UnityEngine.Animations
             return result;
         }
 
-        public static float InverseLerp(float3 a, float3 b, float3 t)
+        public static float InverseLerp(Vector3 a, Vector3 b, Vector3 t)
         {
             var ab = b - a; var at = t - a;
             return math.clamp(math.dot(at, ab) / math.dot(ab, ab), 0, 1);

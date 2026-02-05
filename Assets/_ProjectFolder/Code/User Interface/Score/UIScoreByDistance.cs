@@ -1,14 +1,25 @@
-using Unity.Achievements;
 using UnityEngine;
+using Unity.Achievements;
+using Unity.Services;
+using Unity.Services.Economy;
 
 public class UIScoreByDistance : UIScore
 {
+    [SerializeField] private int _pointsPerCoin;
     [SerializeField] private float _distancePerPoint;
     [SerializeField] private AchievementTrigger _trigger;
     private float _traveled;
 
     private void OnEnable() => GameplayManager.Instance.onDinstanceTraveled += SetDistance;
     private void OnDisable() => GameplayManager.Instance.onDinstanceTraveled -= SetDistance;
+    private void OnDestroy()
+    {
+        var economy = UnityServiceInit.Instance.GetComponent<PlayerEconomyService>();
+        uint coins = (uint)(_score / _pointsPerCoin);
+
+        if (coins != 0)
+            economy.AddBalanceID(BalanceType.COIN, coins);
+    }
 
     public void SetDistance(float worldDistance)
     {

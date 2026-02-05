@@ -14,8 +14,8 @@ namespace Unity.Services.Authentication
         protected override void OnServiceInitialized()
         {
             #if UNITY_ANDROID
-            PlayGamesPlatform.Activate();
-            LogInGooglePlayGamesServices();
+            //PlayGamesPlatform.Activate();
+            //LogInGooglePlayGamesServices();
             #endif
         }
 

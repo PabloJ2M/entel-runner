@@ -7,7 +7,7 @@ namespace UnityEngine.Animations
             base.OnStart();
 
             if (!_tweenCore.IsEnabled)
-                _transform.localPosition = _to;
+                _transform.anchoredPosition = _to;
         }
 
         [ContextMenu("SwipeIn")] public void SwipeIn() => _tweenCore?.Play(true);

@@ -1,5 +1,4 @@
 using PrimeTween;
-using Unity.Mathematics;
 
 namespace UnityEngine.Animations
 {
@@ -11,13 +10,13 @@ namespace UnityEngine.Animations
         protected override void Awake()
         {
             base.Awake();
-            float2 size = _transform.rect.size;
-            float2 direction = _direction.Get();
+            Vector2 size = _transform.rect.size;
+            Vector2 direction = _direction.Get();
             if (_overrideDistance.x != 0) size.x = _overrideDistance.x;
             if (_overrideDistance.y != 0) size.y = _overrideDistance.y;
 
-            _from = _to = _transform.localPosition;
-            _to += new float3(direction.x * size.x, direction.y * size.y, 0f);
+            _from = _to = _transform.anchoredPosition;
+            _to += new Vector3(direction.x * size.x, direction.y * size.y, 0f);
         }
         protected override void OnStart() { }
         protected override void OnComplete() => _tweenCore.onComplete?.Invoke();
@@ -26,7 +25,7 @@ namespace UnityEngine.Animations
         {
             if (_tweenCore.IsEnabled == value) return;
 
-            _tween = Tween.LocalPosition(_transform, _transform.localPosition, value ? _from : _to, _settings);
+            _tween = Tween.UIAnchoredPosition(_transform, _transform.anchoredPosition, value ? _from : _to, _settings);
             _tween.OnComplete(OnComplete);
         }
     }

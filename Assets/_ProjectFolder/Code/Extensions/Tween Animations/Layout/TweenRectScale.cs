@@ -1,4 +1,5 @@
 using PrimeTween;
+using Unity.Mathematics;
 
 namespace UnityEngine.Animations
 {
@@ -11,9 +12,9 @@ namespace UnityEngine.Animations
         protected override void Awake()
         {
             base.Awake();
-            _from = _transform.localScale - (Vector3)_axis.Get() * (1f - _normalFactor);
+            _from = _transform.localScale - _axis.Get() * (1f - _normalFactor);
             _to = _from + _axis.Get() * _scaleFactor;
-            _transform.localScale = _from;
+            _transform.localScale = new(_from.x, _from.y, 1f);
         }
 
         protected override void OnStart() { }

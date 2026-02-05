@@ -41,7 +41,7 @@ namespace Unity.Services.RemoteConfig
         private async void OnFetchData(ConfigResponse response)
         {
             await _cloudCode.GetServerTime();
-            if (!_cloudCode.ServerTimeUTC.HasResponse) return;
+            //if (!_cloudCode.ServerTimeUTC.HasResponse) return;
 
             string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
             var serverUTC = _cloudCode.ServerTimeUTC.Time;
