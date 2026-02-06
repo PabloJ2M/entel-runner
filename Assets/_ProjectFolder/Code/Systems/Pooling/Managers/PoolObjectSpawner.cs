@@ -20,7 +20,7 @@ namespace Unity.Pool
         public override PoolObjectBehaviour GetPrefab(ISplineResolution spline, string reference)
         {
             var prefab = base.GetPrefab(spline, reference);
-            onSpawnObject[spline]?.Invoke(prefab);
+            if (onSpawnObject.ContainsKey(spline)) onSpawnObject[spline]?.Invoke(prefab);
             return prefab;
         }
         protected override void OnRelease(PoolObjectBehaviour @object)
@@ -29,7 +29,8 @@ namespace Unity.Pool
             onGlobalDespawnObject?.Invoke(@object);
 
             if (@object is PoolObjectOnSpline prefab)
-                onDespawnObject[prefab.Spline]?.Invoke(@object);
+                if (onDespawnObject.ContainsKey(prefab.Spline))
+                    onDespawnObject[prefab.Spline]?.Invoke(@object);
         }
     }
 }
