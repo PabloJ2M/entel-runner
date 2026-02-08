@@ -11,52 +11,413 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrarySourceAsset
   m_Library:
-  - m_Name: head
-    m_Hash: 670299804
+  - m_Name: Head
+    m_Hash: 130111906
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: default
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 0}
+      m_SpriteOverride: {fileID: -8817485979711080408, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
     m_FromMain: 1
-    m_EntryOverrideCount: 0
-  - m_Name: top
-    m_Hash: 517545930
+    m_EntryOverrideCount: 1
+  - m_Name: Body
+    m_Hash: 999990412
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: default
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 0}
+      m_SpriteOverride: {fileID: 2256280295107545173, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -6836413848444924324, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6836413848444924324, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -5451282625667048543, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5451282625667048543, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 3591920335153839764, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3591920335153839764, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: -3398652176044581751, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3398652176044581751, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
     m_FromMain: 1
-    m_EntryOverrideCount: 0
-  - m_Name: pants
-    m_Hash: 1014824426
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Arm.L.Upper
+    m_Hash: 970496473
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: default
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 0}
+      m_SpriteOverride: {fileID: -2257951344274589446, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 2371560938607283810, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2371560938607283810, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -4143414564654256691, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4143414564654256691, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 8647783470411429589, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8647783470411429589, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: -1372521833074262600, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1372521833074262600, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
     m_FromMain: 1
-    m_EntryOverrideCount: 0
-  - m_Name: shoes
-    m_Hash: 349143447
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Arm.L.Lower
+    m_Hash: 421346662
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: default
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 0}
+      m_SpriteOverride: {fileID: 8647824123154394576, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -3462288610732605135, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3462288610732605135, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -854594996909029276, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -854594996909029276, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: -5967674946774521047, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5967674946774521047, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 8200745227591310578, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8200745227591310578, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
     m_FromMain: 1
-    m_EntryOverrideCount: 0
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Arm.R.Upper
+    m_Hash: 238648906
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 6153317261230535346, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -5668734334316771030, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5668734334316771030, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -1235537038712532168, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1235537038712532168, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 2011999180857327727, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2011999180857327727, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 2380490138854934635, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2380490138854934635, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Arm.R.Lower
+    m_Hash: 788323061
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5958809804773531714, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 2891555408694684596, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2891555408694684596, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -5839195588468036022, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5839195588468036022, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: -7484513000929187864, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7484513000929187864, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 3108922930125109444, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3108922930125109444, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Hand.L
+    m_Hash: 256796490
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 6812853219818792859, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Body.Hand.R
+    m_Hash: 893475369
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 7581530071926567650, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Body.Pants
+    m_Hash: 293047186
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6767753591269271797, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 95077760396784350, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 95077760396784350, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -3815416522624652040, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3815416522624652040, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 7074516654530461137, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7074516654530461137, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 9063737403831139039, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 9063737403831139039, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Pants.L.Upper
+    m_Hash: 60485022
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 4447536458486594144, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -4372871732245296688, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4372871732245296688, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -6732359916495898273, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6732359916495898273, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 3635022011372108663, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3635022011372108663, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 1558597518742562129, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1558597518742562129, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Pants.L.Lower
+    m_Hash: 593447201
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5713626673432029676, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 2863735137791268825, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2863735137791268825, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: 8333805564988170847, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8333805564988170847, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 1593609092145749128, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1593609092145749128, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 2163310471691317293, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2163310471691317293, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Pants.R.Upper
+    m_Hash: 880478733
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2394628098245015281, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -2702297453830302087, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2702297453830302087, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -2044475621056337158, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2044475621056337158, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: -7273203711203634795, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7273203711203634795, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: -7297006236378088605, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7297006236378088605, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Pants.R.Lower
+    m_Hash: 348040882
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5814275745925382347, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: -7434194777957846473, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -7434194777957846473, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: 3812576241949181900, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3812576241949181900, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: -4610405023701292457, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4610405023701292457, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: -4795695649256920189, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4795695649256920189, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Feet.L
+    m_Hash: 199459979
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 8090741947209623295, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 5650569622495951270, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5650569622495951270, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: -8021711920767046786, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8021711920767046786, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 4369526718937806383, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4369526718937806383, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: -8106842724614283638, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8106842724614283638, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Body.Feet.R
+    m_Hash: 837597672
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 7691038598894445208, guid: 0ecb56ef3ee456a4990f7794e12f596e, type: 3}
+    - m_Name: entel_verde
+      m_Hash: 284592884
+      m_Sprite: {fileID: 3127534782245125561, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3127534782245125561, guid: 8216fea1ed066db48b54ac99cc580b50, type: 3}
+    - m_Name: entel_celeste
+      m_Hash: 13518726
+      m_Sprite: {fileID: 173069725536452035, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 173069725536452035, guid: b88cd14b407333f469200e18f6ee90df, type: 3}
+    - m_Name: deportivo
+      m_Hash: 778490127
+      m_Sprite: {fileID: 8425131113007209907, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 8425131113007209907, guid: dfe50101cc701f6458e1450945841a1e, type: 3}
+    - m_Name: desierto
+      m_Hash: 1011483405
+      m_Sprite: {fileID: 2539472257067584110, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2539472257067584110, guid: 7c08b60a1f986e44fa65f8776f86767d, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 4e848b54bdd9d4244ba958cd81b1cd42
-  m_ModificationHash: 639036505126902091
+  m_ModificationHash: 639061641379282991
   m_Version: 1
