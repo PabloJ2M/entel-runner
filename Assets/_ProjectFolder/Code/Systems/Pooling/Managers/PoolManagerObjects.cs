@@ -6,8 +6,8 @@ namespace Unity.Pool
 {
     public interface IPoolManagerObjects
     {
-        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject { get; set; }
-        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject { get; set; }
+        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject { get; }
+        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject { get; }
 
         event Action<PoolObjectBehaviour> onGlobalDespawnObject;
 

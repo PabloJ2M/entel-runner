@@ -5,17 +5,12 @@ namespace Unity.Pool
 {
     public class PoolObjectSpawner : PoolObjectMultiple<PoolObjectOnSpline>, IPoolManagerObjects
     {
-        public IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject { get; set; }
-        public IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject { get; set; }
+        protected Dictionary<ISplineResolution, Action<PoolObjectBehaviour>> _onSpawn = new();
+        protected Dictionary<ISplineResolution, Action<PoolObjectBehaviour>> _onDespawn = new();
 
         public event Action<PoolObjectBehaviour> onGlobalDespawnObject;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            onSpawnObject = new Dictionary<ISplineResolution, Action<PoolObjectBehaviour>>();
-            onDespawnObject = new Dictionary<ISplineResolution, Action<PoolObjectBehaviour>>();
-        }
+        public IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject => _onSpawn;
+        public IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject => _onDespawn;
 
         public override PoolObjectBehaviour GetPrefab(ISplineResolution spline, string reference)
         {
