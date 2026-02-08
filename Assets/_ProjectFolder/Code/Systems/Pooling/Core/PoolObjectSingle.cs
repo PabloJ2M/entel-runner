@@ -20,8 +20,12 @@ namespace Unity.Pool
         {
             var obj = Instantiate(_prefab, _parent);
             obj.PoolReference = Pool;
-            _spawned.Add(obj);
             return obj;
+        }
+        protected override void OnGet(PoolObjectBehaviour @object)
+        {
+            base.OnGet(@object);
+            _spawned.Add(@object);
         }
         protected override void OnRelease(PoolObjectBehaviour @object)
         {
