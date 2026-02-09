@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryID: male
   _assetReference: {fileID: 7108339969198208228, guid: a0c76a8f8a14e634c80ddc600829f650, type: 3}
+  _animator: {fileID: 9100000, guid: 21fc5634abc54b24fa5f7752f1fd7093, type: 2}

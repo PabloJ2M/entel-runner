@@ -1072,7 +1072,7 @@ Transform:
   m_GameObject: {fileID: 299856785}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0823631, y: 0, z: -10}
+  m_LocalPosition: {x: 2.1404445, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3877,7 +3877,7 @@ Transform:
   m_GameObject: {fileID: 1233381034}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.082363, y: 0, z: -10}
+  m_LocalPosition: {x: -2.1404443, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3914,6 +3914,43 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!1001 &1255672833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2533365161214855365, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533365161214855365, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533365161214855365, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533365161214855365, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533365161214855365, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738071141059956902, guid: b897c7637abc92d40aa391764e962d18, type: 3}
+      propertyPath: m_Name
+      value: powercito UI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b897c7637abc92d40aa391764e962d18, type: 3}
 --- !u!1 &1266047520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,6 +4782,7 @@ RectTransform:
   - {fileID: 333416306}
   - {fileID: 1180971542}
   - {fileID: 704916971}
+  - {fileID: 1663401421}
   m_Father: {fileID: 385354931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5863,6 +5901,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _path: Assets/_ProjectFolder/Levels/Scenes/0_MenuScene.unity
+--- !u!1 &1663401420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663401421}
+  - component: {fileID: 1663401423}
+  - component: {fileID: 1663401424}
+  m_Layer: 5
+  m_Name: powersito
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1663401421
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663401420}
+  m_LocalRotation: {x: 0, y: 0, z: -0.14780933, w: 0.9890159}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1402954698}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 145}
+  m_SizeDelta: {x: 512, y: 512}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1663401423
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663401420}
+  m_CullTransparentMesh: 1
+--- !u!114 &1663401424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663401420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 5e6ff447e5ecf8c498cb6cec5007d7ec, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1679416411
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,6 +7588,10 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 2.15
       objectReference: {fileID: 0}
+    - target: {fileID: 1858763473929415637, guid: f65823f424bab60438929e9a351328f5, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 5090134920193925227, guid: f65823f424bab60438929e9a351328f5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7696,3 +7810,4 @@ SceneRoots:
   - {fileID: 1437337334}
   - {fileID: 2054668001}
   - {fileID: 3160227714195414256}
+  - {fileID: 1255672833}

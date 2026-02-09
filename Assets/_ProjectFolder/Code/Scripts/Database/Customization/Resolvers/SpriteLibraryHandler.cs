@@ -16,6 +16,7 @@ namespace Unity.Customization
         private Dictionary<ItemGroup, HashSet<SpriteResolverListener>> _resolvers = new();
         private CustomizationController _customization;
         private SpriteLibrary _library;
+        private Animator _animator;
 
         private void Start() => _reference?.FindReference(ref _customization.Local.selectedLibrary);
         private void OnDestroy() => _resolvers.Clear();
@@ -24,6 +25,7 @@ namespace Unity.Customization
         {
             _listReference?.Setup();
             _library = GetComponent<SpriteLibrary>();
+            _animator = GetComponentInParent<Animator>();
             _customization = UnityServiceInit.Instance?.GetComponentInChildren<CustomizationController>();
         }
         private void OnEnable()
@@ -40,6 +42,8 @@ namespace Unity.Customization
         private void OnUpdatePreview(SO_LibraryReference library)
         {
             _library.spriteLibraryAsset = library.Asset;
+            _animator.runtimeAnimatorController = library.Animator;
+
             _customization.Local.selectedLibrary = library.ID;
             _customization.Local.equipped.TryGetValue(library.ID, out var equipped);
 

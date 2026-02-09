@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
     m_Keys:
+    - {fileID: 11400000, guid: 583d9b5483817354b9f4ef3077510f59, type: 2}
     - {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
     - {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
     m_Values:
+    - items:
+      - {fileID: 11400000, guid: e017f24ba48472e44a9fe0531336aadd, type: 2}
+      - {fileID: 11400000, guid: 1dfe9ba76317cac40b830dc80da2f31e, type: 2}
+      - {fileID: 11400000, guid: 3c477e7bb56e5514fb160fb49bce9aa1, type: 2}
+      - {fileID: 11400000, guid: ab885728e9e3b804f9a46ca226e2ec7f, type: 2}
     - items:
       - {fileID: 11400000, guid: 9dd96f7eb79f9b244b93ac32e71ec11a, type: 2}
       - {fileID: 11400000, guid: 329066f15bc089d4496703afcc907673, type: 2}

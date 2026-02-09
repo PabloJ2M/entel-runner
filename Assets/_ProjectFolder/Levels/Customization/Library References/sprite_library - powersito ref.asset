@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryID: powersito
   _assetReference: {fileID: 7108339969198208228, guid: 8c73e4ad331a4a9499737b7efae55973, type: 3}
+  _animator: {fileID: 22100000, guid: f491afa30df689042a57bdc9c15ad4dc, type: 2}

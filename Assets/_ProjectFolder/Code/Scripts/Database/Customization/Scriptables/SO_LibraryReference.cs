@@ -9,9 +9,11 @@ namespace Unity.Customization
     {
         [SerializeField] private string _libraryID;
         [SerializeField] private SpriteLibraryAsset _assetReference;
+        [SerializeField] private RuntimeAnimatorController _animator;
 
         public string ID => _libraryID;
         public SpriteLibraryAsset Asset => _assetReference;
+        public RuntimeAnimatorController Animator => _animator;
 
         //public IReadOnlyList<Sprite> GetSprites(string[] categories, string label)
         //{
