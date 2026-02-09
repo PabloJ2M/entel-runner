@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Obstacle
   <Transform>k__BackingField: {fileID: 2042083034070760979}
-  _render: {fileID: 0}
+  _render: {fileID: 6983979236735322531}
   _maxAngle: 45
   _angleFactor: 1
   _flip: 1
@@ -186,7 +186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8328883533586065738, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
       propertyPath: m_Name
-      value: Nave_BS
+      value: nave
       objectReference: {fileID: 0}
     - target: {fileID: 8709385391633806320, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
       propertyPath: m_LocalPosition.x

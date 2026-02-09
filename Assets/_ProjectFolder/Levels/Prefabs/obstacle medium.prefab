@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3951451166249027454, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: _angleFactor
-      value: 0.75
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6053066357060771954, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Size.x
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 8447932406617599024, guid: 4b0073ea4d4e37445a7ffb2de021ac96, type: 3}
     - target: {fileID: 6983979236735322531, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 7105409991806088291, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_LocalPosition.x

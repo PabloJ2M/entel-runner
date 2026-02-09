@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: 'm_BlendShapeWeights.Array.data[0]'
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3951451166249027454, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: _angleFactor
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4374682955909402871, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: _laneToActivate
       value: 0
@@ -66,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6983979236735322531, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 14.37
       objectReference: {fileID: 0}
     - target: {fileID: 7624783359422279385, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_IsActive
