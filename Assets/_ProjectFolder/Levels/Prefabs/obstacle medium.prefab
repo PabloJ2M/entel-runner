@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3951451166249027454, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: _angleFactor
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6053066357060771954, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Size.x
       value: 14.5
@@ -56,17 +60,17 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 7.65
       objectReference: {fileID: 0}
-    - target: {fileID: 7624783359422279385, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6139715984788028358, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8447932406617599024, guid: 4b0073ea4d4e37445a7ffb2de021ac96, type: 3}
+    - target: {fileID: 7105409991806088291, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 7970114658768030947, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Size.x
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970114658768030947, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9035488290087369279, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: m_Name
