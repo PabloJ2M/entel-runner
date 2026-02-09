@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: mecanico
-  _preview: {fileID: 21300000, guid: 757f5d7dadf03f740ac4121db51b02c6, type: 3}
+  _preview: {fileID: 21300000, guid: d19bbc73e9ef52b4296ddc00b7fc217c, type: 3}
   _group: 2
   _label: mecanico
   _quality: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: sudadera_negra
-  _preview: {fileID: 21300000, guid: 9dad97e05cd2b2248929d6e8d4fec474, type: 3}
+  _preview: {fileID: 21300000, guid: d2f1d4f939cb52344b1226bff2addd3e, type: 3}
   _group: 1
   _label: sudadera_negra
   _quality: 0

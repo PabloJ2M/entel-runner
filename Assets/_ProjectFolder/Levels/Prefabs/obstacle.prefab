@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7970114658768030947}
   - component: {fileID: 6053066357060771954}
   - component: {fileID: 5483287928434358181}
-  - component: {fileID: -8004815765376725991}
+  - component: {fileID: 3951451166249027454}
   m_Layer: 6
   m_Name: obstacle
   m_TagString: Finish
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8004815765376725991
+--- !u!114 &3951451166249027454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,9 +170,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e2bf98c6928c704a96c11caf812f39f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Obstacle
   <Transform>k__BackingField: {fileID: 2042083034070760979}
-  _followAxis: 1
+  _render: {fileID: 7105409991806088291}
+  _maxAngle: 45
+  _angleFactor: 1
+  _flip: 1
 --- !u!1001 &910919151479419915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,19 +190,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.42026
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000000069447945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -207,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalRotation.z
@@ -219,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7944139295896043624, guid: 1c0a38a57715e2e449877dd7df5acdb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

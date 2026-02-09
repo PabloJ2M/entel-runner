@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
   _itemID: deportivo
-  _preview: {fileID: 21300000, guid: 9dad97e05cd2b2248929d6e8d4fec474, type: 3}
+  _preview: {fileID: 21300000, guid: 55e751b640d0f0e4e83ab880224ecfe3, type: 3}
   _group: 2
   _label: deportivo
   _quality: 0

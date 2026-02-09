@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Unity.Pool
 {
-    [RequireComponent(typeof(IPoolManagerObjects))]
+    [RequireComponent(typeof(IPoolDisplaceObjects))]
     public sealed class PoolObjectDisplacement : GameplayListener
     {
         private IPoolDisplaceObjects _manager;

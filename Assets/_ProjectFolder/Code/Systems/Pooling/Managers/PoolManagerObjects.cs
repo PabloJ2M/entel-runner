@@ -1,27 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Unity.Pool
 {
-    public interface IPoolManagerObjects
-    {
-        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onSpawnObject { get; }
-        IDictionary<ISplineResolution, Action<PoolObjectBehaviour>> onDespawnObject { get; }
-
-        event Action<PoolObjectBehaviour> onGlobalDespawnObject;
-
-        PoolObjectBehaviour GetPrefab(ISplineResolution spline, string name);
-        PoolObjectBehaviour GetPrefabRandom(ISplineResolution spline);
-        PoolObjectBehaviour GetPrefabSequence(ISplineResolution spline);
-    }
-    public interface IPoolDisplaceObjects
-    {
-        IList<PoolObjectOnSpline> Spawned { get; }
-        float SpeedMultiply { get; }
-        float WorldOffset { get; set; }
-    }
-
     public abstract class PoolManagerObjects : MonoBehaviour, IPoolDisplaceObjects
     {
         protected IPoolManagerObjects _manager;
@@ -39,19 +20,13 @@ namespace Unity.Pool
         }
         protected virtual void OnEnable()
         {
-            if (_manager.onSpawnObject.ContainsKey(_spline)) _manager.onSpawnObject[_spline] += OnCreate;
-            else _manager.onSpawnObject[_spline] = OnCreate;
-
-            if (_manager.onDespawnObject.ContainsKey(_spline)) _manager.onDespawnObject[_spline] += OnRelease;
-            else _manager.onDespawnObject[_spline] = OnRelease;
+            _manager.RegisterSpawn(_spline, OnCreate);
+            _manager.RegisterDespawn(_spline, OnRelease);
         }
         protected virtual void OnDisable()
         {
-            if (_manager.onSpawnObject.ContainsKey(_spline))
-                _manager.onSpawnObject[_spline] -= OnCreate;
-
-            if (_manager.onDespawnObject.ContainsKey(_spline))
-                _manager.onDespawnObject[_spline] -= OnRelease;
+            _manager.UnregisterSpawn(_spline, OnCreate);
+            _manager.UnregisterDespawn(_spline, OnRelease);
         }
 
         protected void OnCreate(PoolObjectBehaviour prefab)

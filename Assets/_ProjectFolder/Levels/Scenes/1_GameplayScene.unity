@@ -10438,10 +10438,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: character_gameplay
       objectReference: {fileID: 0}
-    - target: {fileID: 3728732592021892276, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4158661816152635593, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -10467,10 +10463,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 674167125}
     - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: _jumpForce
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: _deltaInput
       value: 
       objectReference: {fileID: 1345837813}
@@ -10479,20 +10471,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 199297327}
     - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: _swipeForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: _fallMultiplier
       value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: _swipeThreshold
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: _lowJumpMultiplier
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4367759615939812227, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11404,9 +11384,9 @@ MonoBehaviour:
   _parent: {fileID: 2034632207}
   _prefabs:
   - {fileID: 3350887155068205520, guid: 236c7bdace7bacc4a8a1b1c74f83a49c, type: 3}
-  - {fileID: -8004815765376725991, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
-  - {fileID: 7670640414174071144, guid: aafc247afa030014a874fa955fa16177, type: 3}
-  - {fileID: 3562499494520543715, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
+  - {fileID: 3951451166249027454, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+  - {fileID: 5498023574776857103, guid: aafc247afa030014a874fa955fa16177, type: 3}
+  - {fileID: 1679838216535036548, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
   - {fileID: -4287214858873932908, guid: 7ed36d0e334c1ab478e24ee996e2f400, type: 3}
   - {fileID: 298781267221550380, guid: 3dbc796b5648d5f449426afa3e9141f0, type: 3}
   - {fileID: -4151759796671017849, guid: a9801c1508f1e8442829786735a9a93c, type: 3}

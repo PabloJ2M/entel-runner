@@ -306,11 +306,11 @@ MonoBehaviour:
   _pressInput: {fileID: 0}
   _deltaInput: {fileID: 0}
   _inputForgiveness: 0.5
-  _swipeThreshold: 50
+  _swipeThreshold: 10
   _swipeLockAfterJump: 0.08
   _jumpForce: 24
-  _swipeForce: 25
-  _lowJumpMultiplier: 2
+  _swipeForce: 30
+  _lowJumpMultiplier: 10
 --- !u!114 &4357906240776562913
 MonoBehaviour:
   m_ObjectHideFlags: 0

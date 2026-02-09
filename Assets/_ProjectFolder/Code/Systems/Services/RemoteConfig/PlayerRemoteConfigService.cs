@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Unity.Services.RemoteConfig
 {
@@ -20,9 +21,10 @@ namespace Unity.Services.RemoteConfig
         {
             base.Awake();
             string savedDate = string.Empty;
-            LoadLocalData(ref savedDate);
 
+            LoadLocalData(ref savedDate);
             DateTime.TryParse(savedDate, out _lastUpdate);
+
             _cloudCode = GetComponent<PlayerCloudCodeService>();
         }
         protected override void OnSignInCompleted()
@@ -40,8 +42,10 @@ namespace Unity.Services.RemoteConfig
 
         private async void OnFetchData(ConfigResponse response)
         {
+            Debug.Log(response.status);
+
             await _cloudCode.GetServerTime();
-            //if (!_cloudCode.ServerTimeUTC.HasResponse) return;
+            if (!_cloudCode.ServerTimeUTC.HasResponse) return;
 
             string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
             var serverUTC = _cloudCode.ServerTimeUTC.Time;
@@ -56,7 +60,8 @@ namespace Unity.Services.RemoteConfig
 
         private bool IsUpToDate()
         {
-            if (_lastUpdate == null) return false;
+            if (_lastUpdate == null) { Debug.Log("is null"); return false; }
+            Debug.Log($"up to date: {_lastUpdate.Date == DateTime.UtcNow.Date}");
             return _lastUpdate.Date == DateTime.UtcNow.Date;
         }
 

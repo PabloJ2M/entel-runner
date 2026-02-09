@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: entel_rojo
-  _preview: {fileID: 21300000, guid: 9dad97e05cd2b2248929d6e8d4fec474, type: 3}
+  _preview: {fileID: 21300000, guid: 2d5e5831ef789ae42b5a7963ac8e8be5, type: 3}
   _group: 1
   _label: entel_rojo
   _quality: 0

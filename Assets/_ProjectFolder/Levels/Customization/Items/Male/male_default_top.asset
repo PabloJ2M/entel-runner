@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: default
-  _preview: {fileID: 21300000, guid: d334f9bc79a92da4d9204a7daeae60e7, type: 3}
+  _preview: {fileID: 21300000, guid: 1f24fd55c76c3cb46b43bf23c7a93e7c, type: 3}
   _group: 1
   _label: default
   _quality: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryReference: {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
   _itemID: entel_celeste
-  _preview: {fileID: 21300000, guid: 9dad97e05cd2b2248929d6e8d4fec474, type: 3}
+  _preview: {fileID: 21300000, guid: 362d2b72491b28740bb96147460d93c0, type: 3}
   _group: 2
   _label: entel_celeste
   _quality: 0

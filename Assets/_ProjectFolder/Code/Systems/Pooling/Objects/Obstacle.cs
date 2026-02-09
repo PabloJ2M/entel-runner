@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace Unity.Pool
 {
-    public class Obstacle : PoolObjectOnSpline
+    public class Obstacle : Background3D
     {
         
     }

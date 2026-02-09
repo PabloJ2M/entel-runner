@@ -76,8 +76,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Background3D
   <Transform>k__BackingField: {fileID: 2158036951535128795}
+  _render: {fileID: 2158036951535128795}
   _maxAngle: 90
-  _angleFactor: 0.75
+  _angleFactor: 1
   _flip: 1
 --- !u!210 &2349084475031331493
 SortingGroup:
