@@ -164,7 +164,7 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: -5575992507913361575, guid: 4873857d8725a7047854937e2ba8ea2f, type: 3}
+      m_SpriteOverride: {fileID: -902810186076080761, guid: 57818c22a76128c48a71127c035688b2, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 1
   - m_Name: Body.Feet.R
@@ -175,7 +175,7 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: -4532159823728846524, guid: 4873857d8725a7047854937e2ba8ea2f, type: 3}
+      m_SpriteOverride: {fileID: -2344010955448396552, guid: 57818c22a76128c48a71127c035688b2, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 1
   - m_Name: head
@@ -190,5 +190,5 @@ MonoBehaviour:
     m_FromMain: 0
     m_EntryOverrideCount: 0
   m_PrimaryLibraryGUID: 4e848b54bdd9d4244ba958cd81b1cd42
-  m_ModificationHash: 639062188312213494
+  m_ModificationHash: 639062534106116061
   m_Version: 1

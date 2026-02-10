@@ -18,6 +18,7 @@ namespace Unity.Achievements
 
         [Header("Reward Button")]
         [SerializeField] private Button _claimButton;
+        [SerializeField] private TextMeshProUGUI _rewardAmount;
 
         private SO_Achievement _achievement;
 
@@ -41,15 +42,14 @@ namespace Unity.Achievements
 
             bool isCompleted = _achievement.Status.isCompleted;
             _claimButton.gameObject.SetActive(isCompleted);
+            _rewardAmount.SetText($"\U0001F600 {_achievement.Revenue.amount}");
             _progress.SetActive(!isCompleted);
 
-            if (!isCompleted) {
+            if (isCompleted) _claimButton.interactable = !_achievement.Status.hasPurchased;
+            else {
                 _fillAmount.fillAmount = _achievement.Status.Percent;
                 _textCount?.SetText(_achievement.Status.Text);
             }
-
-            if (isCompleted)
-                _claimButton.interactable = !_achievement.Status.hasPurchased;
         }
     }
 }

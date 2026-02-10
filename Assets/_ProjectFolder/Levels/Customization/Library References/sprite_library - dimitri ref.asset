@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryID: dimitri
   _assetReference: {fileID: 7108339969198208228, guid: 961a632234d406b4abae429ec34175dc, type: 3}
-  _animator: {fileID: 22100000, guid: f491afa30df689042a57bdc9c15ad4dc, type: 2}
+  _animator: {fileID: 22100000, guid: 01c0fb0976679d946b27ca1afcab46d9, type: 2}

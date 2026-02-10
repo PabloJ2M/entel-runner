@@ -1698,10 +1698,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: unity services
       objectReference: {fileID: 0}
-    - target: {fileID: 3402744078781231662, guid: f69af330b6633b143ac78e0d336ca092, type: 3}
-      propertyPath: _debug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3570184175085046643, guid: f69af330b6633b143ac78e0d336ca092, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

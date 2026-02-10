@@ -7,6 +7,7 @@ namespace Unity.Customization
     public class SpriteGroup : EnumToggleGroup<ItemGroup>
     {
         [SerializeField] private SO_LibraryReference_List _reference;
+        [SerializeField] private ItemGroup _default;
 
         protected override void OnEnable()
         {
@@ -22,11 +23,11 @@ namespace Unity.Customization
         private async void OnLibraryUpdated(SO_LibraryReference reference)
         {
             await Task.Yield();
-            UpdateType(0);
+            UpdateType(_default);
         }
         public override void UpdateType(ItemGroup value)
         {
-            if (value == _selected) return;
+            //if (value == _selected) return;
 
             _reference?.UpdateGroup(value);
             _selected = value;

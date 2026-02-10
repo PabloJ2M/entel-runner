@@ -20,6 +20,9 @@ namespace Unity.Customization
             _category = _resolver.GetCategory();
         }
 
-        public void SetLabel(string label) => _render.enabled = _resolver.SetCategoryAndLabel(_category, label);
+        public void SetLabel(string label)
+        {
+            _render.enabled = _resolver.SetCategoryAndLabel(_category, label);
+        }
     }
 }

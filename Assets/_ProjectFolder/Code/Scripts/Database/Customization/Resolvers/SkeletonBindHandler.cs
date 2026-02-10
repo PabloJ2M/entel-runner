@@ -22,6 +22,7 @@ namespace Unity.Customization
             
             foreach (var boneData in _skeleton.GetSpriteBones())
             {
+                if (string.Equals(_root.name, boneData.name)) continue;
                 if (!transforms.TryGetValue(boneData.name, out Transform target))
                     continue;
 

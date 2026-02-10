@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -29,7 +29,7 @@ namespace Unity.Customization.Store
         public override void Init(SO_Item item)
         {
             base.Init(item);
-            _cost?.SetText(_item.Cost.ToString());
+            _cost?.SetText($"\U0001F600 {_item.Cost}");
 
             _discountBlock?.SetActive(item.HasDiscount);
             if (_discountBlock.activeSelf) _discount?.SetText($"{(int)(item.Discount * 100)}%");
