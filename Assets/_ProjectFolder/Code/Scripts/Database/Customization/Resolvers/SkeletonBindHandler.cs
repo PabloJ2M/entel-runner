@@ -1,34 +1,33 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D.Animation;
 
 namespace Unity.Customization
 {
     public class SkeletonBindHandler : MonoBehaviour
     {
-        [SerializeField] private SkeletonAsset _skeleton;
+        //[SerializeField] private SO_LibraryReference_List _reference;
+        [SerializeField] private SO_Skeleton _selected;
+
+        [Header("Bones")]
         [SerializeField] private Transform _root;
-        [SerializeField] private int _pixelPerUnit = 1024;
+        [SerializeField] private Transform[] _bones;
 
-        [ContextMenu("Bind Skeleton")]
-        private void BindSkeleton()
-        {
-            Dictionary<string, Transform> transforms = new();
-            foreach (Transform transform in _root.GetComponentsInChildren<Transform>())
-            {
-                if (!transforms.ContainsKey(transform.name))
-                    transforms.Add(transform.name, transform);
-            }
-            
-            foreach (var boneData in _skeleton.GetSpriteBones())
-            {
-                if (string.Equals(_root.name, boneData.name)) continue;
-                if (!transforms.TryGetValue(boneData.name, out Transform target))
-                    continue;
+        private void Awake() => GetAllBones();
+        //private void OnEnable() => _reference.onPreviewUpdated += PerformeLibrary;
+        //private void OnDisable() => _reference.onPreviewUpdated -= PerformeLibrary;
 
-                target.localPosition = boneData.position / _pixelPerUnit;
-                target.localRotation = boneData.rotation;
-            }
-        }
+        //private void PerformeLibrary(SO_LibraryReference reference)
+        //{
+        //    _selected = reference.Skeleton;
+        //    SetSkeleton();
+        //}
+
+        [ContextMenu("Get Bones")]
+        private void GetAllBones() => _bones = _root.GetComponentsInChildren<Transform>();
+
+        [ContextMenu("Set Skeleton")]
+        private void SetSkeleton() => _selected.SetBonesPositionAndRotation(_bones);
+
+        [ContextMenu("Get Skeleton Data")]
+        private void GetSkeletonData() => _selected.GetBonesData(_bones);
     }
 }

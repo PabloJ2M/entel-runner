@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d899221802bb94c4bb8e0b99ed66a56f, type: 3}
+  m_Name: skeleton - character
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SO_Skeleton
+  _bones:
+    m_Keys:
+    - Bone_Root
+    - Bone_Hips
+    - Bone_Spine
+    - Bone_Chest
+    - Bone_Neck
+    - Bone_Head
+    - Bone_R_Forearm
+    - Bone_R_Arm
+    - Bone_R_Hand
+    - Bone_L_Forearm
+    - Bone_L_Arm
+    - Bone_L_Hand
+    - Hand R Sover Target
+    - Hand L Sover Target
+    - Bone_R_Thigh
+    - Bone_R_Leg
+    - Bone_R_Feet
+    - Bone_R_Toe
+    - Bone_L_Thigh
+    - Bone_L_Leg
+    - Bone_L_Feet
+    - Bone_L_Toe
+    - Leg R Sover Target
+    - Leg L Sover Target
+    m_Values:
+    - position: {x: 0, y: 0.08772024}
+      rotation: {x: 0, y: 0, z: 0.7073448, w: 0.7068687}
+    - position: {x: 1.2577163, y: -0.00000028292618}
+      rotation: {x: 0, y: 0, z: 0.00038602026, w: 0.99999994}
+    - position: {x: 0.27820554, y: 0.000019173624}
+      rotation: {x: 0, y: 0, z: 0.041227624, w: 0.99914986}
+    - position: {x: 0.22861308, y: 0.00000016198017}
+      rotation: {x: 0, y: 0, z: 0.020848667, w: 0.9997827}
+    - position: {x: 0.1795478, y: 0.00000019763431}
+      rotation: {x: 0, y: 0, z: -0.026835488, w: 0.99963987}
+    - position: {x: 0.09346699, y: 0.000000048073808}
+      rotation: {x: 0, y: 0, z: -0.022754407, w: 0.99974114}
+    - position: {x: 0.06716649, y: 0.2841563}
+      rotation: {x: 0, y: 0, z: 0.92358315, w: 0.3833984}
+    - position: {x: 0.33946517, y: -0.0000000011145094}
+      rotation: {x: 0, y: 0, z: 0.41407847, w: 0.91024125}
+    - position: {x: 0.3313479, y: -0.000000016959811}
+      rotation: {x: -0, y: -0, z: 0.112602375, w: 0.9936402}
+    - position: {x: 0.026671613, y: -0.1791658}
+      rotation: {x: 0, y: 0, z: -0.9995655, w: 0.029478265}
+    - position: {x: 0.37027937, y: 0.000000094382884}
+      rotation: {x: 0, y: 0, z: 0.31251267, w: 0.9499136}
+    - position: {x: 0.29466403, y: -0.00000014867699}
+      rotation: {x: -0, y: -0, z: 0.085616715, w: 0.99632823}
+    - position: {x: -0.295, y: 0.481}
+      rotation: {x: -0, y: -0, z: 0.98606306, w: -0.1663717}
+    - position: {x: -0.324, y: -0.413}
+      rotation: {x: -0, y: -0, z: -0.8987477, w: 0.4384662}
+    - position: {x: -0.07130503, y: 0.1629018}
+      rotation: {x: 0, y: 0, z: 0.9901759, w: 0.13982783}
+    - position: {x: 0.5478269, y: -0.00000038324117}
+      rotation: {x: 0, y: 0, z: -0.00000015581331, w: 1}
+    - position: {x: 0.40898317, y: 0.000000086461476}
+      rotation: {x: -0, y: -0, z: 0.35236067, w: 0.93586427}
+    - position: {x: 0.17327482, y: 0.000000018396996}
+      rotation: {x: 0, y: 0, z: 0.38254493, w: 0.9239369}
+    - position: {x: -0.076153986, y: -0.1047407}
+      rotation: {x: 0, y: 0, z: 0.9995274, w: 0.03074192}
+    - position: {x: 0.5712614, y: -0.0000009915184}
+      rotation: {x: 0, y: 0, z: 0.0000060898456, w: 1}
+    - position: {x: 0.35012484, y: 0.0000048734614}
+      rotation: {x: -0, y: -0, z: 0.3581046, w: 0.93368155}
+    - position: {x: 0.21491441, y: -0.000000016029029}
+      rotation: {x: 0, y: 0, z: 0.4084422, w: 0.9127842}
+    - position: {x: 0.26109228, y: 0.4286909}
+      rotation: {x: -0, y: -0, z: 0.9758558, w: -0.21841572}
+    - position: {x: 0.26195508, y: -0.048884705}
+      rotation: {x: -0, y: -0, z: 0.9441198, w: -0.32960245}

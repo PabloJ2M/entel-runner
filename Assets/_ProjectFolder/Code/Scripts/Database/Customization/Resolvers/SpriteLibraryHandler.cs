@@ -12,6 +12,7 @@ namespace Unity.Customization
     {
         [SerializeField] private SO_LibraryReference_List _reference;
         [SerializeField] private SO_Item_List _listReference;
+        [SerializeField] private GameObject[] _objectReferences;
 
         private Dictionary<ItemGroup, HashSet<SpriteResolverListener>> _resolvers = new();
         private CustomizationController _customization;
@@ -47,15 +48,30 @@ namespace Unity.Customization
             _customization.Local.selectedLibrary = library.ID;
             _customization.Local.equipped.TryGetValue(library.ID, out var equipped);
 
+            SetExtra(library.ObjectReference);
+            if (library.Asset) EquippeLibrary(library.ID, ref equipped);
+        }
+        private void EquippeLibrary(string libraryID, ref SerializedStringDictionary equipped)
+        {
             if (equipped == null) equipped = new();
-
             string[] groups = Enum.GetNames(typeof(ItemGroup));
-            foreach (var group in groups)
-            {
+
+            foreach (var group in groups) {
                 equipped.TryGetValue(group, out var id);
-                var item = _listReference.GetItemByPath(library.ID, group, id);
+                var item = _listReference.GetItemByPath(libraryID, group, id);
                 if (item != null) SetLabel(group, item.LabelName);
             }
+        }
+        private void SetExtra(string objectName)
+        {
+            foreach (var item in _resolvers)
+            {
+                foreach (var group in item.Value)
+                    group.SetEnabled(string.IsNullOrEmpty(objectName));
+            }
+
+            foreach (var item in _objectReferences)
+                item.SetActive(item.name == objectName);
         }
 
         public void AddListener(ItemGroup group, SpriteResolverListener element)

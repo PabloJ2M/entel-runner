@@ -15,3 +15,4 @@ MonoBehaviour:
   _libraryID: female
   _assetReference: {fileID: 7108339969198208228, guid: 2eb8bb628e2a95a4e9d4e0a948119dd7, type: 3}
   _animator: {fileID: 9100000, guid: 21fc5634abc54b24fa5f7752f1fd7093, type: 2}
+  _skeleton: {fileID: 11400000, guid: 312ffe5685467624e979cdeb1468b11e, type: 2}
