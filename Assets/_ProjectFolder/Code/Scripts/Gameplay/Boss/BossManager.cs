@@ -15,13 +15,14 @@ public class BossManager : GameplayListener
         if (_isEnabled) return;
         if (traveled - _traveled < _spawnDelay) return;
 
+        _traveled = traveled;
         SetStatus(true);
         StartCoroutine(BossLoop());
     }
 
     private IEnumerator BossLoop()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(20f);
         SetStatus(false);
     }
     private void SetStatus(bool value)
