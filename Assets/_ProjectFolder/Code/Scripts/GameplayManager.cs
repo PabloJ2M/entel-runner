@@ -11,7 +11,7 @@ public class GameplayManager : SingletonBasic<GameplayManager>
 
     public Action<float> onDinstanceTraveled;
     public Action onFixedMovement;
-    public UnityEvent onCompleteGame;
+    public UnityEvent onGameStarted, onGamePaused, onGameCompleted;
 
     private float _timeInv, _speedOnCurve;
     private float _currentSpeed;
@@ -23,13 +23,11 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     {
         base.Awake();
         if (_time != 0) _timeInv = 1f / _time;
-        if (!_startDisabled) IsEnabled = true;
+        if (!_startDisabled) Play();
     }
 
     private void Update()
     {
-        if (!IsEnabled || Time.timeScale == 0) return;
-
         WorldDistance += _currentSpeed * Time.deltaTime;
         onDinstanceTraveled?.Invoke(WorldDistance);
 
@@ -40,24 +38,30 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     }
     private void LateUpdate()
     {
-        if (!IsEnabled || Time.timeScale == 0) return;
         onFixedMovement?.Invoke();
     }
 
-    public void Enable()
+    public void Play()
     {
-        _currentSpeed = Mathf.Lerp(_clampSpeed.x, _clampSpeed.y, _acceleration.Evaluate(_speedOnCurve));
         IsEnabled = true;
+        onGameStarted.Invoke();
+        _currentSpeed = Mathf.Lerp(_clampSpeed.x, _clampSpeed.y, _acceleration.Evaluate(_speedOnCurve));
     }
-    public void Disable()
+    public void Stop()
+    {
+        Pause();
+        _currentSpeed = 0f;
+        onGameCompleted.Invoke();
+    }
+    public void Pause()
     {
         IsEnabled = false;
-        _currentSpeed = 0f;
-        onCompleteGame.Invoke();
+        onGamePaused.Invoke();
     }
+
     public void ResetValues()
     {
         _speedOnCurve = 0f;
-        Enable();
+        Play();
     }
 }

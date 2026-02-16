@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace Unity.Services.CloudSave
 {
     using Models;
+    using UnityEngine;
 
     public class PlayerCloudSaveService : UnityServiceBehaviour
     {
@@ -31,7 +32,7 @@ namespace Unity.Services.CloudSave
                 await LoadObjectData();
         }
 
-        public async Task LoadObjectData()
+        public async Awaitable LoadObjectData()
         {
             await LoadPlayerData().CloudCodeResponse();
 
@@ -44,7 +45,7 @@ namespace Unity.Services.CloudSave
                 SaveLocalData(_hasLoadedData);
             }
         }
-        public async Task SaveObjectData(string key, object @cloud)
+        public async Awaitable SaveObjectData(string key, object @cloud)
         {
             var payload = new Dictionary<string, object> { { key, @cloud } };
             await CloudSaveService.Instance?.Data?.Player?.SaveAsync(payload).CloudCodeResponse();

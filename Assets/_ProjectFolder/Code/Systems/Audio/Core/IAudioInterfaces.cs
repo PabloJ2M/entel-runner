@@ -1,11 +1,10 @@
-using System.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 
 namespace UnityEngine.Audio
 {
     public interface IAudioManager
     {
-        public Task<AudioClip> LoadAudioAsset(AssetReferenceT<AudioClip> reference, bool hasLoaded = false);
+        public Awaitable<AudioClip> LoadAudioAsset(AssetReferenceT<AudioClip> reference, bool hasLoaded = false);
         public void UnloadAudioAsset(AssetReferenceT<AudioClip> reference);
 
         public void Play(ChannelType type, AudioClip key);

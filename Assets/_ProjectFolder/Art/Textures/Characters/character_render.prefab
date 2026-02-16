@@ -1362,6 +1362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reference: {fileID: 11400000, guid: 862f0668fd9da134b97cdac91ccaa671, type: 2}
   _listReference: {fileID: 11400000, guid: 2f0d3d42529f0a84aaebb9d297c72d08, type: 2}
+  _objectReferences: []
 --- !u!114 &6291907693804575391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9d1bc67212210469289494619723e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.BoneStructureReference
-  _reference: {fileID: 11400000, guid: 862f0668fd9da134b97cdac91ccaa671, type: 2}
   _selected: {fileID: 11400000, guid: 312ffe5685467624e979cdeb1468b11e, type: 2}
   _root: {fileID: 6461336754517361275}
   _bones:
@@ -2556,6 +2556,7 @@ GameObject:
   - component: {fileID: 129061909371263343}
   - component: {fileID: 8010982211417234819}
   - component: {fileID: 6667336007990023068}
+  - component: {fileID: 8337044529159429954}
   m_Layer: 0
   m_Name: Mano_A
   m_TagString: Untagged
@@ -2674,6 +2675,20 @@ MonoBehaviour:
   m_labelHash: 1.20348286e-17
   m_SpriteKey: 0
   m_SpriteHash: 715747467
+--- !u!114 &8337044529159429954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6334186286850518153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e644f43973f142ab37c7c3026abc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
+  _resolver: {fileID: 6667336007990023068}
+  _group: 0
 --- !u!1 &6360813898862599511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,6 +3056,7 @@ GameObject:
   - component: {fileID: 7397861816835689183}
   - component: {fileID: 8326632322566584022}
   - component: {fileID: 1209021869549693159}
+  - component: {fileID: 8471693460783909278}
   m_Layer: 0
   m_Name: Mano_B
   m_TagString: Untagged
@@ -3159,6 +3175,20 @@ MonoBehaviour:
   m_labelHash: 1.20348286e-17
   m_SpriteKey: 0
   m_SpriteHash: 246147432
+--- !u!114 &8471693460783909278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838391841073133301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18e644f43973f142ab37c7c3026abc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
+  _resolver: {fileID: 1209021869549693159}
+  _group: 0
 --- !u!1 &8227794970255990069
 GameObject:
   m_ObjectHideFlags: 0

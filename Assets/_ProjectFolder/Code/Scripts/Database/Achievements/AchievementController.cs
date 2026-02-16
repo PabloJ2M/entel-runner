@@ -16,28 +16,31 @@ namespace Unity.Achievements
         public Dictionary<ConfigType, IReadOnlyCollection<SO_Achievement>> Achievements { get; private set; } = new();
         public event Action onAchievementsUpdated;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             LoadLocalData(ref _achievements);
-            if (_achievements.groups.Count != 0)
-                OnRemoteConfigCompleted();
+        }
+        private async void Start()
+        {
+            await Awaitable.EndOfFrameAsync();
+            if (_achievements.groups.Count != 0) OnRemoteConfigCompleted();
         }
 
         public void AddListener(AchievementField field, ConfigType type) => _fields.Add(type, field);
         public void RemoveListener(ConfigType type) => _fields.Remove(type);
 
-        protected override void OnRemoteConfigUpdated(string key, DateTime serverTime)
+        protected override void OnRemoteConfigUpdated(string key)
         {
             if (!Enum.TryParse(key, out ConfigType type)) return;
             if (!_fields.ContainsKey(type)) return;
 
-            if (_achievements.groups.TryGetValue(key, out var group))
-            {
-                DateTime.TryParse(group.date, out var lastUpdate);
-                _fields[type].ResetAchievements(lastUpdate, serverTime);
-            }
+            var newData = JsonUtility.FromJson<AchievementRemote>(_remoteConfig.GetJson(key));
 
-            _achievements.groups[key] = JsonUtility.FromJson<AchievementRemote>(_remoteConfig.GetJson(key));
+            if (_achievements.groups.ContainsKey(key))
+                _fields[type].ResetAchievements(_achievements.groups[key].date, newData.date);
+
+            _achievements.groups[key] = newData;
             SaveLocalData(_achievements);
         }
         protected override void OnRemoteConfigCompleted()

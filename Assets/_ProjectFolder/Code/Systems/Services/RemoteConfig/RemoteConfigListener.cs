@@ -18,7 +18,7 @@ namespace Unity.Services.RemoteConfig
             _remoteConfig.onRemoteConfigCompleted -= OnRemoteConfigCompleted;
         }
 
-        protected abstract void OnRemoteConfigUpdated(string key, DateTime serverTime);
+        protected abstract void OnRemoteConfigUpdated(string key);
         protected abstract void OnRemoteConfigCompleted();
         protected abstract void ParseConfigData();
     }

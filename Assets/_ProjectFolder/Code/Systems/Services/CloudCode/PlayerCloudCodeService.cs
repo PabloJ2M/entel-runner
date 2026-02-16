@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Unity.Services.CloudCode
 {
@@ -11,7 +11,7 @@ namespace Unity.Services.CloudCode
         protected override void OnSignInCompleted() { }
         protected override void OnSignOutCompleted() { }
 
-        public async Task GetServerTime() => ServerTimeUTC = await CloudCodeService.Instance.CallEndpointAsync<ServerTimeUTC>("get-time");
+        public async Awaitable GetServerTime() => ServerTimeUTC = await CloudCodeService.Instance.CallEndpointAsync<ServerTimeUTC>("get-time");
         public void ClearServerTime() => ServerTimeUTC = new();
     }
 }

@@ -3,15 +3,12 @@ using UnityEngine;
 
 namespace Unity.Services.RemoteConfig
 {
-    using CloudCode;
-
     public class PlayerRemoteConfigService : UnityServiceBehaviour
     {
         protected override string _localDataID => "remote_config";
-        private PlayerCloudCodeService _cloudCode;
         private DateTime _lastUpdate;
 
-        public event Action<string, DateTime> onRemoteConfigUpdated;
+        public event Action<string> onRemoteConfigUpdated;
         public event Action onRemoteConfigCompleted;
 
         private struct appAttributes { }
@@ -24,13 +21,20 @@ namespace Unity.Services.RemoteConfig
 
             LoadLocalData(ref savedDate);
             DateTime.TryParse(savedDate, out _lastUpdate);
-
-            _cloudCode = GetComponent<PlayerCloudCodeService>();
         }
         protected override void OnSignInCompleted()
         {
             if (IsUpToDate()) return;
 
+            Debug.Log("Sign-in completed -> Fetch Remote Config");
+
+            if (IsUpToDate())
+            {
+                Debug.Log("Remote Config already up to date");
+                return;
+            }
+
+            RemoteConfigService.Instance.FetchCompleted -= OnFetchData;
             RemoteConfigService.Instance.FetchCompleted += OnFetchData;
             RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
         }
@@ -40,18 +44,20 @@ namespace Unity.Services.RemoteConfig
             RemoteConfigService.Instance.FetchCompleted -= OnFetchData;
         }
 
-        private async void OnFetchData(ConfigResponse response)
+        private void OnFetchData(ConfigResponse response)
         {
-            Debug.Log(response.status);
+            Debug.Log($"RemoteConfig status: {response.status}");
 
-            await _cloudCode.GetServerTime();
-            if (!_cloudCode.ServerTimeUTC.HasResponse) return;
+            if (response.status != ConfigRequestStatus.Success)
+            {
+                Debug.LogWarning("Remote Config fetch failed");
+                return;
+            }
 
             string[] keys = RemoteConfigService.Instance.appConfig.GetKeys();
-            var serverUTC = _cloudCode.ServerTimeUTC.Time;
 
             foreach (string key in keys)
-                onRemoteConfigUpdated?.Invoke(key, serverUTC);
+                onRemoteConfigUpdated?.Invoke(key);
 
             onRemoteConfigCompleted?.Invoke();
             _lastUpdate = DateTime.UtcNow.Date;
@@ -60,9 +66,9 @@ namespace Unity.Services.RemoteConfig
 
         private bool IsUpToDate()
         {
-            if (_lastUpdate == null) { Debug.Log("is null"); return false; }
-            Debug.Log($"up to date: {_lastUpdate.Date == DateTime.UtcNow.Date}");
-            return _lastUpdate.Date == DateTime.UtcNow.Date;
+            Debug.Log($"last update: {_lastUpdate.Date}");
+            Debug.Log($"today: {DateTime.UtcNow.Date}");
+            return _lastUpdate != DateTime.MinValue && _lastUpdate.Date == DateTime.UtcNow.Date;
         }
 
         public string GetJson(string key) => RemoteConfigService.Instance.appConfig.GetJson(key, string.Empty);

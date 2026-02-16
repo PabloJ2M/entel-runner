@@ -34,7 +34,7 @@ namespace Gameplay
             foreach (var component in _components) component.enabled = false;
 
             Invoke(nameof(NormalColor), 0.2f);
-            GameplayManager.Instance.Disable();
+            GameplayManager.Instance.Stop();
             Time.timeScale = 0.4f;
 
             _animator?.TriggerDeath();

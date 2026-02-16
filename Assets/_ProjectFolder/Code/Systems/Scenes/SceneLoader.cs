@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Unity.SceneManagement
 {
-    public abstract class SceneLoader : MonoBehaviour
+    public class SceneLoader : MonoBehaviour
     {
         [SerializeField, Scene] private string _path;
 
-        protected void SwipeScene() => SceneController.Instance.ChangeScene(_path);
+        public void SwipeScene() => SceneController.Instance.ChangeScene(_path);
+        public void AddScene() => SceneController.Instance.AddScene(_path);
+        public void RemoveScene() => SceneController.Instance.RemoveScene(_path);
     }
 }

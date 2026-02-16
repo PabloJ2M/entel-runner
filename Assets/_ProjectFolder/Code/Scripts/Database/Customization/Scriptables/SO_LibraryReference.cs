@@ -12,12 +12,10 @@ namespace Unity.Customization
         [SerializeField] private string _objectReference;
 
         [SerializeField] private RuntimeAnimatorController _animator;
-        [SerializeField] private SO_Skeleton _skeleton;
 
         public string ID => _libraryID;
         public string ObjectReference => _objectReference;
         public SpriteLibraryAsset Asset => _assetReference;
         public RuntimeAnimatorController Animator => _animator;
-        public SO_Skeleton Skeleton => _skeleton;
     }
 }

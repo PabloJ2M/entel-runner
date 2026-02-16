@@ -12,8 +12,6 @@ namespace Unity.Pool
 
         [SerializeField] private SpawnerPointByPattern[] _paths;
 
-        public bool IsEnabled { private get; set; } = true;
-
         private SO_SpawnPatern _currentPattern;
 
         private float _startDistance, _dificultyDistance;
@@ -35,7 +33,7 @@ namespace Unity.Pool
 
         protected override void GameUpdate(float worldDistance)
         {
-            if (!IsEnabled) return;
+            if (!_gameManager.IsEnabled) return;
 
             if (!_isSpawning)
             {

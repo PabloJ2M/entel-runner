@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Unity.SceneManagement
 {
@@ -6,6 +8,7 @@ namespace Unity.SceneManagement
     {
         [SerializeField] private SceneFadeEffect _fadePrefab;
 
+        private HashSet<string> _loadedScenes = new();
         private bool _isLoadingScene;
 
         private void Start()
@@ -14,6 +17,16 @@ namespace Unity.SceneManagement
             Instantiate(_fadePrefab, transform);
         }
 
+        public void AddScene(string scenePath)
+        {
+            if (!_loadedScenes.Add(scenePath)) return;
+            SceneManager.LoadSceneAsync(scenePath, LoadSceneMode.Additive);
+        }
+        public void RemoveScene(string scenePath)
+        {
+            if (!_loadedScenes.Remove(scenePath)) return;
+            SceneManager.UnloadSceneAsync(scenePath);
+        }
         public void ChangeScene(string scenePath)
         {
             if (_isLoadingScene) return;

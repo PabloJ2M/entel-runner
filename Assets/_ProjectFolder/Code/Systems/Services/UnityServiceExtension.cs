@@ -10,20 +10,20 @@ namespace Unity.Services
 
     public static class UnityServiceExtension
     {
-        public static async Task AuthResponse(this Task action)
+        public static async Awaitable AuthResponse(this Task action)
         {
             try { await action; }
             catch (AuthenticationException ex) { Debug.LogError(ex); }
             catch (RequestFailedException ex) { Debug.LogError(ex); }
         }
-        public static async Task CloudCodeResponse(this Task action)
+        public static async Awaitable CloudCodeResponse(this Task action)
         {
             try { await action; }
             catch (CloudSaveValidationException e) { Debug.LogError(e); }
             catch (CloudSaveRateLimitedException e) { Debug.LogError(e); }
             catch (CloudSaveException e) { Debug.LogError(e); }
         }
-        public static async Task<bool> EconomyResponse(this Task action)
+        public static async Awaitable<bool> EconomyResponse(this Task action)
         {
             try { await action; return true; }
             catch (EconomyValidationException e) { Debug.LogError(e); }

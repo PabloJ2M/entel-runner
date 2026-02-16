@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace UnityEngine.Audio
@@ -26,7 +25,7 @@ namespace UnityEngine.Audio
             }
         }
 
-        public async Task<AudioClip> LoadAudioAsset(AssetReferenceT<AudioClip> reference, bool hasLoaded = false)
+        public async Awaitable<AudioClip> LoadAudioAsset(AssetReferenceT<AudioClip> reference, bool hasLoaded = false)
         {
             if (_audioClipCache.TryGetValue(reference, out var cache))
             {

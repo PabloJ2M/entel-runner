@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: _daily_achievements
   m_EditorClassIdentifier: 
   _achievements:
-  - {fileID: 11400000, guid: 0809e60d622e3204fb8f74eb3ac9993a, type: 2}
-  - {fileID: 11400000, guid: 05665f21ba562b04c9036682913f2f3d, type: 2}
-  - {fileID: 11400000, guid: 2c88080772b6e2048ab1b8d391bcaa0c, type: 2}
   - {fileID: 11400000, guid: 3efbcead94deccc48842505b3ca6b317, type: 2}
   - {fileID: 11400000, guid: f72f236b73a8893479fd26c2e3a8cd87, type: 2}
+  - {fileID: 11400000, guid: fc7bc91e3a5ebe74ebe948857f1c87fa, type: 2}

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Unity.Achievements
 {
     using Services;
@@ -7,6 +9,8 @@ namespace Unity.Achievements
 
     public class AchievementUI : PoolObjectSingle<AchievementUI_Entry>
     {
+        [SerializeField] private GameObject _loadingScreen;
+
         private PlayerEconomyService _economy;
         private AchievementController _database;
 
@@ -45,7 +49,10 @@ namespace Unity.Achievements
         }
         private void OnBuildAchievements()
         {
+            _loadingScreen.SetActive(true);
             if (_database.Achievements.Count == 0) return;
+
+            _loadingScreen.SetActive(false);
             ClearPoolInstance();
 
             foreach (var achievement in _database.Achievements[_selected]) {

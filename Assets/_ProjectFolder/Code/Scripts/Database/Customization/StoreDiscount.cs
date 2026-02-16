@@ -29,7 +29,7 @@ namespace Unity.Customization.Store
                 OnRemoteConfigCompleted();
         }
 
-        protected override void OnRemoteConfigUpdated(string key, DateTime serverTime)
+        protected override void OnRemoteConfigUpdated(string key)
         {
             if (!Enum.TryParse(key, out ConfigType type)) return;
             if (_configType != type) return;
