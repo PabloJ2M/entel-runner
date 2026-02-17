@@ -11,7 +11,7 @@ namespace Unity.Pool
         [SerializeField] private bool _buildOnAwake;
 
         protected GameplayManager _gameManager;
-        private float _lastSpawn;
+        private double _lastSpawn;
 
         public override float SpeedMultiply => _speedMultiply;
 
@@ -42,9 +42,9 @@ namespace Unity.Pool
         }
         protected abstract void OnSpawn();
 
-        private void GameUpdate(float worldDistance)
+        private void GameUpdate(double worldDistance)
         {
-            float laneDistance = worldDistance * _speedMultiply;
+            double laneDistance = worldDistance * _speedMultiply;
 
             if (laneDistance - _lastSpawn < _spaceDistance) return;
             _lastSpawn = laneDistance;

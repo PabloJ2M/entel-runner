@@ -12,7 +12,7 @@ namespace Unity.Pool
             string id = _useRandom ? _reference.GetRandom() : _reference.GetSequence();
 
             var obj = _manager.GetPrefab(_spline, id) as PoolObjectOnSpline;
-            obj.SetDistance(_gameManager.WorldDistance * SpeedMultiply + WorldOffset);
+            obj.SetDistance((float)_gameManager.WorldDistance * SpeedMultiply + WorldOffset);
         }
     }
 }

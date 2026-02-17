@@ -14,7 +14,7 @@ namespace Unity.Pool
 
         private SO_SpawnPatern _currentPattern;
 
-        private float _startDistance, _dificultyDistance;
+        private double _startDistance, _dificultyDistance;
         private int _currentIndex;
         private bool _isSpawning;
 
@@ -23,7 +23,7 @@ namespace Unity.Pool
             foreach (var path in _paths)
                 path.SetSpeed(_speedMultiply);
         }
-        private void HandleDificulty(float distance)
+        private void HandleDificulty(double distance)
         {
             if (distance < _dificultyDistance) return;
 
@@ -31,7 +31,7 @@ namespace Unity.Pool
             _dificultyLevel++;
         }
 
-        protected override void GameUpdate(float worldDistance)
+        protected override void GameUpdate(double worldDistance)
         {
             if (!_gameManager.IsEnabled) return;
 
@@ -46,7 +46,7 @@ namespace Unity.Pool
             }
 
             if (_dificultyLevel < _list.Length) HandleDificulty(worldDistance);
-            float traveled = worldDistance * _speedMultiply - _startDistance;
+            double traveled = worldDistance * _speedMultiply - _startDistance;
 
             if (traveled >= _currentPattern.totalDistance + _distanceDelay)
             {
@@ -59,7 +59,7 @@ namespace Unity.Pool
 
                 if (traveled >= info.distance)
                 {
-                    _paths[info.laneIndex].OnSpawn(info.poolObjectName, worldDistance);
+                    _paths[info.laneIndex].OnSpawn(info.poolObjectName, (float)worldDistance);
                     _currentIndex++;
                 }
             }

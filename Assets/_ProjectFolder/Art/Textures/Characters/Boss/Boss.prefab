@@ -70,6 +70,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 5e368d62640722e42b51dbfc246904e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4173391907547223704}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 5e368d62640722e42b51dbfc246904e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1170622610175398444}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 5e368d62640722e42b51dbfc246904e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5999796512342175125}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 5e368d62640722e42b51dbfc246904e0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6843996138979341367}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 5e368d62640722e42b51dbfc246904e0, type: 3}
 --- !u!1 &7289887011960181797 stripped
 GameObject:
@@ -111,3 +120,45 @@ SortingGroup:
   m_SortingOrder: 0
   m_SortAtRoot: 0
   m_Sort3DAs2D: 0
+--- !u!114 &1170622610175398444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289887011960181797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1a49e6fb6a5834690023d3e02ba3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  _maxHealth: 3
+--- !u!114 &5999796512342175125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289887011960181797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc19411244fea04b95834c31c96a87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.BossFight.BossEncounter
+  _event: {fileID: 0}
+  _duration: 18
+--- !u!114 &6843996138979341367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7289887011960181797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d12ad7ce0dd774daff2d4d96387126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.BossFight.BossController
+  _encounter: {fileID: 5999796512342175125}
+  _animator: {fileID: -7587014465297221345}
+  _health: {fileID: 1170622610175398444}

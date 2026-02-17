@@ -23,12 +23,12 @@ namespace Unity.Pool
             _gameManager.onFixedMovement -= FixedDistance;
         }
 
-        protected override void GameUpdate(float worldDistance)
+        protected override void GameUpdate(double worldDistance)
         {
-            float world = worldDistance * _manager.SpeedMultiply + _manager.WorldOffset;
+            double world = worldDistance * _manager.SpeedMultiply + _manager.WorldOffset;
 
             for (int i = _manager.Spawned.Count - 1; i >= 0; i--)
-                _manager.Spawned[i].RefreshPosition(world);
+                _manager.Spawned[i].RefreshPosition((float)world);
         }
         private void FixedDistance()
         {

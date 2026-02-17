@@ -10,7 +10,8 @@ public class UIScoreByDistance : UIScore
     [SerializeField] private AchievementTrigger _trigger;
     [SerializeField] private int _pointsPerCoin;
     [SerializeField] private float _distancePerPoint;
-    private float _traveled;
+    
+    private double _traveled;
 
     private void OnEnable() => _gameplayManager.onDinstanceTraveled += SetDistance;
     private void OnDisable() => _gameplayManager.onDinstanceTraveled -= SetDistance;
@@ -25,7 +26,7 @@ public class UIScoreByDistance : UIScore
             economy.AddBalanceID(BalanceType.COIN, coins);
     }
 
-    public void SetDistance(float worldDistance)
+    public void SetDistance(double worldDistance)
     {
         if (!_gameplayManager.IsEnabled || worldDistance - _traveled < _distancePerPoint) return;
         _traveled = worldDistance;

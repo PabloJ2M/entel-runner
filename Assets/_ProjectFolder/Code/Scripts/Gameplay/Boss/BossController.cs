@@ -4,6 +4,7 @@ namespace Gameplay.BossFight
 {
     public class BossController : MonoBehaviour
     {
+        [SerializeField] private BossEncounter _encounter;
         [SerializeField] private Animator _animator;
         [SerializeField] private Health _health;
 
@@ -32,7 +33,7 @@ namespace Gameplay.BossFight
         private void OnHealthUpdated(float value)
         {
             HealthPercent = value;
-            if (HealthPercent <= 0) TransitionToState(_deadState);
+            if (HealthPercent <= 0) _encounter.ForceStop();
         }
 
         public void StartFight()
@@ -40,6 +41,11 @@ namespace Gameplay.BossFight
             _health?.ResetHealth();
             TransitionToState(_introState);
         }
+        public void StopFight(bool defeated)
+        {
+            TransitionToState(_deadState);
+        }
+
         public void TransitionToState(BossState state)
         {
             if (_currentState == state) return;

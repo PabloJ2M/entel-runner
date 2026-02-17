@@ -8,5 +8,5 @@ public abstract class GameplayListener : MonoBehaviour
     protected virtual void OnEnable() => _gameManager.onDinstanceTraveled += GameUpdate;
     protected virtual void OnDisable() => _gameManager.onDinstanceTraveled -= GameUpdate;
 
-    protected abstract void GameUpdate(float traveled);
+    protected abstract void GameUpdate(double traveled);
 }

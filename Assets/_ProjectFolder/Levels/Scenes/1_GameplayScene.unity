@@ -10605,9 +10605,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683427921}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1696561140
 GameObject:
@@ -11310,7 +11310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402744078781231662, guid: f69af330b6633b143ac78e0d336ca092, type: 3}
       propertyPath: _debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402744078781231662, guid: f69af330b6633b143ac78e0d336ca092, type: 3}
       propertyPath: _disable
@@ -11623,7 +11623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d2576d154cc164abc5282f442a23c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDelay: 900
+  _spawnDistance: 900
 --- !u!4 &2129182218
 Transform:
   m_ObjectHideFlags: 0
@@ -11664,6 +11664,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2129182218}
     m_Modifications:
+    - target: {fileID: 5999796512342175125, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
+      propertyPath: _event
+      value: 
+      objectReference: {fileID: 2129182217}
+    - target: {fileID: 5999796512342175125, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
+      propertyPath: _listener
+      value: 
+      objectReference: {fileID: 2129182217}
     - target: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -11711,46 +11719,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3471840970102847353}
-    - targetCorrespondingSourceObject: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3471840970102847354}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
---- !u!1 &3471840970102847352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
+--- !u!114 &3471840970102847354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1170622610175398444, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
   m_PrefabInstance: {fileID: 3471840970102847351}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3471840970102847353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471840970102847352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d12ad7ce0dd774daff2d4d96387126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.BossFight.BossController
-  _animator: {fileID: 0}
-  _health: {fileID: 3471840970102847354}
---- !u!114 &3471840970102847354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471840970102847352}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf1a49e6fb6a5834690023d3e02ba3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  _maxHealth: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

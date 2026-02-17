@@ -21,9 +21,9 @@ namespace Environment
             _tileSize = _direction * 0.02f * ((float2)render.size / units);
             _material = render.material;
         }
-        protected override void GameUpdate(float traveled)
+        protected override void GameUpdate(double traveled)
         {
-            Vector2 movement = traveled * _speedMultiply * _tileSize;
+            Vector2 movement = (float)traveled * _speedMultiply * _tileSize;
             _material.SetVector(_id, movement);
         }
     }
