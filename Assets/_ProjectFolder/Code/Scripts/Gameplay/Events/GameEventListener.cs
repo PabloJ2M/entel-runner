@@ -31,7 +31,11 @@ namespace Gameplay.Events
         }
 
         private void StartDistance() => _traveled = _gameManager.WorldDistance;
-        private void StopEvent() => CompleteEvent(false);
+        private void StopEvent()
+        {
+            _traveled = _gameManager.WorldDistance;
+            _handler.OnCompleteEvent(false);
+        }
 
         protected override void GameUpdate(double traveled)
         {

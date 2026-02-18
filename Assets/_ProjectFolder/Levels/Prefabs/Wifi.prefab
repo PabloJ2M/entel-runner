@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3493466640014248676}
   - component: {fileID: 854792033512037950}
   - component: {fileID: 4391219199806494986}
+  - component: {fileID: 3466758078365328325}
   m_Layer: 0
   m_Name: wifi
   m_TagString: Untagged
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnockBack
   <Transform>k__BackingField: {fileID: 6824826452804931473}
+--- !u!114 &3466758078365328325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941027463957257305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e20b81d60e41e4d80cd66da4122d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectRendered
+  _object: {fileID: 4391219199806494986}

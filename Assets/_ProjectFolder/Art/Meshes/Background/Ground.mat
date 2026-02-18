@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ship
+  m_Name: Ground
   m_Shader: {fileID: 4800000, guid: 4e90a8289da1f3943885176e4f83e35c, type: 3}
   m_Parent: {fileID: 2100000, guid: c1f38026dd34d4a418f97f4f173db871, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e81330258b0014c4e9795b47a87ce7da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8351905ce6b21ea4cb01a2944b51eb93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Unity.Pool
@@ -7,15 +8,23 @@ namespace Unity.Pool
     public abstract class PoolObjectOnSpline : PoolObjectBehaviourTransform
     {
         protected float _startDistance;
+
         private float3 _lastPosition, _currentPosition;
         private float _lastDeltaTime;
 
         public ISplineResolution Spline { get; set; }
+        public Action<bool> onStatusChanged;
 
         public override void Enable()
         {
             Transform.position = _lastPosition = _currentPosition = Spline.GetPosition(0);
+            onStatusChanged?.Invoke(true);
             base.Enable();
+        }
+        public override void Disable()
+        {
+            onStatusChanged?.Invoke(false);
+            base.Disable();
         }
 
         public virtual void RefreshPosition(float worldDistance)

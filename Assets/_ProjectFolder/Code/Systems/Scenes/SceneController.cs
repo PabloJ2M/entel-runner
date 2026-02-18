@@ -9,7 +9,7 @@ namespace Unity.SceneManagement
         [SerializeField] private SceneFadeEffect _fadePrefab;
 
         private HashSet<string> _loadedScenes = new();
-        private bool _isLoadingScene;
+        public bool IsLoadingScene { get; private set; }
 
         private void Start()
         {
@@ -29,10 +29,10 @@ namespace Unity.SceneManagement
         }
         public void ChangeScene(string scenePath)
         {
-            if (_isLoadingScene) return;
+            if (IsLoadingScene) return;
 
             Instantiate(_fadePrefab, transform).ScenePath = scenePath;
-            _isLoadingScene = true;
+            IsLoadingScene = true;
         }
     }
 }

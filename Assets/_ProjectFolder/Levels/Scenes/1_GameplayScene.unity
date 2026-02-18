@@ -802,7 +802,7 @@ Transform:
   m_GameObject: {fileID: 233658746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 6.28, z: 0}
+  m_LocalPosition: {x: 0, y: 6.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2355,11 +2355,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &805604810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
-  m_PrefabInstance: {fileID: 3471840970102847351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &829981009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5090134920193925227, guid: f65823f424bab60438929e9a351328f5, type: 3}
@@ -11645,22 +11640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d2576d154cc164abc5282f442a23c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDistance: 900
+  _spawnDistance: 100
   _onStatusEventChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 805604810}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1683427924}
         m_TargetAssemblyTypeName: UnityEngine.Animations.TweenCore, PrimeTween.Animations
         m_MethodName: Play
@@ -11775,7 +11758,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1170622610175398444, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
   m_PrefabInstance: {fileID: 3471840970102847351}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 805604810}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf1a49e6fb6a5834690023d3e02ba3e9, type: 3}

@@ -214,6 +214,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2956763796433911697, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5790861633685875413}
+    - targetCorrespondingSourceObject: {fileID: 2956763796433911697, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 653279758290133562}
   m_SourcePrefab: {fileID: 100100000, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
 --- !u!1 &1183685556294546441 stripped
 GameObject:
@@ -269,6 +272,19 @@ RenderAs2D:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_OwningSortingGroup: {fileID: 1584411135025992787}
+--- !u!114 &653279758290133562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183685556294546441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e20b81d60e41e4d80cd66da4122d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectRendered
+  _object: {fileID: 3350887155068205520}
 --- !u!210 &1584411135025992787 stripped
 SortingGroup:
   m_CorrespondingSourceObject: {fileID: 3213660506908401611, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}

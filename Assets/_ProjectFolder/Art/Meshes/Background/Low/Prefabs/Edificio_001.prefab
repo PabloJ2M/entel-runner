@@ -57,6 +57,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: -5452301253794034271}
+    - targetCorrespondingSourceObject: {fileID: 3189080818309445465, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3912568491395362041}
   m_SourcePrefab: {fileID: 100100000, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
 --- !u!1 &4748752052946320398 stripped
 GameObject:
@@ -147,3 +150,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
   m_PrefabInstance: {fileID: 5559584909515325791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7018430245385549318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3189080818309445465, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+  m_PrefabInstance: {fileID: 5559584909515325791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3912568491395362041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018430245385549318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e20b81d60e41e4d80cd66da4122d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectRendered
+  _object: {fileID: -4287214858873932908}

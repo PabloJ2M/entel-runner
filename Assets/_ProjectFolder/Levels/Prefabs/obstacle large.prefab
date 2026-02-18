@@ -49,6 +49,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3272811420069525082, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3272811420069525082, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 15.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3272811420069525082, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
       propertyPath: 'm_BlendShapeWeights.Array.data[0]'
       value: 100
       objectReference: {fileID: 0}

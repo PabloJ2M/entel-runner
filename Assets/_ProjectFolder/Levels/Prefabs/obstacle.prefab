@@ -124,6 +124,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2042083034070760979}
     m_Modifications:
+    - target: {fileID: 3844591283407080457, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844591283407080457, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 3.84
+      objectReference: {fileID: 0}
     - target: {fileID: 8328883533586065738, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
       propertyPath: m_Name
       value: nave
@@ -171,10 +179,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8328883533586065738, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7155166309210852109}
   m_SourcePrefab: {fileID: 100100000, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
 --- !u!4 &6983979236735322531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8709385391633806320, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
   m_PrefabInstance: {fileID: 1743429352858532435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7757385145222451993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8328883533586065738, guid: bc3f97a2f0c45b84bb0f803e8e251b9c, type: 3}
+  m_PrefabInstance: {fileID: 1743429352858532435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7155166309210852109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757385145222451993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e20b81d60e41e4d80cd66da4122d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectRendered
+  _object: {fileID: 3951451166249027454}
