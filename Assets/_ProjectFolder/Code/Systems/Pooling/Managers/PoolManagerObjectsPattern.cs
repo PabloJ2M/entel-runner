@@ -64,5 +64,10 @@ namespace Unity.Pool
                 }
             }
         }
+        public void SpawnInRandomPath(string objectName)
+        {
+            int index = Random.Range(0, _paths.Length);
+            _paths[index].OnSpawn(objectName, (float)_gameManager.WorldDistance);
+        }
     }
 }

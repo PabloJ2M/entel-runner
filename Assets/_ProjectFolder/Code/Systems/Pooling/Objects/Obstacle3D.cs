@@ -1,6 +1,6 @@
 namespace Unity.Pool
 {
-    public class Obstacle : Background3D
+    public class Obstacle3D : Background3D
     {
         
     }

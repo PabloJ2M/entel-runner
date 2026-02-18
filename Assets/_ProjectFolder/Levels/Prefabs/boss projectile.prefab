@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 422431906509003136}
   - component: {fileID: 5449009883268559856}
   - component: {fileID: 491799152137092986}
-  - component: {fileID: 2231459598015452083}
+  - component: {fileID: 4440523208852383204}
   m_Layer: 0
-  m_Name: BossProjectile
-  m_TagString: Untagged
+  m_Name: boss projectile
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +36,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5449009883268559856
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -54,6 +55,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,10 +78,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 16
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: e90cdcc1ab560674c983bffce420c60b, type: 3}
   m_Color: {r: 1, g: 0.115417756, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +92,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &491799152137092986
 CircleCollider2D:
@@ -124,8 +128,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &2231459598015452083
+  m_Radius: 0.3
+--- !u!114 &4440523208852383204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6900847627766075138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be325fa59444904488dc3bdd6d73d9e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 004167c2cdc2b3b44b4f627911426212, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 15
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.Obstacle2D
+  <Transform>k__BackingField: {fileID: 422431906509003136}

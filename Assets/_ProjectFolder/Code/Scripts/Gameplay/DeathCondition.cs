@@ -16,6 +16,11 @@ namespace Gameplay
         private const string _tag = "Finish";
 
         private void Awake() => _animator = GetComponent<AnimatorEvents>();
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag(_tag))
+                Disable();
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (!collision.collider.CompareTag(_tag)) return;

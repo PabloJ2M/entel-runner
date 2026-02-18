@@ -9,7 +9,7 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     [SerializeField] private float _time;
     [SerializeField] private bool _startDisabled;
 
-    public Action<double> onDinstanceTraveled;
+    public Action<double> onDinstanceTraveled { get; set; }
     public Action onFixedMovement;
     public UnityEvent onGameStarted, onGamePaused, onGameCompleted;
 

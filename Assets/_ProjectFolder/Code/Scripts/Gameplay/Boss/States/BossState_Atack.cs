@@ -7,7 +7,9 @@ namespace Gameplay.BossFight
     {
         protected abstract float _healthHandler { get; }
         protected abstract int _nextAtackIndex { get; }
-        private Coroutine _coroutine;
+        
+        protected Coroutine _coroutine;
+        protected const string _atackTriggerAnimation = "Atack";
 
         public BossState_Atack(BossController boss) : base(boss) { }
 

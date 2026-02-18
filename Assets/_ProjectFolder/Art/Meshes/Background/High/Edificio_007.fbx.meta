@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Entel_3D
+    second: {fileID: 2100000, guid: c927e72af9b78d74bac5a2690f3d89e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: T_Edificio_007
     second: {fileID: 2100000, guid: 0839daa5235e2104cb51e43bf46af038, type: 2}
   - first:
@@ -111,7 +116,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.13
+    globalScale: 13
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

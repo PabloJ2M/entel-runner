@@ -2355,6 +2355,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &805604810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
+  m_PrefabInstance: {fileID: 3471840970102847351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &829981009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5090134920193925227, guid: f65823f424bab60438929e9a351328f5, type: 3}
@@ -10525,6 +10530,7 @@ GameObject:
   - component: {fileID: 1683427925}
   - component: {fileID: 1683427924}
   - component: {fileID: 1683427923}
+  - component: {fileID: 1683427926}
   m_Layer: 5
   m_Name: boss health
   m_TagString: Untagged
@@ -10609,6 +10615,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1683427926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683427921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8dfe5ea7d78954fb64643e48486948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PrimeTween.Animations::UnityEngine.Animations.TweenRectPositionSwipe
+  _direction: 1
+  _overrideDistance: {x: 0, y: 100}
 --- !u!1 &1696561140
 GameObject:
   m_ObjectHideFlags: 0
@@ -10648,7 +10668,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 50}
+  m_SizeDelta: {x: 800, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696561142
 MonoBehaviour:
@@ -10679,7 +10699,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.5
 --- !u!222 &1696561143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11492,6 +11512,8 @@ MonoBehaviour:
   - {fileID: 3951451166249027454, guid: 8b36cc4789862ac44a7e7c9c4c3e337b, type: 3}
   - {fileID: 5498023574776857103, guid: aafc247afa030014a874fa955fa16177, type: 3}
   - {fileID: 1679838216535036548, guid: 68c60ed6c4002a047afdbf06be336cf6, type: 3}
+  - {fileID: 4440523208852383204, guid: 8f35649b55b9e714fbed83727a547bb9, type: 3}
+  - {fileID: 4391219199806494986, guid: aeb80b1ba8c271844a55afa512b83246, type: 3}
   - {fileID: -4287214858873932908, guid: 7ed36d0e334c1ab478e24ee996e2f400, type: 3}
   - {fileID: 298781267221550380, guid: 3dbc796b5648d5f449426afa3e9141f0, type: 3}
   - {fileID: -4151759796671017849, guid: a9801c1508f1e8442829786735a9a93c, type: 3}
@@ -11624,6 +11646,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnDistance: 900
+  _onStatusEventChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 805604810}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1683427924}
+        m_TargetAssemblyTypeName: UnityEngine.Animations.TweenCore, PrimeTween.Animations
+        m_MethodName: Play
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2129182218
 Transform:
   m_ObjectHideFlags: 0
@@ -11674,7 +11723,7 @@ PrefabInstance:
       objectReference: {fileID: 2129182217}
     - target: {fileID: 7289887011960181797, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: boss
       objectReference: {fileID: 0}
     - target: {fileID: 8494624843819748422, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11726,7 +11775,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1170622610175398444, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
   m_PrefabInstance: {fileID: 3471840970102847351}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 805604810}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf1a49e6fb6a5834690023d3e02ba3e9, type: 3}

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6824826452804931473}
   - component: {fileID: 3493466640014248676}
   - component: {fileID: 854792033512037950}
-  - component: {fileID: 5513402622919605997}
+  - component: {fileID: 4391219199806494986}
   m_Layer: 0
-  m_Name: Wifi
+  m_Name: wifi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1941027463957257305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.17, y: -4.46, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 16
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: e90cdcc1ab560674c983bffce420c60b, type: 3}
   m_Color: {r: 0.2705882, g: 0.93333334, b: 0.3359574, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5513402622919605997
+--- !u!114 &4391219199806494986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941027463957257305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed2c3e20df08aa4b96bbd36355a17c9, type: 3}
+  m_Script: {fileID: 11500000, guid: c18674ffe9e046f4eacc44b1310a7966, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 10
+  m_EditorClassIdentifier: Assembly-CSharp::KnockBack
+  <Transform>k__BackingField: {fileID: 6824826452804931473}
