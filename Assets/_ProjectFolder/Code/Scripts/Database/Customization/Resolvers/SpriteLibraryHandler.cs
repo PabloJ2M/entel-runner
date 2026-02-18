@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.U2D.Animation;
 
 namespace Unity.Customization
@@ -12,6 +13,7 @@ namespace Unity.Customization
     {
         [SerializeField] private SO_LibraryReference_List _reference;
         [SerializeField] private SO_Item_List _listReference;
+        [SerializeField] private SortingGroup _hipsLayer;
         [SerializeField] private GameObject[] _objectReferences;
 
         private Dictionary<ItemGroup, HashSet<SpriteResolverListener>> _resolvers = new();
@@ -49,7 +51,11 @@ namespace Unity.Customization
             _customization.Local.equipped.TryGetValue(library.ID, out var equipped);
 
             SetExtra(library.ObjectReference);
-            if (library.Asset) EquippeLibrary(library.ID, ref equipped);
+            if (library.Asset)
+            {
+                EquippeLibrary(library.ID, ref equipped);
+                _hipsLayer.sortingOrder = library.HipsSortingLayer;
+            }
         }
         private void EquippeLibrary(string libraryID, ref SerializedStringDictionary equipped)
         {

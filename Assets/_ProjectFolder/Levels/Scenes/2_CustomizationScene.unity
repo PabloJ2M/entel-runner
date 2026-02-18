@@ -6034,7 +6034,7 @@ GameObject:
   - component: {fileID: 1663401423}
   - component: {fileID: 1663401424}
   m_Layer: 5
-  m_Name: powersito
+  m_Name: powercito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6056,7 +6056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 125, y: 125}
+  m_AnchoredPosition: {x: 196, y: 166}
   m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1663401423

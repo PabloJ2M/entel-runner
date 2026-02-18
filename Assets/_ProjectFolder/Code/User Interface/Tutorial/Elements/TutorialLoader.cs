@@ -11,11 +11,10 @@ namespace Unity.Tutorial
         [SerializeField] private SceneLoader _loader;
 
         private const string _tutorial = "Tutorial";
-        private bool _loaded = false;
 
-        private void Awake()
+        private void Start()
         {
-            if (PlayerPrefs.HasKey(_tutorial)) { _loaded = true; return; }
+            if (PlayerPrefs.HasKey(_tutorial)) return;
             _manager.Pause();
             _loader.AddScene();
             StartCoroutine(WaitForTutorial());
@@ -29,7 +28,6 @@ namespace Unity.Tutorial
         private void OnTutorialCompleted()
         {
             PlayerPrefs.SetInt(_tutorial, 1);
-            _loaded = true;
             _manager.Play();
             _loader.RemoveScene();
         }

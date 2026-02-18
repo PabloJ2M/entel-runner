@@ -12,10 +12,12 @@ namespace Unity.Customization
         [SerializeField] private string _objectReference;
 
         [SerializeField] private RuntimeAnimatorController _animator;
+        [SerializeField] private int _hipsSortingLayer;
 
         public string ID => _libraryID;
         public string ObjectReference => _objectReference;
         public SpriteLibraryAsset Asset => _assetReference;
         public RuntimeAnimatorController Animator => _animator;
+        public int HipsSortingLayer => _hipsSortingLayer;
     }
 }
