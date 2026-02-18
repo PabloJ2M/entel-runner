@@ -11563,7 +11563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d2576d154cc164abc5282f442a23c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnDistance: 100
+  _spawnDistance: 900
   _onStatusEventChanged:
     m_PersistentCalls:
       m_Calls:
