@@ -20,10 +20,10 @@ namespace Unity.SceneManagement
         private void Start()
         {
             bool isLoadingScene = !string.IsNullOrEmpty(ScenePath);
-            _canvasGroup.alpha = isLoadingScene ? 0f : 1f;
+            _canvasGroup.alpha = isLoadingScene ? 0.001f : 0.999f;
             _fadeDirection = (sbyte)(isLoadingScene ? 1 : -1);
         }
-        private void Update()
+        private void LateUpdate()
         {
             if (_isComplete) return;
             float delta = _unscaleTime ? Time.unscaledDeltaTime : Time.deltaTime;
