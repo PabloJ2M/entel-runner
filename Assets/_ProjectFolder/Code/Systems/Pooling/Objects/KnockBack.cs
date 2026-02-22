@@ -9,9 +9,7 @@ namespace Unity.Pool
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag(_player))
-            {
-
-            }
+                Destroy();
         }
     }
 }

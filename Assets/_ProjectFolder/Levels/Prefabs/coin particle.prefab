@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.CoinParticle
   <Transform>k__BackingField: {fileID: 5095249202035912290}
-  _speed: 5
+  _speed: 30
 --- !u!1001 &7862679453368565048
 PrefabInstance:
   m_ObjectHideFlags: 0

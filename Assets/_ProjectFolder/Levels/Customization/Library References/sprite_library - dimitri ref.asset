@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627b8f4cbc02c094295541c21810098b, type: 3}
   m_Name: sprite_library - dimitri ref
   m_EditorClassIdentifier: 
+  _balance: 0
+  _cost: 10
   _libraryID: dimitri
   _assetReference: {fileID: 0}
   _objectReference: dimitri
   _animator: {fileID: 22100000, guid: 01c0fb0976679d946b27ca1afcab46d9, type: 2}
-  _skeleton: {fileID: 11400000, guid: 62df0f498c459ac48898eeceb701a792, type: 2}
+  _hipsSortingLayer: 0

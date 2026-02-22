@@ -12,8 +12,9 @@ namespace Unity.Tutorial
 
         private const string _tutorial = "Tutorial";
 
-        private void Start()
+        private async void Start()
         {
+            await Awaitable.EndOfFrameAsync();
             if (PlayerPrefs.HasKey(_tutorial)) return;
             _manager.Pause();
             _loader.AddScene();

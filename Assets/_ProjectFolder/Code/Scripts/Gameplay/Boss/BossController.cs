@@ -33,7 +33,8 @@ namespace Gameplay.BossFight
         private void OnHealthUpdated(float value)
         {
             HealthPercent = value;
-            if (HealthPercent <= 0) _encounter.ForceStop();
+            if (HealthPercent > 0) _animator.Play("Hit");
+            else _encounter.ForceStop();
         }
 
         public void StartFight()

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627b8f4cbc02c094295541c21810098b, type: 3}
   m_Name: sprite_library - female ref
   m_EditorClassIdentifier: 
+  _balance: 0
+  _cost: 0
   _libraryID: female
   _assetReference: {fileID: 7108339969198208228, guid: 2eb8bb628e2a95a4e9d4e0a948119dd7, type: 3}
+  _objectReference: character_render
   _animator: {fileID: 9100000, guid: 21fc5634abc54b24fa5f7752f1fd7093, type: 2}
-  _skeleton: {fileID: 11400000, guid: 312ffe5685467624e979cdeb1468b11e, type: 2}
+  _hipsSortingLayer: 0

@@ -24,6 +24,9 @@ public class GameplayManager : SingletonBasic<GameplayManager>
     {
         base.Awake();
         if (_time != 0) _timeInv = 1f / _time;
+    }
+    private void Start()
+    {
         if (!_startDisabled) Play();
     }
 

@@ -14,18 +14,20 @@ namespace Gameplay.BossFight
 
         private const string _projectilePrefabName = "boss projectile";
         private const string _knockbackPrefabName = "wifi";
+        private const float _spawnRateTime = 1f;
+        private const int _normalAtackCount = 2;
 
         public BossState_Atack1(BossController boss) : base(boss)
         {
             _spawner = Object.FindFirstObjectByType<PoolManagerObjectsPattern>();
-            _spawnRate = new(1f);
+            _spawnRate = new(_spawnRateTime);
         }
 
         protected override IEnumerator AtackEvent()
         {
             while (true)
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < _normalAtackCount; i++)
                 {
                     yield return _spawnRate;
                     _boss.Animator.SetTrigger(_atackTriggerAnimation);

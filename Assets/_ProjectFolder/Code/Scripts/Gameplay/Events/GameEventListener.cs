@@ -5,10 +5,11 @@ namespace Gameplay.Events
 {
     public class GameEventListener : GameplayListener
     {
-        [SerializeField] private float _spawnDistance = 900f;
+        [SerializeField] private float _firstSpawnDistance = 150, _spawnDistance = 300f;
         [SerializeField] private UnityEvent<bool> _onStatusEventChanged;
 
         private IGameEvent _handler;
+        private float _spawnLength;
         private double _traveled;
 
         protected override void Awake()
@@ -16,6 +17,7 @@ namespace Gameplay.Events
             base.Awake();
             _handler = GetComponentInChildren<IGameEvent>();
             _onStatusEventChanged.Invoke(false);
+            _spawnLength = _firstSpawnDistance;
         }
         protected override void OnEnable()
         {
@@ -40,8 +42,9 @@ namespace Gameplay.Events
         protected override void GameUpdate(double traveled)
         {
             if (!_gameManager.IsEnabled) return;
-            if (traveled - _traveled < _spawnDistance) return;
+            if (traveled - _traveled < _spawnLength) return;
 
+            _spawnLength = _spawnDistance;
             StartEvent();
         }
 

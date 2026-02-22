@@ -20,7 +20,7 @@ public class UIScoreByDistance : UIScore
         var economy = UnityServiceInit.Instance?.GetComponent<PlayerEconomyService>();
         if (!economy) return;
 
-        uint coins = (uint)(_score / _pointsPerCoin);
+        uint coins = (uint)(Score / _pointsPerCoin);
 
         if (coins != 0)
             economy.AddBalanceID(BalanceType.COIN, coins);

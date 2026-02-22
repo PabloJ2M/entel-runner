@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627b8f4cbc02c094295541c21810098b, type: 3}
   m_Name: sprite_library - male ref
   m_EditorClassIdentifier: 
+  _balance: 0
+  _cost: 0
   _libraryID: male
   _assetReference: {fileID: 7108339969198208228, guid: a0c76a8f8a14e634c80ddc600829f650, type: 3}
-  _objectReference: 
+  _objectReference: character_render
   _animator: {fileID: 9100000, guid: 21fc5634abc54b24fa5f7752f1fd7093, type: 2}
   _hipsSortingLayer: -1

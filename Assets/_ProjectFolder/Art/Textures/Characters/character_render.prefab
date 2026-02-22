@@ -1263,8 +1263,6 @@ GameObject:
   - component: {fileID: 1349647588126906367}
   - component: {fileID: 91792817943911734}
   - component: {fileID: 3477037392115343391}
-  - component: {fileID: 689192851695964618}
-  - component: {fileID: 6291907693804575391}
   m_Layer: 3
   m_Name: character_render
   m_TagString: Untagged
@@ -1348,61 +1346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Library: []
   m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: a0c76a8f8a14e634c80ddc600829f650, type: 3}
---- !u!114 &689192851695964618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294254919901693440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a70946441b6904f9f8a2d5c106efa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _reference: {fileID: 11400000, guid: 862f0668fd9da134b97cdac91ccaa671, type: 2}
-  _listReference: {fileID: 11400000, guid: 2f0d3d42529f0a84aaebb9d297c72d08, type: 2}
-  _hipsLayer: {fileID: 3554922545709976616}
-  _objectReferences: []
---- !u!114 &6291907693804575391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2294254919901693440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9d1bc67212210469289494619723e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.BoneStructureReference
-  _selected: {fileID: 11400000, guid: 312ffe5685467624e979cdeb1468b11e, type: 2}
-  _root: {fileID: 6461336754517361275}
-  _bones:
-  - {fileID: 6461336754517361275}
-  - {fileID: 7822738840605894237}
-  - {fileID: 9199435448542973578}
-  - {fileID: 5159646307760401429}
-  - {fileID: 2577506229955726322}
-  - {fileID: 2593334445409183819}
-  - {fileID: 4677850620455593377}
-  - {fileID: 8914431694044721754}
-  - {fileID: 3537913534041321733}
-  - {fileID: 6678152246110479408}
-  - {fileID: 7629814607452666913}
-  - {fileID: 25538430174841158}
-  - {fileID: 3564147884064280351}
-  - {fileID: 3217458840859605179}
-  - {fileID: 9204484470947913445}
-  - {fileID: 8113112647924170465}
-  - {fileID: 3030840667265531814}
-  - {fileID: 8490732955837598104}
-  - {fileID: 9123592168158875920}
-  - {fileID: 854591837553000318}
-  - {fileID: 1299075202168753036}
-  - {fileID: 1994040875714130104}
-  - {fileID: 4454102130957614878}
-  - {fileID: 8116274911734757770}
 --- !u!1 &2435527264333591443
 GameObject:
   m_ObjectHideFlags: 0

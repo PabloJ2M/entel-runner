@@ -17,8 +17,8 @@ namespace Gameplay.BossFight
         public override void Exit() => _boss.StopCoroutine(_coroutine);
         public override void Update()
         {
-            if (_boss.HealthPercent <= _healthHandler)
-                _boss.TransitionToState(_boss.Atacks[_nextAtackIndex]);
+            //if (_boss.HealthPercent <= _healthHandler)
+            //    _boss.TransitionToState(_boss.Atacks[_nextAtackIndex]);
         }
 
         protected abstract IEnumerator AtackEvent();

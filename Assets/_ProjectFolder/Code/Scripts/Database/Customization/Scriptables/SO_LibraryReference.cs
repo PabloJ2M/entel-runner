@@ -4,7 +4,7 @@ using UnityEngine.U2D.Animation;
 namespace Unity.Customization
 {
     [CreateAssetMenu(fileName = "SpriteLibraryReference", menuName = "system/customization/library reference")]
-    public class SO_LibraryReference : ScriptableObject
+    public class SO_LibraryReference : SO_ElementWithCost
     {
         [SerializeField] private string _libraryID;
 
