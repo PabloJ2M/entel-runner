@@ -32,7 +32,7 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 6965377322823159717, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+      m_SpriteOverride: {fileID: 3045390489953412203, guid: dbf418f8614da544ab68a1b580630434, type: 3}
     - m_Name: entel_rojo
       m_Hash: 883330441
       m_Sprite: {fileID: -4521697191448382036, guid: 8934df40ff04a4943b4ade95e0b4f158, type: 3}
@@ -356,37 +356,6 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -6282231169150296364, guid: 8c668bde09dd3304db23893d07095475, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 5
-  - m_Name: Body.Feet.R
-    m_Hash: 837597672
-    m_CategoryList: []
-    m_OverrideEntries:
-    - m_Name: default
-      m_Hash: 593363167
-      m_Sprite: {fileID: 0}
-      m_FromMain: 1
-      m_SpriteOverride: {fileID: -7550859112277176011, guid: dbf418f8614da544ab68a1b580630434, type: 3}
-    - m_Name: entel_rojo
-      m_Hash: 883330441
-      m_Sprite: {fileID: 3525822721033929768, guid: 8934df40ff04a4943b4ade95e0b4f158, type: 3}
-      m_FromMain: 0
-      m_SpriteOverride: {fileID: 3525822721033929768, guid: 8934df40ff04a4943b4ade95e0b4f158, type: 3}
-    - m_Name: sudadera_negra
-      m_Hash: 707423292
-      m_Sprite: {fileID: 5835316291065484203, guid: 9cf2d4b9ecdd2b74c8991d8616b4e212, type: 3}
-      m_FromMain: 0
-      m_SpriteOverride: {fileID: 5835316291065484203, guid: 9cf2d4b9ecdd2b74c8991d8616b4e212, type: 3}
-    - m_Name: disco
-      m_Hash: 701762749
-      m_Sprite: {fileID: -2176668228443817973, guid: 4117b85f4443a3d4d9313403e27f472a, type: 3}
-      m_FromMain: 0
-      m_SpriteOverride: {fileID: -2176668228443817973, guid: 4117b85f4443a3d4d9313403e27f472a, type: 3}
-    - m_Name: mecanico
-      m_Hash: 307371642
-      m_Sprite: {fileID: 1831259227217748769, guid: 8c668bde09dd3304db23893d07095475, type: 3}
-      m_FromMain: 0
-      m_SpriteOverride: {fileID: 1831259227217748769, guid: 8c668bde09dd3304db23893d07095475, type: 3}
-    m_FromMain: 1
-    m_EntryOverrideCount: 5
   - m_Name: Body.Feet.L
     m_Hash: 199459979
     m_CategoryList: []
@@ -418,6 +387,37 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -2288798963791006731, guid: 8c668bde09dd3304db23893d07095475, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 5
+  - m_Name: Body.Feet.R
+    m_Hash: 837597672
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: default
+      m_Hash: 593363167
+      m_Sprite: {fileID: 0}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -7550859112277176011, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+    - m_Name: entel_rojo
+      m_Hash: 883330441
+      m_Sprite: {fileID: 3525822721033929768, guid: 8934df40ff04a4943b4ade95e0b4f158, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3525822721033929768, guid: 8934df40ff04a4943b4ade95e0b4f158, type: 3}
+    - m_Name: sudadera_negra
+      m_Hash: 707423292
+      m_Sprite: {fileID: 5835316291065484203, guid: 9cf2d4b9ecdd2b74c8991d8616b4e212, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5835316291065484203, guid: 9cf2d4b9ecdd2b74c8991d8616b4e212, type: 3}
+    - m_Name: disco
+      m_Hash: 701762749
+      m_Sprite: {fileID: -2176668228443817973, guid: 4117b85f4443a3d4d9313403e27f472a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2176668228443817973, guid: 4117b85f4443a3d4d9313403e27f472a, type: 3}
+    - m_Name: mecanico
+      m_Hash: 307371642
+      m_Sprite: {fileID: 1831259227217748769, guid: 8c668bde09dd3304db23893d07095475, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1831259227217748769, guid: 8c668bde09dd3304db23893d07095475, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 4e848b54bdd9d4244ba958cd81b1cd42
-  m_ModificationHash: 639057988877863611
+  m_ModificationHash: 639074381527237135
   m_Version: 1

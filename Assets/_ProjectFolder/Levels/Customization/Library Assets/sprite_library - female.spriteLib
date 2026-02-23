@@ -187,7 +187,7 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 6812853219818792859, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
+      m_SpriteOverride: {fileID: 285025154581756950, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 1
   - m_Name: Body.Hand.R
@@ -198,7 +198,7 @@ MonoBehaviour:
       m_Hash: 593363167
       m_Sprite: {fileID: 0}
       m_FromMain: 1
-      m_SpriteOverride: {fileID: 7581530071926567650, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
+      m_SpriteOverride: {fileID: -33439553851638648, guid: 87cefec82b70d6249b1178c1be93c68c, type: 3}
     m_FromMain: 1
     m_EntryOverrideCount: 1
   - m_Name: Body.Pants
@@ -419,5 +419,5 @@ MonoBehaviour:
     m_FromMain: 1
     m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 4e848b54bdd9d4244ba958cd81b1cd42
-  m_ModificationHash: 639062273285570604
+  m_ModificationHash: 639074402642541803
   m_Version: 1
