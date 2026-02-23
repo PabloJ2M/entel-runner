@@ -100,6 +100,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.06430159
       objectReference: {fileID: 0}
+    - target: {fileID: 3371792319156978025, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: m_Size.x
+      value: 0.66796875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371792319156978025, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: m_Size.y
+      value: 0.91308594
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371792319156978025, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3045390489953412203, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+    - target: {fileID: 3371792319156978025, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5185996409614791858, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_labelHash
       value: 1.20348286e-17
@@ -168,6 +184,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 146.082
       objectReference: {fileID: 0}
+    - target: {fileID: 7828124813852544089, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4443382996078986265}
+    - target: {fileID: 7828124813852544089, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      propertyPath: 'm_BoneTransforms.Array.data[3]'
+      value: 
+      objectReference: {fileID: 403734607816566406}
     - target: {fileID: 8608357938652904638, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.042720392
@@ -189,7 +213,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 6418351821537466976}
     - targetCorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       insertIndex: -1
@@ -210,6 +234,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9062391759260177610}
   m_SourcePrefab: {fileID: 100100000, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+--- !u!4 &403734607816566406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7800279637082469531, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+  m_PrefabInstance: {fileID: 7627535895577711133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3728732592021892276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
@@ -323,6 +352,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2bbd81ce348bd4b93b25fb3bb031e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: 6d42f99577824df42ba41d2a6dae94f9
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   _score: {fileID: 0}
   _trigger: {fileID: 8958180786366548383}
 --- !u!114 &8958180786366548383
@@ -354,3 +392,8 @@ MonoBehaviour:
   _hitEffect: {fileID: 0}
   _components:
   - {fileID: 4361904074059623604}
+--- !u!4 &4443382996078986265 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6084471084759897604, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+  m_PrefabInstance: {fileID: 7627535895577711133}
+  m_PrefabAsset: {fileID: 0}

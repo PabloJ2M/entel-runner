@@ -4,9 +4,9 @@ namespace UnityEngine.Audio
 {
     [Serializable] public class AudioChannel
     {
+        [SerializeField] private string _mixerParam;
         [SerializeField] private ChannelType _type;
         [SerializeField] private AudioSource _source;
-        [SerializeField] private string _mixerParam;
 
         private AudioMixerGroup _group;
         private AudioClip _defaultClip;
@@ -15,8 +15,8 @@ namespace UnityEngine.Audio
 
         public AudioChannel(ChannelType type)
         {
-            _type = type;
             _mixerParam = _type.ToString();
+            _type = type;
         }
         public void Init()
         {
@@ -24,11 +24,21 @@ namespace UnityEngine.Audio
             _defaultClip = _source.clip;
         }
 
-        public void SetVolume(float value) => _group.audioMixer.SetFloat(_mixerParam, Mathf.Log10(Mathf.Max(0.001f, value)) * 20f);
         public void Mute(bool value) => _source.mute = value;
+        public void SetVolume(float value)
+        {
+            float dB = Mathf.Log10(Mathf.Max(0.001f, value)) * 20f;
+            _group.audioMixer.SetFloat(_mixerParam, dB);
+        }
+        public float GetVolume()
+        {
+            _group.audioMixer.GetFloat(_mixerParam, out float dB);
+            return Mathf.Pow(10f, dB / 20f);
+        }
 
         public void Play(AudioClip clip)
         {
+            if (_source.clip == clip) return;
             _source.clip = clip;
             _source.Play();
         }

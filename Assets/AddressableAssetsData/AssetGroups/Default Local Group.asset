@@ -15,8 +15,58 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 3403c812b15a8dc40bb0191546307213
   m_SerializeEntries:
+  - m_GUID: 0c547d8f6ef40e743bc9e82062bc6ab3
+    m_Address: Assets/_ProjectFolder/Art/Audio/User Interface/interface-select 03.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15c3629a8402ee34bb5b04df4415bfe8
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/coin 02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66d3fb8371bff4449b10f0764c8eb9e3
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/game-die.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6cb1e8e88365fde4ba9a4ff478a5219d
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/loop-tech-elegant.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d42f99577824df42ba41d2a6dae94f9
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/coin 01.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90c3e7f0da180674e81b2e495951db38
+    m_Address: Assets/_ProjectFolder/Art/Audio/User Interface/interface-cancel.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95c9c9b4aff339e4290e7642e3774382
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/8bit-coin-collection.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99127c90b6bcf8947b92c30de8ff3a4a
     m_Address: Assets/_ProjectFolder/Art/Audio/Tap.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae99603971e6b1342a41f21606aec58c
+    m_Address: Assets/_ProjectFolder/Art/Audio/Gameplay/loop_run_for_your_life.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c46325cffff0b914c8211290e42b505c
+    m_Address: Assets/_ProjectFolder/Art/Audio/User Interface/interface-select 02.wav
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8062426aec5a6e418be48ecfc5e7855
+    m_Address: Assets/_ProjectFolder/Art/Audio/User Interface/in-game-notification.wav
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

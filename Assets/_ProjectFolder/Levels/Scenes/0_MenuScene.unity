@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 350723752}
   - component: {fileID: 350723751}
   - component: {fileID: 350723753}
+  - component: {fileID: 350723754}
   m_Layer: 5
   m_Name: close button
   m_TagString: Untagged
@@ -856,6 +857,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &350723754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350723749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _type: 1
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 0
+  _audioReference:
+    m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &354522043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1177,7 @@ GameObject:
   - component: {fileID: 894088037}
   - component: {fileID: 894088039}
   - component: {fileID: 894088038}
+  - component: {fileID: 894088040}
   m_Layer: 5
   m_Name: play button
   m_TagString: Untagged
@@ -1288,6 +1315,31 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &894088040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894088033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _type: 1
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 0
+  _audioReference:
+    m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &920969578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,6 +1351,7 @@ GameObject:
   - component: {fileID: 920969580}
   - component: {fileID: 920969579}
   - component: {fileID: 920969581}
+  - component: {fileID: 920969582}
   m_Layer: 0
   m_Name: game manager
   m_TagString: Untagged
@@ -1382,6 +1435,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FramesPerSecond
   _target: 60
+--- !u!114 &920969582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920969578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf3f2b53a4b8db48a0d13aef78e9233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitter
+  _type: 0
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 1
+  _audioReference:
+    m_AssetGUID: 6cb1e8e88365fde4ba9a4ff478a5219d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1021647698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2244,7 @@ GameObject:
   - component: {fileID: 1243011814}
   - component: {fileID: 1243011813}
   - component: {fileID: 1243011812}
+  - component: {fileID: 1243011815}
   m_Layer: 5
   m_Name: customize button
   m_TagString: Untagged
@@ -2306,6 +2382,31 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1243011815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243011808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _type: 1
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &1278285220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,6 +3477,7 @@ GameObject:
   - component: {fileID: 2065115477}
   - component: {fileID: 2065115479}
   - component: {fileID: 2065115480}
+  - component: {fileID: 2065115481}
   m_Layer: 5
   m_Name: achievements button
   m_TagString: Untagged
@@ -3512,6 +3614,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &2065115481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065115475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _type: 1
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &2072760670
 GameObject:
   m_ObjectHideFlags: 0

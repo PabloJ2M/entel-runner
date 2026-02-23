@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6907967860334061726}
   - component: {fileID: 4227772159058206646}
   - component: {fileID: 3189552061066104765}
+  - component: {fileID: 2619963665593607411}
   m_Layer: 5
   m_Name: toggle_color
   m_TagString: Untagged
@@ -127,3 +128,27 @@ MonoBehaviour:
   _icon: {fileID: 4227772159058206646}
   _onColor: {r: 1, g: 1, b: 1, a: 1}
   _offColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+--- !u!114 &2619963665593607411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4291071959405115377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04075e014b43da14587a9bc6eb47c251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterToggle
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1

@@ -1,8 +1,9 @@
 using Unity.Mathematics;
-using UnityEngine.UI;
 
 namespace UnityEngine.Audio
 {
+    using UI;
+
     [RequireComponent(typeof(Button))]
     public class AudioEmitterButton : AudioEmitter
     {

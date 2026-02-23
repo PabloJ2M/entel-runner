@@ -53,6 +53,7 @@ namespace UnityEngine.Audio
         public void PlayOneShot(ChannelType type, AudioClip clip, float pitch = 1f) => _channelMap[type].PlayOneShot(clip, pitch);
 
         public void SetVolume(ChannelType type, float volume) => _channelMap[type].SetVolume(volume);
+        public float GetVolume(ChannelType type) => _channelMap[type].GetVolume();
         public void Mute(bool value)
         {
             foreach (var channel in _channels)

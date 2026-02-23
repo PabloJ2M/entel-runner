@@ -269,7 +269,7 @@ MonoBehaviour:
   _type: 1
   _preloadOnStart: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -339,7 +339,7 @@ MonoBehaviour:
   _type: 1
   _preloadOnStart: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: 0c547d8f6ef40e743bc9e82062bc6ab3
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -3909,6 +3909,7 @@ GameObject:
   - component: {fileID: 1047928207}
   - component: {fileID: 1047928210}
   - component: {fileID: 1047928209}
+  - component: {fileID: 1047928211}
   m_Layer: 5
   m_Name: right
   m_TagString: Untagged
@@ -4044,6 +4045,30 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 0
+--- !u!114 &1047928211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047928205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &1089861389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4891,7 +4916,7 @@ MonoBehaviour:
   _type: 1
   _preloadOnStart: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -5226,7 +5251,7 @@ MonoBehaviour:
   _type: 1
   _preloadOnStart: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: 0c547d8f6ef40e743bc9e82062bc6ab3
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -6477,6 +6502,7 @@ GameObject:
   - component: {fileID: 1648373162}
   - component: {fileID: 1648373161}
   - component: {fileID: 1648373165}
+  - component: {fileID: 1648373166}
   m_Layer: 5
   m_Name: exit button
   m_TagString: Untagged
@@ -6638,6 +6664,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _path: Assets/_ProjectFolder/Levels/Scenes/0_MenuScene.unity
+--- !u!114 &1648373166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648373159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &1663401420
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,6 +8459,7 @@ GameObject:
   - component: {fileID: 2140793028}
   - component: {fileID: 2140793031}
   - component: {fileID: 2140793030}
+  - component: {fileID: 2140793032}
   m_Layer: 5
   m_Name: left
   m_TagString: Untagged
@@ -8544,6 +8595,30 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 0
+--- !u!114 &2140793032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140793026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1001 &1692827561318848381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8692,6 +8767,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5275157280193657239, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}
       propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605438130705170173, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}
+      propertyPath: m_Size.x
+      value: 0.66796875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605438130705170173, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}
+      propertyPath: m_Size.y
+      value: 0.91308594
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605438130705170173, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3045390489953412203, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+    - target: {fileID: 5605438130705170173, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5738500823735338742, guid: ef29faa330ab2fb4daae5f7ef1894193, type: 3}

@@ -1,18 +1,24 @@
-
 namespace UnityEngine.Audio
 {
     using AddressableAssets;
 
     public class AudioEmitter : AudioEmitterBehaviour
     {
+        [Tooltip("Override Audio Source Manager, Default = Null")]
+        [SerializeField] protected AudioSource _overrideSource = null;
+        [SerializeField] protected bool _preloadOnStart, _playOnAwake;
+        [Space]
         [Header("Audio Reference")]
         [SerializeField] protected AssetReferenceT<AudioClip> _audioReference;
 
         private async void Start()
         {
-            if (!_preloadOnStart) return;
-            await _manager.LoadAudioAsset(_audioReference);
-            _isLoaded = true;
+            if (_preloadOnStart) {
+                await _manager.LoadAudioAsset(_audioReference);
+                _isLoaded = true;
+            }
+
+            if (_playOnAwake) Play();
         }
         private void OnDestroy()
         {

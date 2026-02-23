@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3822711236226477591}
   - component: {fileID: 5710567635657644260}
   - component: {fileID: 8004507082634571755}
+  - component: {fileID: 164717563681986779}
   m_Layer: 0
   m_Name: item_base
   m_TagString: Untagged
@@ -122,6 +123,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &164717563681986779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949732514578930733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
+  _overrideSource: {fileID: 0}
+  _type: 1
+  _preloadOnStart: 0
+  _audioReference:
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _pitch:
+    x: 1
+    y: 1
 --- !u!1 &3015144270428608007
 GameObject:
   m_ObjectHideFlags: 0

@@ -239,9 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf3f2b53a4b8db48a0d13aef78e9233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitter
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 
     m_SubObjectName: 
@@ -698,11 +699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -819,7 +821,7 @@ PrefabInstance:
     - target: {fileID: -2658835790869877885, guid: 7165a56b37fc0f845a121190493c5388, type: 3}
       propertyPath: _fadePrefab
       value: 
-      objectReference: {fileID: 8127555475036196368, guid: 30e2d27a1c73ae845ae63646bc7db082, type: 3}
+      objectReference: {fileID: 7683863564182464214, guid: d9430ef6f54107240b7d36e64c29d43e, type: 3}
     - target: {fileID: 3426380255359342270, guid: 7165a56b37fc0f845a121190493c5388, type: 3}
       propertyPath: m_Name
       value: 'canvas [overlay]'
@@ -1013,11 +1015,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -1487,6 +1490,7 @@ GameObject:
   - component: {fileID: 522043461}
   - component: {fileID: 522043462}
   - component: {fileID: 522043463}
+  - component: {fileID: 522043464}
   m_Layer: 0
   m_Name: game manager
   m_TagString: Untagged
@@ -1684,6 +1688,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.SceneManagement.SceneLoader
   _path: Assets/_ProjectFolder/Levels/Scenes/3_TutorialScene.unity
+--- !u!114 &522043464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522043458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf3f2b53a4b8db48a0d13aef78e9233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitter
+  _type: 0
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 0
+  _playOnAwake: 1
+  _audioReference:
+    m_AssetGUID: ae99603971e6b1342a41f21606aec58c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &578997126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,11 +2570,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -3084,11 +3111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -9460,11 +9488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
-    m_AssetGUID: 99127c90b6bcf8947b92c30de8ff3a4a
+    m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -10560,6 +10589,22 @@ PrefabInstance:
     - target: {fileID: 4895108904063800350, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120997688133636980, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_Size.x
+      value: 0.66796875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120997688133636980, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_Size.y
+      value: 0.91308594
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120997688133636980, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3045390489953412203, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+    - target: {fileID: 5120997688133636980, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5322403986115769837, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11772,6 +11817,7 @@ GameObject:
   - component: {fileID: 2001667142}
   - component: {fileID: 2001667140}
   - component: {fileID: 2001667139}
+  - component: {fileID: 2001667143}
   m_Layer: 0
   m_Name: lose screen
   m_TagString: Untagged
@@ -11913,7 +11959,41 @@ MonoBehaviour:
   _negateCallback: 0
   _onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2001667143}
+        m_TargetAssemblyTypeName: UnityEngine.Audio.AudioEmitter, Assembly-CSharp
+        m_MethodName: PlayOneShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2001667143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001667135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf3f2b53a4b8db48a0d13aef78e9233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitter
+  _type: 1
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 1
+  _playOnAwake: 0
+  _audioReference:
+    m_AssetGUID: 66d3fb8371bff4449b10f0764c8eb9e3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1001 &2003206002
 PrefabInstance:
   m_ObjectHideFlags: 0
