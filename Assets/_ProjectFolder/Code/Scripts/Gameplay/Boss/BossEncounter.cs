@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gameplay.BossFight
 {
@@ -9,6 +10,7 @@ namespace Gameplay.BossFight
     {
         [SerializeField] private GameEventListener _event;
         [SerializeField] private float _duration = 18f;
+        [SerializeField] private UnityEvent _onSuccess;
 
         private BossController _boss;
         private bool _running;
@@ -37,6 +39,7 @@ namespace Gameplay.BossFight
         {
             _running = false;
             _boss.StopFight(success);
+            if (success) _onSuccess.Invoke();
         }
     }
 }
