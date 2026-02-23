@@ -35,6 +35,8 @@ public class GameplayManager : SingletonBasic<GameplayManager>
         if (_complete) return;
 
         WorldDistance += _currentSpeed * Time.deltaTime;
+        //WorldDistance %= 100;
+
         onDinstanceTraveled?.Invoke(WorldDistance);
 
         if (!IsEnabled || _speedOnCurve >= 1f) return;

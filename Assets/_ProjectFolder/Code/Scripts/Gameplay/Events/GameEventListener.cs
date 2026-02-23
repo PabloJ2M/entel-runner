@@ -5,12 +5,11 @@ namespace Gameplay.Events
 {
     public class GameEventListener : GameplayListener
     {
-        [SerializeField] private float _firstSpawnDistance = 150, _spawnDistance = 300f;
+        [SerializeField] private float _firstSpawnDistance = 150f, _spawnDistance = 300f;
         [SerializeField] private UnityEvent<bool> _onStatusEventChanged;
 
         private IGameEvent _handler;
         private float _spawnLength;
-        private double _traveled;
 
         protected override void Awake()
         {
@@ -22,27 +21,27 @@ namespace Gameplay.Events
         protected override void OnEnable()
         {
             base.OnEnable();
-            _gameManager.onGameStarted.AddListener(StartDistance);
+            _gameManager.onGameStarted.AddListener(ReadWorldDistance);
             _gameManager.onGameCompleted.AddListener(StopEvent);
         }
         protected override void OnDisable()
         {
             base.OnDisable();
-            _gameManager.onGameStarted.RemoveListener(StartDistance);
+            _gameManager.onGameStarted.RemoveListener(ReadWorldDistance);
             _gameManager.onGameCompleted.RemoveListener(StopEvent);
         }
 
-        private void StartDistance() => _traveled = _gameManager.WorldDistance;
+        private void ReadWorldDistance() => _lastTravel = _gameManager.WorldDistance;
         private void StopEvent()
         {
-            _traveled = _gameManager.WorldDistance;
+            _lastTravel = _gameManager.WorldDistance;
             _handler.OnCompleteEvent(false);
         }
 
         protected override void GameUpdate(double traveled)
         {
             if (!_gameManager.IsEnabled) return;
-            if (traveled - _traveled < _spawnLength) return;
+            if (traveled - _lastTravel < _spawnLength) return;
 
             _spawnLength = _spawnDistance;
             StartEvent();
@@ -56,7 +55,7 @@ namespace Gameplay.Events
         }
         public async void CompleteEvent(bool success)
         {
-            _traveled = _gameManager.WorldDistance;
+            ReadWorldDistance();
             _handler.OnCompleteEvent(success);
 
             await Awaitable.WaitForSecondsAsync(1);

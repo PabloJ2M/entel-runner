@@ -8,6 +8,7 @@ namespace Unity.Pool
     public interface ISplineResolution
     {
         float LengthInv { get; }
+        float Length { get; }
         float3 GetPosition(float t);
     }
 
@@ -18,8 +19,9 @@ namespace Unity.Pool
         [SerializeField, Range(2, byte.MaxValue)] private byte _resolution = 2;
 
         private float3[] _cachePoints;
-        private float _splineLengthInv;
+        private float _splineLength, _splineLengthInv;
 
+        public float Length => _splineLength;
         public float LengthInv => _splineLengthInv;
 
         private void Awake()
@@ -27,7 +29,8 @@ namespace Unity.Pool
             var spline = GetComponent<SplineContainer>();
 
             _cachePoints = new float3[_resolution];
-            _splineLengthInv = 1f / spline.CalculateLength();
+            _splineLength = spline.CalculateLength();
+            _splineLengthInv = 1f / _splineLength;
 
             for (int i = 0; i < _resolution; i++)
             {

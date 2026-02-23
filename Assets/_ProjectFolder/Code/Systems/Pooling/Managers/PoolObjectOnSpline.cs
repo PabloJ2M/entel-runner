@@ -29,7 +29,7 @@ namespace Unity.Pool
 
         public virtual void RefreshPosition(float worldDistance)
         {
-            float t = (worldDistance - _startDistance) * Spline.LengthInv;
+            float t = ((worldDistance - _startDistance) /*% Spline.Length*/) * Spline.LengthInv;
             if (t >= 1f) { Destroy(); return; }
 
             float3 position = Spline.GetPosition(t);

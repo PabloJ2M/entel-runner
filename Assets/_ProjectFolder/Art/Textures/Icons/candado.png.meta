@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: caeb18d88b9bd0a43ab5b0209efe65d9
+guid: e534e2d274e7d9846978b9f2bb30e2d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1105551635845692244
-    second: Dialogo_0
+      213: -5813102238523170163
+    second: candado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +51,8 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
-  spriteBorder: {x: 215, y: 255, z: 645, w: 190}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dialogo_0
+      name: candado_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 23
-        width: 802
-        height: 901
+        x: 17
+        y: 2
+        width: 94
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca4c09805aa48a0f0800000000000000
-      internalID: -1105551635845692244
+      spriteID: d826ccd2056b35fa0800000000000000
+      internalID: -5813102238523170163
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dialogo_0: -1105551635845692244
+      candado_0: -5813102238523170163
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

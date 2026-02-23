@@ -1005,11 +1005,11 @@ ScriptedImporter:
         boneIndex3: 0
     - position: {x: 522.632, y: 709.716}
       boneWeight:
-        weight0: 0
+        weight0: 1
         weight1: 0
         weight2: 0
         weight3: 0
-        boneIndex0: 0
+        boneIndex0: 2
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
