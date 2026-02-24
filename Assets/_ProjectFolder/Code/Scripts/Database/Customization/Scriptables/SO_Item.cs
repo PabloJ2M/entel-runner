@@ -9,6 +9,7 @@ namespace Unity.Customization
         [SerializeField] private SO_LibraryReference _libraryReference;
         [SerializeField] private string _itemID;
         [SerializeField] private Sprite _preview;
+        [SerializeField] private string _displayName;
 
         [SerializeField] private SO_SortingGroup _sorting;
         [SerializeField] private ItemGroup _group;
@@ -21,6 +22,7 @@ namespace Unity.Customization
         public SO_LibraryReference Reference => _libraryReference;
 
         public Sprite Preview => _preview;
+        public string DisplayName => _displayName;
         public string Group => _group.ToString();
         public IReadOnlyList<Sort> SortingGroup => _sorting.Sorts;
         public string LabelName => _label;

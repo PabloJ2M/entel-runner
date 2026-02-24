@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: sudadera_negra
   _preview: {fileID: 21300000, guid: d2f1d4f939cb52344b1226bff2addd3e, type: 3}
+  _displayName: Deportivo
   _sorting: {fileID: 11400000, guid: b69cecb1a4de40b4fae6b722a30b9ac2, type: 2}
   _group: 1
   _label: sudadera_negra

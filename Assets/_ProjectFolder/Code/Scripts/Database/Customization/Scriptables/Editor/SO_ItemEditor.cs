@@ -8,7 +8,7 @@ namespace Unity.Customization
     {
         private SerializedProperty _library, _id;
         private SerializedProperty _sorting, _group, _label;
-        private SerializedProperty _preview;
+        private SerializedProperty _preview, _name;
         private SerializedProperty _quality, _balance, _cost;
 
         private void OnEnable()
@@ -20,6 +20,7 @@ namespace Unity.Customization
             _group = serializedObject.FindProperty("_group");
             _label = serializedObject.FindProperty("_label");
             _preview = serializedObject.FindProperty("_preview");
+            _name = serializedObject.FindProperty("_displayName");
 
             _quality = serializedObject.FindProperty("_quality");
             _balance = serializedObject.FindProperty("_balance");
@@ -45,6 +46,7 @@ namespace Unity.Customization
             EditorGUILayout.PropertyField(_label);
 
             EditorGUILayout.PropertyField(_preview);
+            EditorGUILayout.PropertyField(_name);
             DrawSpritePreview(item.Preview);
 
             EditorGUILayout.Space(10);

@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: mecanico
   _preview: {fileID: 21300000, guid: 8a0398109cdaf0c459b906ce3877d97b, type: 3}
+  _displayName: "Mec\xE1nico"
   _sorting: {fileID: 11400000, guid: 4b6dc6559d3ee054db144d25ec061c2e, type: 2}
   _group: 3
   _label: mecanico

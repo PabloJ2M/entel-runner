@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
   _itemID: default
   _preview: {fileID: 21300000, guid: bbfa5c083ba72c947814b87175353655, type: 3}
+  _displayName: Normal
   _sorting: {fileID: 11400000, guid: a5f726f905f425d41b7b4cd6e4fc83cf, type: 2}
   _group: 2
   _label: default

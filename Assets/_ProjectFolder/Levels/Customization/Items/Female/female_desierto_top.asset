@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
   _itemID: desierto
   _preview: {fileID: 21300000, guid: e259f2ae4033df344a49a8f587569658, type: 3}
+  _displayName: Desierto
   _sorting: {fileID: 11400000, guid: a25dd4147b0d9534988f8aebb67b3372, type: 2}
   _group: 1
   _label: desierto

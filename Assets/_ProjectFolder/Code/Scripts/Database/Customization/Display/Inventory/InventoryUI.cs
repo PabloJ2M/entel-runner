@@ -21,6 +21,7 @@ namespace Unity.Customization.Inventory
 
             foreach (var item in items)
             {
+                if (item.Preview == null) continue;
                 if (item.Cost != 0 && !unlocked.ExistPath(_libraryID, item.Group, item.ID)) continue;
                 var entry = Pool.Get() as ItemsDisplayEntry;
                 entry.Init(item);

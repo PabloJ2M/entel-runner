@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: disco
   _preview: {fileID: 21300000, guid: d452031bc6a86964fa33b77f5e10b498, type: 3}
+  _displayName: Disco
   _sorting: {fileID: 11400000, guid: 71fbc977fd7c955408c27b484d2a9a3b, type: 2}
   _group: 2
   _label: disco

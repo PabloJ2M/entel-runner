@@ -18,7 +18,7 @@ namespace Unity.Customization
         {
             _item = item;
             _icon?.SetSprite(_item.Preview);
-            _name?.SetText(_item.LabelName);
+            _name?.SetText(_item.DisplayName);
         }
         protected abstract void OnClickHandler();
     }

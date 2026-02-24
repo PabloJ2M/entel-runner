@@ -17,6 +17,7 @@ MonoBehaviour:
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: entel_rojo
   _preview: {fileID: 21300000, guid: 098a3764c7d6a6c478c3f845076eb12c, type: 3}
+  _displayName: Entel
   _sorting: {fileID: 11400000, guid: 297ef65ec240e394aa1632ab869cb72c, type: 2}
   _group: 2
   _label: entel_rojo
