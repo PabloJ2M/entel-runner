@@ -847,6 +847,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9338b0791547234f8d5146bfa92e854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnHandler: {fileID: 0}
+  _pattern: {fileID: 0}
+  _minCapacityPerObject: 0
 --- !u!4 &359735839
 Transform:
   m_ObjectHideFlags: 0
@@ -1350,6 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6de797351cc7149b372e3a4cc2611f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SpawnerPoint
+  _spawnHandler: {fileID: 0}
   _startLength: 0
   _spaceDistance: 3.25
   _speedMultiply: 0.35
@@ -2875,6 +2879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6de797351cc7149b372e3a4cc2611f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SpawnerPoint
+  _spawnHandler: {fileID: 0}
   _startLength: 0
   _spaceDistance: 3.75
   _speedMultiply: 0.85
@@ -3962,11 +3967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210551169630252707, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.052152365
+      value: 0.05215352
       objectReference: {fileID: 0}
     - target: {fileID: 2210551169630252707, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.9986392
+      value: -0.99863917
       objectReference: {fileID: 0}
     - target: {fileID: 2353827772425268541, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4014,11 +4019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3162212416361313970, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.972662
+      value: 0.9726628
       objectReference: {fileID: 0}
     - target: {fileID: 3162212416361313970, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.23222561
+      value: 0.23222205
       objectReference: {fileID: 0}
     - target: {fileID: 3356553210392848277, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4178,11 +4183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4781239058237457365, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99774724
+      value: 0.99774706
       objectReference: {fileID: 0}
     - target: {fileID: 4781239058237457365, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.067085825
+      value: 0.06708831
       objectReference: {fileID: 0}
     - target: {fileID: 4847836457135265701, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_SolverEditorData.Array.data[0].color.b
@@ -6897,6 +6902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9338b0791547234f8d5146bfa92e854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnHandler: {fileID: 0}
+  _pattern: {fileID: 0}
+  _minCapacityPerObject: 0
 --- !u!4 &2002359980
 Transform:
   m_ObjectHideFlags: 0
