@@ -33,8 +33,6 @@ namespace Gameplay.Movement
         }
         private void OnEnable()
         {
-            //_pressInput.action.Enable();
-            //_deltaInput.action.Enable();
             _pressInput.action.performed += OnJump;
             _deltaInput.action.performed += OnSwipe;
         }
@@ -44,8 +42,6 @@ namespace Gameplay.Movement
             _isPressing = false;
             _pressInput.action.performed -= OnJump;
             _deltaInput.action.performed -= OnSwipe;
-            //_pressInput.action.Disable();
-            //_deltaInput.action.Disable();
         }
 
         private void FixedUpdate()
