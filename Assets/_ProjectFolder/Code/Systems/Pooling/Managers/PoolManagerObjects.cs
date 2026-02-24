@@ -35,13 +35,13 @@ namespace Unity.Pool
 
         protected void OnCreate(PoolObjectBehaviour prefab)
         {
-            if (prefab is not PoolObjectOnSpline @object) return;
-            Spawned.Add(@object);
+            if (prefab is PoolObjectOnSpline @object)
+                Spawned.Add(@object);
         }
         protected void OnRelease(PoolObjectBehaviour prefab)
         {
-            if (prefab is not PoolObjectOnSpline @object) return;
-            Spawned.Remove(@object);
+            if (prefab is PoolObjectOnSpline @object)
+                Spawned.Remove(@object);
         }
         protected void Clear()
         {
