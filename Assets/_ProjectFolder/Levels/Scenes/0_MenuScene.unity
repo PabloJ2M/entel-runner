@@ -667,62 +667,6 @@ MonoBehaviour:
   _onValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &347904220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 347904223}
-  - component: {fileID: 347904222}
-  m_Layer: 0
-  m_Name: spawn_handler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &347904222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347904220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4af829cbaef0e0d46ad2d8b6998e3b83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectSpawner
-  _parent: {fileID: 347904223}
-  _prefabs:
-  - {fileID: -4287214858873932908, guid: 7ed36d0e334c1ab478e24ee996e2f400, type: 3}
-  - {fileID: 298781267221550380, guid: 3dbc796b5648d5f449426afa3e9141f0, type: 3}
-  - {fileID: -4151759796671017849, guid: a9801c1508f1e8442829786735a9a93c, type: 3}
-  - {fileID: 4044298249007862922, guid: 6999d554293a757408214eaa00f221f7, type: 3}
-  - {fileID: -160829112905649248, guid: 4a2391b065d94c04cb5b177232e7a549, type: 3}
-  - {fileID: 4035155855789791816, guid: 930eedba6be698840b5826cc1eb7faaf, type: 3}
-  - {fileID: 5555748414448035428, guid: bb8f81f5b0400d047b55338e3a334ba9, type: 3}
-  - {fileID: -197007787158353040, guid: 1d3f450c2dba8fc409b5fac4190265ab, type: 3}
-  - {fileID: -2403415982075971576, guid: 0bb5396cf1b4d8a4f92f88c64d8a16c5, type: 3}
-  - {fileID: 3689803131850029796, guid: 975b4effde4a0294aa17eb1ceac3f8ab, type: 3}
---- !u!4 &347904223
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347904220}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350723749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1891,7 @@ GameObject:
   - component: {fileID: 1197966828}
   - component: {fileID: 1197966827}
   - component: {fileID: 1197966826}
+  - component: {fileID: 1197966831}
   - component: {fileID: 1197966825}
   m_Layer: 0
   m_Name: layer 1
@@ -1994,6 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6de797351cc7149b372e3a4cc2611f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SpawnerPoint
+  _spawnHandler: {fileID: 1197966831}
   _startLength: 15
   _spaceDistance: 3.25
   _speedMultiply: 0.25
@@ -2152,9 +2098,28 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1041949129
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: -50
   m_SortAtRoot: 1
   m_Sort3DAs2D: 1
+--- !u!114 &1197966831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197966823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af829cbaef0e0d46ad2d8b6998e3b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectSpawner
+  _parent: {fileID: 1197966824}
+  _prefabs:
+  - {fileID: 298781267221550380, guid: 3dbc796b5648d5f449426afa3e9141f0, type: 3}
+  - {fileID: 5555748414448035428, guid: bb8f81f5b0400d047b55338e3a334ba9, type: 3}
+  - {fileID: -197007787158353040, guid: 1d3f450c2dba8fc409b5fac4190265ab, type: 3}
+  - {fileID: -2403415982075971576, guid: 0bb5396cf1b4d8a4f92f88c64d8a16c5, type: 3}
+  - {fileID: 3689803131850029796, guid: 975b4effde4a0294aa17eb1ceac3f8ab, type: 3}
 --- !u!1 &1201141416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,6 +2765,7 @@ GameObject:
   - component: {fileID: 1580861572}
   - component: {fileID: 1580861571}
   - component: {fileID: 1580861570}
+  - component: {fileID: 1580861575}
   - component: {fileID: 1580861569}
   m_Layer: 0
   m_Name: layer 2
@@ -2847,6 +2813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6de797351cc7149b372e3a4cc2611f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.SpawnerPoint
+  _spawnHandler: {fileID: 1580861575}
   _startLength: 15
   _spaceDistance: 3.75
   _speedMultiply: 0.75
@@ -3005,9 +2972,28 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1041949129
   m_SortingLayer: -1
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_SortAtRoot: 1
   m_Sort3DAs2D: 1
+--- !u!114 &1580861575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580861567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af829cbaef0e0d46ad2d8b6998e3b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectSpawner
+  _parent: {fileID: 1580861568}
+  _prefabs:
+  - {fileID: -4287214858873932908, guid: 7ed36d0e334c1ab478e24ee996e2f400, type: 3}
+  - {fileID: -4151759796671017849, guid: a9801c1508f1e8442829786735a9a93c, type: 3}
+  - {fileID: 4044298249007862922, guid: 6999d554293a757408214eaa00f221f7, type: 3}
+  - {fileID: -160829112905649248, guid: 4a2391b065d94c04cb5b177232e7a549, type: 3}
+  - {fileID: 4035155855789791816, guid: 930eedba6be698840b5826cc1eb7faaf, type: 3}
 --- !u!224 &1586690111 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6328505437202372449, guid: ae420c7ba4cf29f4aa01e03268f5d8d4, type: 3}
@@ -4066,5 +4052,4 @@ SceneRoots:
   - {fileID: 1343404008}
   - {fileID: 1852845694}
   - {fileID: 1600989921}
-  - {fileID: 347904223}
   - {fileID: 11379413}

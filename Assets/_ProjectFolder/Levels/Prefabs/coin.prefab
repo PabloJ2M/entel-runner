@@ -213,9 +213,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2956763796433911697, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5790861633685875413}
-    - targetCorrespondingSourceObject: {fileID: 2956763796433911697, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 653279758290133562}
   m_SourcePrefab: {fileID: 100100000, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
 --- !u!1 &1183685556294546441 stripped
@@ -223,55 +220,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2956763796433911697, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
   m_PrefabInstance: {fileID: 4135925946318310296}
   m_PrefabAsset: {fileID: 0}
---- !u!1120581460 &5790861633685875413
-RenderAs2D:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183685556294546441}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b697f6a938056384e968ccf6527dac83, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_OwningSortingGroup: {fileID: 1584411135025992787}
 --- !u!114 &653279758290133562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,11 +233,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Pool.PoolObjectRendered
   _object: {fileID: 3350887155068205520}
---- !u!210 &1584411135025992787 stripped
-SortingGroup:
-  m_CorrespondingSourceObject: {fileID: 3213660506908401611, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}
-  m_PrefabInstance: {fileID: 4135925946318310296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1956421587301445299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2468915621394244907, guid: f9b8aac324ff51b4eab7cf2ef3c7ea63, type: 3}

@@ -17,6 +17,7 @@ namespace Unity.Pool
 
         public override void Enable()
         {
+            if (Spline == null) return;
             Transform.position = _lastPosition = _currentPosition = Spline.GetPosition(0);
             onStatusChanged?.Invoke(true);
             base.Enable();
@@ -27,6 +28,7 @@ namespace Unity.Pool
             base.Disable();
         }
 
+        public virtual void SetDistance(float value) => _startDistance = value;
         public virtual void RefreshPosition(float worldDistance)
         {
             float t = ((worldDistance - _startDistance) /*% Spline.Length*/) * Spline.LengthInv;
@@ -43,7 +45,5 @@ namespace Unity.Pool
             if (_lastDeltaTime <= 0) return;
             Transform.position = Vector3.Lerp(_lastPosition, _currentPosition, Time.deltaTime / _lastDeltaTime);
         }
-
-        public void SetDistance(float value) => _startDistance = value;
     }
 }

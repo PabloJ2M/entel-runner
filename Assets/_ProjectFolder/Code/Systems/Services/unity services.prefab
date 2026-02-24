@@ -164,7 +164,6 @@ MonoBehaviour:
   _controller: {fileID: 1130129659920755276}
   _reference: {fileID: 11400000, guid: 2c12a00771989b247a4fa22184f89c12, type: 2}
   _type: 1
-  _days: 7
 --- !u!1 &4864461443948427209
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +281,6 @@ MonoBehaviour:
   _controller: {fileID: 1130129659920755276}
   _reference: {fileID: 11400000, guid: 400a1bfd4b26710408fb625edcf51988, type: 2}
   _type: 0
-  _days: 1
 --- !u!1 &6699306312587263521
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +404,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _achievements:
     groups:
-      m_Keys: []
-      m_Values: []
+      m_Keys:
+      - daily_missions
+      - weekly_missions
+      m_Values:
+      - date: 0000-01-01T00:00:00.000Z
+        missions:
+        - run_100
+        - run_200
+        - run_500
+      - date: 0000-01-01T00:00:00.000Z
+        missions:
+        - coins_100
+        - coins_200
+        - coins_300
 --- !u!114 &3523299014230283994
 MonoBehaviour:
   m_ObjectHideFlags: 0

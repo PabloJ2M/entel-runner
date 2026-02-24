@@ -55,5 +55,8 @@ namespace Unity.Achievements
                     Achievements[type] = _fields[type].Parse(groups.Value.missions);
             }
         }
+
+        [ContextMenu("Add Default")] private void AddDefaultField() => _achievements.groups.Add("", new());
+        [ContextMenu("Remove Last")] private void RemoveLastField() => _achievements.groups.Remove("");
     }
 }

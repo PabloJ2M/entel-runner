@@ -6,6 +6,7 @@ namespace Unity.Pool
     public class PoolObjectBehaviour : MonoBehaviour
     {
         public IObjectPool<PoolObjectBehaviour> PoolReference { protected get; set; }
+        public bool IsAlloc { get; set; }
 
         public virtual void Enable() => gameObject.SetActive(true);
         public virtual void Disable() => gameObject.SetActive(false);
