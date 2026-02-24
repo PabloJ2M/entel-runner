@@ -47,8 +47,9 @@ namespace Unity.Services.CloudSave
         }
         public async Awaitable SaveObjectData(string key, object @cloud)
         {
+            if (!_auth.HasInitialized) return;
             var payload = new Dictionary<string, object> { { key, @cloud } };
-            await CloudSaveService.Instance?.Data?.Player?.SaveAsync(payload).CloudCodeResponse();
+            await CloudSaveService.Instance.Data.Player.SaveAsync(payload).CloudCodeResponse();
         }
     }
 }

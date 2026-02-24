@@ -7,7 +7,7 @@ namespace Unity.Services
     [DefaultExecutionOrder(-50), RequireComponent(typeof(AuthManager))]
     public abstract class UnityServiceBehaviour : SaveLocalBehaviour
     {
-        private AuthManager _auth;
+        protected AuthManager _auth;
 
         protected virtual void Awake() => _auth = GetComponent<AuthManager>();
         protected virtual void OnEnable()

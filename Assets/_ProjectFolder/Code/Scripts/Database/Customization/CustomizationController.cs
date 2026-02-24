@@ -55,7 +55,11 @@ namespace Unity.Customization
         }
 
         [ContextMenu("Save Data")]
-        public async void SaveData() => await _cloudSave.SaveObjectData(_localDataID, _customization);
+        public async void SaveData()
+        {
+            SaveDataLocal();
+            await _cloudSave.SaveObjectData(_localDataID, _customization);
+        }
         public void SaveDataLocal() => SaveLocalData(_customization);
     }
 }

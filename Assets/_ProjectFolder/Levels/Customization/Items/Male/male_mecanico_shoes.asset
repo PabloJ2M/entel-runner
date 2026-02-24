@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08df10be0a73294983983996589666e, type: 3}
   m_Name: male_mecanico_shoes
   m_EditorClassIdentifier: 
+  _balance: 0
+  _cost: 10
   _libraryReference: {fileID: 11400000, guid: f691463666e45c3499de7c8fda747d50, type: 2}
   _itemID: mecanico
   _preview: {fileID: 21300000, guid: 8a0398109cdaf0c459b906ce3877d97b, type: 3}
+  _sorting: {fileID: 11400000, guid: 4b6dc6559d3ee054db144d25ec061c2e, type: 2}
   _group: 3
   _label: mecanico
   _quality: 0
-  _balance: 0
-  _cost: 10

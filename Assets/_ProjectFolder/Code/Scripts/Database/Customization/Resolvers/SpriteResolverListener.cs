@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
@@ -7,6 +9,7 @@ namespace Unity.Customization
     public class SpriteResolverListener : MonoBehaviour
     {
         [SerializeField] private SpriteResolver _resolver;
+        [SerializeField] private ItemSortingGroup _sort;
         [SerializeField] private ItemGroup _group;
 
         private SpriteRenderer _render;
@@ -20,7 +23,14 @@ namespace Unity.Customization
             _category = _resolver.GetCategory();
         }
 
-        public void SetLabel(string label) => _render.enabled = _resolver.SetCategoryAndLabel(_category, label);
-        public void SetEnabled(bool value) => _render.enabled = value;
+        public void SetLabel(string label)
+        {
+            _resolver.SetCategoryAndLabel(_category, label);
+        }
+        public void SetSortingOrder(IReadOnlyList<Sort> list)
+        {
+            var value = list.FirstOrDefault(x => x.sortType == _sort);
+            _render.sortingOrder = value.sortingOrder;
+        }
     }
 }

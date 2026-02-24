@@ -12,6 +12,8 @@ namespace Unity.Services.Authentication
         public event Action onSignInInitialized;
         public event Action onSignInHandler, onSignOutHandler;
 
+        public bool HasInitialized { get; private set; }
+
         private void Awake() => _service = GetComponent<UnityServiceInit>();
         private void OnEnable() => _service.onServiceInitialized += SignInCallback;
         private void OnDisable()
@@ -25,6 +27,7 @@ namespace Unity.Services.Authentication
 
         private async void SignInCallback()
         {
+            HasInitialized = true;
             AuthenticationService.Instance.SignedIn += HandleSignIn;
             AuthenticationService.Instance.SignedOut += HandleSignOut;
 

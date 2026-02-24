@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.U2D.Animation;
 
 namespace Unity.Customization
@@ -12,7 +11,6 @@ namespace Unity.Customization
     {
         [SerializeField] private SO_LibraryReference_List _reference;
         [SerializeField] private SO_Item_List _listReference;
-        [SerializeField] private SortingGroup _hipsLayer;
         [SerializeField] private UnlockedCharacter[] _objectReferences;
 
         private Dictionary<ItemGroup, HashSet<SpriteResolverListener>> _resolvers = new();
@@ -40,6 +38,11 @@ namespace Unity.Customization
             _customization.onCustomizationUpdated -= Start;
             _reference.onPreviewUpdated -= OnUpdatePreview;
         }
+        public void AddListener(ItemGroup group, SpriteResolverListener element)
+        {
+            if (_resolvers.TryGetValue(group, out var list)) list.Add(element);
+            else _resolvers.Add(group, new() { element });
+        }
 
         private void OnUpdatePreview(SO_LibraryReference library)
         {
@@ -50,22 +53,7 @@ namespace Unity.Customization
             _customization.Local.equipped.TryGetValue(library.ID, out var equipped);
 
             SetCharacters(library.ObjectReference);
-            if (library.Asset)
-            {
-                EquippeLibrary(library.ID, ref equipped);
-                _hipsLayer.sortingOrder = library.HipsSortingLayer;
-            }
-        }
-        private void EquippeLibrary(string libraryID, ref SerializedStringDictionary equipped)
-        {
-            if (equipped == null) equipped = new();
-            string[] groups = Enum.GetNames(typeof(ItemGroup));
-
-            foreach (var group in groups) {
-                equipped.TryGetValue(group, out var id);
-                var item = _listReference.GetItemByPath(libraryID, group, id);
-                if (item != null) SetLabel(group, item.LabelName);
-            }
+            if (library.Asset) EquippeLibrary(library.ID, ref equipped);
         }
         private void SetCharacters(string objectName)
         {
@@ -77,19 +65,29 @@ namespace Unity.Customization
                 if (enable) item.HasPurchased(true);
             }
         }
-
-        public void AddListener(ItemGroup group, SpriteResolverListener element)
+        private void EquippeLibrary(string libraryID, ref SerializedStringDictionary equipped)
         {
-            if (_resolvers.TryGetValue(group, out var list)) list.Add(element);
-            else _resolvers.Add(group, new() { element });
+            if (equipped == null) equipped = new();
+            ItemGroup[] groups = Enum.GetValues(typeof(ItemGroup)) as ItemGroup[];
+
+            foreach (var group in groups) {
+                string groupID = group.ToString();
+                equipped.TryGetValue(groupID, out var id);
+                var item = _listReference.GetItemByPath(libraryID, groupID, id);
+                
+                if (item == null) continue;
+                SetLabel(group, item);
+            }
         }
-        public void SetLabel(string group, string label)
+        private void SetLabel(ItemGroup group, SO_Item item)
         {
-            if (!Enum.TryParse(typeof(ItemGroup), group, out var type)) return;
-            if (!_resolvers.TryGetValue((ItemGroup)type, out var list)) return;
+            if (!_resolvers.TryGetValue(group, out var resolvers)) return;
 
-            foreach (var item in list)
-                item.SetLabel(label);
+            foreach (var resolver in resolvers)
+            {
+                resolver.SetLabel(item.LabelName);
+                resolver.SetSortingOrder(item.SortingGroup);
+            }
         }
     }
 }

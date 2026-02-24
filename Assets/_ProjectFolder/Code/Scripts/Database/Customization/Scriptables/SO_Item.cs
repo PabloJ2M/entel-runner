@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Unity.Customization
@@ -9,6 +10,7 @@ namespace Unity.Customization
         [SerializeField] private string _itemID;
         [SerializeField] private Sprite _preview;
 
+        [SerializeField] private SO_SortingGroup _sorting;
         [SerializeField] private ItemGroup _group;
         [SerializeField] private string _label;
 
@@ -20,6 +22,7 @@ namespace Unity.Customization
 
         public Sprite Preview => _preview;
         public string Group => _group.ToString();
+        public IReadOnlyList<Sort> SortingGroup => _sorting.Sorts;
         public string LabelName => _label;
     }
 }

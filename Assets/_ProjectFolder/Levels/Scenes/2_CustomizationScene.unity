@@ -265,9 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
@@ -335,9 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 0c547d8f6ef40e743bc9e82062bc6ab3
     m_SubObjectName: 
@@ -4057,9 +4059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 
@@ -4912,9 +4915,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
     m_SubObjectName: 
@@ -5247,9 +5251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 0c547d8f6ef40e743bc9e82062bc6ab3
     m_SubObjectName: 
@@ -6676,9 +6681,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 90c3e7f0da180674e81b2e495951db38
     m_SubObjectName: 
@@ -8607,9 +8613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9e1e8145079a488f4c2ae27af745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityEngine.Audio.AudioEmitterButton
-  _overrideSource: {fileID: 0}
   _type: 1
+  _overrideSource: {fileID: 0}
   _preloadOnStart: 0
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: c46325cffff0b914c8211290e42b505c
     m_SubObjectName: 

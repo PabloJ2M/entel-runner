@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6965377322823159717, guid: dbf418f8614da544ab68a1b580630434, type: 3}
+  m_Sprite: {fileID: 3045390489953412203, guid: dbf418f8614da544ab68a1b580630434, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6503906, y: 0.8466797}
+  m_Size: {x: 0.66796875, y: 0.91308594}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 7822738840605894237}
   - {fileID: 2577506229955726322}
-  - {fileID: 5159646307760401429}
   - {fileID: 9199435448542973578}
+  - {fileID: 5159646307760401429}
   m_Bounds:
     m_Center: {x: 0.7543223, y: 1.7778319, z: 0}
     m_Extent: {x: 0.32477924, y: 0.423828, z: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 222808688668531482}
+  _sort: 1
   _group: 1
 --- !u!1 &172381377635610434
 GameObject:
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 8844858715531921237}
+  _sort: 4
   _group: 1
 --- !u!1 &234376173056726475
 GameObject:
@@ -437,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 2402623198167274058}
+  _sort: 13
   _group: 2
 --- !u!1 &312467509884148040
 GameObject:
@@ -582,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 4326204063256250363}
+  _sort: 6
   _group: 1
 --- !u!1 &700881687275384828
 GameObject:
@@ -665,7 +669,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6516635964281096143, guid: dbf418f8614da544ab68a1b580630434, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -728,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resolver: {fileID: 8648544577945288535}
+  _sort: 2
   _group: 2
 --- !u!1 &1228808500687251936
 GameObject:
@@ -874,6 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 7792014297516731452}
+  _sort: 14
   _group: 3
 --- !u!1 &1317897555960314784
 GameObject:
@@ -1051,6 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 7312857463306914309}
+  _sort: 7
   _group: 1
 --- !u!1 &1532697419033572841
 GameObject:
@@ -1553,6 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 7035662774943451321}
+  _sort: 3
   _group: 1
 --- !u!1 &2849589325331694949
 GameObject:
@@ -1763,6 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 3147908827761570505}
+  _sort: 12
   _group: 2
 --- !u!1 &3901913791265561109
 GameObject:
@@ -1975,6 +1984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 5950850587920080016}
+  _sort: 11
   _group: 3
 --- !u!1 &4526388287420658005
 GameObject:
@@ -2312,6 +2322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 641825626736815169}
+  _sort: 9
   _group: 2
 --- !u!1 &5855121713983854153
 GameObject:
@@ -2487,6 +2498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resolver: {fileID: 7983861784721145327}
+  _sort: 0
   _group: 0
 --- !u!1 &6334186286850518153
 GameObject:
@@ -2632,7 +2644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 6667336007990023068}
-  _group: 0
+  _sort: 8
+  _group: 1
 --- !u!1 &6360813898862599511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,7 +3145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 1209021869549693159}
-  _group: 0
+  _sort: 5
+  _group: 1
 --- !u!1 &8227794970255990069
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Unity.Customization.SpriteResolverListener
   _resolver: {fileID: 872937020507319909}
+  _sort: 10
   _group: 2
 --- !u!1 &8725667450361779683
 GameObject:

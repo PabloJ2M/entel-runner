@@ -352,9 +352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2bbd81ce348bd4b93b25fb3bb031e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _overrideSource: {fileID: 0}
   _type: 1
-  _preloadOnStart: 0
+  _overrideSource: {fileID: 0}
+  _preloadOnStart: 1
+  _playOnAwake: 0
   _audioReference:
     m_AssetGUID: 6d42f99577824df42ba41d2a6dae94f9
     m_SubObjectName: 

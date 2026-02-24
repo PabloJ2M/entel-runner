@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08df10be0a73294983983996589666e, type: 3}
   m_Name: female_deportivo_shoes
   m_EditorClassIdentifier: 
+  _balance: 0
+  _cost: 0
   _libraryReference: {fileID: 11400000, guid: 0b18e8a26a485ec48a17f1130ae990fe, type: 2}
   _itemID: deportivo
   _preview: {fileID: 21300000, guid: 4905988248e6869448df14cfa569f474, type: 3}
+  _sorting: {fileID: 11400000, guid: 4b6dc6559d3ee054db144d25ec061c2e, type: 2}
   _group: 3
   _label: deportivo
   _quality: 0
-  _balance: 0
-  _cost: 0
