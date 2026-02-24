@@ -166,7 +166,7 @@ MonoBehaviour:
     FieldOfView: 34
     OrthographicSize: 6
     NearClipPlane: 0
-    FarClipPlane: 40
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -1240,7 +1240,7 @@ Transform:
   m_GameObject: {fileID: 468494268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 18}
+  m_LocalPosition: {x: 0, y: -4, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1396,7 +1396,7 @@ SortingGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468494268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_SortingLayerID: -1041949129
   m_SortingLayer: -1
   m_SortingOrder: -50
@@ -2764,7 +2764,7 @@ Transform:
   m_GameObject: {fileID: 898765043}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 10}
+  m_LocalPosition: {x: 0, y: -4, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2920,7 +2920,7 @@ SortingGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898765043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_SortingLayerID: -1041949129
   m_SortingLayer: -1
   m_SortingOrder: 0
@@ -3433,7 +3433,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 436592057383459574, guid: c7aa932ac747c52429d9bf147d062afd, type: 3}
       propertyPath: m_Name
-      value: Pista
+      value: pista
+      objectReference: {fileID: 0}
+    - target: {fileID: 956107296090964044, guid: c7aa932ac747c52429d9bf147d062afd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 956107296090964044, guid: c7aa932ac747c52429d9bf147d062afd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9400,7 +9404,7 @@ Transform:
   m_GameObject: {fileID: 1421169137}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 25}
+  m_LocalPosition: {x: 0, y: 0.7, z: 80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10801,6 +10805,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.34009793
       objectReference: {fileID: 0}
+    - target: {fileID: 5816977068063366508, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7498300969766991157, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9452836
@@ -11671,7 +11679,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11690,9 +11698,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1041949129
-  m_SortingLayer: -1
-  m_SortingOrder: 500
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: e90cdcc1ab560674c983bffce420c60b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.34901962}
@@ -12412,7 +12420,7 @@ SortingGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034632206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -12629,6 +12637,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2129182218}
     m_Modifications:
+    - target: {fileID: 4173391907547223704, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5999796512342175125, guid: ce9ed679591b05643b904ea3c2238a70, type: 3}
       propertyPath: _event
       value: 

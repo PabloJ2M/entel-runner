@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2235174356854061471
+--- !u!114 &-9024192109102801788
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ship
+  m_Name: High Builds Group 001
   m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 2100000, guid: 55dce77c647314644aa07cf264872af7, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -39,11 +39,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: b17603608106f614a89d0a0c3b3f5935, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03a782b8b434b1044acdcc2da2d229df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b17603608106f614a89d0a0c3b3f5935, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03a782b8b434b1044acdcc2da2d229df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

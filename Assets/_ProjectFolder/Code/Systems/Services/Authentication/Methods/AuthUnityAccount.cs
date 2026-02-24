@@ -8,17 +8,17 @@ namespace Unity.Services.Authentication
     {
         protected override async void OnServiceInitialized()
         {
-            #if UNITY_EDITOR
+            //#if UNITY_EDITOR
             PlayerAccountService.Instance.SignedIn += SignInOrLinkAccount;
             await LoginUnityPlayerServices();
-            #else
-            await Awaitable.NextFrameAsync();
-            #endif
+            //#else
+            //await Awaitable.NextFrameAsync();
+            //#endif
         }
 
-        #if UNITY_EDITOR
+        //#if UNITY_EDITOR
         private async Awaitable LoginUnityPlayerServices() => await PlayerAccountService.Instance.StartSignInAsync().AuthResponse();
-        #endif
+        //#endif
 
         public override async void SignInOrLinkAccount()
         {
