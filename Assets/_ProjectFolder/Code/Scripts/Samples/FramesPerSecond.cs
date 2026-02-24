@@ -7,6 +7,6 @@ public class FramesPerSecond : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = _target;
-        ScalableBufferManager.ResizeBuffers(0.8f, 0.8f);
+        //ScalableBufferManager.ResizeBuffers(0.8f, 0.8f);
     }
 }
