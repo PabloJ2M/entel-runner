@@ -15,15 +15,16 @@ public class UIScoreByDistance : UIScore
 
     private void OnEnable() => _gameplayManager.onDinstanceTraveled += SetDistance;
     private void OnDisable() => _gameplayManager.onDinstanceTraveled -= SetDistance;
-    private void OnDestroy()
+
+    public override void SaveNewScore()
     {
+        base.SaveNewScore();
+
         var economy = UnityServiceInit.Instance?.GetComponent<PlayerEconomyService>();
         if (!economy) return;
 
         uint coins = (uint)(Score / _pointsPerCoin);
-
-        if (coins != 0)
-            economy.AddBalanceID(BalanceType.COIN, coins);
+        if (coins != 0) economy.AddBalanceID(BalanceType.COIN, coins);
     }
 
     public void SetDistance(double worldDistance)

@@ -14,7 +14,7 @@ public class UIScore : MonoBehaviour
     public void Add(int value) { Score += value; _scoreUI?.SetText(Score.ToString()); }
     public void Remove(int value) { Score -= value; _scoreUI?.SetText(Score.ToString()); }
 
-    public void SaveNewScore()
+    public virtual void SaveNewScore()
     {
         int highScore = PlayerPrefs.GetInt(_highScore);
         
