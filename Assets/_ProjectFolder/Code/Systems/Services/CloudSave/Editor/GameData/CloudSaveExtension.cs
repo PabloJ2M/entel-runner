@@ -1,6 +1,6 @@
 using System;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace Unity.Services.CloudSave
@@ -11,12 +11,10 @@ namespace Unity.Services.CloudSave
         private static string URL => ServicesEditor.BaseURL(ServiceURL, "custom");
 
         [Serializable] private class ResponseWrapper { public CloudCustomKey[] results; }
-        public static async Task<CloudCustomKey[]> GetAllKeysAsync(string id)
+        public static async Awaitable<CloudCustomKey[]> GetAllKeysAsync(string id)
         {
-            string json = string.Empty;
-
             using UnityWebRequest request = new($"{URL}/{id}/items", RequestType.GET.ToString());
-            await WebRequest.SendRequest(request, ServicesEditor.AccessToken, (string result) => json = result);
+            string json = await WebRequest.SendRequest(request, ServicesEditor.AccessToken);
 
             if (string.IsNullOrEmpty(json)) return Array.Empty<CloudCustomKey>();
 
@@ -24,7 +22,7 @@ namespace Unity.Services.CloudSave
             return wrapper.results;
         }
 
-        public static async Task SetAsync(string id, CloudCustomKey data, string value)
+        public static async Awaitable SetAsync(string id, CloudCustomKey data, string value)
         {
             string json = JsonConvert.SerializeObject(new CloudCustomKey(data.key, value, data.writeLock), Formatting.Indented);
             

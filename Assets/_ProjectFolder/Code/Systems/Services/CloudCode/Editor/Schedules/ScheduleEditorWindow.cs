@@ -67,7 +67,7 @@ namespace Unity.Services.CloudCode
 
             if (GUILayout.Button("Edit", GUILayout.Width(45))) ScheduleEditorWindowPopup.Open(draft);
             if (GUILayout.Button("Save", GUILayout.Width(45))) _ = ScheduleExtension.UpdateAync(cloud.id, draft);
-            //if (GUILayout.Button("Check", GUILayout.Width(45))) _ = ScheduleExtension.CheckStatusAsync(cloud.id);
+            if (GUILayout.Button("Trigger", GUILayout.Width(45))) _ = ScheduleExtension.AsignTrigger(draft);
             if (GUILayout.Button("X", GUILayout.Width(25))) _ = ScheduleExtension.DeleteAync(cloud.id);
 
             GUILayout.EndHorizontal();

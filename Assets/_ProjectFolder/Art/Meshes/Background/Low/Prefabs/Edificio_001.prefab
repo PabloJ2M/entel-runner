@@ -44,6 +44,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 6831996760897122639, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831996760897122639, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831996760897122639, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831996760897122639, guid: 9f5e48b1aafb53a488eb3157783f20d5, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

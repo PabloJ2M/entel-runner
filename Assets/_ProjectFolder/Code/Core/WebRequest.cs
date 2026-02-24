@@ -1,6 +1,4 @@
-using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace UnityEngine.Networking
 {
@@ -9,24 +7,25 @@ namespace UnityEngine.Networking
 
     public static class WebRequest
     {
-        public static async Task SendRequest(UnityWebRequest request, string auth, string json, Action<string> result = null)
+        public static async Awaitable<string> SendRequest(UnityWebRequest request, string auth, string json)
         {
             if (!string.IsNullOrEmpty(json)) request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
-            await SendRequest(request, auth, result);
+            return await SendRequest(request, auth);
         }
-        public static async Task SendRequest(UnityWebRequest request, string auth, Action<string> result = null)
+        public static async Awaitable<string> SendRequest(UnityWebRequest request, string auth)
         {
             if (!string.IsNullOrEmpty(auth)) request.SetRequestHeader("Authorization", auth);
-            await SendRequest(request, result);
+            return await SendRequest(request);
         }
-        public static async Task SendRequest(UnityWebRequest request, Action<string> result = null)
+        public static async Awaitable<string> SendRequest(UnityWebRequest request)
         {
             request.SetRequestHeader("Content-Type", "application/json");
             request.downloadHandler = new DownloadHandlerBuffer();
             await request.SendWebRequest();
 
-            if (request.result == Result.Success) result?.Invoke(request.downloadHandler.text);
+            if (request.result == Result.Success) return request.downloadHandler.text;
             else Debug.LogError(request.error);
+            return string.Empty;
         }
     }
 }

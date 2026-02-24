@@ -16,6 +16,13 @@ namespace Unity.Services
             catch (AuthenticationException ex) { Debug.LogError(ex); }
             catch (RequestFailedException ex) { Debug.LogError(ex); }
         }
+        public static async Awaitable AuthResponse(this Awaitable action)
+        {
+            try { await action; }
+            catch (AuthenticationException ex) { Debug.LogError(ex); }
+            catch (RequestFailedException ex) { Debug.LogError(ex); }
+        }
+
         public static async Awaitable CloudCodeResponse(this Task action)
         {
             try { await action; }
@@ -23,7 +30,23 @@ namespace Unity.Services
             catch (CloudSaveRateLimitedException e) { Debug.LogError(e); }
             catch (CloudSaveException e) { Debug.LogError(e); }
         }
+        public static async Awaitable CloudCodeResponse(this Awaitable action)
+        {
+            try { await action; }
+            catch (CloudSaveValidationException e) { Debug.LogError(e); }
+            catch (CloudSaveRateLimitedException e) { Debug.LogError(e); }
+            catch (CloudSaveException e) { Debug.LogError(e); }
+        }
+
         public static async Awaitable<bool> EconomyResponse(this Task action)
+        {
+            try { await action; return true; }
+            catch (EconomyValidationException e) { Debug.LogError(e); }
+            catch (EconomyRateLimitedException e) { Debug.LogError(e); }
+            catch (EconomyException e) { Debug.LogError(e); }
+            return false;
+        }
+        public static async Awaitable<bool> EconomyResponse(this Awaitable action)
         {
             try { await action; return true; }
             catch (EconomyValidationException e) { Debug.LogError(e); }

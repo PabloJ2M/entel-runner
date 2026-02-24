@@ -27,4 +27,20 @@ namespace Unity.Services.CloudCode
             payload = draft.payload.ToJsonString();
         }
     }
+
+    [Serializable] public struct TriggerSchedule
+    {
+        public string name;
+        public string eventType;
+        public string actionUrn;
+        public string actionType;
+
+        public TriggerSchedule(EditableDraft schedule)
+        {
+            name = $"{schedule.eventName}-trigger";
+            eventType = $"com.unity.services.scheduler.{schedule.eventName}.v{schedule.payloadVersion}";
+            actionUrn = $"urn:ugs:cloud-code:{schedule.payload.functionName}";
+            actionType = "cloud-code";
+        }
+    }
 }

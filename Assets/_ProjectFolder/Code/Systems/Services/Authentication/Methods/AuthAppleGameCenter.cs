@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using UnityEngine;
 
 #if UNITY_IOS
 using Apple.GameKit;
@@ -17,12 +17,12 @@ namespace Unity.Services.Authentication
             #if UNITY_IOS
             await LogInAppleGameCenterServices();
             #else
-            await Task.Yield();
+            await Awaitable.NextFrameAsync();
             #endif
         }
 
         #if UNITY_IOS
-        private async Task LogInAppleGameCenterServices()
+        private async Awaitable LogInAppleGameCenterServices()
         {
             var player = await GKLocalPlayer.Authenticate();
             var localPlayer = GKLocalPlayer.Local;
@@ -55,9 +55,9 @@ namespace Unity.Services.Authentication
             else await LinkAccountAsync(Signature);
         }
 
-        protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
+        protected override async Awaitable OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
-        protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
+        protected override async Awaitable OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithAppleGameCenterAsync(accessToken, TeamPlayerID, PublicKeyUrl, Salt, Timestamp);
     }
 }

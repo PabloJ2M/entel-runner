@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using UnityEngine;
 
 #if UNITY_ANDROID
 using GooglePlayGames;
@@ -14,8 +14,8 @@ namespace Unity.Services.Authentication
         protected override void OnServiceInitialized()
         {
             #if UNITY_ANDROID
-            //PlayGamesPlatform.Activate();
-            //LogInGooglePlayGamesServices();
+            PlayGamesPlatform.Activate();
+            LogInGooglePlayGamesServices();
             #endif
         }
 
@@ -48,9 +48,9 @@ namespace Unity.Services.Authentication
             else await LinkAccountAsync(_tokenID);
         }
 
-        protected override async Task OnSignInAccountServiceAsync(string accessToken) =>
+        protected override async Awaitable OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(accessToken);
-        protected override async Task OnLinkAccountServiceAsync(string accessToken) =>
+        protected override async Awaitable OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithGooglePlayGamesAsync(accessToken);
     }
 }

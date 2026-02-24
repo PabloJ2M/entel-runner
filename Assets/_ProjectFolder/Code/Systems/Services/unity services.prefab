@@ -404,20 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _achievements:
     groups:
-      m_Keys:
-      - daily_missions
-      - weekly_missions
-      m_Values:
-      - date: 0000-01-01T00:00:00.000Z
-        missions:
-        - run_100
-        - run_200
-        - run_500
-      - date: 0000-01-01T00:00:00.000Z
-        missions:
-        - coins_100
-        - coins_200
-        - coins_300
+      m_Keys: []
+      m_Values: []
 --- !u!114 &3523299014230283994
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Unity.Services.Authentication
@@ -12,14 +11,14 @@ namespace Unity.Services.Authentication
         protected virtual void OnDisable() => _authManager.onSignInInitialized -= OnServiceInitialized;
 
         protected abstract void OnServiceInitialized();
-        protected abstract Task OnSignInAccountServiceAsync(string accessToken);
-        protected abstract Task OnLinkAccountServiceAsync(string accessToken);
+        protected abstract Awaitable OnSignInAccountServiceAsync(string accessToken);
+        protected abstract Awaitable OnLinkAccountServiceAsync(string accessToken);
         public abstract void SignInOrLinkAccount();
 
-        protected async Task SignInAccountAsync(string accessToken) =>
+        protected async Awaitable SignInAccountAsync(string accessToken) =>
             await OnSignInAccountServiceAsync(accessToken).AuthResponse();
 
-        protected async Task LinkAccountAsync(string accessToken) =>
+        protected async Awaitable LinkAccountAsync(string accessToken) =>
             await OnLinkAccountServiceAsync(accessToken).AuthResponse();
     }
 }

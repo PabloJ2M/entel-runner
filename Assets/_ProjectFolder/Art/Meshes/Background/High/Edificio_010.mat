@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Edificio_010
-  m_Shader: {fileID: 4800000, guid: 4e90a8289da1f3943885176e4f83e35c, type: 3}
-  m_Parent: {fileID: 2100000, guid: c1f38026dd34d4a418f97f4f173db871, type: 2}
+  m_Shader: {fileID: 4800000, guid: 8c3bb6de0c0e7c047b65c077249507e5, type: 3}
+  m_Parent: {fileID: 2100000, guid: 8c12e68d7167b8a438b74515e979c141, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

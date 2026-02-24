@@ -32,6 +32,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6567834864097377135, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6567834864097377135, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6567834864097377135, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6567834864097377135, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 382113010784921833, guid: 67a7c3de7b733814cad5607eca39684c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

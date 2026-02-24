@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Unity.Services.Authentication
 {
@@ -8,17 +8,17 @@ namespace Unity.Services.Authentication
     {
         protected override async void OnServiceInitialized()
         {
-            //#if UNITY_EDITOR
+            #if UNITY_EDITOR
             PlayerAccountService.Instance.SignedIn += SignInOrLinkAccount;
             await LoginUnityPlayerServices();
-            //#else
-            await Task.Yield();
-            //#endif
+            #else
+            await Awaitable.NextFrameAsync();
+            #endif
         }
 
-        //#if UNITY_EDITOR
-        private async Task LoginUnityPlayerServices() => await PlayerAccountService.Instance.StartSignInAsync().AuthResponse();
-        //#endif
+        #if UNITY_EDITOR
+        private async Awaitable LoginUnityPlayerServices() => await PlayerAccountService.Instance.StartSignInAsync().AuthResponse();
+        #endif
 
         public override async void SignInOrLinkAccount()
         {
@@ -31,9 +31,9 @@ namespace Unity.Services.Authentication
             else await LinkAccountAsync(PlayerAccountService.Instance.AccessToken);
         }
 
-        protected async override Task OnSignInAccountServiceAsync(string accessToken) =>
+        protected async override Awaitable OnSignInAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.SignInWithUnityAsync(accessToken);
-        protected async override Task OnLinkAccountServiceAsync(string accessToken) =>
+        protected async override Awaitable OnLinkAccountServiceAsync(string accessToken) =>
             await AuthenticationService.Instance.LinkWithUnityAsync(accessToken);
     }
 }
