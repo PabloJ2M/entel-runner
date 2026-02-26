@@ -499,6 +499,9 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_StaticBatching: 1
     m_DynamicBatching: 1
+  - m_BuildTarget: iPhone
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: AndroidPlayer
@@ -803,7 +806,7 @@ PlayerSettings:
     Android: LEVELPLAY_DEPENDENCIES_INSTALLED
     Standalone: LEVELPLAY_DEPENDENCIES_INSTALLED
     WebGL: LEVELPLAY_DEPENDENCIES_INSTALLED
-    iPhone: UNITY_IOS
+    iPhone: UNITY_IOS;LEVELPLAY_DEPENDENCIES_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
