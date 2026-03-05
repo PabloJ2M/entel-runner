@@ -250,6 +250,9 @@ PrefabInstance:
       addedObject: {fileID: 4361904074059623604}
     - targetCorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6893678333772056868}
+    - targetCorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4357906240776562913}
     - targetCorrespondingSourceObject: {fileID: 6513733336816533161, guid: b289d611d8b0097478b3fd0b6de69352, type: 3}
       insertIndex: -1
@@ -356,14 +359,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 475d68ced4e54854dbee1bd77c6a2c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressInput: {fileID: 0}
+  _pressInput: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _deltaInput: {fileID: 0}
   _inputForgiveness: 0.5
   _swipeThreshold: 10
   _swipeLockAfterJump: 0.08
+  _maxJumps: 2
   _jumpForce: 24
   _swipeForce: 30
   _lowJumpMultiplier: 10
+--- !u!114 &6893678333772056868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728732592021892276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a0908eae4142243873814cabe65f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.Movement.Swipe
+  _jump: {fileID: 4361904074059623604}
+  _deltaInput: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _swipeThreshold: 10
+  _swipeLockAfterJump: 0.08
+  _swipeForce: 30
 --- !u!114 &4357906240776562913
 MonoBehaviour:
   m_ObjectHideFlags: 0
