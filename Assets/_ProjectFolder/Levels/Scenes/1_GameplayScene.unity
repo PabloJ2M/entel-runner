@@ -712,20 +712,6 @@ MonoBehaviour:
   _pitch:
     x: 1
     y: 1
---- !u!114 &199297327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: Player/Jump
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
 --- !u!1 &233658746
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,10 +10707,6 @@ PrefabInstance:
       propertyPath: _deltaInput
       value: 
       objectReference: {fileID: 1345837813}
-    - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
-      propertyPath: _pressInput
-      value: 
-      objectReference: {fileID: 199297327}
     - target: {fileID: 4361904074059623604, guid: c87f8972e6616c945a4588f1fa928a29, type: 3}
       propertyPath: _fallMultiplier
       value: 2.5
