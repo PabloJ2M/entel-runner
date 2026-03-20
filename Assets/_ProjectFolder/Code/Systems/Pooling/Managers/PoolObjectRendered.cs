@@ -16,12 +16,13 @@ namespace Unity.Pool
         private void OnStatusChanged(bool value) => _isVisible = false;
         private void OnBecameVisible() => _isVisible = true;
 
-        #if !UNITY_EDITOR
+//#if !UNITY_EDITOR
         private void OnBecameInvisible()
         {
             if (!_isVisible || SceneController.Instance.IsLoadingScene) return;
+            _isVisible = false;
             _object.Destroy();
         }
-        #endif
+//#endif
     }
 }
