@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4391219199806494986}
   - component: {fileID: 3466758078365328325}
   m_Layer: 0
-  m_Name: wifi
+  m_Name: wifi1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
